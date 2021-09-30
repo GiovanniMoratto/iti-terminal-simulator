@@ -7,6 +7,8 @@
 
 import Foundation
 
+var db = Database()
+var view = View()
 start()
 
 func start() {
@@ -36,13 +38,15 @@ func start() {
         case 1:
             // Login
             print()
-            print("###############################################")
+            print("########################################")
+            print()
             print("Login: ")
             guard let input = readLine() else { return }
             let login = input
+            print()
             print("Senha: ")
             guard let input = readLine() else { return }
-            let senha = input
+            _ = input
             
             // Check Login
             print()
@@ -53,7 +57,9 @@ func start() {
             var secondOperation: Int = 0
             
             while secondLoop {
-                print("\n")
+                print("########################################")
+                print("################# iti ##################")
+                print()
                 print("### Bem-vindo \(login) ###")
                 print()
                 print("# O que deseja fazer ? #")
@@ -93,8 +99,10 @@ func start() {
                 
         case 2:
             // Cadastro Conta
+            print()
             print("###############################################")
-            print("\n")
+            print()
+            view.createAccount()
         default:
             print("Por favor, escolha uma operação")
         }

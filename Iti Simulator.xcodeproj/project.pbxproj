@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* UserModel.swift */; };
+		B1037FAE27055A65004B3E3D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAD27055A65004B3E3D /* UserRequest.swift */; };
+		B1037FB027055F62004B3E3D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAF27055F62004B3E3D /* Database.swift */; };
+		B1037FB227056690004B3E3D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB127056690004B3E3D /* Controller.swift */; };
+		B1037FB5270571D4004B3E3D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB4270571D4004B3E3D /* View.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +28,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B1037FAB2705594D004B3E3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B1037FAD27055A65004B3E3D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		B1037FAF27055F62004B3E3D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		B1037FB127056690004B3E3D /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		B1037FB4270571D4004B3E3D /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1037FB62705724E004B3E3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1037FB4270571D4004B3E3D /* View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B1876FEF2705489A00ECA2D5 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +75,7 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1037FB62705724E004B3E3D /* View */,
 				B1877003270549D400ECA2D5 /* Model */,
 				B1877002270549B100ECA2D5 /* Controller */,
 				B1877004270549F300ECA2D5 /* Database */,
@@ -69,6 +88,7 @@
 		B1877002270549B100ECA2D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B1037FB127056690004B3E3D /* Controller.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -76,7 +96,8 @@
 		B1877003270549D400ECA2D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B187700627054A2600ECA2D5 /* Dto */,
+				B1037FAB2705594D004B3E3D /* UserModel.swift */,
+				B1037FAD27055A65004B3E3D /* UserRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -84,6 +105,7 @@
 		B1877004270549F300ECA2D5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				B1037FAF27055F62004B3E3D /* Database.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -93,13 +115,6 @@
 			children = (
 			);
 			path = Validation;
-			sourceTree = "<group>";
-		};
-		B187700627054A2600ECA2D5 /* Dto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Dto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1037FB227056690004B3E3D /* Controller.swift in Sources */,
+				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
+				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
+				B1037FAE27055A65004B3E3D /* UserRequest.swift in Sources */,
+				B1037FB5270571D4004B3E3D /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
