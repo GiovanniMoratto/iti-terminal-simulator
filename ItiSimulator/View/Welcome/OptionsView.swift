@@ -9,6 +9,8 @@ import Foundation
 
 class OptionsView {
     
+    // MARK: - Methods
+    
     func show(login: String) {
         
         var loop = true

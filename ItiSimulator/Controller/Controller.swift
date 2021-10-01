@@ -12,14 +12,10 @@ class Controller {
     // MARK: - Methods
     
     func createAccount(request: UserRequest) {
-        /*
-        let newAccount = request.toModel()
-        db.data.append(newAccount)
-        return newAccount.id
-         */
         
-        //db.data.append(request.toModel())
-        banco.dados.append(request.toModel())
+        db.users.append(request.toModel())
+        db.initialData()
+
     }
     
 //    func getAccount(login: String) ->

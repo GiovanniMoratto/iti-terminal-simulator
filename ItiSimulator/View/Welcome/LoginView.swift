@@ -9,6 +9,8 @@ import Foundation
 
 class LoginView {
     
+    // MARK: - Methods
+    
     func show() -> String {
         
         print("\n _____________________________________________ ")

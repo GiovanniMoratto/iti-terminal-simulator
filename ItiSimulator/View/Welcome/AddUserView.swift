@@ -9,8 +9,10 @@ import Foundation
 
 class AddUserView {
     
+    // MARK: - Attributes
     private var controller = Controller()
     
+    // MARK: - Methods
     func createAccount() -> String {
         
         print("\n _____________________________________________ ")

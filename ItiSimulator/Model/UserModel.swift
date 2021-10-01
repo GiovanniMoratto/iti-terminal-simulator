@@ -10,7 +10,7 @@ import Foundation
 struct UserModel {
     
     // MARK: - Attributes
-    var id: Int = 0
+    
     var firstName: String = ""
     var lastName: String = ""
     var document: String = ""
@@ -31,8 +31,6 @@ struct UserModel {
     
     init(firstName: String, lastName: String, document: String, bankAccount: String, login: String, password: String) {
         // Constroi a partir do UserRequest
-        
-        self.id = db.idGenerate()
         self.firstName = firstName
         self.lastName = lastName
         self.document = document
@@ -41,9 +39,8 @@ struct UserModel {
         self.password = password
     }
     
-    init(id: Int, firstName: String, lastName: String, document: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, login: String, password: String) {
+    init(firstName: String, lastName: String, document: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, login: String, password: String) {
         
-        self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.document = document
