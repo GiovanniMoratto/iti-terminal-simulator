@@ -75,4 +75,18 @@ class Database {
         return id
     }
     
+    /*
+    func findByLogin(login: String) -> UserModel {
+        
+        for account in data {
+            if account.login == login {
+                return account
+            } else {
+                print("erro")
+                break
+            }
+        }
+    }
+     */
+    
 }

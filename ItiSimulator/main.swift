@@ -8,104 +8,45 @@
 import Foundation
 
 var db = Database()
-var view = View()
+var banco = Banco()
 start()
 
 func start() {
     
-    var firstLoop = true
-    var firstOperation: Int = 0
+    var loop = true
+    var option: Int = 0
     
-    while firstLoop {
-        print("###############################################")
-        print("################# iti - Itaú ##################")
-        print("\n")
-        print("### Bem-vindo ao iti, sua carteira digital. ###")
-        print()
-        print("# O que deseja fazer ? #")
-        print()
-        print("0 - Sair")
-        print("1 - Login")
-        print("2 - Cadastrar Conta")
+    while loop {
+        print("\n _____________________________________________ ")
+        print("|                                             |")
+        print("|                 iti - Itaú                  |")
+        print("|                                             |")
+        print("|   Bem-vindo ao iti, sua carteira digital.   |")
+        print("|_____________________________________________|")
+        print("|                                             |")
+        print("|   O que deseja fazer ?                      |")
+        print("|                                             |")
+        print("|   0 - Sair do App                           |")
+        print("|   1 - Login                                 |")
+        print("|   2 - Cadastrar Conta                       |")
+        print("|                                             |")
         print()
         
         guard let input = readLine() else { return }
-        firstOperation = Int(input) ?? 0
+        option = Int(input) ?? 0
         
-        switch firstOperation {
+        switch option {
         case 0:
-            firstLoop = false
+            loop = false
         case 1:
             // Login
-            print()
-            print("########################################")
-            print()
-            print("Login: ")
-            guard let input = readLine() else { return }
-            let login = input
-            print()
-            print("Senha: ")
-            guard let input = readLine() else { return }
-            _ = input
-            
-            // Check Login
-            print()
-            print("Verificando dados...")
-            print()
-            
-            var secondLoop = true
-            var secondOperation: Int = 0
-            
-            while secondLoop {
-                print("########################################")
-                print("################# iti ##################")
-                print()
-                print("### Bem-vindo \(login) ###")
-                print()
-                print("# O que deseja fazer ? #")
-                print()
-                print("0 - Sair")
-                print("1 - PIX")
-                print("2 - Cartão de Crédito iti")
-                print("3 - Pagar e Transferir")
-                print("4 - Colocar Dinheiro")
-                print("5 - Gerenciar Cartões")
-                print("6 - Gerenciar Perfil")
-                print()
-                
-                guard let input = readLine() else { return }
-                secondOperation = Int(input) ?? 0
-                
-                switch secondOperation {
-                case 0:
-                    secondLoop = false
-                case 1: break
-                    // PIX
-                case 2: break
-                    // Cartão de Crédito iti
-                case 3: break
-                    // Pagar e Transferir
-                case 4: break
-                    // Colocar Dinheiro
-                case 5: break
-                    // Gerenciar Cartões
-                case 6: break
-                    // Gerenciar Perfil
-                    
-                default:
-                    print("Por favor, escolha uma operação")
-                }
-            }
-                
+            OptionsView().show(login: LoginView().show())
         case 2:
             // Cadastro Conta
-            print()
-            print("###############################################")
-            print()
-            view.createAccount()
+            OptionsView().show(login: AddUserView().createAccount())
+            
         default:
             print("Por favor, escolha uma operação")
         }
-
     }
 }

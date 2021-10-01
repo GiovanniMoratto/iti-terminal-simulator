@@ -28,6 +28,7 @@ struct UserModel {
     var password: String = ""
     
     // MARK: - Initializers (Constructors)
+    
     init(firstName: String, lastName: String, document: String, bankAccount: String, login: String, password: String) {
         // Constroi a partir do UserRequest
         
