@@ -10,7 +10,7 @@ import Foundation
 class ProfileDataView {
     
     // MARK: - Attributes
-    private var controller = CreateUserController()
+    private var controller = CreateUserControllerOld()
     
     // MARK: - Methods
     func showAccount(cpf: String) -> String {

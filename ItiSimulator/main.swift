@@ -14,4 +14,4 @@ db.initialData()
 
 // MARK: - Execution
 
-WelcomeViewOld().start()
+WelcomeViewController().process()

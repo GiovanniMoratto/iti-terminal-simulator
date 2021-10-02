@@ -7,10 +7,10 @@
 
 import Foundation
 
-class CreateUserView {
+class CreateUserViewOld {
     
     // MARK: - Attributes
-    private var controller = CreateUserController()
+    private var controller = CreateUserControllerOld()
     
     // MARK: - Methods
     func createAccount() -> String {

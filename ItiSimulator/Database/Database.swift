@@ -79,10 +79,11 @@ class Database {
         ]
         Database.shared.users = users
     }
+}
 
+    /*
     func findByDocument(document: String) -> UserModel {
-        
-        for user in users {
+        for user in Database.shared.users {
             if user.document == document {
                 return user
             } else {
@@ -91,5 +92,4 @@ class Database {
             }
         }
     }
-    
-}
+     */

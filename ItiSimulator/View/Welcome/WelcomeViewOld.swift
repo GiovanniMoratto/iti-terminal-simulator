@@ -43,11 +43,12 @@ class WelcomeViewOld {
                 OptionsView().show(login: LoginView().show())
             case 2:
                 // Cadastro Conta
-                OptionsView().show(login: CreateUserView().createAccount())
+                OptionsView().show(login: CreateUserViewOld().createAccount())
                 
             default:
                 print("Por favor, escolha uma operação")
             }
+            
         }
     }
 

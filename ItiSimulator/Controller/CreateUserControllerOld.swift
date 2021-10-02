@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CreateUserController {
+class CreateUserControllerOld {
     
     var check = Validations()
     

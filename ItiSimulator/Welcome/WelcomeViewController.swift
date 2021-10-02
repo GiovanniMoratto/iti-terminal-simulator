@@ -9,16 +9,20 @@ import Foundation
 
 class WelcomeViewController {
     
+    // MARK: - Attributes
+    
     let scene = WelcomeView()
     
+    // MARK: - Methods
+    
     func process() {
-        
         var loop = true
         
         while loop {
+            scene.showTitle()
+            scene.showMenu()
             
-            let menuOptional = scene.showMenu()
-            guard let inputString = menuOptional else { return }
+            guard let inputString = scene.getInput() else { return }
             let input = Int(inputString)
             
             switch input {
@@ -27,12 +31,13 @@ class WelcomeViewController {
                 scene.showExit()
             case 1: break
 //                Login
-            case 2: break
+            case 2:
 //                Cadastro Conta
+                
+                CreateUserViewController().process()
             default:
                 print("Por favor, escolha uma operação")
             }
-            
         }
     }
 }
