@@ -7,10 +7,10 @@
 
 import Foundation
 
-class ProfileView {
+class ProfileViewTeste {
     
     // MARK: - Attributes
-    private var controller = Controller()
+    private var controller = CreateUserController()
     
     // MARK: - Methods
     

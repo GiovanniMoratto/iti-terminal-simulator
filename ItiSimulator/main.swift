@@ -9,9 +9,9 @@ import Foundation
 
 // MARK: - Database
 
-var db = Database()
+var db = Database.shared
 db.initialData()
 
 // MARK: - Execution
 
-WelcomeView().start()
+WelcomeViewOld().start()

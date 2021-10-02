@@ -11,7 +11,14 @@ class Database {
     
     // MARK: - Attributes
     
-    var users: Array<UserModel> = []
+    var users: [UserModel] = []
+    
+    static var shared: Database = {
+        var instance = Database()
+        return instance
+    }()
+    
+    private init() {}
     
     // MARK: - Methods
     
@@ -70,25 +77,19 @@ class Database {
                 password: "zup123"
             )
         ]
-        //self.users.append(contentsOf: users)
-        self.users = users
+        Database.shared.users = users
     }
 
-    
-   
-    
-    /*
-    func findByLogin(login: String) -> UserModel {
+    func findByDocument(document: String) -> UserModel {
         
-        for account in data {
-            if account.login == login {
-                return account
+        for user in users {
+            if user.document == document {
+                return user
             } else {
                 print("erro")
                 break
             }
         }
     }
-     */
     
 }

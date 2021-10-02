@@ -8,14 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* UserModel.swift */; };
-		B1037FAE27055A65004B3E3D /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAD27055A65004B3E3D /* UserRequest.swift */; };
+		B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAD27055A65004B3E3D /* CreateUserModel.swift */; };
 		B1037FB027055F62004B3E3D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAF27055F62004B3E3D /* Database.swift */; };
-		B1037FB227056690004B3E3D /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB127056690004B3E3D /* Controller.swift */; };
-		B1037FB5270571D4004B3E3D /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB4270571D4004B3E3D /* AddUserView.swift */; };
-		B11645AF270745DC004240B5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645AE270745DC004240B5 /* WelcomeView.swift */; };
+		B1037FB227056690004B3E3D /* CreateUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB127056690004B3E3D /* CreateUserController.swift */; };
+		B1037FB5270571D4004B3E3D /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB4270571D4004B3E3D /* CreateUserView.swift */; };
+		B11645AF270745DC004240B5 /* WelcomeViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645AE270745DC004240B5 /* WelcomeViewOld.swift */; };
+		B11645B127075AB1004240B5 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B027075AB1004240B5 /* ProfileMenuView.swift */; };
+		B11645B327075D7D004240B5 /* ProfileDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B227075D7D004240B5 /* ProfileDataView.swift */; };
+		B11645B52707767D004240B5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B42707767D004240B5 /* LoginController.swift */; };
+		B11645B827077850004240B5 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B727077850004240B5 /* Validations.swift */; };
+		B11645BB270780B2004240B5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645BA270780B2004240B5 /* StringExtension.swift */; };
+		B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */; };
+		B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DF2707E6720095B816 /* WelcomeView.swift */; };
 		B16AFC31270628510008F32E /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC30270628510008F32E /* OptionsView.swift */; };
 		B16AFC33270629EA0008F32E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC32270629EA0008F32E /* LoginView.swift */; };
-		B16AFC382706416F0008F32E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC372706416F0008F32E /* ProfileView.swift */; };
+		B16AFC382706416F0008F32E /* ProfileViewTeste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC372706416F0008F32E /* ProfileViewTeste.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,14 +40,21 @@
 
 /* Begin PBXFileReference section */
 		B1037FAB2705594D004B3E3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		B1037FAD27055A65004B3E3D /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		B1037FAD27055A65004B3E3D /* CreateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		B1037FAF27055F62004B3E3D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		B1037FB127056690004B3E3D /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		B1037FB4270571D4004B3E3D /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
-		B11645AE270745DC004240B5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		B1037FB127056690004B3E3D /* CreateUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserController.swift; sourceTree = "<group>"; };
+		B1037FB4270571D4004B3E3D /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		B11645AE270745DC004240B5 /* WelcomeViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewOld.swift; sourceTree = "<group>"; };
+		B11645B027075AB1004240B5 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
+		B11645B227075D7D004240B5 /* ProfileDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataView.swift; sourceTree = "<group>"; };
+		B11645B42707767D004240B5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		B11645B727077850004240B5 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
+		B11645BA270780B2004240B5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B124E4DF2707E6720095B816 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B16AFC30270628510008F32E /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		B16AFC32270629EA0008F32E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		B16AFC372706416F0008F32E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B16AFC372706416F0008F32E /* ProfileViewTeste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTeste.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,10 +82,35 @@
 		B11645AD270745CC004240B5 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				B11645AE270745DC004240B5 /* WelcomeView.swift */,
-				B1037FB4270571D4004B3E3D /* AddUserView.swift */,
+				B11645AE270745DC004240B5 /* WelcomeViewOld.swift */,
+				B1037FB4270571D4004B3E3D /* CreateUserView.swift */,
 				B16AFC32270629EA0008F32E /* LoginView.swift */,
 				B16AFC30270628510008F32E /* OptionsView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B11645B62707783B004240B5 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				B11645B727077850004240B5 /* Validations.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		B11645B927078097004240B5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B11645BA270780B2004240B5 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B124E4DC2707E5450095B816 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */,
+				B124E4DF2707E6720095B816 /* WelcomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -79,7 +118,9 @@
 		B16AFC34270640E20008F32E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				B16AFC372706416F0008F32E /* ProfileView.swift */,
+				B16AFC372706416F0008F32E /* ProfileViewTeste.swift */,
+				B11645B027075AB1004240B5 /* ProfileMenuView.swift */,
+				B11645B227075D7D004240B5 /* ProfileDataView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -103,11 +144,13 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B124E4DC2707E5450095B816 /* Welcome */,
+				B11645B927078097004240B5 /* Extensions */,
+				B11645B62707783B004240B5 /* Validation */,
 				B1037FB62705724E004B3E3D /* View */,
 				B1877003270549D400ECA2D5 /* Model */,
 				B1877002270549B100ECA2D5 /* Controller */,
 				B1877004270549F300ECA2D5 /* Database */,
-				B187700527054A1300ECA2D5 /* Validation */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
 			);
 			path = ItiSimulator;
@@ -116,7 +159,8 @@
 		B1877002270549B100ECA2D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B1037FB127056690004B3E3D /* Controller.swift */,
+				B1037FB127056690004B3E3D /* CreateUserController.swift */,
+				B11645B42707767D004240B5 /* LoginController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B1037FAB2705594D004B3E3D /* UserModel.swift */,
-				B1037FAD27055A65004B3E3D /* UserRequest.swift */,
+				B1037FAD27055A65004B3E3D /* CreateUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,13 +180,6 @@
 				B1037FAF27055F62004B3E3D /* Database.swift */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		B187700527054A1300ECA2D5 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Validation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,16 +240,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16AFC382706416F0008F32E /* ProfileView.swift in Sources */,
-				B1037FB227056690004B3E3D /* Controller.swift in Sources */,
+				B16AFC382706416F0008F32E /* ProfileViewTeste.swift in Sources */,
+				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
+				B1037FB227056690004B3E3D /* CreateUserController.swift in Sources */,
+				B11645BB270780B2004240B5 /* StringExtension.swift in Sources */,
+				B11645B327075D7D004240B5 /* ProfileDataView.swift in Sources */,
+				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
+				B11645B52707767D004240B5 /* LoginController.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
+				B11645B827077850004240B5 /* Validations.swift in Sources */,
 				B16AFC33270629EA0008F32E /* LoginView.swift in Sources */,
-				B11645AF270745DC004240B5 /* WelcomeView.swift in Sources */,
+				B11645AF270745DC004240B5 /* WelcomeViewOld.swift in Sources */,
 				B16AFC31270628510008F32E /* OptionsView.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
-				B1037FAE27055A65004B3E3D /* UserRequest.swift in Sources */,
-				B1037FB5270571D4004B3E3D /* AddUserView.swift in Sources */,
+				B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */,
+				B11645B127075AB1004240B5 /* ProfileMenuView.swift in Sources */,
+				B1037FB5270571D4004B3E3D /* CreateUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

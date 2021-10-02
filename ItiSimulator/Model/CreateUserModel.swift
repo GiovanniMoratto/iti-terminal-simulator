@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserRequest {
+struct CreateUserModel {
     
     // MARK: - Attributes
     

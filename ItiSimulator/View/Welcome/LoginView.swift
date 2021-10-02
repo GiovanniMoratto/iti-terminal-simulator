@@ -9,9 +9,12 @@ import Foundation
 
 class LoginView {
     
+    // MARK: - Attributes
+    private var controller = LoginController()
+    
     // MARK: - Methods
     
-    func show() -> String {
+    func show() -> UserModel {
         
         print("\n _____________________________________________ ")
         print("|                                             |")
@@ -19,12 +22,12 @@ class LoginView {
         print("|_____________________________________________|\n")
         
         print("Digite seu CPF:")
-        guard let input = readLine() else { return ""}
-        let login = input
+        guard let input = readLine() else { return UserModel()}
+        let cpf = input
         print()
         
         print("Digite sua senha:")
-        guard let input = readLine() else { return ""}
+        guard let input = readLine() else { return UserModel()}
         _ = input
         print()
         
@@ -32,7 +35,9 @@ class LoginView {
         print("Verificando dados...")
         print()
         
-        return login
+        let user = db.findByDocument(document: cpf)
+        
+        return user
     }
     
 }

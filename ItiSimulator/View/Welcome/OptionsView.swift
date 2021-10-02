@@ -11,7 +11,7 @@ class OptionsView {
     
     // MARK: - Methods
     
-    func show(login: String) {
+    func show(cpf: String) {
         
         var loop = true
         var option: Int = 0
@@ -32,7 +32,7 @@ class OptionsView {
             print("|   3 - Pagar e Transferir                    |")
             print("|   4 - Colocar Dinheiro                      |")
             print("|   5 - Gerenciar Cartões                     |")
-            print("|   6 - Gerenciar Perfil                      |")
+            print("|   6 - Acessar Perfil                        |")
             print("|                                             |")
             print()
             

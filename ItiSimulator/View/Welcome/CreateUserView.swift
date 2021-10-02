@@ -7,10 +7,10 @@
 
 import Foundation
 
-class AddUserView {
+class CreateUserView {
     
     // MARK: - Attributes
-    private var controller = Controller()
+    private var controller = CreateUserController()
     
     // MARK: - Methods
     func createAccount() -> String {
@@ -50,7 +50,7 @@ class AddUserView {
         let password = input
         print()
         
-        let accountRequest = UserRequest(
+        let accountRequest = CreateUserModel(
             firstName: firstName,
             lastName: lastName,
             document: document,
@@ -61,6 +61,6 @@ class AddUserView {
         controller.createAccount(request: accountRequest)
         print("Cadastro realizado com Sucesso!")
         
-        return login
+        return cpf
     }
 }

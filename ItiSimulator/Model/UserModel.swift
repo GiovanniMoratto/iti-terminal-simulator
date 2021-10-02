@@ -58,5 +58,7 @@ struct UserModel {
         self.password = password
         
     }
+    
+    init(){}
 
 }
