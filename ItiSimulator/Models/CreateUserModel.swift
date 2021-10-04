@@ -15,7 +15,6 @@ struct CreateUserModel {
     let lastName: String
     let document: String
     let bankAccount: String
-    let login: String
     let password: String
     
     // MARK: - Methods
@@ -26,7 +25,6 @@ struct CreateUserModel {
             lastName: self.lastName,
             document: self.document,
             bankAccount: self.bankAccount,
-            login: self.login,
             password: self.password
         )
     }

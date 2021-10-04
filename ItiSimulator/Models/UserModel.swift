@@ -24,22 +24,21 @@ struct UserModel {
     var bank: String = ""
     var balance: Double = 0.00
     var pixKey: String = ""
-    var login: String = ""
+    var email: String = ""
     var password: String = ""
     
     // MARK: - Initializers (Constructors)
     
-    init(firstName: String, lastName: String, document: String, bankAccount: String, login: String, password: String) {
+    init(firstName: String, lastName: String, document: String, bankAccount: String, password: String) {
         // Constroi a partir do UserRequest
         self.firstName = firstName
         self.lastName = lastName
         self.document = document
         self.bankAccount = bankAccount
-        self.login = login
         self.password = password
     }
     
-    init(firstName: String, lastName: String, document: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, login: String, password: String) {
+    init(firstName: String, lastName: String, document: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, email: String, password: String) {
         
         self.firstName = firstName
         self.lastName = lastName
@@ -54,7 +53,7 @@ struct UserModel {
         self.bank = bank
         self.balance = balance
         self.pixKey = pixKey
-        self.login = login
+        self.email = email
         self.password = password
         
     }

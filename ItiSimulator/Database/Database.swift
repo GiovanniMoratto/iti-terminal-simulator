@@ -39,7 +39,7 @@ class Database {
                 bank: "Itaú",
                 balance: 5000.00,
                 pixKey: "giovanni.moratto@zup.com.br",
-                login: "giovanni.moratto@zup.com.br",
+                email: "giovanni.moratto@zup.com.br",
                 password: "zup123"
             ),
             UserModel(
@@ -56,7 +56,7 @@ class Database {
                 bank: "Itaú",
                 balance: 2000.00,
                 pixKey: "id02@zup.com.br",
-                login: "id02@zup.com.br",
+                email: "id02@zup.com.br",
                 password: "zup123"
             ),
             UserModel(
@@ -73,7 +73,7 @@ class Database {
                 bank: "Itaú",
                 balance: 1000.00,
                 pixKey: "id03@zup.com.br",
-                login: "id03@zup.com.br",
+                email: "id03@zup.com.br",
                 password: "zup123"
             )
         ]
@@ -88,11 +88,11 @@ class Database {
         return true
     }
     
-    func findByLogin(login: String?) -> UserModel? {
-        guard let loginUnwrapped = login else { return nil}
+    func findByToken(token: String?) -> UserModel? {
+        guard let tokenUnwrapped = token else { return nil}
         
         for user in Database.shared.users.indices {
-            if Database.shared.users[user].login == loginUnwrapped {
+            if Database.shared.users[user].document == tokenUnwrapped {
                 return Database.shared.users[user]
             }
         }

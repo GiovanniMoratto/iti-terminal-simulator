@@ -20,6 +20,7 @@
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
 		B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiView.swift */; };
 		B1B8BCD2270B45410057302D /* MiniItiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* MiniItiViewController.swift */; };
+		B1B8BCD5270B4B090057302D /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD4270B4B090057302D /* Validations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCF270B44B10057302D /* MiniItiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiView.swift; sourceTree = "<group>"; };
 		B1B8BCD1270B45410057302D /* MiniItiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiViewController.swift; sourceTree = "<group>"; };
+		B1B8BCD4270B4B090057302D /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,25 +109,26 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1B8BCD3270B4AEA0057302D /* Validations */,
 				B1B8BCCE270B44880057302D /* MiniIti */,
 				B1B8BCC9270B41C00057302D /* Login */,
 				B124E4E12707F3E20095B816 /* CreateUser */,
 				B124E4DC2707E5450095B816 /* Welcome */,
 				B11645B927078097004240B5 /* Extensions */,
-				B1877003270549D400ECA2D5 /* Model */,
+				B1877003270549D400ECA2D5 /* Models */,
 				B1877004270549F300ECA2D5 /* Database */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
 			);
 			path = ItiSimulator;
 			sourceTree = "<group>";
 		};
-		B1877003270549D400ECA2D5 /* Model */ = {
+		B1877003270549D400ECA2D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B1037FAB2705594D004B3E3D /* UserModel.swift */,
 				B1037FAD27055A65004B3E3D /* CreateUserModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B1877004270549F300ECA2D5 /* Database */ = {
@@ -152,6 +155,14 @@
 				B1B8BCD1270B45410057302D /* MiniItiViewController.swift */,
 			);
 			path = MiniIti;
+			sourceTree = "<group>";
+		};
+		B1B8BCD3270B4AEA0057302D /* Validations */ = {
+			isa = PBXGroup;
+			children = (
+				B1B8BCD4270B4B090057302D /* Validations.swift */,
+			);
+			path = Validations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 				B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */,
+				B1B8BCD5270B4B090057302D /* Validations.swift in Sources */,
 				B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,

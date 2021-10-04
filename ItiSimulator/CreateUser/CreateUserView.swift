@@ -27,15 +27,11 @@ class CreateUserView {
     }
     
     func showDocumentForm() {
-        print("Digite o seu cpf: ")
+        print("Digite o seu CPF: ")
     }
     
     func showBankAccountForm() {
         print("Digite o número da sua conta bancária: ")
-    }
-    
-    func showLoginForm() {
-        print("Digite seu e-mail: ")
     }
     
     func showPasswordForm() {
