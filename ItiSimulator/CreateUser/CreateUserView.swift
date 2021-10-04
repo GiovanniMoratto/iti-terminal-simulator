@@ -43,8 +43,9 @@ class CreateUserView {
     }
     
     func getInput() -> String? {
-        return readLine()
+        let input = readLine()
         print()
+        return input
     }
     
 }

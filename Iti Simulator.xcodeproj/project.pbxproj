@@ -10,22 +10,16 @@
 		B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* UserModel.swift */; };
 		B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAD27055A65004B3E3D /* CreateUserModel.swift */; };
 		B1037FB027055F62004B3E3D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAF27055F62004B3E3D /* Database.swift */; };
-		B1037FB227056690004B3E3D /* CreateUserControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB127056690004B3E3D /* CreateUserControllerOld.swift */; };
-		B1037FB5270571D4004B3E3D /* CreateUserViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FB4270571D4004B3E3D /* CreateUserViewOld.swift */; };
-		B11645AF270745DC004240B5 /* WelcomeViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645AE270745DC004240B5 /* WelcomeViewOld.swift */; };
-		B11645B127075AB1004240B5 /* ProfileMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B027075AB1004240B5 /* ProfileMenuView.swift */; };
-		B11645B327075D7D004240B5 /* ProfileDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B227075D7D004240B5 /* ProfileDataView.swift */; };
-		B11645B52707767D004240B5 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B42707767D004240B5 /* LoginController.swift */; };
-		B11645B827077850004240B5 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645B727077850004240B5 /* Validations.swift */; };
 		B11645BB270780B2004240B5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11645BA270780B2004240B5 /* StringExtension.swift */; };
 		B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */; };
 		B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DF2707E6720095B816 /* WelcomeView.swift */; };
 		B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateUserView.swift */; };
-		B16AFC31270628510008F32E /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC30270628510008F32E /* OptionsView.swift */; };
-		B16AFC33270629EA0008F32E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC32270629EA0008F32E /* LoginView.swift */; };
-		B16AFC382706416F0008F32E /* ProfileViewTeste.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AFC372706416F0008F32E /* ProfileViewTeste.swift */; };
 		B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateUserViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
+		B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCA270B41D40057302D /* LoginView.swift */; };
+		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
+		B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiView.swift */; };
+		B1B8BCD2270B45410057302D /* MiniItiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* MiniItiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,23 +38,17 @@
 		B1037FAB2705594D004B3E3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B1037FAD27055A65004B3E3D /* CreateUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		B1037FAF27055F62004B3E3D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		B1037FB127056690004B3E3D /* CreateUserControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserControllerOld.swift; sourceTree = "<group>"; };
-		B1037FB4270571D4004B3E3D /* CreateUserViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewOld.swift; sourceTree = "<group>"; };
-		B11645AE270745DC004240B5 /* WelcomeViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewOld.swift; sourceTree = "<group>"; };
-		B11645B027075AB1004240B5 /* ProfileMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuView.swift; sourceTree = "<group>"; };
-		B11645B227075D7D004240B5 /* ProfileDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataView.swift; sourceTree = "<group>"; };
-		B11645B42707767D004240B5 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		B11645B727077850004240B5 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		B11645BA270780B2004240B5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B124E4DF2707E6720095B816 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B124E4E22707F44D0095B816 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
-		B16AFC30270628510008F32E /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
-		B16AFC32270629EA0008F32E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		B16AFC372706416F0008F32E /* ProfileViewTeste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTeste.swift; sourceTree = "<group>"; };
 		B17999E0270803330073E5ED /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B1B8BCCA270B41D40057302D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B1B8BCCF270B44B10057302D /* MiniItiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiView.swift; sourceTree = "<group>"; };
+		B1B8BCD1270B45410057302D /* MiniItiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,34 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B1037FB62705724E004B3E3D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B11645AD270745CC004240B5 /* Welcome */,
-				B16AFC34270640E20008F32E /* Profile */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B11645AD270745CC004240B5 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				B11645AE270745DC004240B5 /* WelcomeViewOld.swift */,
-				B1037FB4270571D4004B3E3D /* CreateUserViewOld.swift */,
-				B16AFC32270629EA0008F32E /* LoginView.swift */,
-				B16AFC30270628510008F32E /* OptionsView.swift */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
-		B11645B62707783B004240B5 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				B11645B727077850004240B5 /* Validations.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 		B11645B927078097004240B5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,16 +88,6 @@
 			path = CreateUser;
 			sourceTree = "<group>";
 		};
-		B16AFC34270640E20008F32E /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B16AFC372706416F0008F32E /* ProfileViewTeste.swift */,
-				B11645B027075AB1004240B5 /* ProfileMenuView.swift */,
-				B11645B227075D7D004240B5 /* ProfileDataView.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		B1876FEF2705489A00ECA2D5 = {
 			isa = PBXGroup;
 			children = (
@@ -157,26 +107,16 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1B8BCCE270B44880057302D /* MiniIti */,
+				B1B8BCC9270B41C00057302D /* Login */,
 				B124E4E12707F3E20095B816 /* CreateUser */,
 				B124E4DC2707E5450095B816 /* Welcome */,
 				B11645B927078097004240B5 /* Extensions */,
-				B11645B62707783B004240B5 /* Validation */,
-				B1037FB62705724E004B3E3D /* View */,
 				B1877003270549D400ECA2D5 /* Model */,
-				B1877002270549B100ECA2D5 /* Controller */,
 				B1877004270549F300ECA2D5 /* Database */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
 			);
 			path = ItiSimulator;
-			sourceTree = "<group>";
-		};
-		B1877002270549B100ECA2D5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B1037FB127056690004B3E3D /* CreateUserControllerOld.swift */,
-				B11645B42707767D004240B5 /* LoginController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		B1877003270549D400ECA2D5 /* Model */ = {
@@ -194,6 +134,24 @@
 				B1037FAF27055F62004B3E3D /* Database.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		B1B8BCC9270B41C00057302D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B1B8BCCA270B41D40057302D /* LoginView.swift */,
+				B1B8BCCC270B42EC0057302D /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B1B8BCCE270B44880057302D /* MiniIti */ = {
+			isa = PBXGroup;
+			children = (
+				B1B8BCCF270B44B10057302D /* MiniItiView.swift */,
+				B1B8BCD1270B45410057302D /* MiniItiViewController.swift */,
+			);
+			path = MiniIti;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,25 +212,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16AFC382706416F0008F32E /* ProfileViewTeste.swift in Sources */,
+				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
-				B1037FB227056690004B3E3D /* CreateUserControllerOld.swift in Sources */,
 				B11645BB270780B2004240B5 /* StringExtension.swift in Sources */,
-				B11645B327075D7D004240B5 /* ProfileDataView.swift in Sources */,
 				B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
-				B11645B52707767D004240B5 /* LoginController.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */,
+				B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
-				B11645B827077850004240B5 /* Validations.swift in Sources */,
-				B16AFC33270629EA0008F32E /* LoginView.swift in Sources */,
-				B11645AF270745DC004240B5 /* WelcomeViewOld.swift in Sources */,
-				B16AFC31270628510008F32E /* OptionsView.swift in Sources */,
+				B1B8BCD2270B45410057302D /* MiniItiViewController.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
 				B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */,
-				B11645B127075AB1004240B5 /* ProfileMenuView.swift in Sources */,
-				B1037FB5270571D4004B3E3D /* CreateUserViewOld.swift in Sources */,
+				B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

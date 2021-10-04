@@ -77,19 +77,27 @@ class Database {
                 password: "zup123"
             )
         ]
+        
         Database.shared.users = users
     }
-}
-
-    /*
-    func findByDocument(document: String) -> UserModel {
-        for user in Database.shared.users {
-            if user.document == document {
-                return user
-            } else {
-                print("erro")
-                break
+    
+    func save(user: UserModel?) -> Bool? {
+        guard let userUnwrapped = user else { return nil}
+        
+        Database.shared.users.append(userUnwrapped)
+        return true
+    }
+    
+    func findByLogin(login: String?) -> UserModel? {
+        guard let loginUnwrapped = login else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].login == loginUnwrapped {
+                return Database.shared.users[user]
             }
         }
+        print("Erro")
+        return nil
     }
-     */
+    
+}

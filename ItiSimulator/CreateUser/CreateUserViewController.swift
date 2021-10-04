@@ -45,7 +45,10 @@ class CreateUserViewController {
             password: password
         )
         
-        db.users.append(newUser.toModel())
+        let database = db.save(user: newUser.toModel())
+        
+        guard database != nil, database == true else { return }
+        MiniItiViewController().process()
         
     }
 }
