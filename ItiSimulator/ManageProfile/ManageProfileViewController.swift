@@ -1,17 +1,17 @@
 //
-//  MiniItiViewController.swift
+//  ProfileViewController.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 04/10/21.
+//  Created by Giovanni Vicentin Moratto on 05/10/21.
 //
 
 import Foundation
 
-class MiniItiViewController {
+class ManageProfileViewController {
     
     // MARK: - Attributes
     
-    let scene = MiniItiView()
+    let scene = ManageProfileView()
     
     // MARK: - Methods
     
@@ -23,7 +23,6 @@ class MiniItiViewController {
         while loop {
             scene.showTitle()
             scene.showMenu()
-            scene.status(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName, balance: userUnwrapped.balance)
             
             guard let inputString = scene.getInput() else { return }
             let input = Int(inputString)
@@ -31,18 +30,13 @@ class MiniItiViewController {
             switch input {
             case 0:
                 loop = false
-            case 1: break
-                //                PIX
+            case 1:
+                // Exibir informações
+                ShowProfileViewController().process(user: userUnwrapped)
             case 2: break
-                //                Cartão de Crédito iti
+                // Editar informações
             case 3: break
-                //                Pagar e Transferir
-            case 4: break
-                //                Colocar Dinheiro
-            case 5: break
-                //                Gerenciar Cartões
-            case 6:
-                ManageProfileViewController().process(user: userUnwrapped)
+                // Excluir conta
             default:
                 print("Por favor, escolha uma operação")
             }

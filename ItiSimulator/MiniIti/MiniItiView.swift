@@ -39,8 +39,8 @@ class MiniItiView {
         guard let balanceUnwrapped = balance else { return }
         
         let username = "\(firstNameUnwrapped) \(lastNameUnwrapped)"
-        print("                 \(username)")
-        print("                            \(balanceUnwrapped)")
+        print("                       \(username)")
+        print("                       Saldo: \(balanceUnwrapped)")
     }
     
     func getInput() -> String? {

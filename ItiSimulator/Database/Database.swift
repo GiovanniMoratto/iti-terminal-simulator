@@ -40,7 +40,7 @@ class Database {
                 balance: 5000.00,
                 pixKey: "giovanni.moratto@zup.com.br",
                 email: "giovanni.moratto@zup.com.br",
-                password: "zup123"
+                password: "Zup123456!"
             ),
             UserModel(
                 firstName: "Fulano",
@@ -57,7 +57,7 @@ class Database {
                 balance: 2000.00,
                 pixKey: "id02@zup.com.br",
                 email: "id02@zup.com.br",
-                password: "zup123"
+                password: "Zup123456!"
             ),
             UserModel(
                 firstName: "Lucas",
@@ -74,7 +74,7 @@ class Database {
                 balance: 1000.00,
                 pixKey: "id03@zup.com.br",
                 email: "id03@zup.com.br",
-                password: "zup123"
+                password: "Zup123456!"
             )
         ]
         
