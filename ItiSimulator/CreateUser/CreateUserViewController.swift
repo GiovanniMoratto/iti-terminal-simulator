@@ -44,7 +44,7 @@ class CreateUserViewController {
         scene.showFirstNameForm()
         guard let firstName = scene.getInput(),
               valid.notEmpty(field: field, value: firstName),
-              valid.threeOrMoreCharacters(field: field, value: firstName)
+              valid.charactersLength(field: field, value: firstName, length: 3)
         else { return CreateUserViewController().firstName(field: field)}
         return firstName
     }
@@ -53,7 +53,7 @@ class CreateUserViewController {
         scene.showLastNameForm()
         guard let lastName = scene.getInput(),
               valid.notEmpty(field: field, value: lastName),
-              valid.threeOrMoreCharacters(field: field, value: lastName)
+              valid.charactersLength(field: field, value: lastName, length: 3)
         else { return CreateUserViewController().lastName(field: field)}
         return lastName
     }
@@ -62,7 +62,6 @@ class CreateUserViewController {
         scene.showDocumentForm()
         guard let document = scene.getInput(),
               valid.notEmpty(field: field, value: document),
-              //valid.onlyNumbers(field: field, value: document),
               valid.cpf(field: field, value: document)
         else { return CreateUserViewController().document(field: field)}
         return document
@@ -72,7 +71,8 @@ class CreateUserViewController {
         scene.showBankAccountForm()
         guard let bankAccount = scene.getInput(),
               valid.notEmpty(field: field, value: bankAccount),
-              valid.onlyNumbers(field: field, value: bankAccount)
+              valid.onlyNumbers(field: field, value: bankAccount),
+              valid.charactersLength(field: field, value: bankAccount, length: 4)
         else { return CreateUserViewController().bankAccount(field: field)}
         return bankAccount
     }
