@@ -15,12 +15,15 @@ class MiniItiViewController {
     
     // MARK: - Methods
     
-    func process() {
+    func process(user: UserModel?) {
+        guard let userUnwrapped = user else { return }
+        
         var loop = true
         
         while loop {
             scene.showTitle()
             scene.showMenu()
+            scene.status(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName, balance: userUnwrapped.balance)
             
             guard let inputString = scene.getInput() else { return }
             let input = Int(inputString)
@@ -29,17 +32,17 @@ class MiniItiViewController {
             case 0:
                 loop = false
             case 1: break
-//                PIX
+                //                PIX
             case 2: break
-//                Cartão de Crédito iti
+                //                Cartão de Crédito iti
             case 3: break
-//                Pagar e Transferir
+                //                Pagar e Transferir
             case 4: break
-//                Colocar Dinheiro
+                //                Colocar Dinheiro
             case 5: break
-//                Gerenciar Cartões
+                //                Gerenciar Cartões
             case 6: break
-//                Gerenciar Perfil
+                //                Gerenciar Perfil
             default:
                 print("Por favor, escolha uma operação")
             }

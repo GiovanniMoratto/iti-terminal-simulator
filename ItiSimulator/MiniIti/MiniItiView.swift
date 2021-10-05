@@ -30,7 +30,17 @@ class MiniItiView {
         print("|   4 - Colocar Dinheiro                      |")
         print("|   5 - Gerenciar Cartões                     |")
         print("|   6 - Acessar Perfil                        |")
-        print("|                                             |\n")
+        print("|                                             |")
+    }
+    
+    func status(firstName: String?, lastName: String?, balance: Double?) {
+        guard let firstNameUnwrapped = firstName else { return }
+        guard let lastNameUnwrapped = lastName else { return }
+        guard let balanceUnwrapped = balance else { return }
+        
+        let username = "\(firstNameUnwrapped) \(lastNameUnwrapped)"
+        print("                 \(username)")
+        print("                            \(balanceUnwrapped)")
     }
     
     func getInput() -> String? {
@@ -38,5 +48,5 @@ class MiniItiView {
         print()
         return input
     }
-
+    
 }

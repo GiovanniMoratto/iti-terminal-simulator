@@ -13,17 +13,18 @@ class CreateUserViewController {
     
     let scene = CreateUserView()
     let valid = Validations()
+    let login = LoginViewController()
     
     // MARK: - Methods
     
     func process() {
         scene.showTitle()
         
-        let firstName = firstName(field: "primeiro nome")
-        let lastName = lastName(field: "'sobrenome'")
-        let document = document(field: "'CPF'")
-        let bankAccount = bankAccount(field: "'conta bancária'")
-        let password = password(field: "'senha'")
+        guard let firstName = firstName(field: "primeiro nome") else { return }
+        guard let lastName = lastName(field: "'sobrenome'") else { return }
+        guard let document = document(field: "'CPF'") else { return }
+        guard let bankAccount = bankAccount(field: "'conta bancária'") else { return }
+        guard let password = password(field: "'senha'") else { return }
         
         let newUser = CreateUserModel(
             firstName: firstName,
@@ -33,55 +34,61 @@ class CreateUserViewController {
             password: password
         )
         
-        let database = db.save(user: newUser.toModel())
+        guard let database = db.save(user: newUser.toModel()) else { return }
         
-        guard database != nil, database == true else { return }
-        MiniItiViewController().process()
+        if !database {
+            print("Desculpe, estamos com problemas")
+        }
         
+        guard let user = login.isValidLogin(document: document, password: password).user else { return }
+        
+        MiniItiViewController().process(user: user)
     }
     
-    func firstName(field: String) -> String {
+    func firstName(field: String?) -> String? {
         scene.showFirstNameForm()
         guard let firstName = scene.getInput(),
-              valid.notEmpty(field: field, value: firstName),
-              valid.charactersLength(field: field, value: firstName, length: 3)
+              valid.notEmpty(field: field, value: firstName) ?? false,
+              valid.minLength(field: field, value: firstName, length: 3) ?? false,
+              valid.maxLength(field: field, value: firstName, length: 12) ?? false
         else { return CreateUserViewController().firstName(field: field)}
         return firstName
     }
     
-    func lastName(field: String) -> String {
+    func lastName(field: String?) -> String? {
         scene.showLastNameForm()
         guard let lastName = scene.getInput(),
-              valid.notEmpty(field: field, value: lastName),
-              valid.charactersLength(field: field, value: lastName, length: 3)
+              valid.notEmpty(field: field, value: lastName) ?? false,
+              valid.minLength(field: field, value: lastName, length: 3) ?? false,
+              valid.maxLength(field: field, value: lastName, length: 12) ?? false
         else { return CreateUserViewController().lastName(field: field)}
         return lastName
     }
     
-    func document(field: String) -> String {
+    func document(field: String?) -> String? {
         scene.showDocumentForm()
         guard let document = scene.getInput(),
-              valid.notEmpty(field: field, value: document),
-              valid.cpf(field: field, value: document)
+              valid.notEmpty(field: field, value: document) ?? false,
+              valid.cpf(field: field, value: document) ?? false
         else { return CreateUserViewController().document(field: field)}
         return document
     }
     
-    func bankAccount(field: String) -> String {
+    func bankAccount(field: String?) -> String? {
         scene.showBankAccountForm()
         guard let bankAccount = scene.getInput(),
-              valid.notEmpty(field: field, value: bankAccount),
-              valid.onlyNumbers(field: field, value: bankAccount),
-              valid.charactersLength(field: field, value: bankAccount, length: 4)
+              valid.notEmpty(field: field, value: bankAccount) ?? false,
+              valid.onlyNumbers(field: field, value: bankAccount) ?? false,
+              valid.minLength(field: field, value: bankAccount, length: 4) ?? false
         else { return CreateUserViewController().bankAccount(field: field)}
         return bankAccount
     }
     
-    func password(field: String) -> String {
+    func password(field: String?) -> String? {
         scene.showPasswordForm()
         guard let password = scene.getInput(),
-              valid.notEmpty(field: field, value: password),
-              valid.isValidPassword(field: field, value: password)
+              valid.notEmpty(field: field, value: password) ?? false,
+              valid.isValidPassword(field: field, value: password) ?? false
         else { return CreateUserViewController().password(field: field)}
         return password
     }

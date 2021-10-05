@@ -30,10 +30,8 @@ class WelcomeViewController {
                 loop = false
                 scene.showExit()
             case 1:
-//                Login
                 LoginViewController().process()
             case 2:
-//                Cadastro Conta
                 CreateUserViewController().process()
             default:
                 print("Por favor, escolha uma operação")

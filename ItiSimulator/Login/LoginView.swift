@@ -32,9 +32,8 @@ class LoginView {
         return input
     }
     
-    func checkCredentials(document: String, password: String) {
-        print("Verificando dados...")
-        print()
+    func checkCredentials() {
+        print("Verificando dados...\n")
     }
     
 }

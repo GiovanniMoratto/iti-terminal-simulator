@@ -100,4 +100,16 @@ class Database {
         return nil
     }
     
+    func findByDocument(document: String?) -> UserModel? {
+        guard let documentUnwrapped = document else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].document == documentUnwrapped {
+                return Database.shared.users[user]
+            }
+        }
+        print("CPF não cadastrado")
+        return nil
+    }
+    
 }
