@@ -54,118 +54,68 @@ class Validations {
         return true
     }
     
-    func password(value: String?) -> Bool {
-        guard let unwrappedValue = value else { return false }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            return false
-        }
-        return true
-    }
-    
     func isValidPassword(field: String?, value: String?) -> Bool {
         guard let unwrappedField = field else { return false }
         guard let unwrappedValue = value else { return false }
         
-        if !password(value: unwrappedValue) {
+        let passwordPattern = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$&*]).{8}$")
+        
+        if !passwordPattern.evaluate(with: unwrappedValue) {
             print("\nO campo \(unwrappedField) deve conter: ")
-            
-            // Conditions Values
-            
-            let atLeast8CharactersBool = atLeast8Characters(field: unwrappedField, value: unwrappedValue)
-            let atLeast8CharactersMessage = "- No mínimo 8 digitos \n"
-            
-            let atLeast1UpperCaseLetterBool = atLeast1UpperCaseLetter(field: unwrappedField, value: unwrappedValue)
-            let atLeast1UpperCaseLetterMessage = "- Pelo menos uma letra maiúscula. Ex: A - Z \n"
-            
-            let atLeast1LowerCaseLetterBool = atLeast1LowerCaseLetter(field: unwrappedField, value: unwrappedValue)
-            let atLeast1LowerCaseLetterMessage = "-Pelo menos uma letra minúscula. Ex: a - z \n"
-            
-            let atLeast1NumberBool = atLeast1Number(field: unwrappedField, value: unwrappedValue)
-            let atLeast1NumberMessage = "- Pelo menos um número. Ex: 0 - 9 \n"
-            
-            let atLeast1SpecialCharacterBool = atLeast1SpecialCharacter(field: unwrappedField, value: unwrappedValue)
-            let atLeast1SpecialCharacterMessage = "- Pelo menos um caractere especial. " +
-                                            "Ex: ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ^ _` { | } ~ \n"
-            
-            let conditions = [atLeast8CharactersBool, atLeast1UpperCaseLetterBool, atLeast1LowerCaseLetterBool, atLeast1NumberBool, atLeast1SpecialCharacterBool]
-            
-            let messages = [atLeast8CharactersMessage, atLeast1UpperCaseLetterMessage, atLeast1LowerCaseLetterMessage, atLeast1NumberMessage, atLeast1SpecialCharacterMessage]
-            
-            for condition in conditions.indices {
-                if !conditions[condition] as! Bool {
-                    let message = messages[condition]
-                    print(message)
-                }
-            }
+            print(atLeast8Characters(value: unwrappedValue).message)
+            print(atLeast1UpperCaseLetter(value: unwrappedValue).message)
+            print(atLeast1LowerCaseLetter(value: unwrappedValue).message)
+            print(atLeast1Number(value: unwrappedValue).message)
+            print(atLeast1SpecialCharacter(value: unwrappedValue).message)
             return false
         }
         return true
     }
     
-    func atLeast8Characters(field: String?, value: String?) -> (condition: Bool, message: String) {
+    func atLeast8Characters(value: String?) -> (condition: Bool, message: String) {
         guard let unwrappedValue = value else { return (false, String()) }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.{8,})")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            //print("- No mínimo 8 digitos \n")
-            return (false, "- No mínimo 8 digitos \n")
+        if unwrappedValue.count >= 8 {
+            return (true, "[X] No mínimo 8 digitos")
         }
-        return (true, "OK")
+        return (false, "[ ] No mínimo 8 digitos")
     }
     
-    func atLeast1UpperCaseLetter(field: String?, value: String?) -> Bool {
-        guard let unwrappedValue = value else { return false }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            //print("- Pelo menos uma letra maiúscula. Ex: A - Z \n")
-            return false
+    func atLeast1UpperCaseLetter(value: String?) -> (condition: Bool, message: String) {
+        guard let unwrappedValue = value else { return (false, String()) }
+        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
+        if passwordRegex.evaluate(with: unwrappedValue) {
+            return (true, "[X] Pelo menos uma letra maiúscula. Ex: A - Z")
         }
-        return true
+        return (false, "[ ] Pelo menos uma letra maiúscula. Ex: A - Z")
     }
     
-    func atLeast1LowerCaseLetter(field: String?, value: String?) -> Bool {
-        guard let unwrappedValue = value else { return false }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.*[a-z])")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            //print("- Pelo menos uma letra minúscula. Ex: a - z \n")
-            return false
+    func atLeast1LowerCaseLetter(value: String?) -> (condition: Bool, message: String) {
+        guard let unwrappedValue = value else { return (false, String()) }
+        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
+        if passwordRegex.evaluate(with: unwrappedValue) {
+            return (true, "[X] Pelo menos uma letra minúscula. Ex: a - z")
         }
-        return true
+        return (false, "[ ] Pelo menos uma letra minúscula. Ex: a - z")
     }
     
-    func atLeast1Number(field: String?, value: String?) -> Bool {
-        guard let unwrappedValue = value else { return false }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.*[0-9])")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            //print("- Pelo menos um número. Ex: 0 - 9 \n")
-            return false
+    func atLeast1Number(value: String?) -> (condition: Bool, message: String) {
+        guard let unwrappedValue = value else { return (false, String()) }
+        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
+        if passwordRegex.evaluate(with: unwrappedValue) {
+            return (true, "[X] Pelo menos um número. Ex: 0 - 9")
         }
-        return true
+        return (false, "[ ] Pelo menos um número. Ex: 0 - 9")
     }
     
-    func atLeast1SpecialCharacter(field: String?, value: String?) -> Bool {
-        guard let unwrappedValue = value else { return false }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", "(?=.*[ !$%&?._-])")
-        
-        if !passwordRegex.evaluate(with: unwrappedValue) {
-            /*print("- Pelo menos um caractere especial. " +
-             "Ex: ! # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ^ _` { | } ~ \n")*/
-            return false
+    func atLeast1SpecialCharacter(value: String?) -> (condition: Bool, message: String) {
+        guard let unwrappedValue = value else { return (false, String()) }
+        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[!&^%$#@()/]+.*")
+        if passwordRegex.evaluate(with: unwrappedValue) {
+            return (true, "[X] Pelo menos um caractere especial. " +
+                    "Ex: ! & ^ % $ # @ ( ) / \n")
         }
-        return true
+        return (false, "[ ] Pelo menos um caractere especial. " +
+                "Ex: ! & ^ % $ # @ ( ) / \n")
     }
-    
-    
     
 }
