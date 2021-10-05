@@ -13,7 +13,7 @@ struct UserModel {
     
     var firstName: String = ""
     var lastName: String = ""
-    var document: String = ""
+    var documentNumber: String = ""
     var address: String = ""
     var city: String = ""
     var state: String = ""
@@ -29,20 +29,20 @@ struct UserModel {
     
     // MARK: - Initializers (Constructors)
     
-    init(firstName: String, lastName: String, document: String, bankAccount: String, password: String) {
+    init(firstName: String, lastName: String, documentNumber: String, bankAccount: String, password: String) {
         // Constroi a partir do UserRequest
         self.firstName = firstName
         self.lastName = lastName
-        self.document = document
+        self.documentNumber = documentNumber
         self.bankAccount = bankAccount
         self.password = password
     }
     
-    init(firstName: String, lastName: String, document: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, email: String, password: String) {
+    init(firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String, phoneNumber: String, creditCard: String, creditCards: [String], bankAccount: String, bank: String, balance: Double, pixKey: String, email: String, password: String) {
         
         self.firstName = firstName
         self.lastName = lastName
-        self.document = document
+        self.documentNumber = documentNumber
         self.address = address
         self.city = city
         self.state = state
@@ -59,5 +59,5 @@ struct UserModel {
     }
     
     init(){}
-
+    
 }

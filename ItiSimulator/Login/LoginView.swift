@@ -18,7 +18,7 @@ class LoginView {
         print("|_____________________________________________|\n")
     }
     
-    func showDocumentForm() {
+    func showDocumentNumberForm() {
         print("Digite seu CPF: ")
     }
     
@@ -32,7 +32,7 @@ class LoginView {
         return input
     }
     
-    func checkCredentials() {
+    func showMessage() {
         print("Verificando dados...\n")
     }
     

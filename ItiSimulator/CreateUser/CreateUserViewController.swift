@@ -12,7 +12,7 @@ class CreateUserViewController {
     // MARK: - Attributes
     
     let scene = CreateUserView()
-    let valid = Validations()
+    let valid = FieldsValidations()
     let login = LoginViewController()
     
     // MARK: - Methods
@@ -22,14 +22,14 @@ class CreateUserViewController {
         
         guard let firstName = firstName(field: "primeiro nome") else { return }
         guard let lastName = lastName(field: "'sobrenome'") else { return }
-        guard let document = document(field: "'CPF'") else { return }
+        guard let documentNumber = documentNumber(field: "'CPF'") else { return }
         guard let bankAccount = bankAccount(field: "'conta bancária'") else { return }
         guard let password = password(field: "'senha'") else { return }
         
         let newUser = CreateUserModel(
             firstName: firstName,
             lastName: lastName,
-            document: document,
+            documentNumber: documentNumber,
             bankAccount: bankAccount,
             password: password
         )
@@ -40,9 +40,9 @@ class CreateUserViewController {
             print("Desculpe, estamos com problemas")
         }
         
-        guard let user = login.isValidLogin(document: document, password: password).user else { return }
+        guard let user = login.isValidLogin(documentNumber: documentNumber, password: password).user else { return }
         
-        MiniItiViewController().process(user: user)
+        MiniItiMainViewController().process(user: user)
     }
     
     func firstName(field: String?) -> String? {
@@ -65,13 +65,14 @@ class CreateUserViewController {
         return lastName
     }
     
-    func document(field: String?) -> String? {
-        scene.showDocumentForm()
-        guard let document = scene.getInput(),
-              valid.notEmpty(field: field, value: document) ?? false,
-              valid.cpf(field: field, value: document) ?? false
-        else { return CreateUserViewController().document(field: field)}
-        return document
+    func documentNumber(field: String?) -> String? {
+        scene.showDocumentNumberForm()
+        guard let documentNumber = scene.getInput(),
+              valid.notEmpty(field: field, value: documentNumber) ?? false,
+              valid.cpf(field: field, value: documentNumber) ?? false,
+              valid.uniqueDocumentNumber(documentNumber: documentNumber) ?? false
+        else { return CreateUserViewController().documentNumber(field: field)}
+        return documentNumber
     }
     
     func bankAccount(field: String?) -> String? {

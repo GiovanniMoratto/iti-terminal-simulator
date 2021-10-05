@@ -13,7 +13,7 @@ struct CreateUserModel {
     
     let firstName: String
     let lastName: String
-    let document: String
+    let documentNumber: String
     let bankAccount: String
     let password: String
     
@@ -23,7 +23,7 @@ struct CreateUserModel {
         return UserModel(
             firstName: self.firstName,
             lastName: self.lastName,
-            document: self.document,
+            documentNumber: self.documentNumber,
             bankAccount: self.bankAccount,
             password: self.password
         )

@@ -32,11 +32,12 @@ class ManageProfileViewController {
                 loop = false
             case 1:
                 // Exibir informações
-                ShowProfileViewController().process(user: userUnwrapped)
+                DisplayProfileViewController().process(user: userUnwrapped)
             case 2: break
                 // Editar informações
-            case 3: break
+            case 3:
                 // Excluir conta
+                DeleteAccountViewController().process(user: userUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

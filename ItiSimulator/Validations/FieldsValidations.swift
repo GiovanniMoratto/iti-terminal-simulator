@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Validations {
+class FieldsValidations {
     
     func notEmpty(field: String?, value: String?) -> Bool? {
         guard let fieldUnwrapped = field else { return nil }
@@ -144,6 +144,17 @@ class Validations {
         }
         return "[ ] Pelo menos um caractere especial. " +
         "Ex: ! & ^ % $ # @ ( ) / \n"
+    }
+    
+    func uniqueDocumentNumber(documentNumber: String?) -> Bool? {
+        guard let documentNumberUnwrapped = documentNumber else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].documentNumber == documentNumberUnwrapped {
+                return false
+            }
+        }
+        return true
     }
     
 }

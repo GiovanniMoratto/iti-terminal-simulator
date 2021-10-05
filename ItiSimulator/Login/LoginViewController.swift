@@ -12,39 +12,39 @@ class LoginViewController {
     // MARK: - Attributes
     
     let scene = LoginView()
-    let valid = Validations()
+    let valid = FieldsValidations()
     
     // MARK: - Methods
     
     func process() {
         scene.showTitle()
-        scene.checkCredentials()
+        scene.showMessage()
         
-        let document = checkDocument(field: "'CPF'")
+        let documentNumber = checkDocumentNumber(field: "'CPF'")
         let password = checkPassword(field: "'senha'")
         
-        guard let validLogin = isValidLogin(document: document, password: password).condition else { return }
+        guard let validLogin = isValidLogin(documentNumber: documentNumber, password: password).condition else { return }
         
         if validLogin {
-            guard let user = isValidLogin(document: document, password: password).user else { return }
+            guard let user = isValidLogin(documentNumber: documentNumber, password: password).user else { return }
             
-            MiniItiViewController().process(user: user)
+            MiniItiMainViewController().process(user: user)
         }
         
         WelcomeViewController().process()
     }
     
-    func checkDocument(field: String?) -> String? {
+    func checkDocumentNumber(field: String?) -> String? {
         guard let fieldUnwrapped = field else { return nil }
         
-        scene.showDocumentForm()
+        scene.showDocumentNumberForm()
         
-        guard let document = scene.getInput(),
-              valid.notEmpty(field: fieldUnwrapped, value: document) ?? false,
-              valid.cpf(field: fieldUnwrapped, value: document) ?? false
-        else { return LoginViewController().checkDocument(field: fieldUnwrapped)}
+        guard let documentNumber = scene.getInput(),
+              valid.notEmpty(field: fieldUnwrapped, value: documentNumber) ?? false,
+              valid.cpf(field: fieldUnwrapped, value: documentNumber) ?? false
+        else { return LoginViewController().checkDocumentNumber(field: fieldUnwrapped)}
         
-        return document
+        return documentNumber
     }
     
     func checkPassword(field: String?) -> String? {
@@ -60,10 +60,11 @@ class LoginViewController {
         return password
     }
     
-    func isValidLogin(document: String?, password: String?) -> (condition: Bool?, user: UserModel?) {
-        guard let documentUnwrapped = document else { return (nil, nil)}
+    func isValidLogin(documentNumber: String?, password: String?) -> (condition: Bool?, user: UserModel?) {
+        guard let documentNumberUnwrapped = documentNumber else { return (nil, nil)}
         guard let passwordUnwrapped = password else { return (nil, nil)}
-        guard let user = db.findByDocument(document: documentUnwrapped) else { return (nil, nil)}
+        
+        guard let user = db.findByDocumentNumber(documentNumber: documentNumberUnwrapped) else { return (nil, nil)}
         
         if user.password != passwordUnwrapped {
             print("Senha Inválida!")

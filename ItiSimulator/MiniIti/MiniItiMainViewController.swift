@@ -7,11 +7,11 @@
 
 import Foundation
 
-class MiniItiViewController {
+class MiniItiMainViewController {
     
     // MARK: - Attributes
     
-    let scene = MiniItiView()
+    let scene = MiniItiMainView()
     
     // MARK: - Methods
     
@@ -23,7 +23,7 @@ class MiniItiViewController {
         while loop {
             scene.showTitle()
             scene.showMenu()
-            scene.status(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName, balance: userUnwrapped.balance)
+            scene.showPersonalInfo(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName, balance: userUnwrapped.balance)
             
             guard let inputString = scene.getInput() else { return }
             let input = Int(inputString)

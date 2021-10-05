@@ -1,5 +1,5 @@
 //
-//  ShowProfileViewController.swift
+//  DeleteAccountViewController.swift
 //  ItiSimulator
 //
 //  Created by Giovanni Vicentin Moratto on 05/10/21.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class ShowProfileViewController {
+class DeleteAccountViewController {
     
     // MARK: - Attributes
     
-    let scene = ShowProfileView()
+    let scene = DeleteAccountView()
     
     // MARK: - Methods
     
@@ -19,15 +19,7 @@ class ShowProfileViewController {
         guard let userUnwrapped = user else { return }
         
         scene.showTitle()
-        
-        scene.showUsernameField(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName)
-        scene.showDocumentField(document: userUnwrapped.document)
-        scene.showAddressField(address: userUnwrapped.address)
-        scene.showCityField(city: userUnwrapped.city)
-        scene.showStateField(state: userUnwrapped.state)
-        scene.showPhoneNumberField(phoneNumber: userUnwrapped.phoneNumber)
-        scene.showEmailField(email: userUnwrapped.email)
-        scene.showExit()
+        scene.showMessage()
         
         var loop = true
         while loop {
@@ -37,9 +29,18 @@ class ShowProfileViewController {
             switch input {
             case 0:
                 loop = false
+            case 1:
+                loop = false
+                guard let database = db.delete(user: userUnwrapped) else { return }
+                if !database {
+                    print("Desculpe, estamos com problemas")
+                }
+                scene.showSuccessfullyDeleted()
+                WelcomeViewController().process()
             default:
                 print("Por favor, escolha uma operação")
             }
         }
+        
     }
 }

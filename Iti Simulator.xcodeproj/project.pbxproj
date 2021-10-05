@@ -16,15 +16,17 @@
 		B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateUserView.swift */; };
 		B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F4270C8D8400A1555B /* ManageProfileView.swift */; };
 		B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */; };
-		B13591FA270C914A00A1555B /* ShowProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F9270C914A00A1555B /* ShowProfileView.swift */; };
-		B13591FC270C916500A1555B /* ShowProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FB270C916500A1555B /* ShowProfileViewController.swift */; };
+		B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F9270C914A00A1555B /* DisplayProfileView.swift */; };
+		B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FB270C916500A1555B /* DisplayProfileViewController.swift */; };
+		B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FE270C9D6300A1555B /* DeleteAccountView.swift */; };
+		B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */; };
 		B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateUserViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 		B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCA270B41D40057302D /* LoginView.swift */; };
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
-		B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiView.swift */; };
-		B1B8BCD2270B45410057302D /* MiniItiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* MiniItiViewController.swift */; };
-		B1B8BCD5270B4B090057302D /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD4270B4B090057302D /* Validations.swift */; };
+		B1B8BCD0270B44B10057302D /* MiniItiMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */; };
+		B1B8BCD2270B45410057302D /* MiniItiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */; };
+		B1B8BCD5270B4B090057302D /* FieldsValidations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD4270B4B090057302D /* FieldsValidations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,16 +51,18 @@
 		B124E4E22707F44D0095B816 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		B13591F4270C8D8400A1555B /* ManageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileView.swift; sourceTree = "<group>"; };
 		B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileViewController.swift; sourceTree = "<group>"; };
-		B13591F9270C914A00A1555B /* ShowProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileView.swift; sourceTree = "<group>"; };
-		B13591FB270C916500A1555B /* ShowProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProfileViewController.swift; sourceTree = "<group>"; };
+		B13591F9270C914A00A1555B /* DisplayProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileView.swift; sourceTree = "<group>"; };
+		B13591FB270C916500A1555B /* DisplayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileViewController.swift; sourceTree = "<group>"; };
+		B13591FE270C9D6300A1555B /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		B17999E0270803330073E5ED /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B1B8BCCA270B41D40057302D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B1B8BCCF270B44B10057302D /* MiniItiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiView.swift; sourceTree = "<group>"; };
-		B1B8BCD1270B45410057302D /* MiniItiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiViewController.swift; sourceTree = "<group>"; };
-		B1B8BCD4270B4B090057302D /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
+		B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiMainView.swift; sourceTree = "<group>"; };
+		B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiMainViewController.swift; sourceTree = "<group>"; };
+		B1B8BCD4270B4B090057302D /* FieldsValidations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsValidations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,13 +111,22 @@
 			path = ManageProfile;
 			sourceTree = "<group>";
 		};
-		B13591F8270C911400A1555B /* ShowProfileInfo */ = {
+		B13591F8270C911400A1555B /* DisplayProfile */ = {
 			isa = PBXGroup;
 			children = (
-				B13591F9270C914A00A1555B /* ShowProfileView.swift */,
-				B13591FB270C916500A1555B /* ShowProfileViewController.swift */,
+				B13591F9270C914A00A1555B /* DisplayProfileView.swift */,
+				B13591FB270C916500A1555B /* DisplayProfileViewController.swift */,
 			);
-			path = ShowProfileInfo;
+			path = DisplayProfile;
+			sourceTree = "<group>";
+		};
+		B13591FD270C9D4F00A1555B /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				B13591FE270C9D6300A1555B /* DeleteAccountView.swift */,
+				B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */,
+			);
+			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
 		B1876FEF2705489A00ECA2D5 = {
@@ -135,7 +148,8 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				B13591F8270C911400A1555B /* ShowProfileInfo */,
+				B13591FD270C9D4F00A1555B /* DeleteAccount */,
+				B13591F8270C911400A1555B /* DisplayProfile */,
 				B13591F3270C8D7000A1555B /* ManageProfile */,
 				B1B8BCD3270B4AEA0057302D /* Validations */,
 				B1B8BCCE270B44880057302D /* MiniIti */,
@@ -179,8 +193,8 @@
 		B1B8BCCE270B44880057302D /* MiniIti */ = {
 			isa = PBXGroup;
 			children = (
-				B1B8BCCF270B44B10057302D /* MiniItiView.swift */,
-				B1B8BCD1270B45410057302D /* MiniItiViewController.swift */,
+				B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */,
+				B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */,
 			);
 			path = MiniIti;
 			sourceTree = "<group>";
@@ -188,7 +202,7 @@
 		B1B8BCD3270B4AEA0057302D /* Validations */ = {
 			isa = PBXGroup;
 			children = (
-				B1B8BCD4270B4B090057302D /* Validations.swift */,
+				B1B8BCD4270B4B090057302D /* FieldsValidations.swift */,
 			);
 			path = Validations;
 			sourceTree = "<group>";
@@ -256,16 +270,18 @@
 				B11645BB270780B2004240B5 /* StringExtension.swift in Sources */,
 				B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
+				B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */,
 				B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */,
-				B1B8BCD5270B4B090057302D /* Validations.swift in Sources */,
+				B1B8BCD5270B4B090057302D /* FieldsValidations.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */,
-				B1B8BCD0270B44B10057302D /* MiniItiView.swift in Sources */,
+				B1B8BCD0270B44B10057302D /* MiniItiMainView.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
-				B1B8BCD2270B45410057302D /* MiniItiViewController.swift in Sources */,
-				B13591FC270C916500A1555B /* ShowProfileViewController.swift in Sources */,
-				B13591FA270C914A00A1555B /* ShowProfileView.swift in Sources */,
+				B1B8BCD2270B45410057302D /* MiniItiMainViewController.swift in Sources */,
+				B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */,
+				B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */,
+				B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
 				B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */,
 				B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */,

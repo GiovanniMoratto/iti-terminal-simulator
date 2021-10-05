@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MiniItiView {
+class MiniItiMainView {
     
     // MARK: - Methods
     
@@ -33,7 +33,7 @@ class MiniItiView {
         print("|                                             |")
     }
     
-    func status(firstName: String?, lastName: String?, balance: Double?) {
+    func showPersonalInfo(firstName: String?, lastName: String?, balance: Double?) {
         guard let firstNameUnwrapped = firstName else { return }
         guard let lastNameUnwrapped = lastName else { return }
         guard let balanceUnwrapped = balance else { return }

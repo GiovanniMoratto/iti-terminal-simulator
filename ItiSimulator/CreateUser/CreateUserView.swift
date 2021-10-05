@@ -26,7 +26,7 @@ class CreateUserView {
         print("Digite o seu sobrenome: ")
     }
     
-    func showDocumentForm() {
+    func showDocumentNumberForm() {
         print("Digite o seu CPF: ")
     }
     

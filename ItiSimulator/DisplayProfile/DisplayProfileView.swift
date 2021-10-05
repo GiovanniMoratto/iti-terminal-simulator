@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShowProfileView {
+class DisplayProfileView {
     
     // MARK: - Methods
     
@@ -25,10 +25,10 @@ class ShowProfileView {
         print("Nome: \(firstNameUnwrapped) \(lastNameUnwrapped)\n")
     }
     
-    func showDocumentField(document: String?) {
-        guard let documentUnwrapped = document else { return }
+    func showDocumentNumberField(documentNumber: String?) {
+        guard let documentNumberUnwrapped = documentNumber else { return }
         
-        print("CPF: \(documentUnwrapped)\n")
+        print("CPF: \(documentNumberUnwrapped)\n")
     }
     
     func showAddressField(address: String?) {

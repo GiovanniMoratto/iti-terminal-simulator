@@ -28,7 +28,7 @@ class Database {
             UserModel(
                 firstName: "Giovanni",
                 lastName: "Moratto",
-                document: "75157764049",
+                documentNumber: "051.918.080-10",
                 address: "Rua da Amizade, 123",
                 city: "Americana",
                 state: "SP",
@@ -45,7 +45,7 @@ class Database {
             UserModel(
                 firstName: "Fulano",
                 lastName: "de Tal",
-                document: "65157764049",
+                documentNumber: "234.083.290-01",
                 address: "Alameda dos Anjos, 1234",
                 city: "Americana",
                 state: "SP",
@@ -62,7 +62,7 @@ class Database {
             UserModel(
                 firstName: "Lucas",
                 lastName: "Silva e Silva",
-                document: "75157764049",
+                documentNumber: "152.936.600-39",
                 address: "Mundo da Lua, 123",
                 city: "Americana",
                 state: "SP",
@@ -85,30 +85,36 @@ class Database {
         guard let userUnwrapped = user else { return nil}
         
         Database.shared.users.append(userUnwrapped)
-        return true
-    }
-    
-    func findByToken(token: String?) -> UserModel? {
-        guard let tokenUnwrapped = token else { return nil}
         
         for user in Database.shared.users.indices {
-            if Database.shared.users[user].document == tokenUnwrapped {
+            if Database.shared.users[user].documentNumber == userUnwrapped.documentNumber {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func delete(user: UserModel?) -> Bool? {
+        guard let userUnwrapped = user else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].documentNumber == userUnwrapped.documentNumber {
+                Database.shared.users.remove(at: user)
+                return true
+            }
+        }
+        return false
+    }
+    
+    func findByDocumentNumber(documentNumber: String?) -> UserModel? {
+        guard let documentNumberUnwrapped = documentNumber else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].documentNumber == documentNumberUnwrapped {
                 return Database.shared.users[user]
             }
         }
-        print("Erro")
-        return nil
-    }
-    
-    func findByDocument(document: String?) -> UserModel? {
-        guard let documentUnwrapped = document else { return nil}
-        
-        for user in Database.shared.users.indices {
-            if Database.shared.users[user].document == documentUnwrapped {
-                return Database.shared.users[user]
-            }
-        }
-        print("CPF não cadastrado")
+        print("CPF não cadastrado!")
         return nil
     }
     
