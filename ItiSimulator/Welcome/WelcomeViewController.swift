@@ -33,6 +33,8 @@ class WelcomeViewController {
                 LoginViewController().process()
             case 2:
                 CreateUserViewController().process()
+            case 3:
+                DatabaseViewController().process()
             default:
                 print("Por favor, escolha uma operação")
             }

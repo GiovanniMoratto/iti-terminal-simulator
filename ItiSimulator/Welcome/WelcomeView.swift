@@ -27,6 +27,7 @@ class WelcomeView {
         print("|   0 - Sair do App                           |")
         print("|   1 - Login                                 |")
         print("|   2 - Cadastrar Conta                       |")
+        print("|   3 - Exibir Banco de dados                 |")
         print("|                                             |\n")
     }
     

@@ -20,8 +20,12 @@
 		B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FB270C916500A1555B /* DisplayProfileViewController.swift */; };
 		B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FE270C9D6300A1555B /* DeleteAccountView.swift */; };
 		B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */; };
+		B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B4270CC9F20035F3CD /* EditProfileView.swift */; };
+		B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B6270CCB690035F3CD /* EditProfileViewController.swift */; };
 		B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateUserViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
+		B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A11A1A270D37CA00412B17 /* DatabaseView.swift */; };
+		B1A11A1D270D37E400412B17 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A11A1C270D37E400412B17 /* DatabaseViewController.swift */; };
 		B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCA270B41D40057302D /* LoginView.swift */; };
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
 		B1B8BCD0270B44B10057302D /* MiniItiMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */; };
@@ -55,9 +59,13 @@
 		B13591FB270C916500A1555B /* DisplayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileViewController.swift; sourceTree = "<group>"; };
 		B13591FE270C9D6300A1555B /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		B16013B4270CC9F20035F3CD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		B16013B6270CCB690035F3CD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B17999E0270803330073E5ED /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B1A11A1A270D37CA00412B17 /* DatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseView.swift; sourceTree = "<group>"; };
+		B1A11A1C270D37E400412B17 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCA270B41D40057302D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiMainView.swift; sourceTree = "<group>"; };
@@ -129,6 +137,15 @@
 			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
+		B16013B3270CC9BE0035F3CD /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B16013B4270CC9F20035F3CD /* EditProfileView.swift */,
+				B16013B6270CCB690035F3CD /* EditProfileViewController.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
 		B1876FEF2705489A00ECA2D5 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +165,7 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B16013B3270CC9BE0035F3CD /* EditProfile */,
 				B13591FD270C9D4F00A1555B /* DeleteAccount */,
 				B13591F8270C911400A1555B /* DisplayProfile */,
 				B13591F3270C8D7000A1555B /* ManageProfile */,
@@ -167,6 +185,7 @@
 		B1877003270549D400ECA2D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1037FAF27055F62004B3E3D /* Database.swift */,
 				B1037FAB2705594D004B3E3D /* UserModel.swift */,
 				B1037FAD27055A65004B3E3D /* CreateUserModel.swift */,
 			);
@@ -176,7 +195,8 @@
 		B1877004270549F300ECA2D5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				B1037FAF27055F62004B3E3D /* Database.swift */,
+				B1A11A1A270D37CA00412B17 /* DatabaseView.swift */,
+				B1A11A1C270D37E400412B17 /* DatabaseViewController.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -265,7 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */,
+				B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */,
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
+				B1A11A1D270D37E400412B17 /* DatabaseViewController.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
 				B11645BB270780B2004240B5 /* StringExtension.swift in Sources */,
 				B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */,
@@ -281,6 +304,7 @@
 				B1B8BCD2270B45410057302D /* MiniItiMainViewController.swift in Sources */,
 				B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */,
 				B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */,
+				B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */,
 				B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
 				B1037FAE27055A65004B3E3D /* CreateUserModel.swift in Sources */,

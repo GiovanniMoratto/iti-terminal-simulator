@@ -33,8 +33,9 @@ class ManageProfileViewController {
             case 1:
                 // Exibir informações
                 DisplayProfileViewController().process(user: userUnwrapped)
-            case 2: break
+            case 2:
                 // Editar informações
+                EditProfileViewController().process(user: userUnwrapped)
             case 3:
                 // Excluir conta
                 DeleteAccountViewController().process(user: userUnwrapped)

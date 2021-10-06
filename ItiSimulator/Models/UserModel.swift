@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel {
+class UserModel {
     
     // MARK: - Attributes
     

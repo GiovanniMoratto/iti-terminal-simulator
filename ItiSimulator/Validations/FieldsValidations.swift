@@ -55,7 +55,7 @@ class FieldsValidations {
         return true
     }
     
-    func cpf(field: String?, value: String?) -> Bool? {
+    func isValidCpf(field: String?, value: String?) -> Bool? {
         guard let fieldUnwrapped = field else { return nil }
         guard let valueUnwrapped = value else { return nil }
         
@@ -66,9 +66,72 @@ class FieldsValidations {
         return true
     }
     
+    func uniqueDocumentNumber(documentNumber: String?) -> Bool? {
+        guard let documentNumberUnwrapped = documentNumber else { return nil}
+        
+        for user in Database.shared.users.indices {
+            if Database.shared.users[user].documentNumber == documentNumberUnwrapped {
+                print("CPF já cadastrado!")
+                return false
+            }
+        }
+        return true
+    }
+    
     func isValidPassword(field: String?, value: String?) -> Bool? {
         guard let fieldUnwrapped = field else { return nil }
         guard let valueUnwrapped = value else { return nil }
+        
+        func atLeast8Characters(value: String?) -> String? {
+            guard let unwrappedValue = value else { return nil }
+            
+            if unwrappedValue.count >= 8 {
+                return "[X] No mínimo 8 digitos"
+            }
+            return "[ ] No mínimo 8 digitos"
+        }
+        
+        func atLeast1UpperCaseLetter(value: String?) -> String? {
+            guard let unwrappedValue = value else { return nil }
+            
+            let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
+            if passwordRegex.evaluate(with: unwrappedValue) {
+                return "[X] Pelo menos uma letra maiúscula. Ex: A - Z"
+            }
+            return "[ ] Pelo menos uma letra maiúscula. Ex: A - Z"
+        }
+        
+        func atLeast1LowerCaseLetter(value: String?) -> String? {
+            guard let unwrappedValue = value else { return nil }
+            
+            let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
+            if passwordRegex.evaluate(with: unwrappedValue) {
+                return "[X] Pelo menos uma letra minúscula. Ex: a - z"
+            }
+            return "[ ] Pelo menos uma letra minúscula. Ex: a - z"
+        }
+        
+        func atLeast1Number(value: String?) -> String? {
+            guard let unwrappedValue = value else { return nil }
+            
+            let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
+            if passwordRegex.evaluate(with: unwrappedValue) {
+                return "[X] Pelo menos um número. Ex: 0 - 9"
+            }
+            return "[ ] Pelo menos um número. Ex: 0 - 9"
+        }
+        
+        func atLeast1SpecialCharacter(value: String?) -> String? {
+            guard let unwrappedValue = value else { return nil }
+            
+            let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[!&^%$#@()/]+.*")
+            if passwordRegex.evaluate(with: unwrappedValue) {
+                return "[X] Pelo menos um caractere especial. " +
+                "Ex: ! & ^ % $ # @ ( ) / \n"
+            }
+            return "[ ] Pelo menos um caractere especial. " +
+            "Ex: ! & ^ % $ # @ ( ) / \n"
+        }
         
         let passwordPattern = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{8,}$")
         
@@ -91,68 +154,6 @@ class FieldsValidations {
             print(atLeast1SpecialCharacter)
             
             return false
-        }
-        return true
-    }
-    
-    func atLeast8Characters(value: String?) -> String? {
-        guard let unwrappedValue = value else { return nil }
-        
-        if unwrappedValue.count >= 8 {
-            return "[X] No mínimo 8 digitos"
-        }
-        return "[ ] No mínimo 8 digitos"
-    }
-    
-    func atLeast1UpperCaseLetter(value: String?) -> String? {
-        guard let unwrappedValue = value else { return nil }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
-        if passwordRegex.evaluate(with: unwrappedValue) {
-            return "[X] Pelo menos uma letra maiúscula. Ex: A - Z"
-        }
-        return "[ ] Pelo menos uma letra maiúscula. Ex: A - Z"
-    }
-    
-    func atLeast1LowerCaseLetter(value: String?) -> String? {
-        guard let unwrappedValue = value else { return nil }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
-        if passwordRegex.evaluate(with: unwrappedValue) {
-            return "[X] Pelo menos uma letra minúscula. Ex: a - z"
-        }
-        return "[ ] Pelo menos uma letra minúscula. Ex: a - z"
-    }
-    
-    func atLeast1Number(value: String?) -> String? {
-        guard let unwrappedValue = value else { return nil }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
-        if passwordRegex.evaluate(with: unwrappedValue) {
-            return "[X] Pelo menos um número. Ex: 0 - 9"
-        }
-        return "[ ] Pelo menos um número. Ex: 0 - 9"
-    }
-    
-    func atLeast1SpecialCharacter(value: String?) -> String? {
-        guard let unwrappedValue = value else { return nil }
-        
-        let passwordRegex = NSPredicate(format: "SELF MATCHES %@", ".*[!&^%$#@()/]+.*")
-        if passwordRegex.evaluate(with: unwrappedValue) {
-            return "[X] Pelo menos um caractere especial. " +
-            "Ex: ! & ^ % $ # @ ( ) / \n"
-        }
-        return "[ ] Pelo menos um caractere especial. " +
-        "Ex: ! & ^ % $ # @ ( ) / \n"
-    }
-    
-    func uniqueDocumentNumber(documentNumber: String?) -> Bool? {
-        guard let documentNumberUnwrapped = documentNumber else { return nil}
-        
-        for user in Database.shared.users.indices {
-            if Database.shared.users[user].documentNumber == documentNumberUnwrapped {
-                return false
-            }
         }
         return true
     }

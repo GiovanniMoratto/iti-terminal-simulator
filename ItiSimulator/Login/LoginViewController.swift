@@ -41,7 +41,7 @@ class LoginViewController {
         
         guard let documentNumber = scene.getInput(),
               valid.notEmpty(field: fieldUnwrapped, value: documentNumber) ?? false,
-              valid.cpf(field: fieldUnwrapped, value: documentNumber) ?? false
+              valid.isValidCpf(field: fieldUnwrapped, value: documentNumber) ?? false
         else { return LoginViewController().checkDocumentNumber(field: fieldUnwrapped)}
         
         return documentNumber
