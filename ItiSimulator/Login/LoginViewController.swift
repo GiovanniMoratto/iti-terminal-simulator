@@ -53,7 +53,7 @@ class LoginViewController {
         scene.showPasswordForm()
         
         guard let password = scene.getInput(),
-              valid.notEmpty(field: fieldUnwrapped, value: password) ?? false,
+              password.notEmpty(field: fieldUnwrapped, value: password),
               valid.isValidPassword(field: fieldUnwrapped, value: password) ?? false
         else { return LoginViewController().checkPassword(field: fieldUnwrapped)}
         

@@ -87,9 +87,7 @@ class CreateUserViewController {
     
     func getPassword(field: String?) -> String? {
         scene.showPasswordForm()
-        guard let password = scene.getInput(),
-              valid.notEmpty(field: field, value: password) ?? false,
-              valid.isValidPassword(field: field, value: password) ?? false
+        guard let password = scene.getInput(), password.isValidPassword
         else { return CreateUserViewController().getPassword(field: field)}
         return password
     }

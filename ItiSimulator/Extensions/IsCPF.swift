@@ -1,25 +1,21 @@
 //
-//  StringExtension.swift
+//  IsCpf.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 01/10/21.
+//  Created by Giovanni Vicentin Moratto on 06/10/21.
 //
 
 import Foundation
 
 extension String {
     
-    var isNumeric: Bool {
-        guard self.count > 0 else { return false }
-        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        return Set(self).isSubset(of: nums)
-    }
-    
-    var isCPF: Bool {
+    func isCPF(fieldName: String?) -> Bool {
+        guard let fieldUnwrapped = fieldName else { return false }
+        
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 11 else { return false }
         
-        let set = NSCountedSet(array: Array(numbers))
+        let set = NSCountedSet(array: [numbers])
         guard set.count != 1 else { return false }
         
         let i1 = numbers.index(numbers.startIndex, offsetBy: 9)
@@ -46,7 +42,13 @@ extension String {
         temp2 %= 11
         temp2 = temp2 < 2 ? 0 : 11-temp2
         
-        return temp1 == d1 && temp2 == d2
+        let validCpf = temp1 == d1 && temp2 == d2
+        
+        if !validCpf {
+            print("\nO campo \(fieldUnwrapped) deve conter um número de CPF válido.\n")
+            return false
+        }
+        return true
     }
     
 }
