@@ -28,9 +28,8 @@ class DeleteAccountViewController {
                 loop = false
             case 1:
                 loop = false
-                guard let user = controller.form().getUser(token: tokenUnwrapped) else { return }
-                
-                guard let database = db.delete(user: user) else { return }
+
+                guard let database = db.delete(token: tokenUnwrapped) else { return }
                
                 if !database {
                     print("Desculpe, estamos com problemas")

@@ -36,12 +36,14 @@ class Database {
         return false
     }
     
-    func delete(user: User?) -> Bool? {
-        guard let userUnwrapped = user else { return nil}
+    func delete(token: String?) -> Bool? {
+        guard let tokenUnwrapped = token else { return nil}
         
-        for user in db.users.indices {
-            if db.users[user].documentNumber == userUnwrapped.documentNumber {
-                db.users.remove(at: user)
+        guard let user = db.find(token: tokenUnwrapped) else { return nil }
+        
+        for index in db.users.indices {
+            if db.users[index].documentNumber == user.documentNumber {
+                db.users.remove(at: index)
                 return true
             }
         }
@@ -50,7 +52,7 @@ class Database {
     
     func find(documentNumber: String?) -> User? {
         guard let documentNumberUnwrapped = documentNumber else { return nil}
-        
+
         for user in db.users.indices {
             if db.users[user].documentNumber == documentNumberUnwrapped {
                 return db.users[user]
@@ -114,7 +116,7 @@ class Database {
                 return db.credentials[access].user
             }
         }
-        print("Token não encontrado")
+        print("Usuário não encontrado")
         return nil
     }
     
