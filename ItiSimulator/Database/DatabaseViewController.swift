@@ -12,7 +12,7 @@ class DatabaseViewController {
     // MARK: - Methods
     
     func process() {
-        router().view.database().showTitle()
+        routeTo().view.database().showTitle()
         
         for user in db.users.indices {
             print(db.users[user].self)

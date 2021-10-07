@@ -17,10 +17,10 @@ class ProfileViewController {
         var loop = true
         
         while loop {
-            router().view.profile().showTitle()
-            router().view.profile().showMenu()
+            routeTo().view.profile().showTitle()
+            routeTo().view.profile().showMenu()
             
-            guard let input = router().view.label().getInput() else { return }
+            guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -28,13 +28,13 @@ class ProfileViewController {
                 loop = false
             case 1:
                 // Exibir informações
-                router().controller.displayProfile(token: tokenUnwrapped)
+                routeTo().controller.displayProfile(token: tokenUnwrapped)
             case 2:
                 // Editar informações
-                router().controller.editProfile(token: tokenUnwrapped)
+                routeTo().controller.editProfile(token: tokenUnwrapped)
             case 3:
                 // Excluir conta
-                router().controller.deleteProfile(token: tokenUnwrapped)
+                routeTo().controller.deleteProfile(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

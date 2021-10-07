@@ -59,4 +59,34 @@ class Labels {
         print("                       Saldo: R$ \(balanceUnwrapped)")
     }
     
+    func showHolderAccountRequestLabel() {
+        print("Digite o número da conta de origem: ")
+    }
+    
+    func showHolderAccountLabel() {
+        print("Conta de origem: \n")
+    }
+    
+    func showHolderAccountBranchLabel(branch: Int?) {
+        guard let branchUnwrapped = branch else { return }
+        print("     Agência: \(branchUnwrapped)")
+    }
+    
+    func showHolderAccountNumberLabel(accountNumber: Int?) {
+        guard let accountNumberUnwrapped = accountNumber else { return }
+        print("     Número da conta: \(accountNumberUnwrapped)")
+    }
+    
+    func showPayeeAccountLabel() {
+        print("Conta de destino: \n")
+    }
+    
+    func showPayeeAccountBranchRequestLabel() {
+        print("Digite o número da conta de destino: ")
+    }
+    
+    func showPayeeAccountNumberRequestLabel() {
+        print("Digite o número da agência de destino: ")
+    }
+    
 }

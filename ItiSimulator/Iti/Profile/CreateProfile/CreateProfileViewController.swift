@@ -12,12 +12,12 @@ class CreateProfileViewController {
     // MARK: - Methods
     
     func process() {
-        router().view.createProfile().showTitle()
+        routeTo().view.createProfile().showTitle()
         
-        guard let firstName = router().controller.form().getFirstName() else { return }
-        guard let lastName = router().controller.form().getLastName() else { return }
-        guard let documentNumber = router().controller.form().getDocumentNumber() else { return }
-        guard let password = router().controller.form().getPassword() else { return }
+        guard let firstName = routeTo().controller.form().getFirstName() else { return }
+        guard let lastName = routeTo().controller.form().getLastName() else { return }
+        guard let documentNumber = routeTo().controller.form().getDocumentNumber() else { return }
+        guard let password = routeTo().controller.form().getPassword() else { return }
         
         let newUser = User(
             firstName: firstName,
@@ -32,11 +32,11 @@ class CreateProfileViewController {
             print("Desculpe, estamos com problemas")
         }
         
-        guard let user = router().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
+        guard let user = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
         
-        guard let token = router().controller.form().getCredential(user: user) else { return }
+        guard let token = routeTo().controller.form().getCredential(user: user) else { return }
         
-        router().controller.home(token: token)
+        routeTo().controller.home(token: token)
     }
     
 }

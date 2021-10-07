@@ -56,4 +56,19 @@ class ControllerRoutes {
         DeleteProfileViewController().process(token: tokenUnwrapped)
     }
     
+    func paymentAndTransfer(token: String?) {
+        guard let tokenUnwrapped = token else { return }
+        PaymentAndTransferViewController().process(token: tokenUnwrapped)
+    }
+    
+    func payment(token: String?) {
+        guard let tokenUnwrapped = token else { return }
+        PaymentViewController().process(token: tokenUnwrapped)
+    }
+    
+//    func transfer(token: String?) {
+//        guard let tokenUnwrapped = token else { return }
+//        TransferViewController().process(token: tokenUnwrapped)
+//    }
+    
 }

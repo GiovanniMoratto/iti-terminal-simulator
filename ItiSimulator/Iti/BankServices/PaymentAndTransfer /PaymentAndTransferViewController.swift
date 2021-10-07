@@ -17,17 +17,18 @@ class PaymentAndTransferViewController {
         var loop = true
         
         while loop {
-            router().view.paymentAndTransfer().showTitle()
-            router().view.paymentAndTransfer().showMenu()
+            routeTo().view.paymentAndTransfer().showTitle()
+            routeTo().view.paymentAndTransfer().showMenu()
             
-            guard let input = router().view.label().getInput() else { return }
+            guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
             case 0:
                 loop = false
-            case 1: break
+            case 1:
                 // Pagar
+                routeTo().controller.payment(token: tokenUnwrapped)
             case 2: break
                 // Transferir
             default:

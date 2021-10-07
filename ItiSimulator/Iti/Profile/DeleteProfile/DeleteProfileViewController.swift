@@ -14,14 +14,14 @@ class DeleteProfileViewController {
     func process(token: String?) {
         guard let tokenUnwrapped = token else { return }
         
-        router().view.deleteProfile().showTitle()
-        router().view.deleteProfile().showMessage()
+        routeTo().view.deleteProfile().showTitle()
+        routeTo().view.deleteProfile().showMessage()
         
         var loop = true
         
         while loop {
             
-            guard let input = router().view.label().getInput() else { return }
+            guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -36,9 +36,9 @@ class DeleteProfileViewController {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                router().view.deleteProfile().showSuccessfullyDeleted()
+                routeTo().view.deleteProfile().showSuccessfullyDeleted()
                 
-                router().controller.welcome()
+                routeTo().controller.welcome()
             default:
                 print("Por favor, escolha uma operação")
             }

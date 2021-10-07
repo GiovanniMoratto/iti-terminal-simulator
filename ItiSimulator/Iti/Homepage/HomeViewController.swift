@@ -17,16 +17,16 @@ class HomeViewController {
         var loop = true
         
         while loop {
-            router().view.home().showTitle()
-            router().view.home().showMenu()
+            routeTo().view.home().showTitle()
+            routeTo().view.home().showMenu()
             
-            guard let firstName = router().controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
-            guard let lastName = router().controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
-            guard let balance = router().controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
+            guard let firstName = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
+            guard let lastName = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
+            guard let balance = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
             
-            router().view.label().showOverviewLabel(firstName: firstName, lastName: lastName, balance: balance)
+            routeTo().view.label().showOverviewLabel(firstName: firstName, lastName: lastName, balance: balance)
             
-            guard let input = router().view.label().getInput() else { return }
+            guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -36,14 +36,15 @@ class HomeViewController {
                 //                PIX
             case 2: break
                 //                Cartão de Crédito iti
-            case 3: break
+            case 3:
                 //                Pagar e Transferir
+                routeTo().controller.paymentAndTransfer(token: tokenUnwrapped)
             case 4: break
                 //                Colocar Dinheiro
             case 5: break
                 //                Gerenciar Cartões
             case 6:
-                router().controller.profile(token: tokenUnwrapped)
+                routeTo().controller.profile(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

@@ -14,32 +14,32 @@ class DisplayProfileViewController {
     func process(token: String?) {
         guard let tokenUnwrapped = token else { return }
         
-        router().view.displayProfile().showTitle()
+        routeTo().view.displayProfile().showTitle()
         
-        guard let firstName = router().controller.form().getProfileInfo(token: tokenUnwrapped).firstName else { return }
-        guard let lastName = router().controller.form().getProfileInfo(token: tokenUnwrapped).lastName else { return }
+        guard let firstName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).firstName else { return }
+        guard let lastName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).lastName else { return }
         
-        router().view.displayProfile().showUsernameField(firstName: firstName, lastName: lastName)
+        routeTo().view.displayProfile().showUsernameField(firstName: firstName, lastName: lastName)
         
-        guard let documentNumber = router().controller.form().getProfileInfo(token: tokenUnwrapped).documentNumber else { return }
-        router().view.displayProfile().showDocumentNumberField(documentNumber: documentNumber)
+        guard let documentNumber = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).documentNumber else { return }
+        routeTo().view.displayProfile().showDocumentNumberField(documentNumber: documentNumber)
         
-        guard let address = router().controller.form().getProfileInfo(token: tokenUnwrapped).address else { return }
-        router().view.displayProfile().showAddressField(address: address)
+        guard let address = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).address else { return }
+        routeTo().view.displayProfile().showAddressField(address: address)
         
-        guard let city = router().controller.form().getProfileInfo(token: tokenUnwrapped).city else { return }
-        router().view.displayProfile().showCityField(city: city)
+        guard let city = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).city else { return }
+        routeTo().view.displayProfile().showCityField(city: city)
         
-        guard let state = router().controller.form().getProfileInfo(token: tokenUnwrapped).state else { return }
-        router().view.displayProfile().showStateField(state: state)
+        guard let state = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).state else { return }
+        routeTo().view.displayProfile().showStateField(state: state)
         
-        router().view.displayProfile().showExit()
+        routeTo().view.displayProfile().showExit()
         
         var loop = true
         
         while loop {
             
-            guard let input = router().view.label().getInput() else { return }
+            guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {

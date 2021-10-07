@@ -15,7 +15,15 @@ class PaymentView {
         print("\n _____________________________________________ ")
         print("|                                             |")
         print("|   Pagar                                     |")
-        print("|_____________________________________________|")
+        print("|_____________________________________________|\n")
+    }
+    
+    func showBillLabel() {
+        print("Digite o valor a ser pago: \n")
+    }
+    
+    func showExit() {
+        print("(0) - Voltar")
     }
     
 }

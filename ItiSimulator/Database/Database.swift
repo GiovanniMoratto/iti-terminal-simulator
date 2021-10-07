@@ -89,6 +89,11 @@ class Database {
                 else if attributeUnwrapped == "state" {
                     userFound.state = valueUnwrapped
                 }
+                else if attributeUnwrapped == "balance" {
+                    guard let valueDouble = Double(valueUnwrapped) else { return nil }
+                    
+                    userFound.bankAccount.balance = valueDouble
+                }
                 return true
             }
         }

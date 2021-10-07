@@ -12,23 +12,23 @@ class LoginViewController {
     // MARK: - Methods
     
     func process() {
-        router().view.login().showTitle()
+        routeTo().view.login().showTitle()
         
-        guard let documentNumber = router().controller.form().checkDocumentNumber() else { return }
-        guard let password = router().controller.form().checkPassword() else { return }
+        guard let documentNumber = routeTo().controller.form().checkDocumentNumber() else { return }
+        guard let password = routeTo().controller.form().checkPassword() else { return }
         
-        guard let login = router().controller.form().isValidLogin(documentNumber: documentNumber, password: password).condition else { return }
+        guard let login = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).condition else { return }
         
-        router().view.login().showMessage()
+        routeTo().view.login().showMessage()
         
         if login {
-            guard let user = router().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
+            guard let user = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
             
-            guard let token = router().controller.form().getCredential(user: user) else { return }
+            guard let token = routeTo().controller.form().getCredential(user: user) else { return }
             
-            router().controller.home(token: token)
+            routeTo().controller.home(token: token)
         }
-        router().controller.welcome()
+        routeTo().controller.welcome()
     }
     
 }

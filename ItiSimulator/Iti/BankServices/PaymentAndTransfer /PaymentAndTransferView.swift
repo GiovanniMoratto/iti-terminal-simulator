@@ -15,7 +15,7 @@ class PaymentAndTransferView {
         print("\n _____________________________________________ ")
         print("|                                             |")
         print("|  Pagar e Transferir                         |")
-        print("|_____________________________________________|\n")
+        print("|_____________________________________________|")
     }
     
     func showMenu() {

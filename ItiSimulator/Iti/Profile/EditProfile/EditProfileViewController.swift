@@ -17,10 +17,10 @@ class EditProfileViewController {
         var loop = true
         
         while loop {
-            router().view.editProfile().showTitle()
-            router().view.editProfile().showMenu()
+            routeTo().view.editProfile().showTitle()
+            routeTo().view.editProfile().showMenu()
             
-            guard let inputString = router().view.label().getInput() else { return }
+            guard let inputString = routeTo().view.label().getInput() else { return }
             let input = Int(inputString)
             
             switch input {
@@ -30,15 +30,15 @@ class EditProfileViewController {
                 // Nome
                 
                 // Recebe valores atuais
-                guard let firstName = router().controller.form().getProfileInfo(token: tokenUnwrapped).firstName else { return }
-                guard let lastName = router().controller.form().getProfileInfo(token: tokenUnwrapped).lastName else { return }
+                guard let firstName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).firstName else { return }
+                guard let lastName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).lastName else { return }
                 
                 // Imprimi
-                router().view.editProfile().showUsernameField(firstName: firstName, lastName: lastName)
+                routeTo().view.editProfile().showUsernameField(firstName: firstName, lastName: lastName)
                 
                 // Pega novos valores
-                guard let newFirstName = router().controller.form().getFirstName() else { return }
-                guard let newLastName = router().controller.form().getLastName() else { return }
+                guard let newFirstName = routeTo().controller.form().getFirstName() else { return }
+                guard let newLastName = routeTo().controller.form().getLastName() else { return }
                 
                 // Salva no banco
                 guard let firstNameUpdated = db.update(token: tokenUnwrapped, attribute: "firstName", value: newFirstName) else { return }
@@ -49,17 +49,17 @@ class EditProfileViewController {
                 }
                 
                 // Imprimi
-                router().view.editProfile().showSuccessfullyUpdate(field: "'Nome'")
+                routeTo().view.editProfile().showSuccessfullyUpdate(field: "'Nome'")
                 
                 loop = false
             case 2:
                 // Endereço
 
-                guard let address = router().controller.form().getProfileInfo(token: tokenUnwrapped).address else { return }
+                guard let address = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).address else { return }
                 
-                router().view.editProfile().showAddressField(address: address)
+                routeTo().view.editProfile().showAddressField(address: address)
                 
-                guard let newAddress = router().controller.form().getAddress() else { return }
+                guard let newAddress = routeTo().controller.form().getAddress() else { return }
                 
                 guard let addressUpdated = db.update(token: tokenUnwrapped, attribute: "address", value: newAddress) else { return }
                 
@@ -67,17 +67,17 @@ class EditProfileViewController {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                router().view.editProfile().showSuccessfullyUpdate(field: "Endereço")
+                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Endereço")
                 
                 loop = false
             case 3:
                 // Cidade
                 
-                guard let city = router().controller.form().getProfileInfo(token: tokenUnwrapped).city else { return }
+                guard let city = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).city else { return }
                 
-                router().view.editProfile().showCityField(city: city)
+                routeTo().view.editProfile().showCityField(city: city)
                 
-                guard let newCity = router().controller.form().getCity() else { return }
+                guard let newCity = routeTo().controller.form().getCity() else { return }
                 
                 guard let cityUpdated = db.update(token: tokenUnwrapped, attribute: "city", value: newCity) else { return }
                 
@@ -85,17 +85,17 @@ class EditProfileViewController {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                router().view.editProfile().showSuccessfullyUpdate(field: "Cidade")
+                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Cidade")
                 
                 loop = false
             case 4:
                 // Estado
                 
-                guard let state = router().controller.form().getProfileInfo(token: tokenUnwrapped).state else { return }
+                guard let state = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).state else { return }
                 
-                router().view.editProfile().showStateField(state: state)
+                routeTo().view.editProfile().showStateField(state: state)
                 
-                guard let newState = router().controller.form().getState() else { return }
+                guard let newState = routeTo().controller.form().getState() else { return }
                 
                 guard let stateUpdated = db.update(token: tokenUnwrapped, attribute: "state", value: newState) else { return }
                 
@@ -103,7 +103,7 @@ class EditProfileViewController {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                router().view.editProfile().showSuccessfullyUpdate(field: "Estado")
+                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Estado")
                 
                 loop = false
             default:
