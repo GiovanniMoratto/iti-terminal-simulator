@@ -1,5 +1,5 @@
 //
-//  MiniItiViewController.swift
+//  HomeViewController.swift
 //  ItiSimulator
 //
 //  Created by Giovanni Vicentin Moratto on 04/10/21.
@@ -7,23 +7,24 @@
 
 import Foundation
 
-class MiniItiMainViewController {
+class HomeViewController {
     
     // MARK: - Methods
     
-    func process(user: UserModel?) {
-        guard let userUnwrapped = user else { return }
+    func process(token: String?) {
+        guard let tokenUnwrapped = token else { return }
         
         var loop = true
         
         while loop {
-            view.miniIti().showTitle()
-            view.miniIti().showMenu()
+            view.home().showTitle()
+            view.home().showMenu()
             
-            view.label().showPersonalInfoLabel(
-                firstName: userUnwrapped.firstName,
-                lastName: userUnwrapped.lastName,
-                balance: userUnwrapped.balance)
+            guard let firstName = controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
+            guard let lastName = controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
+            guard let balance = controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
+            
+            view.label().showPersonalInfoLabel(firstName: firstName, lastName: lastName, balance: balance)
             
             guard let input = view.label().getInput() else { return }
             let option = Int(input)
@@ -42,8 +43,7 @@ class MiniItiMainViewController {
             case 5: break
                 //                Gerenciar Cartões
             case 6:
-                // Gerenciar Perfil
-                controller.manageProfile(user: userUnwrapped)
+                controller.manageProfile(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

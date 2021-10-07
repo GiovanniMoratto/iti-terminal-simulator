@@ -49,13 +49,13 @@ class Labels {
         print("Digite o seu estado: ")
     }
     
-    func showPhoneNumberRequestLabel() {
-        print("Digite o seu telefone: ")
-    }
-    
-    func showEmailRequestLabel() {
-        print("Digite o seu e-mail: ")
-    }
+//    func showPhoneNumberRequestLabel() {
+//        print("Digite o seu telefone: ")
+//    }
+//
+//    func showEmailRequestLabel() {
+//        print("Digite o seu e-mail: ")
+//    }
     
     func showPersonalInfoLabel(firstName: String?, lastName: String?, balance: Double?) {
         guard let firstNameUnwrapped = firstName else { return }
@@ -64,7 +64,7 @@ class Labels {
         
         let username = "\(firstNameUnwrapped) \(lastNameUnwrapped)"
         print("                       \(username)")
-        print("                       Saldo: \(balanceUnwrapped)")
+        print("                       Saldo: R$ \(balanceUnwrapped)")
     }
     
 }

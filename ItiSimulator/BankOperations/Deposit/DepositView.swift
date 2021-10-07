@@ -1,21 +1,21 @@
 //
-//  CreateUserView.swift
+//  DepositView.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 01/10/21.
+//  Created by Giovanni Vicentin Moratto on 07/10/21.
 //
 
 import Foundation
 
-class CreateUserView {
+class DepositView {
     
     // MARK: - Methods
     
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|  Novo Usuário                               |")
-        print("|_____________________________________________|\n")
+        print("|   Depósito                                  |")
+        print("|_____________________________________________|")
     }
     
 }

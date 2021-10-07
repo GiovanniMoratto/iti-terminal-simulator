@@ -34,7 +34,7 @@ class Forms {
         return password
     }
     
-    func isValidLogin(documentNumber: String?, password: String?) -> (condition: Bool?, user: UserModel?) {
+    func isValidLogin(documentNumber: String?, password: String?) -> (condition: Bool?, user: User?) {
         guard let documentUnwrapped = documentNumber else { return (nil, nil)}
         guard let passwordUnwrapped = password else { return (nil, nil)}
         
@@ -42,9 +42,43 @@ class Forms {
         
         if user.password != passwordUnwrapped {
             print("Senha Inválida!")
-            return (false, UserModel())
+            return (false, User())
         }
         return (true, user)
+    }
+    
+    func getCredential(user: User?) -> String? {
+        guard let userUnwrapped = user else { return nil }
+        
+        let credential = Access(token: String().tokenGenerator, user: userUnwrapped)
+        
+        guard let access = db.save(credential: credential) else { return nil }
+        
+        if !access {
+            return nil
+        }
+        return credential.token
+    }
+    
+    func getUser(token: String?) -> User? {
+        guard let tokenUnwrapped = token else { return nil }
+        guard let user = db.find(token: tokenUnwrapped) else { return nil }
+        
+        return user
+    }
+    
+    func getPersonalInfo(token: String?) -> (firstName: String?, lastName: String?, balance: Double?) {
+        guard let tokenUnwrapped = token else { return (nil, nil, nil) }
+        guard let user = getUser(token: tokenUnwrapped) else { return (nil, nil, nil) }
+        
+        return (user.firstName, user.lastName, user.bankAccount.balance)
+    }
+    
+    func getProfileInfo(token: String?) -> (firstName: String?, lastName: String?, documentNumber: String?, address: String?, city: String?, state: String?) {
+        guard let tokenUnwrapped = token else { return (nil, nil, nil, nil, nil, nil) }
+        guard let user = getUser(token: tokenUnwrapped) else { return (nil, nil, nil, nil, nil, nil) }
+        
+        return (user.firstName, user.lastName, user.documentNumber, user.address, user.city, user.state)
     }
     
     // Create user
@@ -78,23 +112,23 @@ class Forms {
         guard let documentNumber = view.label().getInput(),
               documentNumber.notEmpty(fieldName: "'CPF'") ?? false,
               documentNumber.isValidCpf() ?? false,
-              documentNumber.unique(attribute: "documentNumber") ?? false
+              documentNumber.uniqueCpf ?? false
         else { return controller.form().getDocumentNumber()}
         
         return documentNumber
     }
     
-    func getBankAccount() -> String? {
-        view.label().showBankAccountRequestLabel()
-        
-        guard let bankAccount = view.label().getInput(),
-              bankAccount.notEmpty(fieldName: "'conta bancária'") ?? false,
-              bankAccount.isNumeric(fieldName: "'conta bancária'") ?? false,
-              bankAccount.minLength(fieldName: "'conta bancária'", length: 4) ?? false
-        else { return controller.form().getBankAccount()}
-        
-        return bankAccount
-    }
+//    func getBankAccount() -> String? {
+//        view.label().showBankAccountRequestLabel()
+//
+//        guard let bankAccount = view.label().getInput(),
+//              bankAccount.notEmpty(fieldName: "'conta bancária'") ?? false,
+//              bankAccount.isNumeric(fieldName: "'conta bancária'") ?? false,
+//              bankAccount.minLength(fieldName: "'conta bancária'", length: 4) ?? false
+//        else { return controller.form().getBankAccount()}
+//
+//        return bankAccount
+//    }
     
     func getPassword() -> String? {
         view.label().showPasswordRequestLabel()
@@ -144,28 +178,28 @@ class Forms {
         return state
     }
     
-    func getPhoneNumber() -> String? {
-        view.label().showPhoneNumberRequestLabel()
-        
-        guard let phoneNumber = view.label().getInput(),
-              phoneNumber.notEmpty(fieldName: "'telefone'") ?? false,
-              phoneNumber.minLength(fieldName: "'telefone'", length: 3) ?? false,
-              phoneNumber.maxLength(fieldName: "'telefone'", length: 12) ?? false
-        else { return controller.form().getPhoneNumber()}
-        
-        return phoneNumber
-    }
-    
-    func getEmail() -> String? {
-        view.label().showEmailRequestLabel()
-        
-        guard let email = view.label().getInput(),
-              email.notEmpty(fieldName: "'e-mail'") ?? false,
-              email.minLength(fieldName: "'e-mail'", length: 3) ?? false,
-              email.maxLength(fieldName: "'e-mail'", length: 12) ?? false
-        else { return controller.form().getEmail()}
-        
-        return email
-    }
+//    func getPhoneNumber() -> String? {
+//        view.label().showPhoneNumberRequestLabel()
+//
+//        guard let phoneNumber = view.label().getInput(),
+//              phoneNumber.notEmpty(fieldName: "'telefone'") ?? false,
+//              phoneNumber.minLength(fieldName: "'telefone'", length: 3) ?? false,
+//              phoneNumber.maxLength(fieldName: "'telefone'", length: 12) ?? false
+//        else { return controller.form().getPhoneNumber()}
+//
+//        return phoneNumber
+//    }
+//
+//    func getEmail() -> String? {
+//        view.label().showEmailRequestLabel()
+//
+//        guard let email = view.label().getInput(),
+//              email.notEmpty(fieldName: "'e-mail'") ?? false,
+//              email.minLength(fieldName: "'e-mail'", length: 3) ?? false,
+//              email.maxLength(fieldName: "'e-mail'", length: 12) ?? false
+//        else { return controller.form().getEmail()}
+//
+//        return email
+//    }
     
 }

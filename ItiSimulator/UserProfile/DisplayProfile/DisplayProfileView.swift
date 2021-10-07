@@ -49,17 +49,17 @@ class DisplayProfileView {
         print("Estado: \(stateUnwrapped)\n")
     }
     
-    func showPhoneNumberField(phoneNumber: String?) {
-        guard let phoneNumberUnwrapped = phoneNumber else { return }
-        
-        print("Telefone: \(phoneNumberUnwrapped)\n")
-    }
-    
-    func showEmailField(email: String?) {
-        guard let emailUnwrapped = email else { return }
-        
-        print("E-mail: \(emailUnwrapped)\n")
-    }
+//    func showPhoneNumberField(phoneNumber: String?) {
+//        guard let phoneNumberUnwrapped = phoneNumber else { return }
+//
+//        print("Telefone: \(phoneNumberUnwrapped)\n")
+//    }
+//
+//    func showEmailField(email: String?) {
+//        guard let emailUnwrapped = email else { return }
+//
+//        print("E-mail: \(emailUnwrapped)\n")
+//    }
     
     func showExit() {
         print("0 - Voltar")

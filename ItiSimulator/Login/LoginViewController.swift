@@ -23,7 +23,10 @@ class LoginViewController {
         
         if login {
             guard let user = controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
-            controller.miniIti(user: user)
+            
+            guard let token = controller.form().getCredential(user: user) else { return }
+            
+            controller.home(token: token)
         }
         controller.welcome()
     }

@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* UserModel.swift */; };
+		B1037FAC2705594D004B3E3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* User.swift */; };
 		B1037FB027055F62004B3E3D /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAF27055F62004B3E3D /* Database.swift */; };
+		B1190458270F2F9F005DD675 /* Pix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1190457270F2F9F005DD675 /* Pix.swift */; };
+		B119045A270F303C005DD675 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1190459270F303C005DD675 /* BankAccount.swift */; };
+		B119045C270F3256005DD675 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119045B270F3256005DD675 /* CreditCard.swift */; };
 		B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */; };
 		B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DF2707E6720095B816 /* WelcomeView.swift */; };
-		B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateUserView.swift */; };
+		B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateProfileView.swift */; };
 		B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F4270C8D8400A1555B /* ManageProfileView.swift */; };
 		B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */; };
 		B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F9270C914A00A1555B /* DisplayProfileView.swift */; };
@@ -25,22 +28,25 @@
 		B15A47D5270E191F00473231 /* IsValidCpf.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47D4270E191F00473231 /* IsValidCpf.swift */; };
 		B15A47D7270E1D6E00473231 /* UniqueValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47D6270E1D6E00473231 /* UniqueValue.swift */; };
 		B15A47D9270E222D00473231 /* IsValidPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47D8270E222D00473231 /* IsValidPassword.swift */; };
-		B15A47DD270E239200473231 /* InitialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47DC270E239200473231 /* InitialData.swift */; };
 		B15A47E2270E2DDE00473231 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E1270E2DDE00473231 /* Labels.swift */; };
 		B15A47E4270E2DEA00473231 /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E3270E2DEA00473231 /* Forms.swift */; };
 		B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E5270E6A2200473231 /* ControllerRoutes.swift */; };
 		B15A47E8270E733900473231 /* ViewsRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E7270E733900473231 /* ViewsRoutes.swift */; };
 		B15DB6B9270EA65200B13794 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6B8270EA65200B13794 /* Data.swift */; };
+		B15DB6BC270EAA7C00B13794 /* DepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6BB270EAA7C00B13794 /* DepositView.swift */; };
+		B15DB6BE270EAA9400B13794 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6BD270EAA9400B13794 /* DepositViewController.swift */; };
 		B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B4270CC9F20035F3CD /* EditProfileView.swift */; };
 		B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B6270CCB690035F3CD /* EditProfileViewController.swift */; };
-		B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateUserViewController.swift */; };
+		B1605523270F523200E09B15 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605522270F523200E09B15 /* TokenGenerator.swift */; };
+		B1605525270F533B00E09B15 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605524270F533B00E09B15 /* Access.swift */; };
+		B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateProfileViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 		B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A11A1A270D37CA00412B17 /* DatabaseView.swift */; };
 		B1A11A1D270D37E400412B17 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A11A1C270D37E400412B17 /* DatabaseViewController.swift */; };
 		B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCA270B41D40057302D /* LoginView.swift */; };
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
-		B1B8BCD0270B44B10057302D /* MiniItiMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */; };
-		B1B8BCD2270B45410057302D /* MiniItiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */; };
+		B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* HomeView.swift */; };
+		B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,11 +62,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B1037FAB2705594D004B3E3D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B1037FAB2705594D004B3E3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B1037FAF27055F62004B3E3D /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		B1190457270F2F9F005DD675 /* Pix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pix.swift; sourceTree = "<group>"; };
+		B1190459270F303C005DD675 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		B119045B270F3256005DD675 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B124E4DF2707E6720095B816 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		B124E4E22707F44D0095B816 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		B124E4E22707F44D0095B816 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		B13591F4270C8D8400A1555B /* ManageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileView.swift; sourceTree = "<group>"; };
 		B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileViewController.swift; sourceTree = "<group>"; };
 		B13591F9270C914A00A1555B /* DisplayProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileView.swift; sourceTree = "<group>"; };
@@ -74,23 +83,26 @@
 		B15A47D4270E191F00473231 /* IsValidCpf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsValidCpf.swift; sourceTree = "<group>"; };
 		B15A47D6270E1D6E00473231 /* UniqueValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueValue.swift; sourceTree = "<group>"; };
 		B15A47D8270E222D00473231 /* IsValidPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsValidPassword.swift; sourceTree = "<group>"; };
-		B15A47DC270E239200473231 /* InitialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialData.swift; sourceTree = "<group>"; };
 		B15A47E1270E2DDE00473231 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		B15A47E3270E2DEA00473231 /* Forms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms.swift; sourceTree = "<group>"; };
 		B15A47E5270E6A2200473231 /* ControllerRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerRoutes.swift; sourceTree = "<group>"; };
 		B15A47E7270E733900473231 /* ViewsRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsRoutes.swift; sourceTree = "<group>"; };
 		B15DB6B8270EA65200B13794 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		B15DB6BB270EAA7C00B13794 /* DepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositView.swift; sourceTree = "<group>"; };
+		B15DB6BD270EAA9400B13794 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		B16013B4270CC9F20035F3CD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B16013B6270CCB690035F3CD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		B17999E0270803330073E5ED /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		B1605522270F523200E09B15 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
+		B1605524270F533B00E09B15 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
+		B17999E0270803330073E5ED /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B1A11A1A270D37CA00412B17 /* DatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseView.swift; sourceTree = "<group>"; };
 		B1A11A1C270D37E400412B17 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCA270B41D40057302D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiMainView.swift; sourceTree = "<group>"; };
-		B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniItiMainViewController.swift; sourceTree = "<group>"; };
+		B1B8BCCF270B44B10057302D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B1B8BCD1270B45410057302D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +126,39 @@
 				B15A47D4270E191F00473231 /* IsValidCpf.swift */,
 				B15A47D6270E1D6E00473231 /* UniqueValue.swift */,
 				B15A47D8270E222D00473231 /* IsValidPassword.swift */,
+				B1605522270F523200E09B15 /* TokenGenerator.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B119045D270F47B5005DD675 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				B124E4E12707F3E20095B816 /* CreateProfile */,
+				B16013B3270CC9BE0035F3CD /* EditProfile */,
+				B13591FD270C9D4F00A1555B /* DeleteProfile */,
+				B13591F8270C911400A1555B /* DisplayProfile */,
+				B13591F3270C8D7000A1555B /* ManageProfile */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		B119045E270F47D4005DD675 /* BankOperations */ = {
+			isa = PBXGroup;
+			children = (
+				B15DB6BA270EAA5900B13794 /* Deposit */,
+			);
+			path = BankOperations;
+			sourceTree = "<group>";
+		};
+		B119045F270F481D005DD675 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B11645B927078097004240B5 /* Extensions */,
+				B15A47E9270E991B00473231 /* Generics */,
+				B15A47E0270E2DCA00473231 /* Routes */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		B124E4DC2707E5450095B816 /* Welcome */ = {
@@ -127,13 +170,13 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		B124E4E12707F3E20095B816 /* CreateUser */ = {
+		B124E4E12707F3E20095B816 /* CreateProfile */ = {
 			isa = PBXGroup;
 			children = (
-				B124E4E22707F44D0095B816 /* CreateUserView.swift */,
-				B17999E0270803330073E5ED /* CreateUserViewController.swift */,
+				B124E4E22707F44D0095B816 /* CreateProfileView.swift */,
+				B17999E0270803330073E5ED /* CreateProfileViewController.swift */,
 			);
-			path = CreateUser;
+			path = CreateProfile;
 			sourceTree = "<group>";
 		};
 		B13591F3270C8D7000A1555B /* ManageProfile */ = {
@@ -154,21 +197,13 @@
 			path = DisplayProfile;
 			sourceTree = "<group>";
 		};
-		B13591FD270C9D4F00A1555B /* DeleteAccount */ = {
+		B13591FD270C9D4F00A1555B /* DeleteProfile */ = {
 			isa = PBXGroup;
 			children = (
 				B13591FE270C9D6300A1555B /* DeleteAccountView.swift */,
 				B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */,
 			);
-			path = DeleteAccount;
-			sourceTree = "<group>";
-		};
-		B15A47DB270E237700473231 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				B15A47DC270E239200473231 /* InitialData.swift */,
-			);
-			path = Data;
+			path = DeleteProfile;
 			sourceTree = "<group>";
 		};
 		B15A47E0270E2DCA00473231 /* Routes */ = {
@@ -187,6 +222,15 @@
 				B15A47E3270E2DEA00473231 /* Forms.swift */,
 			);
 			path = Generics;
+			sourceTree = "<group>";
+		};
+		B15DB6BA270EAA5900B13794 /* Deposit */ = {
+			isa = PBXGroup;
+			children = (
+				B15DB6BB270EAA7C00B13794 /* DepositView.swift */,
+				B15DB6BD270EAA9400B13794 /* DepositViewController.swift */,
+			);
+			path = Deposit;
 			sourceTree = "<group>";
 		};
 		B16013B3270CC9BE0035F3CD /* EditProfile */ = {
@@ -217,18 +261,12 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				B15A47E9270E991B00473231 /* Generics */,
-				B15A47E0270E2DCA00473231 /* Routes */,
-				B15A47DB270E237700473231 /* Data */,
-				B16013B3270CC9BE0035F3CD /* EditProfile */,
-				B13591FD270C9D4F00A1555B /* DeleteAccount */,
-				B13591F8270C911400A1555B /* DisplayProfile */,
-				B13591F3270C8D7000A1555B /* ManageProfile */,
-				B1B8BCCE270B44880057302D /* MiniIti */,
+				B119045F270F481D005DD675 /* Core */,
+				B119045E270F47D4005DD675 /* BankOperations */,
+				B119045D270F47B5005DD675 /* UserProfile */,
+				B1B8BCCE270B44880057302D /* Home */,
 				B1B8BCC9270B41C00057302D /* Login */,
-				B124E4E12707F3E20095B816 /* CreateUser */,
 				B124E4DC2707E5450095B816 /* Welcome */,
-				B11645B927078097004240B5 /* Extensions */,
 				B1877003270549D400ECA2D5 /* Models */,
 				B1877004270549F300ECA2D5 /* Database */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
@@ -239,7 +277,11 @@
 		B1877003270549D400ECA2D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1037FAB2705594D004B3E3D /* UserModel.swift */,
+				B1037FAB2705594D004B3E3D /* User.swift */,
+				B1190457270F2F9F005DD675 /* Pix.swift */,
+				B1190459270F303C005DD675 /* BankAccount.swift */,
+				B119045B270F3256005DD675 /* CreditCard.swift */,
+				B1605524270F533B00E09B15 /* Access.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,13 +306,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		B1B8BCCE270B44880057302D /* MiniIti */ = {
+		B1B8BCCE270B44880057302D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B1B8BCCF270B44B10057302D /* MiniItiMainView.swift */,
-				B1B8BCD1270B45410057302D /* MiniItiMainViewController.swift */,
+				B1B8BCCF270B44B10057302D /* HomeView.swift */,
+				B1B8BCD1270B45410057302D /* HomeViewController.swift */,
 			);
-			path = MiniIti;
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,35 +374,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15A47D9270E222D00473231 /* IsValidPassword.swift in Sources */,
-				B15A47DD270E239200473231 /* InitialData.swift in Sources */,
 				B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */,
+				B1605525270F533B00E09B15 /* Access.swift in Sources */,
 				B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */,
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
 				B1A11A1D270D37E400412B17 /* DatabaseViewController.swift in Sources */,
 				B15A47CF270E14F500473231 /* MinLength.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
-				B17999E1270803330073E5ED /* CreateUserViewController.swift in Sources */,
+				B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
+				B1605523270F523200E09B15 /* TokenGenerator.swift in Sources */,
 				B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */,
 				B15A47D5270E191F00473231 /* IsValidCpf.swift in Sources */,
-				B124E4E32707F44D0095B816 /* CreateUserView.swift in Sources */,
+				B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */,
 				B15DB6B9270EA65200B13794 /* Data.swift in Sources */,
+				B15DB6BC270EAA7C00B13794 /* DepositView.swift in Sources */,
 				B15A47E4270E2DEA00473231 /* Forms.swift in Sources */,
 				B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */,
 				B15A47CD270E0D8B00473231 /* NotEmpty.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */,
-				B1B8BCD0270B44B10057302D /* MiniItiMainView.swift in Sources */,
+				B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */,
 				B15A47E8270E733900473231 /* ViewsRoutes.swift in Sources */,
 				B15A47E2270E2DDE00473231 /* Labels.swift in Sources */,
 				B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */,
-				B1037FAC2705594D004B3E3D /* UserModel.swift in Sources */,
+				B1037FAC2705594D004B3E3D /* User.swift in Sources */,
+				B119045C270F3256005DD675 /* CreditCard.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
+				B15DB6BE270EAA9400B13794 /* DepositViewController.swift in Sources */,
 				B15A47D3270E16E900473231 /* IsNumeric.swift in Sources */,
+				B1190458270F2F9F005DD675 /* Pix.swift in Sources */,
 				B15A47D1270E158000473231 /* MaxLength.swift in Sources */,
-				B1B8BCD2270B45410057302D /* MiniItiMainViewController.swift in Sources */,
+				B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */,
 				B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */,
 				B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */,
 				B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */,
+				B119045A270F303C005DD675 /* BankAccount.swift in Sources */,
 				B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
 				B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */,

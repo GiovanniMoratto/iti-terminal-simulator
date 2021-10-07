@@ -11,7 +11,8 @@ class Database {
     
     // MARK: - Attributes
     
-    var users: [UserModel] = []
+    var users: [User] = []
+    var credentials: [Access] = []
     
     static var shared: Database = {
         var instance = Database()
@@ -22,7 +23,7 @@ class Database {
     
     // MARK: - Methods
     
-    func save(user: UserModel?) -> Bool? {
+    func save(user: User?) -> Bool? {
         guard let userUnwrapped = user else { return nil}
         
         db.users.append(userUnwrapped)
@@ -35,7 +36,7 @@ class Database {
         return false
     }
     
-    func delete(user: UserModel?) -> Bool? {
+    func delete(user: User?) -> Bool? {
         guard let userUnwrapped = user else { return nil}
         
         for user in db.users.indices {
@@ -47,7 +48,7 @@ class Database {
         return false
     }
     
-    func find(documentNumber: String?) -> UserModel? {
+    func find(documentNumber: String?) -> User? {
         guard let documentNumberUnwrapped = documentNumber else { return nil}
         
         for user in db.users.indices {
@@ -59,15 +60,17 @@ class Database {
         return nil
     }
     
-    func update(user: UserModel?, attribute: String?, value: String?) -> Bool? {
-        guard let userUnwrapped = user else { return nil}
+    func update(token: String?, attribute: String?, value: String?) -> Bool? {
+        guard let tokenUnwrapped = token else { return nil}
         guard let attributeUnwrapped = attribute else { return nil}
         guard let valueUnwrapped = value else { return nil}
         
-        for user in db.users.indices {
-            if db.users[user].documentNumber == userUnwrapped.documentNumber{
+        guard let user = db.find(token: tokenUnwrapped) else { return nil }
+        
+        for index in db.users.indices {
+            if db.users[index].documentNumber == user.documentNumber{
                 
-                let userFound = db.users[user]
+                let userFound = db.users[index]
                 
                 if attributeUnwrapped == "firstName" {
                     userFound.firstName = valueUnwrapped
@@ -84,16 +87,35 @@ class Database {
                 else if attributeUnwrapped == "state" {
                     userFound.state = valueUnwrapped
                 }
-                else if attributeUnwrapped == "phoneNumber" {
-                    userFound.phoneNumber = valueUnwrapped
-                }
-                else if attributeUnwrapped == "email" {
-                    userFound.email = valueUnwrapped
-                }
                 return true
             }
         }
         return false
+    }
+    
+    func save(credential: Access?) -> Bool? {
+        guard let credentialUnwrapped = credential else { return nil}
+        
+        db.credentials.append(credentialUnwrapped)
+        
+        for access in db.credentials.indices {
+            if db.credentials[access].token == credentialUnwrapped.token {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func find(token: String?) -> User? {
+        guard let tokenUnwrapped = token else { return nil}
+        
+        for access in db.credentials.indices {
+            if db.credentials[access].token == tokenUnwrapped {
+                return db.credentials[access].user
+            }
+        }
+        print("Token não encontrado")
+        return nil
     }
     
 }

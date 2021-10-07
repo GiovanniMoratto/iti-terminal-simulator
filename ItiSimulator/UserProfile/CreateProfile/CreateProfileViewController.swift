@@ -1,5 +1,5 @@
 //
-//  CreateUserViewController.swift
+//  CreateProfileViewController.swift
 //  ItiSimulator
 //
 //  Created by Giovanni Vicentin Moratto on 02/10/21.
@@ -7,24 +7,22 @@
 
 import Foundation
 
-class CreateUserViewController {
+class CreateProfileViewController {
     
     // MARK: - Methods
     
     func process() {
-        view.createUser().showTitle()
+        view.create().showTitle()
         
         guard let firstName = controller.form().getFirstName() else { return }
         guard let lastName = controller.form().getLastName() else { return }
         guard let documentNumber = controller.form().getDocumentNumber() else { return }
-        guard let bankAccount = controller.form().getBankAccount() else { return }
         guard let password = controller.form().getPassword() else { return }
         
-        let newUser = UserModel(
+        let newUser = User(
             firstName: firstName,
             lastName: lastName,
             documentNumber: documentNumber,
-            bankAccount: bankAccount,
             password: password
         )
         
@@ -36,7 +34,9 @@ class CreateUserViewController {
         
         guard let user = controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
         
-        controller.miniIti(user: user)
+        guard let token = controller.form().getCredential(user: user) else { return }
+        
+        controller.home(token: token)
     }
     
 }

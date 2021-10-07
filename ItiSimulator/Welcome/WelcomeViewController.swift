@@ -26,13 +26,10 @@ class WelcomeViewController {
                 view.welcome().showExit()
                 loop = false
             case 1:
-                // Login
                 controller.login()
             case 2:
-                // Create User
-                controller.createUser()
+                controller.create()
             case 3:
-                // Database
                 controller.database()
             default:
                 print("Por favor, escolha uma operação")

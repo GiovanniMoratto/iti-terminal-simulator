@@ -11,8 +11,8 @@ class ManageProfileViewController {
     
     // MARK: - Methods
     
-    func process(user: UserModel?) {
-        guard let userUnwrapped = user else { return }
+    func process(token: String?) {
+        guard let tokenUnwrapped = token else { return }
         
         var loop = true
         
@@ -28,13 +28,13 @@ class ManageProfileViewController {
                 loop = false
             case 1:
                 // Exibir informações
-                controller.displayProfile(user: userUnwrapped)
+                controller.displayProfile(token: tokenUnwrapped)
             case 2:
                 // Editar informações
-                controller.editProfile(user: userUnwrapped)
+                controller.editProfile(token: tokenUnwrapped)
             case 3:
                 // Excluir conta
-                controller.deleteAccount(user: userUnwrapped)
+                controller.deleteAccount(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

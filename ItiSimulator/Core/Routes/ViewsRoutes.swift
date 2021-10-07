@@ -15,16 +15,16 @@ class ViewsRoutes {
         return Labels()
     }
     
-    func miniIti() -> MiniItiMainView {
-        return MiniItiMainView()
+    func home() -> HomeView {
+        return HomeView()
     }
     
     func login() -> LoginView {
         return LoginView()
     }
     
-    func createUser() -> CreateUserView {
-        return CreateUserView()
+    func create() -> CreateProfileView {
+        return CreateProfileView()
     }
     
     func welcome() -> WelcomeView {

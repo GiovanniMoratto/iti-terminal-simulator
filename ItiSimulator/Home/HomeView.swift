@@ -1,5 +1,5 @@
 //
-//  MiniItiView.swift
+//  HomeView.swift
 //  ItiSimulator
 //
 //  Created by Giovanni Vicentin Moratto on 04/10/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MiniItiMainView {
+class HomeView {
     
     // MARK: - Methods
     
