@@ -9,24 +9,21 @@ import Foundation
 
 class DeleteAccountViewController {
     
-    // MARK: - Attributes
-    
-    let scene = DeleteAccountView()
-    
     // MARK: - Methods
     
     func process(user: UserModel?) {
         guard let userUnwrapped = user else { return }
         
-        scene.showTitle()
-        scene.showMessage()
+        view.deleteAccount().showTitle()
+        view.deleteAccount().showMessage()
         
         var loop = true
+        
         while loop {
-            guard let inputString = scene.getInput() else { return }
-            let input = Int(inputString)
+            guard let input = view.label().getInput() else { return }
+            let option = Int(input)
             
-            switch input {
+            switch option {
             case 0:
                 loop = false
             case 1:
@@ -35,8 +32,8 @@ class DeleteAccountViewController {
                 if !database {
                     print("Desculpe, estamos com problemas")
                 }
-                scene.showSuccessfullyDeleted()
-                WelcomeViewController().process()
+                view.deleteAccount().showSuccessfullyDeleted()
+                controller.welcome()
             default:
                 print("Por favor, escolha uma operação")
             }

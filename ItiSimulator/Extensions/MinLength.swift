@@ -8,8 +8,10 @@
 import Foundation
 
 extension String {
-
-    func minLength(fieldName: String?, length: Int?) -> Bool {
+    
+    // MARK: - Methods
+    
+    func minLength(fieldName: String?, length: Int?) -> Bool? {
         guard let fieldUnwrapped = fieldName else { return false }
         guard let lengthUnwrapped = length else { return false }
         

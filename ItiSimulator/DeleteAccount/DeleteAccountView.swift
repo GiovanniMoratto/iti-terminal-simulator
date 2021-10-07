@@ -32,10 +32,4 @@ class DeleteAccountView {
         print("Não foi possível excluir a conta")
     }
     
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
 }

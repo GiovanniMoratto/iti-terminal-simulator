@@ -9,7 +9,9 @@ import Foundation
 
 extension String {
     
-    var isValidPassword: Bool {
+    // MARK: - Attributes
+    
+    var isValidPassword: Bool? {
         
         func atLeast8Characters(value: String) -> String {
             if value.count >= 8 {
@@ -68,7 +70,7 @@ extension String {
             return false
         }
         return true
-
+        
     }
     
 }

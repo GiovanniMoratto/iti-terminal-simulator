@@ -9,17 +9,13 @@ import Foundation
 
 class DatabaseViewController {
     
-    // MARK: - Attributes
-    
-    let scene = DatabaseView()
-    
     // MARK: - Methods
     
     func process() {
-        scene.showTitle()
+        view.database().showTitle()
         
-        for user in Database.shared.users.indices {
-            print(Database.shared.users[user])
+        for user in db.users.indices {
+            print(db.users[user].self)
         }
     }
 }

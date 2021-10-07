@@ -9,10 +9,6 @@ import Foundation
 
 class MiniItiMainViewController {
     
-    // MARK: - Attributes
-    
-    let scene = MiniItiMainView()
-    
     // MARK: - Methods
     
     func process(user: UserModel?) {
@@ -21,14 +17,18 @@ class MiniItiMainViewController {
         var loop = true
         
         while loop {
-            scene.showTitle()
-            scene.showMenu()
-            scene.showPersonalInfo(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName, balance: userUnwrapped.balance)
+            view.miniIti().showTitle()
+            view.miniIti().showMenu()
             
-            guard let inputString = scene.getInput() else { return }
-            let input = Int(inputString)
+            view.label().showPersonalInfoLabel(
+                firstName: userUnwrapped.firstName,
+                lastName: userUnwrapped.lastName,
+                balance: userUnwrapped.balance)
             
-            switch input {
+            guard let input = view.label().getInput() else { return }
+            let option = Int(input)
+            
+            switch option {
             case 0:
                 loop = false
             case 1: break
@@ -42,7 +42,8 @@ class MiniItiMainViewController {
             case 5: break
                 //                Gerenciar Cartões
             case 6:
-                ManageProfileViewController().process(user: userUnwrapped)
+                // Gerenciar Perfil
+                controller.manageProfile(user: userUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

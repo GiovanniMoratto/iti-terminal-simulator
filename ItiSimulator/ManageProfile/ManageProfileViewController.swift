@@ -9,10 +9,6 @@ import Foundation
 
 class ManageProfileViewController {
     
-    // MARK: - Attributes
-    
-    let scene = ManageProfileView()
-    
     // MARK: - Methods
     
     func process(user: UserModel?) {
@@ -21,24 +17,24 @@ class ManageProfileViewController {
         var loop = true
         
         while loop {
-            scene.showTitle()
-            scene.showMenu()
+            view.manageProfile().showTitle()
+            view.manageProfile().showMenu()
             
-            guard let inputString = scene.getInput() else { return }
-            let input = Int(inputString)
+            guard let input = view.label().getInput() else { return }
+            let option = Int(input)
             
-            switch input {
+            switch option {
             case 0:
                 loop = false
             case 1:
                 // Exibir informações
-                DisplayProfileViewController().process(user: userUnwrapped)
+                controller.displayProfile(user: userUnwrapped)
             case 2:
                 // Editar informações
-                EditProfileViewController().process(user: userUnwrapped)
+                controller.editProfile(user: userUnwrapped)
             case 3:
                 // Excluir conta
-                DeleteAccountViewController().process(user: userUnwrapped)
+                controller.deleteAccount(user: userUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

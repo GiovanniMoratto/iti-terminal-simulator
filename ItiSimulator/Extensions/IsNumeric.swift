@@ -9,7 +9,9 @@ import Foundation
 
 extension String {
     
-    func isNumeric(fieldName: String?) -> Bool {
+    // MARK: - Methods
+    
+    func isNumeric(fieldName: String?) -> Bool? {
         guard let fieldUnwrapped = fieldName else { return false }
         
         guard self.count > 0 else { return false }

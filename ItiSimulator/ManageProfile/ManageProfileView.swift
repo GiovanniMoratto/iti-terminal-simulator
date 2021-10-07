@@ -9,6 +9,8 @@ import Foundation
 
 class ManageProfileView {
     
+    // MARK: - Methods
+    
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
@@ -25,12 +27,6 @@ class ManageProfileView {
         print("|   2 - Editar informações                    |")
         print("|   3 - Excluir conta                         |")
         print("|                                             |\n")
-    }
-    
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
     }
     
 }

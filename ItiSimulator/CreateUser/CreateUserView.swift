@@ -18,30 +18,4 @@ class CreateUserView {
         print("|_____________________________________________|\n")
     }
     
-    func showFirstNameForm() {
-        print("Digite o seu primeiro nome: ")
-    }
-    
-    func showLastNameForm() {
-        print("Digite o seu sobrenome: ")
-    }
-    
-    func showDocumentNumberForm() {
-        print("Digite o seu CPF: ")
-    }
-    
-    func showBankAccountForm() {
-        print("Digite o número da sua conta bancária: ")
-    }
-    
-    func showPasswordForm() {
-        print("Digite uma senha: ")
-    }
-    
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
 }

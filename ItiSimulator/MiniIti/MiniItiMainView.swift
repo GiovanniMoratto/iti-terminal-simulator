@@ -33,20 +33,4 @@ class MiniItiMainView {
         print("|                                             |")
     }
     
-    func showPersonalInfo(firstName: String?, lastName: String?, balance: Double?) {
-        guard let firstNameUnwrapped = firstName else { return }
-        guard let lastNameUnwrapped = lastName else { return }
-        guard let balanceUnwrapped = balance else { return }
-        
-        let username = "\(firstNameUnwrapped) \(lastNameUnwrapped)"
-        print("                       \(username)")
-        print("                       Saldo: \(balanceUnwrapped)")
-    }
-    
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
 }

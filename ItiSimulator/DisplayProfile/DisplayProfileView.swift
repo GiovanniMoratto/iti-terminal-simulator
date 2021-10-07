@@ -65,10 +65,4 @@ class DisplayProfileView {
         print("0 - Voltar")
     }
     
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
 }

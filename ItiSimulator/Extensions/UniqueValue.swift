@@ -9,21 +9,23 @@ import Foundation
 
 extension String {
     
-    func unique(fieldName: String?) -> Bool {
-        guard let fieldUnwrapped = fieldName else { return false}
+    // MARK: - Methods
+    
+    func unique(attribute: String?) -> Bool? {
+        guard let attributeUnwrapped = attribute else { return false}
         
-        if fieldUnwrapped == "documentNumber" {
-            for user in Database.shared.users.indices {
-                if Database.shared.users[user].documentNumber == self {
+        if attributeUnwrapped == "documentNumber" {
+            for user in db.users.indices {
+                if db.users[user].documentNumber == self {
                     print("CPF já cadastrado!")
                     return false
                 }
             }
             return true
         }
-        else if fieldUnwrapped == "phoneNumber" {
-            for user in Database.shared.users.indices {
-                if Database.shared.users[user].phoneNumber == self {
+        else if attributeUnwrapped == "phoneNumber" {
+            for user in db.users.indices {
+                if db.users[user].phoneNumber == self {
                     print("Telefone já cadastrado!")
                     return false
                 }

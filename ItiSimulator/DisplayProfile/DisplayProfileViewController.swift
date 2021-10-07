@@ -9,32 +9,29 @@ import Foundation
 
 class DisplayProfileViewController {
     
-    // MARK: - Attributes
-    
-    let scene = DisplayProfileView()
-    
     // MARK: - Methods
     
     func process(user: UserModel?) {
         guard let userUnwrapped = user else { return }
         
-        scene.showTitle()
+        view.displayProfile().showTitle()
         
-        scene.showUsernameField(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName)
-        scene.showDocumentNumberField(documentNumber: userUnwrapped.documentNumber)
-        scene.showAddressField(address: userUnwrapped.address)
-        scene.showCityField(city: userUnwrapped.city)
-        scene.showStateField(state: userUnwrapped.state)
-        scene.showPhoneNumberField(phoneNumber: userUnwrapped.phoneNumber)
-        scene.showEmailField(email: userUnwrapped.email)
-        scene.showExit()
+        view.displayProfile().showUsernameField(firstName: userUnwrapped.firstName, lastName: userUnwrapped.lastName)
+        view.displayProfile().showDocumentNumberField(documentNumber: userUnwrapped.documentNumber)
+        view.displayProfile().showAddressField(address: userUnwrapped.address)
+        view.displayProfile().showCityField(city: userUnwrapped.city)
+        view.displayProfile().showStateField(state: userUnwrapped.state)
+        view.displayProfile().showPhoneNumberField(phoneNumber: userUnwrapped.phoneNumber)
+        view.displayProfile().showEmailField(email: userUnwrapped.email)
+        view.displayProfile().showExit()
         
         var loop = true
+        
         while loop {
-            guard let inputString = scene.getInput() else { return }
-            let input = Int(inputString)
+            guard let input = view.label().getInput() else { return }
+            let option = Int(input)
             
-            switch input {
+            switch option {
             case 0:
                 loop = false
             default:

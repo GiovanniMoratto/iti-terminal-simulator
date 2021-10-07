@@ -7,11 +7,25 @@
 
 import Foundation
 
-// MARK: - Database
+// MARK: - Attributes
 
 var db = Database.shared
-db.initialData()
+let controller = routes().controller
+let view = routes().view
 
-// MARK: - Execution
+// MARK: - Methods
 
-WelcomeViewController().process()
+func routes() -> (controller: ControllerRoutes, view: ViewsRoutes)  {
+    return (ControllerRoutes(), ViewsRoutes())
+}
+
+func initialData() {
+    Data().initialData()
+}
+
+func start() {
+    controller.welcome()
+}
+
+initialData()
+start()

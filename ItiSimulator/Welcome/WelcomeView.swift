@@ -31,12 +31,6 @@ class WelcomeView {
         print("|                                             |\n")
     }
     
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
     func showExit() {
         print("Até mais!")
     }

@@ -74,38 +74,4 @@ class EditProfileView {
         print("O campo \(fieldUnwrapped) foi atualizado com sucesso!")
     }
     
-    func showFirstNameForm() {
-        print("Digite o seu primeiro nome: ")
-    }
-    
-    func showLastNameForm() {
-        print("Digite o seu sobrenome: ")
-    }
-    
-    func showAddressForm() {
-        print("Digite o seu endereço: ")
-    }
-    
-    func showCityForm() {
-        print("Digite a sua cidade: ")
-    }
-    
-    func showStateForm() {
-        print("Digite o seu estado: ")
-    }
-    
-    func showPhoneNumberForm() {
-        print("Digite o seu telefone: ")
-    }
-    
-    func showEmailForm() {
-        print("Digite o seu e-mail: ")
-    }
-    
-    func getInput() -> String? {
-        let input = readLine()
-        print()
-        return input
-    }
-    
 }

@@ -9,7 +9,9 @@ import Foundation
 
 extension String {
     
-    func maxLength(fieldName: String?, length: Int?) -> Bool {
+    // MARK: - Methods
+    
+    func maxLength(fieldName: String?, length: Int?) -> Bool? {
         guard let fieldUnwrapped = fieldName else { return false }
         guard let lengthUnwrapped = length else { return false }
         

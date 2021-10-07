@@ -9,7 +9,9 @@ import Foundation
 
 extension String {
     
-    func notEmpty(fieldName: String?) -> Bool {
+    // MARK: - Methods
+    
+    func notEmpty(fieldName: String?) -> Bool? {
         guard let fieldUnwrapped = fieldName else { return false }
         
         if self.isEmpty {

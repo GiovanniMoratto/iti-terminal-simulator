@@ -9,35 +9,35 @@ import Foundation
 
 class WelcomeViewController {
     
-    // MARK: - Attributes
-    
-    let scene = WelcomeView()
-    
     // MARK: - Methods
     
     func process() {
         var loop = true
         
         while loop {
-            scene.showTitle()
-            scene.showMenu()
+            view.welcome().showTitle()
+            view.welcome().showMenu()
             
-            guard let inputString = scene.getInput() else { return }
-            let input = Int(inputString)
+            guard let input = view.label().getInput() else { return }
+            let option = Int(input)
             
-            switch input {
+            switch option {
             case 0:
+                view.welcome().showExit()
                 loop = false
-                scene.showExit()
             case 1:
-                LoginViewController().process()
+                // Login
+                controller.login()
             case 2:
-                CreateUserViewController().process()
+                // Create User
+                controller.createUser()
             case 3:
-                DatabaseViewController().process()
+                // Database
+                controller.database()
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
+    
 }

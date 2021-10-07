@@ -9,13 +9,13 @@ import Foundation
 
 extension String {
     
-    func isCPF(fieldName: String?) -> Bool {
-        guard let fieldUnwrapped = fieldName else { return false }
-        
+    // MARK: - Attributes
+    
+    var isCPF: Bool {
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 11 else { return false }
         
-        let set = NSCountedSet(array: [numbers])
+        let set = NSCountedSet(array: Array(numbers))
         guard set.count != 1 else { return false }
         
         let i1 = numbers.index(numbers.startIndex, offsetBy: 9)
@@ -42,10 +42,15 @@ extension String {
         temp2 %= 11
         temp2 = temp2 < 2 ? 0 : 11-temp2
         
-        let validCpf = temp1 == d1 && temp2 == d2
+        return temp1 == d1 && temp2 == d2
+    }
+    
+    // MARK: - Methods
+    
+    func isValidCpf() -> Bool? {
         
-        if !validCpf {
-            print("\nO campo \(fieldUnwrapped) deve conter um número de CPF válido.\n")
+        if !self.isCPF {
+            print("\nO campo 'CPF' deve conter um número de CPF válido.\n")
             return false
         }
         return true
