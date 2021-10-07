@@ -28,9 +28,9 @@ class ControllerRoutes {
         return Forms()
     }
     
-    func manageProfile(token: String?) {
+    func profile(token: String?) {
         guard let tokenUnwrapped = token else { return }
-        ManageProfileViewController().process(token: tokenUnwrapped)
+        ProfileViewController().process(token: tokenUnwrapped)
     }
     
     func create() {
@@ -51,9 +51,9 @@ class ControllerRoutes {
         EditProfileViewController().process(token: tokenUnwrapped)
     }
     
-    func deleteAccount(token: String?) {
+    func deleteProfile(token: String?) {
         guard let tokenUnwrapped = token else { return }
-        DeleteAccountViewController().process(token: tokenUnwrapped)
+        DeleteProfileViewController().process(token: tokenUnwrapped)
     }
     
 }

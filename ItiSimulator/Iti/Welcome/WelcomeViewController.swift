@@ -15,22 +15,22 @@ class WelcomeViewController {
         var loop = true
         
         while loop {
-            view.welcome().showTitle()
-            view.welcome().showMenu()
+            router().view.welcome().showTitle()
+            router().view.welcome().showMenu()
             
-            guard let input = view.label().getInput() else { return }
+            guard let input = router().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
             case 0:
-                view.welcome().showExit()
+                router().view.welcome().showExit()
                 loop = false
             case 1:
-                controller.login()
+                router().controller.login()
             case 2:
-                controller.create()
+                router().controller.create()
             case 3:
-                controller.database()
+                router().controller.database()
             default:
                 print("Por favor, escolha uma operação")
             }

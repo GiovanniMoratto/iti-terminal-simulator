@@ -10,12 +10,10 @@ import Foundation
 // MARK: - Attributes
 
 var db = Database.shared
-let controller = routes().controller
-let view = routes().view
 
 // MARK: - Methods
 
-func routes() -> (controller: ControllerRoutes, view: ViewsRoutes)  {
+func router() -> (controller: ControllerRoutes, view: ViewsRoutes)  {
     return (ControllerRoutes(), ViewsRoutes())
 }
 
@@ -24,7 +22,7 @@ func initialData() {
 }
 
 func start() {
-    controller.welcome()
+    router().controller.welcome()
 }
 
 initialData()

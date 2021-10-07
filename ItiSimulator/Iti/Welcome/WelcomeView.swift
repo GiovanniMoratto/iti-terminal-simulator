@@ -24,10 +24,11 @@ class WelcomeView {
         print("|                                             |")
         print("|   O que deseja fazer ?                      |")
         print("|                                             |")
-        print("|   0 - Sair do App                           |")
-        print("|   1 - Login                                 |")
-        print("|   2 - Cadastrar Conta                       |")
-        print("|   3 - Exibir Banco de dados                 |")
+        print("|   (1) - Login                               |")
+        print("|   (2) - Abrir Conta                         |")
+        print("|   (3) - Banco de dados                      |")
+        print("|                                             |")
+        print("|   (0) - Sair do App                         |")
         print("|                                             |\n")
     }
     

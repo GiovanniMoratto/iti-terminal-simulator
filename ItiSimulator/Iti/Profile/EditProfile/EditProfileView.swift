@@ -21,13 +21,12 @@ class EditProfileView {
     func showMenu() {
         print("|   O que deseja atualizar ?                  |")
         print("|                                             |")
-        print("|   0 - Voltar                                |")
-        print("|   1 - Nome                                  |")
-        print("|   2 - Endereço                              |")
-        print("|   3 - Cidade                                |")
-        print("|   4 - Estado                                |")
-        print("|   5 - Telefone                              |")
-        print("|   6 - Email                                 |")
+        print("|   (1) - Nome                                  |")
+        print("|   (2) - Endereço                              |")
+        print("|   (3) - Cidade                                |")
+        print("|   (4) - Estado                                |")
+        print("|                                             |")
+        print("|   (0) - Voltar                                |")
         print("|                                             |\n")
     }
     
@@ -54,18 +53,6 @@ class EditProfileView {
         guard let stateUnwrapped = state else { return }
         
         print("Estado atual: \(stateUnwrapped)\n")
-    }
-    
-    func showPhoneNumberField(phoneNumber: String?) {
-        guard let phoneNumberUnwrapped = phoneNumber else { return }
-        
-        print("Telefone atual: \(phoneNumberUnwrapped)\n")
-    }
-    
-    func showEmailField(email: String?) {
-        guard let emailUnwrapped = email else { return }
-        
-        print("E-mail atual: \(emailUnwrapped)\n")
     }
     
     func showSuccessfullyUpdate(field: String?) {

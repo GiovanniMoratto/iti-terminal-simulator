@@ -17,16 +17,16 @@ class HomeViewController {
         var loop = true
         
         while loop {
-            view.home().showTitle()
-            view.home().showMenu()
+            router().view.home().showTitle()
+            router().view.home().showMenu()
             
-            guard let firstName = controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
-            guard let lastName = controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
-            guard let balance = controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
+            guard let firstName = router().controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
+            guard let lastName = router().controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
+            guard let balance = router().controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
             
-            view.label().showPersonalInfoLabel(firstName: firstName, lastName: lastName, balance: balance)
+            router().view.label().showOverviewLabel(firstName: firstName, lastName: lastName, balance: balance)
             
-            guard let input = view.label().getInput() else { return }
+            guard let input = router().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -43,7 +43,7 @@ class HomeViewController {
             case 5: break
                 //                Gerenciar Cartões
             case 6:
-                controller.manageProfile(token: tokenUnwrapped)
+                router().controller.profile(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }

@@ -15,12 +15,12 @@
 		B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */; };
 		B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DF2707E6720095B816 /* WelcomeView.swift */; };
 		B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateProfileView.swift */; };
-		B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F4270C8D8400A1555B /* ManageProfileView.swift */; };
-		B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */; };
+		B13591F5270C8D8400A1555B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F4270C8D8400A1555B /* ProfileView.swift */; };
+		B13591F7270C8E6F00A1555B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F6270C8E6F00A1555B /* ProfileViewController.swift */; };
 		B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591F9270C914A00A1555B /* DisplayProfileView.swift */; };
 		B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FB270C916500A1555B /* DisplayProfileViewController.swift */; };
-		B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FE270C9D6300A1555B /* DeleteAccountView.swift */; };
-		B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */; };
+		B13591FF270C9D6300A1555B /* DeleteProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FE270C9D6300A1555B /* DeleteProfileView.swift */; };
+		B1359201270CA3BB00A1555B /* DeleteProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */; };
 		B15A47CD270E0D8B00473231 /* NotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47CC270E0D8B00473231 /* NotEmpty.swift */; };
 		B15A47CF270E14F500473231 /* MinLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47CE270E14F500473231 /* MinLength.swift */; };
 		B15A47D1270E158000473231 /* MaxLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47D0270E158000473231 /* MaxLength.swift */; };
@@ -33,12 +33,12 @@
 		B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E5270E6A2200473231 /* ControllerRoutes.swift */; };
 		B15A47E8270E733900473231 /* ViewsRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E7270E733900473231 /* ViewsRoutes.swift */; };
 		B15DB6B9270EA65200B13794 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6B8270EA65200B13794 /* Data.swift */; };
-		B15DB6BC270EAA7C00B13794 /* DepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6BB270EAA7C00B13794 /* DepositView.swift */; };
-		B15DB6BE270EAA9400B13794 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DB6BD270EAA9400B13794 /* DepositViewController.swift */; };
 		B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B4270CC9F20035F3CD /* EditProfileView.swift */; };
 		B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B6270CCB690035F3CD /* EditProfileViewController.swift */; };
 		B1605523270F523200E09B15 /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605522270F523200E09B15 /* TokenGenerator.swift */; };
 		B1605525270F533B00E09B15 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605524270F533B00E09B15 /* Access.swift */; };
+		B1605527270F7EA000E09B15 /* PaymentAndTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605526270F7EA000E09B15 /* PaymentAndTransferView.swift */; };
+		B1605529270F7EBE00E09B15 /* PaymentAndTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605528270F7EBE00E09B15 /* PaymentAndTransferViewController.swift */; };
 		B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateProfileViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 		B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A11A1A270D37CA00412B17 /* DatabaseView.swift */; };
@@ -47,6 +47,10 @@
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
 		B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* HomeView.swift */; };
 		B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* HomeViewController.swift */; };
+		B1E5E07F270F8C9700DA76CA /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E5E07E270F8C9700DA76CA /* PaymentView.swift */; };
+		B1E5E081270F8CA800DA76CA /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E5E080270F8CA800DA76CA /* PaymentViewController.swift */; };
+		B1E5E083270F8CC300DA76CA /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E5E082270F8CC300DA76CA /* TransferView.swift */; };
+		B1E5E085270F8CEA00DA76CA /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E5E084270F8CEA00DA76CA /* TransferViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,12 +74,12 @@
 		B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B124E4DF2707E6720095B816 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B124E4E22707F44D0095B816 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
-		B13591F4270C8D8400A1555B /* ManageProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileView.swift; sourceTree = "<group>"; };
-		B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProfileViewController.swift; sourceTree = "<group>"; };
+		B13591F4270C8D8400A1555B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B13591F6270C8E6F00A1555B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B13591F9270C914A00A1555B /* DisplayProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileView.swift; sourceTree = "<group>"; };
 		B13591FB270C916500A1555B /* DisplayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileViewController.swift; sourceTree = "<group>"; };
-		B13591FE270C9D6300A1555B /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
-		B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
+		B13591FE270C9D6300A1555B /* DeleteProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileView.swift; sourceTree = "<group>"; };
+		B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileViewController.swift; sourceTree = "<group>"; };
 		B15A47CC270E0D8B00473231 /* NotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotEmpty.swift; sourceTree = "<group>"; };
 		B15A47CE270E14F500473231 /* MinLength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinLength.swift; sourceTree = "<group>"; };
 		B15A47D0270E158000473231 /* MaxLength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLength.swift; sourceTree = "<group>"; };
@@ -88,12 +92,12 @@
 		B15A47E5270E6A2200473231 /* ControllerRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerRoutes.swift; sourceTree = "<group>"; };
 		B15A47E7270E733900473231 /* ViewsRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsRoutes.swift; sourceTree = "<group>"; };
 		B15DB6B8270EA65200B13794 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		B15DB6BB270EAA7C00B13794 /* DepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositView.swift; sourceTree = "<group>"; };
-		B15DB6BD270EAA9400B13794 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		B16013B4270CC9F20035F3CD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B16013B6270CCB690035F3CD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B1605522270F523200E09B15 /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		B1605524270F533B00E09B15 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
+		B1605526270F7EA000E09B15 /* PaymentAndTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAndTransferView.swift; sourceTree = "<group>"; };
+		B1605528270F7EBE00E09B15 /* PaymentAndTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAndTransferViewController.swift; sourceTree = "<group>"; };
 		B17999E0270803330073E5ED /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -103,6 +107,10 @@
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCF270B44B10057302D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B1B8BCD1270B45410057302D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1E5E07E270F8C9700DA76CA /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		B1E5E080270F8CA800DA76CA /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		B1E5E082270F8CC300DA76CA /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
+		B1E5E084270F8CEA00DA76CA /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +124,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B11645B927078097004240B5 /* Extensions */ = {
+		B11645B927078097004240B5 /* Validations */ = {
 			isa = PBXGroup;
 			children = (
 				B15A47CC270E0D8B00473231 /* NotEmpty.swift */,
@@ -128,33 +136,35 @@
 				B15A47D8270E222D00473231 /* IsValidPassword.swift */,
 				B1605522270F523200E09B15 /* TokenGenerator.swift */,
 			);
-			path = Extensions;
+			path = Validations;
 			sourceTree = "<group>";
 		};
-		B119045D270F47B5005DD675 /* UserProfile */ = {
+		B119045D270F47B5005DD675 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B13591F4270C8D8400A1555B /* ProfileView.swift */,
+				B13591F6270C8E6F00A1555B /* ProfileViewController.swift */,
 				B124E4E12707F3E20095B816 /* CreateProfile */,
 				B16013B3270CC9BE0035F3CD /* EditProfile */,
 				B13591FD270C9D4F00A1555B /* DeleteProfile */,
 				B13591F8270C911400A1555B /* DisplayProfile */,
-				B13591F3270C8D7000A1555B /* ManageProfile */,
 			);
-			path = UserProfile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		B119045E270F47D4005DD675 /* BankOperations */ = {
+		B119045E270F47D4005DD675 /* BankServices */ = {
 			isa = PBXGroup;
 			children = (
-				B15DB6BA270EAA5900B13794 /* Deposit */,
+				B15DB6BA270EAA5900B13794 /* PaymentAndTransfer  */,
 			);
-			path = BankOperations;
+			path = BankServices;
 			sourceTree = "<group>";
 		};
 		B119045F270F481D005DD675 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B11645B927078097004240B5 /* Extensions */,
+				B1877003270549D400ECA2D5 /* Models */,
+				B1E5E07A270F889000DA76CA /* Security */,
 				B15A47E9270E991B00473231 /* Generics */,
 				B15A47E0270E2DCA00473231 /* Routes */,
 			);
@@ -179,15 +189,6 @@
 			path = CreateProfile;
 			sourceTree = "<group>";
 		};
-		B13591F3270C8D7000A1555B /* ManageProfile */ = {
-			isa = PBXGroup;
-			children = (
-				B13591F4270C8D8400A1555B /* ManageProfileView.swift */,
-				B13591F6270C8E6F00A1555B /* ManageProfileViewController.swift */,
-			);
-			path = ManageProfile;
-			sourceTree = "<group>";
-		};
 		B13591F8270C911400A1555B /* DisplayProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,8 +201,8 @@
 		B13591FD270C9D4F00A1555B /* DeleteProfile */ = {
 			isa = PBXGroup;
 			children = (
-				B13591FE270C9D6300A1555B /* DeleteAccountView.swift */,
-				B1359200270CA3BB00A1555B /* DeleteAccountViewController.swift */,
+				B13591FE270C9D6300A1555B /* DeleteProfileView.swift */,
+				B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */,
 			);
 			path = DeleteProfile;
 			sourceTree = "<group>";
@@ -224,13 +225,15 @@
 			path = Generics;
 			sourceTree = "<group>";
 		};
-		B15DB6BA270EAA5900B13794 /* Deposit */ = {
+		B15DB6BA270EAA5900B13794 /* PaymentAndTransfer  */ = {
 			isa = PBXGroup;
 			children = (
-				B15DB6BB270EAA7C00B13794 /* DepositView.swift */,
-				B15DB6BD270EAA9400B13794 /* DepositViewController.swift */,
+				B1E5E07D270F8C7400DA76CA /* Transfer */,
+				B1E5E07C270F8C6A00DA76CA /* Payment */,
+				B1605526270F7EA000E09B15 /* PaymentAndTransferView.swift */,
+				B1605528270F7EBE00E09B15 /* PaymentAndTransferViewController.swift */,
 			);
-			path = Deposit;
+			path = "PaymentAndTransfer ";
 			sourceTree = "<group>";
 		};
 		B16013B3270CC9BE0035F3CD /* EditProfile */ = {
@@ -261,13 +264,8 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1E5E07B270F88FE00DA76CA /* Iti */,
 				B119045F270F481D005DD675 /* Core */,
-				B119045E270F47D4005DD675 /* BankOperations */,
-				B119045D270F47B5005DD675 /* UserProfile */,
-				B1B8BCCE270B44880057302D /* Home */,
-				B1B8BCC9270B41C00057302D /* Login */,
-				B124E4DC2707E5450095B816 /* Welcome */,
-				B1877003270549D400ECA2D5 /* Models */,
 				B1877004270549F300ECA2D5 /* Database */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
 			);
@@ -306,13 +304,51 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		B1B8BCCE270B44880057302D /* Home */ = {
+		B1B8BCCE270B44880057302D /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
 				B1B8BCCF270B44B10057302D /* HomeView.swift */,
 				B1B8BCD1270B45410057302D /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		B1E5E07A270F889000DA76CA /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				B11645B927078097004240B5 /* Validations */,
+				B1B8BCC9270B41C00057302D /* Login */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		B1E5E07B270F88FE00DA76CA /* Iti */ = {
+			isa = PBXGroup;
+			children = (
+				B119045E270F47D4005DD675 /* BankServices */,
+				B119045D270F47B5005DD675 /* Profile */,
+				B1B8BCCE270B44880057302D /* Homepage */,
+				B124E4DC2707E5450095B816 /* Welcome */,
+			);
+			path = Iti;
+			sourceTree = "<group>";
+		};
+		B1E5E07C270F8C6A00DA76CA /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				B1E5E07E270F8C9700DA76CA /* PaymentView.swift */,
+				B1E5E080270F8CA800DA76CA /* PaymentViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		B1E5E07D270F8C7400DA76CA /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				B1E5E082270F8CC300DA76CA /* TransferView.swift */,
+				B1E5E084270F8CEA00DA76CA /* TransferViewController.swift */,
+			);
+			path = Transfer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,23 +412,25 @@
 				B15A47D9270E222D00473231 /* IsValidPassword.swift in Sources */,
 				B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */,
 				B1605525270F533B00E09B15 /* Access.swift in Sources */,
+				B1E5E085270F8CEA00DA76CA /* TransferViewController.swift in Sources */,
 				B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */,
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
 				B1A11A1D270D37E400412B17 /* DatabaseViewController.swift in Sources */,
 				B15A47CF270E14F500473231 /* MinLength.swift in Sources */,
+				B1E5E081270F8CA800DA76CA /* PaymentViewController.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
 				B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
 				B1605523270F523200E09B15 /* TokenGenerator.swift in Sources */,
-				B1359201270CA3BB00A1555B /* DeleteAccountViewController.swift in Sources */,
+				B1359201270CA3BB00A1555B /* DeleteProfileViewController.swift in Sources */,
 				B15A47D5270E191F00473231 /* IsValidCpf.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */,
 				B15DB6B9270EA65200B13794 /* Data.swift in Sources */,
-				B15DB6BC270EAA7C00B13794 /* DepositView.swift in Sources */,
 				B15A47E4270E2DEA00473231 /* Forms.swift in Sources */,
-				B13591F7270C8E6F00A1555B /* ManageProfileViewController.swift in Sources */,
+				B1E5E083270F8CC300DA76CA /* TransferView.swift in Sources */,
+				B13591F7270C8E6F00A1555B /* ProfileViewController.swift in Sources */,
 				B15A47CD270E0D8B00473231 /* NotEmpty.swift in Sources */,
-				B13591F5270C8D8400A1555B /* ManageProfileView.swift in Sources */,
+				B13591F5270C8D8400A1555B /* ProfileView.swift in Sources */,
 				B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */,
 				B15A47E8270E733900473231 /* ViewsRoutes.swift in Sources */,
 				B15A47E2270E2DDE00473231 /* Labels.swift in Sources */,
@@ -400,16 +438,18 @@
 				B1037FAC2705594D004B3E3D /* User.swift in Sources */,
 				B119045C270F3256005DD675 /* CreditCard.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
-				B15DB6BE270EAA9400B13794 /* DepositViewController.swift in Sources */,
 				B15A47D3270E16E900473231 /* IsNumeric.swift in Sources */,
 				B1190458270F2F9F005DD675 /* Pix.swift in Sources */,
 				B15A47D1270E158000473231 /* MaxLength.swift in Sources */,
 				B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */,
+				B1605529270F7EBE00E09B15 /* PaymentAndTransferViewController.swift in Sources */,
 				B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */,
-				B13591FF270C9D6300A1555B /* DeleteAccountView.swift in Sources */,
+				B13591FF270C9D6300A1555B /* DeleteProfileView.swift in Sources */,
+				B1605527270F7EA000E09B15 /* PaymentAndTransferView.swift in Sources */,
 				B1A11A1B270D37CA00412B17 /* DatabaseView.swift in Sources */,
 				B119045A270F303C005DD675 /* BankAccount.swift in Sources */,
 				B13591FA270C914A00A1555B /* DisplayProfileView.swift in Sources */,
+				B1E5E07F270F8C9700DA76CA /* PaymentView.swift in Sources */,
 				B1037FB027055F62004B3E3D /* Database.swift in Sources */,
 				B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */,
 				B15A47D7270E1D6E00473231 /* UniqueValue.swift in Sources */,

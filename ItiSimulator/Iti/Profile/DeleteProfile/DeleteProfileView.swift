@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DeleteAccountView {
+class DeleteProfileView {
     
     // MARK: - Methods
     
@@ -20,8 +20,8 @@ class DeleteAccountView {
     
     func showMessage() {
         print("Tem certeza de que deseja excluir a conta?\n")
-        print("0 - Não")
-        print("1 - Sim\n")
+        print("(1) - Não")
+        print("(0) - Sim\n")
     }
     
     func showSuccessfullyDeleted() {

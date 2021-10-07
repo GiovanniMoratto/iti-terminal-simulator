@@ -23,7 +23,7 @@ class ViewsRoutes {
         return LoginView()
     }
     
-    func create() -> CreateProfileView {
+    func createProfile() -> CreateProfileView {
         return CreateProfileView()
     }
     
@@ -31,16 +31,16 @@ class ViewsRoutes {
         return WelcomeView()
     }
     
-    func manageProfile() -> ManageProfileView {
-        return ManageProfileView()
+    func profile() -> ProfileView {
+        return ProfileView()
     }
     
     func displayProfile() -> DisplayProfileView {
         return DisplayProfileView()
     }
     
-    func deleteAccount() -> DeleteAccountView {
-        return DeleteAccountView()
+    func deleteProfile() -> DeleteProfileView {
+        return DeleteProfileView()
     }
     
     func editProfile() -> EditProfileView {
@@ -50,4 +50,17 @@ class ViewsRoutes {
     func database() -> DatabaseView {
         return DatabaseView()
     }
+    
+    func paymentAndTransfer() -> PaymentAndTransferView {
+        return PaymentAndTransferView()
+    }
+    
+    func payment() -> PaymentView {
+        return PaymentView()
+    }
+    
+    func transfer() -> TransferView {
+        return TransferView()
+    }
+    
 }

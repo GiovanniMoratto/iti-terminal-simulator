@@ -7,20 +7,21 @@
 
 import Foundation
 
-class DeleteAccountViewController {
+class DeleteProfileViewController {
     
     // MARK: - Methods
     
     func process(token: String?) {
         guard let tokenUnwrapped = token else { return }
         
-        view.deleteAccount().showTitle()
-        view.deleteAccount().showMessage()
+        router().view.deleteProfile().showTitle()
+        router().view.deleteProfile().showMessage()
         
         var loop = true
         
         while loop {
-            guard let input = view.label().getInput() else { return }
+            
+            guard let input = router().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -35,8 +36,9 @@ class DeleteAccountViewController {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                view.deleteAccount().showSuccessfullyDeleted()
-                controller.welcome()
+                router().view.deleteProfile().showSuccessfullyDeleted()
+                
+                router().controller.welcome()
             default:
                 print("Por favor, escolha uma operação")
             }

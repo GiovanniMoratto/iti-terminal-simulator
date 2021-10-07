@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ManageProfileViewController {
+class ProfileViewController {
     
     // MARK: - Methods
     
@@ -17,10 +17,10 @@ class ManageProfileViewController {
         var loop = true
         
         while loop {
-            view.manageProfile().showTitle()
-            view.manageProfile().showMenu()
+            router().view.profile().showTitle()
+            router().view.profile().showMenu()
             
-            guard let input = view.label().getInput() else { return }
+            guard let input = router().view.label().getInput() else { return }
             let option = Int(input)
             
             switch option {
@@ -28,13 +28,13 @@ class ManageProfileViewController {
                 loop = false
             case 1:
                 // Exibir informações
-                controller.displayProfile(token: tokenUnwrapped)
+                router().controller.displayProfile(token: tokenUnwrapped)
             case 2:
                 // Editar informações
-                controller.editProfile(token: tokenUnwrapped)
+                router().controller.editProfile(token: tokenUnwrapped)
             case 3:
                 // Excluir conta
-                controller.deleteAccount(token: tokenUnwrapped)
+                router().controller.deleteProfile(token: tokenUnwrapped)
             default:
                 print("Por favor, escolha uma operação")
             }
