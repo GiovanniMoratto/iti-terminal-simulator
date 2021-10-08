@@ -11,11 +11,11 @@ extension String {
     
     // MARK: - Methods
     
-    func notEmpty(fieldName: String?) -> Bool? {
-        guard let fieldUnwrapped = fieldName else { return false }
+    func notEmpty(_ nameWrapped: String?) -> Bool? {
+        guard let name = nameWrapped else { return false }
         
         if self.isEmpty {
-            print("\nO campo \(fieldUnwrapped) é obrigatório!\n")
+            print("\nO campo \(name) é obrigatório!\n")
             return false
         }
         return true

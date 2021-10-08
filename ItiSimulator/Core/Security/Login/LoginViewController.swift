@@ -16,17 +16,15 @@ class LoginViewController {
         
         guard let documentNumber = routeTo().controller.form().checkDocumentNumber() else { return }
         guard let password = routeTo().controller.form().checkPassword() else { return }
-        
-        guard let login = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).condition else { return }
+        guard let login = routeTo().controller.form().isValidLogin(documentNumber, password).condition else { return }
         
         routeTo().view.login().showMessage()
         
         if login {
-            guard let user = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
+            guard let user = routeTo().controller.form().isValidLogin(documentNumber, password).user else { return }
+            guard let token = routeTo().controller.form().getCredential(user) else { return }
             
-            guard let token = routeTo().controller.form().getCredential(user: user) else { return }
-            
-            routeTo().controller.home(token: token)
+            routeTo().controller.home(token)
         }
         routeTo().controller.welcome()
     }

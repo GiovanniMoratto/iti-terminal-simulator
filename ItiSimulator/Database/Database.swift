@@ -13,33 +13,74 @@ class Database {
     
     var users: [User] = []
     var credentials: [Access] = []
+    static var shared = Database()
     
-    static var shared: Database = {
-        var instance = Database()
-        return instance
-    }()
+    // MARK: - Initializers (Constructors)
     
     private init() {}
     
     // MARK: - Methods
     
-    func save(user: User?) -> Bool? {
-        guard let userUnwrapped = user else { return nil}
+    /* Save */
+    
+    func saveUser(_ userWrapped: User?) -> Bool? {
+        guard let user = userWrapped else { return nil}
         
-        db.users.append(userUnwrapped)
+        db.users.append(user)
         
-        for user in db.users.indices {
-            if db.users[user].documentNumber == userUnwrapped.documentNumber {
+        for index in db.users.indices {
+            if db.users[index].documentNumber == user.documentNumber {
                 return true
             }
         }
         return false
     }
     
-    func delete(token: String?) -> Bool? {
-        guard let tokenUnwrapped = token else { return nil}
+    func saveAccess(_ credentialWrapped: Access?) -> Bool? {
+        guard let credential = credentialWrapped else { return nil}
         
-        guard let user = db.find(token: tokenUnwrapped) else { return nil }
+        db.credentials.append(credential)
+        
+        for index in db.credentials.indices {
+            if db.credentials[index].token == credential.token {
+                return true
+            }
+        }
+        return false
+    }
+    
+    /* Find */
+    
+    func findUserByDocumentNumber(_ documentNumberWrapped: String?) -> User? {
+        guard let documentNumber = documentNumberWrapped else { return nil}
+
+        for index in db.users.indices {
+            if db.users[index].documentNumber == documentNumber {
+                return db.users[index]
+            }
+        }
+        print("CPF não cadastrado!")
+        return nil
+    }
+    
+    func findUserByToken(_ tokenWrapped: String?) -> User? {
+        guard let token = tokenWrapped else { return nil}
+        
+        for index in db.credentials.indices {
+            if db.credentials[index].token == token {
+                return db.credentials[index].user
+            }
+        }
+        print("Usuário não encontrado")
+        return nil
+    }
+    
+    /* Delete */
+    
+    func deleteUser(_ tokenWrapped: String?) -> Bool? {
+        guard let token = tokenWrapped else { return nil}
+        
+        guard let user = db.findUserByToken(token) else { return nil }
         
         for index in db.users.indices {
             if db.users[index].documentNumber == user.documentNumber {
@@ -50,47 +91,37 @@ class Database {
         return false
     }
     
-    func find(documentNumber: String?) -> User? {
-        guard let documentNumberUnwrapped = documentNumber else { return nil}
-
-        for user in db.users.indices {
-            if db.users[user].documentNumber == documentNumberUnwrapped {
-                return db.users[user]
-            }
-        }
-        print("CPF não cadastrado!")
-        return nil
-    }
+    /* Update */
     
-    func update(token: String?, attribute: String?, value: String?) -> Bool? {
-        guard let tokenUnwrapped = token else { return nil}
-        guard let attributeUnwrapped = attribute else { return nil}
-        guard let valueUnwrapped = value else { return nil}
+    func updateUser(key tokenWrapped: String?, where attributeWrapped: String?, of valueWrapped: String?) -> Bool? {
+        guard let token = tokenWrapped else { return nil}
+        guard let attribute = attributeWrapped else { return nil}
+        guard let value = valueWrapped else { return nil}
         
-        guard let user = db.find(token: tokenUnwrapped) else { return nil }
+        guard let user = db.findUserByToken(token) else { return nil }
         
         for index in db.users.indices {
             if db.users[index].documentNumber == user.documentNumber{
                 
                 let userFound = db.users[index]
                 
-                if attributeUnwrapped == "firstName" {
-                    userFound.firstName = valueUnwrapped
+                if attribute == "firstName" {
+                    userFound.firstName = value
                 }
-                else if attributeUnwrapped == "lastName" {
-                    userFound.lastName = valueUnwrapped
+                else if attribute == "lastName" {
+                    userFound.lastName = value
                 }
-                else if attributeUnwrapped == "address" {
-                    userFound.address = valueUnwrapped
+                else if attribute == "address" {
+                    userFound.address = value
                 }
-                else if attributeUnwrapped == "city" {
-                    userFound.city = valueUnwrapped
+                else if attribute == "city" {
+                    userFound.city = value
                 }
-                else if attributeUnwrapped == "state" {
-                    userFound.state = valueUnwrapped
+                else if attribute == "state" {
+                    userFound.state = value
                 }
-                else if attributeUnwrapped == "balance" {
-                    guard let valueDouble = Double(valueUnwrapped) else { return nil }
+                else if attribute == "balance" {
+                    guard let valueDouble = Double(value) else { return nil }
                     
                     userFound.bankAccount.balance = valueDouble
                 }
@@ -98,31 +129,6 @@ class Database {
             }
         }
         return false
-    }
-    
-    func save(credential: Access?) -> Bool? {
-        guard let credentialUnwrapped = credential else { return nil}
-        
-        db.credentials.append(credentialUnwrapped)
-        
-        for access in db.credentials.indices {
-            if db.credentials[access].token == credentialUnwrapped.token {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func find(token: String?) -> User? {
-        guard let tokenUnwrapped = token else { return nil}
-        
-        for access in db.credentials.indices {
-            if db.credentials[access].token == tokenUnwrapped {
-                return db.credentials[access].user
-            }
-        }
-        print("Usuário não encontrado")
-        return nil
     }
     
 }

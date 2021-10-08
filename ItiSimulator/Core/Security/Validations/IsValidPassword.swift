@@ -13,14 +13,14 @@ extension String {
     
     var isValidPassword: Bool? {
         
-        func atLeast8Characters(value: String) -> String {
+        func atLeast8Characters(_ value: String) -> String {
             if value.count >= 8 {
                 return "[X] No mínimo 8 digitos"
             }
             return "[ ] No mínimo 8 digitos"
         }
         
-        func atLeast1UpperCaseLetter(value: String) -> String {
+        func atLeast1UpperCaseLetter(_ value: String) -> String {
             let regex = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
             
             if regex.evaluate(with: value) {
@@ -29,7 +29,7 @@ extension String {
             return "[ ] Pelo menos uma letra maiúscula. Ex: A - Z"
         }
         
-        func atLeast1LowerCaseLetter(value: String) -> String {
+        func atLeast1LowerCaseLetter(_ value: String) -> String {
             let regex = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
             
             if regex.evaluate(with: value) {
@@ -38,7 +38,7 @@ extension String {
             return "[ ] Pelo menos uma letra minúscula. Ex: a - z"
         }
         
-        func atLeast1Number(value: String) -> String {
+        func atLeast1Number(_ value: String) -> String {
             let regex = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
             
             if regex.evaluate(with: value) {
@@ -47,7 +47,7 @@ extension String {
             return "[ ] Pelo menos um número. Ex: 0 - 9"
         }
         
-        func atLeast1SpecialCharacter(value: String) -> String {
+        func atLeast1SpecialCharacter(_ value: String) -> String {
             let regex = NSPredicate(format: "SELF MATCHES %@", ".*[!&^%$#@()/]+.*")
             
             if regex.evaluate(with: value) {
@@ -62,11 +62,11 @@ extension String {
         
         if !pattern.evaluate(with: self) {
             print("\nO campo 'senha' deve conter: ")
-            print(atLeast8Characters(value: self))
-            print(atLeast1UpperCaseLetter(value: self))
-            print(atLeast1LowerCaseLetter(value: self))
-            print(atLeast1Number(value: self))
-            print(atLeast1SpecialCharacter(value: self))
+            print(atLeast8Characters(self))
+            print(atLeast1UpperCaseLetter(self))
+            print(atLeast1LowerCaseLetter(self))
+            print(atLeast1Number(self))
+            print(atLeast1SpecialCharacter(self))
             return false
         }
         return true

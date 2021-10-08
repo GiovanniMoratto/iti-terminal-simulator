@@ -11,8 +11,8 @@ class EditProfileViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         var loop = true
         
@@ -30,80 +30,80 @@ class EditProfileViewController {
                 // Nome
                 
                 // Recebe valores atuais
-                guard let firstName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).firstName else { return }
-                guard let lastName = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).lastName else { return }
+                guard let firstName = routeTo().controller.form().getProfileInfo(token).firstName else { return }
+                guard let lastName = routeTo().controller.form().getProfileInfo(token).lastName else { return }
                 
                 // Imprimi
-                routeTo().view.editProfile().showUsernameField(firstName: firstName, lastName: lastName)
+                routeTo().view.editProfile().showUsernameField(firstName, lastName)
                 
                 // Pega novos valores
                 guard let newFirstName = routeTo().controller.form().getFirstName() else { return }
                 guard let newLastName = routeTo().controller.form().getLastName() else { return }
                 
                 // Salva no banco
-                guard let firstNameUpdated = db.update(token: tokenUnwrapped, attribute: "firstName", value: newFirstName) else { return }
-                guard let lastNameUpdated = db.update(token: tokenUnwrapped, attribute: "lastName", value: newLastName) else { return }
+                guard let firstNameUpdated = db.updateUser(key: token, where: "firstName", of: newFirstName) else { return }
+                guard let lastNameUpdated = db.updateUser(key: token, where: "lastName", of: newLastName) else { return }
                 
                 if !firstNameUpdated, !lastNameUpdated {
                     print("Desculpe, estamos com problemas")
                 }
                 
                 // Imprimi
-                routeTo().view.editProfile().showSuccessfullyUpdate(field: "'Nome'")
+                routeTo().view.editProfile().showSuccessfullyUpdate()
                 
                 loop = false
             case 2:
                 // Endereço
 
-                guard let address = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).address else { return }
+                guard let address = routeTo().controller.form().getProfileInfo(token).address else { return }
                 
-                routeTo().view.editProfile().showAddressField(address: address)
+                routeTo().view.editProfile().showAddressField(address)
                 
                 guard let newAddress = routeTo().controller.form().getAddress() else { return }
                 
-                guard let addressUpdated = db.update(token: tokenUnwrapped, attribute: "address", value: newAddress) else { return }
+                guard let addressUpdated = db.updateUser(key: token, where: "address", of: newAddress) else { return }
                 
                 if !addressUpdated {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Endereço")
+                routeTo().view.editProfile().showSuccessfullyUpdate()
                 
                 loop = false
             case 3:
                 // Cidade
                 
-                guard let city = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).city else { return }
+                guard let city = routeTo().controller.form().getProfileInfo(token).city else { return }
                 
-                routeTo().view.editProfile().showCityField(city: city)
+                routeTo().view.editProfile().showCityField(city)
                 
                 guard let newCity = routeTo().controller.form().getCity() else { return }
                 
-                guard let cityUpdated = db.update(token: tokenUnwrapped, attribute: "city", value: newCity) else { return }
+                guard let cityUpdated = db.updateUser(key: token, where: "city", of: newCity) else { return }
                 
                 if !cityUpdated {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Cidade")
+                routeTo().view.editProfile().showSuccessfullyUpdate()
                 
                 loop = false
             case 4:
                 // Estado
                 
-                guard let state = routeTo().controller.form().getProfileInfo(token: tokenUnwrapped).state else { return }
+                guard let state = routeTo().controller.form().getProfileInfo(token).state else { return }
                 
-                routeTo().view.editProfile().showStateField(state: state)
+                routeTo().view.editProfile().showStateField(state)
                 
                 guard let newState = routeTo().controller.form().getState() else { return }
                 
-                guard let stateUpdated = db.update(token: tokenUnwrapped, attribute: "state", value: newState) else { return }
+                guard let stateUpdated = db.updateUser(key: token, where: "state", of: newState) else { return }
                 
                 if !stateUpdated {
                     print("Desculpe, estamos com problemas")
                 }
                 
-                routeTo().view.editProfile().showSuccessfullyUpdate(field: "Estado")
+                routeTo().view.editProfile().showSuccessfullyUpdate()
                 
                 loop = false
             default:

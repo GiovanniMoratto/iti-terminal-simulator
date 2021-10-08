@@ -14,15 +14,15 @@ class User {
     var firstName = String()
     var lastName = String()
     var documentNumber = String()
+    //TODO
     var address = String()
     var city = String()
     var state = String()
+    
     var bankAccount = BankAccount()
     var password = String()
     
     // MARK: - Initializers (Constructors)
-    
-    init(){}
     
     init(firstName: String, lastName: String, documentNumber: String, password: String) {
         // Utilizado na criação da conta do usuário
@@ -34,8 +34,8 @@ class User {
     }
     
     init(firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String, bankAccount: BankAccount, password: String) {
-        // Utilizado na criação dos dados iniciais no banco
-        
+        // Utilizado na criação dos dados iniciais de teste no banco
+
         self.firstName = firstName
         self.lastName = lastName
         self.documentNumber = documentNumber

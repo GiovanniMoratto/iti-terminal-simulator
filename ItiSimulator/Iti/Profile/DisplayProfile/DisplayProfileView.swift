@@ -18,35 +18,35 @@ class DisplayProfileView {
         print("|_____________________________________________|\n")
     }
     
-    func showUsernameField(firstName: String?, lastName: String?) {
-        guard let firstNameUnwrapped = firstName else { return }
-        guard let lastNameUnwrapped = lastName else { return }
+    func showUsernameField(_ firstNameWrapped: String?, _ lastNameWrapped: String?) {
+        guard let firstName = firstNameWrapped else { return }
+        guard let lastName = lastNameWrapped else { return }
         
-        print("Nome: \(firstNameUnwrapped) \(lastNameUnwrapped)\n")
+        print("Nome: \(firstName) \(lastName)\n")
     }
     
-    func showDocumentNumberField(documentNumber: String?) {
-        guard let documentNumberUnwrapped = documentNumber else { return }
+    func showDocumentNumberField(_ documentNumberWrapped: String?) {
+        guard let documentNumber = documentNumberWrapped else { return }
         
-        print("CPF: \(documentNumberUnwrapped)\n")
+        print("CPF: \(documentNumber)\n")
     }
     
-    func showAddressField(address: String?) {
-        guard let addressUnwrapped = address else { return }
+    func showAddressField(_ addressWrapped: String?) {
+        guard let address = addressWrapped else { return }
         
-        print("Endereço: \(addressUnwrapped)\n")
+        print("Endereço: \(address)\n")
     }
     
-    func showCityField(city: String?) {
-        guard let cityUnwrapped = city else { return }
+    func showCityField(_ cityWrapped: String?) {
+        guard let city = cityWrapped else { return }
         
-        print("Cidade: \(cityUnwrapped)\n")
+        print("Cidade: \(city)\n")
     }
     
-    func showStateField(state: String?) {
-        guard let stateUnwrapped = state else { return }
+    func showStateField(_ stateWrapped: String?) {
+        guard let state = stateWrapped else { return }
         
-        print("Estado: \(stateUnwrapped)\n")
+        print("Estado: \(state)\n")
     }
     
     func showExit() {

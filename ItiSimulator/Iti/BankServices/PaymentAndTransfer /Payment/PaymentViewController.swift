@@ -11,20 +11,20 @@ class PaymentViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         routeTo().view.payment().showTitle()
         
         routeTo().view.label().showHolderAccountLabel()
         
-        guard let accountNumber = routeTo().controller.form().getHolderAccountNumberAuto(token: tokenUnwrapped) else { return }
-        routeTo().view.label().showHolderAccountNumberLabel(accountNumber: accountNumber)
+        guard let accountNumber = routeTo().controller.form().getHolderAccountNumberAuto(token) else { return }
+        routeTo().view.label().showHolderAccountNumber(accountNumber)
         
-        guard let branch = routeTo().controller.form().getHolderAccountBranchAuto(token: tokenUnwrapped) else { return }
-        routeTo().view.label().showHolderAccountBranchLabel(branch: branch)
+        guard let branch = routeTo().controller.form().getHolderAccountBranchAuto(token) else { return }
+        routeTo().view.label().showHolderAccountBranch(branch)
         
-        guard let payment = routeTo().controller.form().setPayment(token: tokenUnwrapped) else { return }
+        guard let payment = routeTo().controller.form().setPayment(token) else { return }
         
         if !payment {
             print("erro")

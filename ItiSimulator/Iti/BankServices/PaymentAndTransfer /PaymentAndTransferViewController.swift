@@ -11,8 +11,8 @@ class PaymentAndTransferViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         var loop = true
         
@@ -28,7 +28,7 @@ class PaymentAndTransferViewController {
                 loop = false
             case 1:
                 // Pagar
-                routeTo().controller.payment(token: tokenUnwrapped)
+                routeTo().controller.payment(token)
             case 2: break
                 // Transferir
             default:

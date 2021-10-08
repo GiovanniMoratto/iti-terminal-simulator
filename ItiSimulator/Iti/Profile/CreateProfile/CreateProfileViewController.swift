@@ -26,17 +26,17 @@ class CreateProfileViewController {
             password: password
         )
         
-        guard let database = db.save(user: newUser) else { return }
+        guard let database = db.saveUser(newUser) else { return }
         
         if !database {
             print("Desculpe, estamos com problemas")
         }
         
-        guard let user = routeTo().controller.form().isValidLogin(documentNumber: documentNumber, password: password).user else { return }
+        guard let user = routeTo().controller.form().isValidLogin(documentNumber, password).user else { return }
         
-        guard let token = routeTo().controller.form().getCredential(user: user) else { return }
+        guard let token = routeTo().controller.form().getCredential(user) else { return }
         
-        routeTo().controller.home(token: token)
+        routeTo().controller.home(token)
     }
     
 }

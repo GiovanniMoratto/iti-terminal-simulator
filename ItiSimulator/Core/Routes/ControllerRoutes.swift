@@ -11,9 +11,10 @@ class ControllerRoutes {
     
     // MARK: - Methods
     
-    func home(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        HomeViewController().process(token: tokenUnwrapped)
+    func home(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        HomeViewController().process(token)
     }
     
     func welcome() {
@@ -28,9 +29,10 @@ class ControllerRoutes {
         return Forms()
     }
     
-    func profile(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        ProfileViewController().process(token: tokenUnwrapped)
+    func profile(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        ProfileViewController().process(token)
     }
     
     func create() {
@@ -41,29 +43,34 @@ class ControllerRoutes {
         DatabaseViewController().process()
     }
     
-    func displayProfile(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        DisplayProfileViewController().process(token: tokenUnwrapped)
+    func displayProfile(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        DisplayProfileViewController().process(token)
     }
     
-    func editProfile(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        EditProfileViewController().process(token: tokenUnwrapped)
+    func editProfile(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        EditProfileViewController().process(token)
     }
     
-    func deleteProfile(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        DeleteProfileViewController().process(token: tokenUnwrapped)
+    func deleteProfile(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        DeleteProfileViewController().process(token)
     }
     
-    func paymentAndTransfer(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        PaymentAndTransferViewController().process(token: tokenUnwrapped)
+    func paymentAndTransfer(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        PaymentAndTransferViewController().process(token)
     }
     
-    func payment(token: String?) {
-        guard let tokenUnwrapped = token else { return }
-        PaymentViewController().process(token: tokenUnwrapped)
+    func payment(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        PaymentViewController().process(token)
     }
     
 //    func transfer(token: String?) {

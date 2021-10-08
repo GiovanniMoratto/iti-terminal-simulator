@@ -11,8 +11,8 @@ class DeleteProfileViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         routeTo().view.deleteProfile().showTitle()
         routeTo().view.deleteProfile().showMessage()
@@ -30,7 +30,7 @@ class DeleteProfileViewController {
             case 1:
                 loop = false
 
-                guard let database = db.delete(token: tokenUnwrapped) else { return }
+                guard let database = db.deleteUser(token) else { return }
                
                 if !database {
                     print("Desculpe, estamos com problemas")

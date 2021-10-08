@@ -11,8 +11,8 @@ class ProfileViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         var loop = true
         
@@ -28,13 +28,13 @@ class ProfileViewController {
                 loop = false
             case 1:
                 // Exibir informações
-                routeTo().controller.displayProfile(token: tokenUnwrapped)
+                routeTo().controller.displayProfile(token)
             case 2:
                 // Editar informações
-                routeTo().controller.editProfile(token: tokenUnwrapped)
+                routeTo().controller.editProfile(token)
             case 3:
                 // Excluir conta
-                routeTo().controller.deleteProfile(token: tokenUnwrapped)
+                routeTo().controller.deleteProfile(token)
             default:
                 print("Por favor, escolha uma operação")
             }

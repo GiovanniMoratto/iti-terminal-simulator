@@ -49,14 +49,14 @@ class Labels {
         print("Digite o seu estado: ")
     }
     
-    func showOverviewLabel(firstName: String?, lastName: String?, balance: Double?) {
-        guard let firstNameUnwrapped = firstName else { return }
-        guard let lastNameUnwrapped = lastName else { return }
-        guard let balanceUnwrapped = balance else { return }
+    func showOverview(_ firstNameWrapped: String?, _ lastNameWrapped: String?, _ balanceWrapped: Double?) {
+        guard let firstName = firstNameWrapped else { return }
+        guard let lastName = lastNameWrapped else { return }
+        guard let balance = balanceWrapped else { return }
         
-        let username = "\(firstNameUnwrapped) \(lastNameUnwrapped)"
+        let username = "\(firstName) \(lastName)"
         print("                       \(username)")
-        print("                       Saldo: R$ \(balanceUnwrapped)")
+        print("                       Saldo: R$ \(balance)")
     }
     
     func showHolderAccountRequestLabel() {
@@ -67,14 +67,16 @@ class Labels {
         print("Conta de origem: \n")
     }
     
-    func showHolderAccountBranchLabel(branch: Int?) {
-        guard let branchUnwrapped = branch else { return }
-        print("     Agência: \(branchUnwrapped)")
+    func showHolderAccountBranch(_ branchWrapped: Int?) {
+        guard let branch = branchWrapped else { return }
+        
+        print("     Agência: \(branch)")
     }
     
-    func showHolderAccountNumberLabel(accountNumber: Int?) {
-        guard let accountNumberUnwrapped = accountNumber else { return }
-        print("     Número da conta: \(accountNumberUnwrapped)")
+    func showHolderAccountNumber(_ accountNumberWrapped: Int?) {
+        guard let accountNumber = accountNumberWrapped else { return }
+        
+        print("     Número da conta: \(accountNumber)")
     }
     
     func showPayeeAccountLabel() {

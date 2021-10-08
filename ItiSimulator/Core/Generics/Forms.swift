@@ -9,14 +9,20 @@ import Foundation
 
 class Forms {
     
+    /*
+     Métodos responsáveis por chamada labels, recebimento de input, validação e retornos.
+     Os retornos podem ser o valor de input ou retornar o próprio método, caso ele não passe na validação.
+     */
+    
     // MARK: - Methods
     
-    // Login Forms
+    /* Login */
+    
     func checkDocumentNumber() -> String? {
         routeTo().view.label().showDocumentNumberRequestLabel()
         
         guard let documentNumber = routeTo().view.label().getInput(),
-              documentNumber.notEmpty(fieldName: "'CPF'") ?? false,
+              documentNumber.notEmpty("'CPF'") ?? false,
               documentNumber.isValidCpf() ?? false
         else { return routeTo().controller.form().checkDocumentNumber()}
         
@@ -27,32 +33,32 @@ class Forms {
         routeTo().view.label().showPasswordRequestLabel()
         
         guard let password = routeTo().view.label().getInput(),
-              password.notEmpty(fieldName: "'senha'") ?? false,
+              password.notEmpty("'senha'") ?? false,
               password.isValidPassword ?? false
         else { return routeTo().controller.form().checkPassword()}
         
         return password
     }
     
-    func isValidLogin(documentNumber: String?, password: String?) -> (condition: Bool?, user: User?) {
-        guard let documentUnwrapped = documentNumber else { return (nil, nil)}
-        guard let passwordUnwrapped = password else { return (nil, nil)}
+    func isValidLogin(_ documentNumberWrapped: String?, _ passwordWrapped: String?) -> (condition: Bool?, user: User?) {
+        guard let documentNumber = documentNumberWrapped else { return (nil, nil)}
+        guard let password = passwordWrapped else { return (nil, nil)}
         
-        guard let user = db.find(documentNumber: documentUnwrapped) else { return (nil, nil)}
+        guard let user = db.findUserByDocumentNumber(documentNumber) else { return (nil, nil)}
         
-        if user.password != passwordUnwrapped {
+        if user.password != password {
             print("Senha Inválida!")
-            return (false, User())
+            return (nil, nil)
         }
         return (true, user)
     }
     
-    func getCredential(user: User?) -> String? {
-        guard let userUnwrapped = user else { return nil }
+    func getCredential(_ userWrapped: User?) -> String? {
+        guard let user = userWrapped else { return nil }
         
-        let credential = Access(token: String().tokenGenerator, user: userUnwrapped)
+        let credential = Access(token: String().tokenGenerator, user: user)
         
-        guard let access = db.save(credential: credential) else { return nil }
+        guard let access = db.saveAccess(credential) else { return nil }
         
         if !access {
             return nil
@@ -60,35 +66,15 @@ class Forms {
         return credential.token
     }
     
-    func getUser(token: String?) -> User? {
-        guard let tokenUnwrapped = token else { return nil }
-        guard let user = db.find(token: tokenUnwrapped) else { return nil }
-        
-        return user
-    }
+    /* Create and Update Profile */
     
-    func getPersonalInfo(token: String?) -> (firstName: String?, lastName: String?, balance: Double?) {
-        guard let tokenUnwrapped = token else { return (nil, nil, nil) }
-        guard let user = getUser(token: tokenUnwrapped) else { return (nil, nil, nil) }
-        
-        return (user.firstName, user.lastName, user.bankAccount.balance)
-    }
-    
-    func getProfileInfo(token: String?) -> (firstName: String?, lastName: String?, documentNumber: String?, address: String?, city: String?, state: String?) {
-        guard let tokenUnwrapped = token else { return (nil, nil, nil, nil, nil, nil) }
-        guard let user = getUser(token: tokenUnwrapped) else { return (nil, nil, nil, nil, nil, nil) }
-        
-        return (user.firstName, user.lastName, user.documentNumber, user.address, user.city, user.state)
-    }
-    
-    // Create user
     func getFirstName() -> String? {
         routeTo().view.label().showFirstNameRequestLabel()
         
         guard let firstName = routeTo().view.label().getInput(),
-              firstName.notEmpty(fieldName: "'primeiro nome'") ?? false,
-              firstName.minLength(fieldName: "'primeiro nome'", length: 3) ?? false,
-              firstName.maxLength(fieldName: "'primeiro nome'", length: 12) ?? false
+              firstName.notEmpty("'primeiro nome'") ?? false,
+              firstName.minLength("'primeiro nome'", 3) ?? false,
+              firstName.maxLength("'primeiro nome'", 12) ?? false
         else { return routeTo().controller.form().getFirstName()}
         
         return firstName
@@ -98,9 +84,9 @@ class Forms {
         routeTo().view.label().showLastNameRequestLabel()
         
         guard let lastName = routeTo().view.label().getInput(),
-              lastName.notEmpty(fieldName: "'sobrenome'") ?? false,
-              lastName.minLength(fieldName: "'sobrenome'", length: 3) ?? false,
-              lastName.maxLength(fieldName: "'sobrenome'", length: 12) ?? false
+              lastName.notEmpty("'sobrenome'") ?? false,
+              lastName.minLength("'sobrenome'", 3) ?? false,
+              lastName.maxLength("'sobrenome'", 12) ?? false
         else { return routeTo().controller.form().getLastName()}
         
         return lastName
@@ -110,7 +96,7 @@ class Forms {
         routeTo().view.label().showDocumentNumberRequestLabel()
         
         guard let documentNumber = routeTo().view.label().getInput(),
-              documentNumber.notEmpty(fieldName: "'CPF'") ?? false,
+              documentNumber.notEmpty("'CPF'") ?? false,
               documentNumber.isValidCpf() ?? false,
               documentNumber.uniqueCpf ?? false
         else { return routeTo().controller.form().getDocumentNumber()}
@@ -132,9 +118,9 @@ class Forms {
         routeTo().view.label().showAddressRequestLabel()
         
         guard let address = routeTo().view.label().getInput(),
-              address.notEmpty(fieldName: "'endereço'") ?? false,
-              address.minLength(fieldName: "'endereço'", length: 3) ?? false,
-              address.maxLength(fieldName: "'endereço'", length: 12) ?? false
+              address.notEmpty("'endereço'") ?? false,
+              address.minLength("'endereço'", 3) ?? false,
+              address.maxLength("'endereço'", 12) ?? false
                 
         else { return routeTo().controller.form().getAddress()}
         
@@ -145,9 +131,9 @@ class Forms {
         routeTo().view.label().showCityRequestLabel()
         
         guard let city = routeTo().view.label().getInput(),
-              city.notEmpty(fieldName: "'cidade'") ?? false,
-              city.minLength(fieldName: "'cidade'", length: 3) ?? false,
-              city.maxLength(fieldName: "'cidade'", length: 12) ?? false
+              city.notEmpty("'cidade'") ?? false,
+              city.minLength("'cidade'", 3) ?? false,
+              city.maxLength("'cidade'", 12) ?? false
                 
         else { return routeTo().controller.form().getCity()}
         
@@ -158,59 +144,92 @@ class Forms {
         routeTo().view.label().showStateRequestLabel()
         
         guard let state = routeTo().view.label().getInput(),
-              state.notEmpty(fieldName: "'estado'") ?? false,
-              state.minLength(fieldName: "'estado'", length: 3) ?? false,
-              state.maxLength(fieldName: "'estado'", length: 12) ?? false
+              state.notEmpty("'estado'") ?? false,
+              state.minLength("'estado'", 3) ?? false,
+              state.maxLength("'estado'", 12) ?? false
         else { return routeTo().controller.form().getState()}
         
         return state
     }
     
+    /* Display Methods */
+    
+    func getOverview(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, balance: Double?) {
+        guard let token = tokenWrapped else { return (nil, nil, nil) }
+        
+        guard let user = getUser(token) else { return (nil, nil, nil) }
+        
+        return (user.firstName, user.lastName, user.bankAccount.balance)
+    }
+    
+    func getProfileInfo(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, documentNumber: String?, address: String?, city: String?, state: String?) {
+        guard let token = tokenWrapped else { return (nil, nil, nil, nil, nil, nil) }
+        
+        guard let user = getUser(token) else { return (nil, nil, nil, nil, nil, nil) }
+        
+        return (user.firstName, user.lastName, user.documentNumber, user.address, user.city, user.state)
+    }
+    
+    /* Assistants Methods */
+    
+    func getUser(_ tokenWrapped: String?) -> User? {
+        guard let token = tokenWrapped else { return nil }
+        
+        guard let user = db.findUserByToken(token) else { return nil }
+        
+        return user
+    }
+
+    /* Bank Services */
+    
     func getHolderAccountNumberManual() -> Int? {
         routeTo().view.label().showHolderAccountRequestLabel()
         
         guard let holderAccountNumber = routeTo().view.label().getInput(),
-              holderAccountNumber.isNumeric(fieldName: "'número da conta'") ?? false,
-              holderAccountNumber.minLength(fieldName: "'número da conta'", length: 6) ?? false,
-              holderAccountNumber.maxLength(fieldName: "'número da conta'", length: 8) ?? false
+              holderAccountNumber.isNumeric("'número da conta'") ?? false,
+              holderAccountNumber.minLength("'número da conta'", 6) ?? false,
+              holderAccountNumber.maxLength("'número da conta'", 8) ?? false
         else { return routeTo().controller.form().getHolderAccountNumberManual() }
         
         return Int(holderAccountNumber)
     }
     
-    func getHolderAccountNumberAuto(token: String?) -> Int? {
-        guard let tokenUnwrapped = token else { return nil }
-        guard let user = getUser(token: tokenUnwrapped) else { return nil }
+    func getHolderAccountNumberAuto(_ tokenWrapped: String?) -> Int? {
+        guard let token = tokenWrapped else { return nil }
+        
+        guard let user = getUser(token) else { return nil }
         
         let accountNumber: String? = String(user.bankAccount.account)
         
         guard let holderAccountNumber = accountNumber,
-              holderAccountNumber.isNumeric(fieldName: "'número da conta'") ?? false,
-              holderAccountNumber.minLength(fieldName: "'número da conta'", length: 6) ?? false,
-              holderAccountNumber.maxLength(fieldName: "'número da conta'", length: 8) ?? false
-        else { return routeTo().controller.form().getHolderAccountNumberAuto(token: tokenUnwrapped) }
+              holderAccountNumber.isNumeric("'número da conta'") ?? false,
+              holderAccountNumber.minLength("'número da conta'", 6) ?? false,
+              holderAccountNumber.maxLength("'número da conta'", 8) ?? false
+        else { return routeTo().controller.form().getHolderAccountNumberAuto(token) }
         
         return Int(holderAccountNumber)
     }
     
-    func getHolderAccountBranchAuto(token: String?) -> Int? {
-        guard let tokenUnwrapped = token else { return nil }
-        guard let user = getUser(token: tokenUnwrapped) else { return nil }
+    func getHolderAccountBranchAuto(_ tokenWrapped: String?) -> Int? {
+        guard let token = tokenWrapped else { return nil }
+        
+        guard let user = getUser(token) else { return nil }
         
         let branch: String? = String(user.bankAccount.agency)
         
         guard let holderAccountBranch = branch,
-              holderAccountBranch.isNumeric(fieldName: "'agência'") ?? false,
-              holderAccountBranch.minLength(fieldName: "'agência'", length: 4) ?? false,
-              holderAccountBranch.maxLength(fieldName: "'agência'", length: 5) ?? false
-        else { return routeTo().controller.form().getHolderAccountNumberAuto(token: tokenUnwrapped) }
+              holderAccountBranch.isNumeric("'agência'") ?? false,
+              holderAccountBranch.minLength("'agência'", 4) ?? false,
+              holderAccountBranch.maxLength("'agência'", 5) ?? false
+        else { return routeTo().controller.form().getHolderAccountNumberAuto(token) }
         
         return Int(holderAccountBranch)
     }
     
-    func setPayment(token: String?) -> Bool? {
-        guard let tokenUnwrapped = token else { return nil}
-        guard let user = getUser(token: tokenUnwrapped) else { return nil}
+    func setPayment(_ tokenWrapped: String?) -> Bool? {
+        guard let token = tokenWrapped else { return nil}
+        
+        guard let user = getUser(token) else { return nil}
         
         let balance = user.bankAccount.balance
         
@@ -222,7 +241,7 @@ class Forms {
         let newBalance = balance - bill
         let newBalanceString = String(newBalance)
         
-        guard let database = db.update(token: tokenUnwrapped, attribute: "balance", value: newBalanceString) else { return nil }
+        guard let database = db.updateUser(key: token, where: "balance", of: newBalanceString) else { return nil }
         
         if !database {
             print("Operação Inválida")

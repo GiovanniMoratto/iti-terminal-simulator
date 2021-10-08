@@ -7,9 +7,10 @@
 
 import Foundation
 
-class Data {
+class DataTest {
     
     func initialData() {
+    
         
         let users = [
             User(

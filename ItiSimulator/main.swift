@@ -18,7 +18,7 @@ func routeTo() -> (controller: ControllerRoutes, view: ViewsRoutes)  {
 }
 
 func initialData() {
-    Data().initialData()
+    DataTest().initialData()
 }
 
 func start() {

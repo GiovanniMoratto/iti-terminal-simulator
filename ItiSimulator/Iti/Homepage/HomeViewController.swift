@@ -11,8 +11,8 @@ class HomeViewController {
     
     // MARK: - Methods
     
-    func process(token: String?) {
-        guard let tokenUnwrapped = token else { return }
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
         
         var loop = true
         
@@ -20,11 +20,11 @@ class HomeViewController {
             routeTo().view.home().showTitle()
             routeTo().view.home().showMenu()
             
-            guard let firstName = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).firstName else { return }
-            guard let lastName = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).lastName else { return }
-            guard let balance = routeTo().controller.form().getPersonalInfo(token: tokenUnwrapped).balance else { return }
+            guard let firstName = routeTo().controller.form().getOverview(token).firstName else { return }
+            guard let lastName = routeTo().controller.form().getOverview(token).lastName else { return }
+            guard let balance = routeTo().controller.form().getOverview(token).balance else { return }
             
-            routeTo().view.label().showOverviewLabel(firstName: firstName, lastName: lastName, balance: balance)
+            routeTo().view.label().showOverview(firstName, lastName, balance)
             
             guard let input = routeTo().view.label().getInput() else { return }
             let option = Int(input)
@@ -38,13 +38,13 @@ class HomeViewController {
                 //                Cartão de Crédito iti
             case 3:
                 //                Pagar e Transferir
-                routeTo().controller.paymentAndTransfer(token: tokenUnwrapped)
+                routeTo().controller.paymentAndTransfer(token)
             case 4: break
                 //                Colocar Dinheiro
             case 5: break
                 //                Gerenciar Cartões
             case 6:
-                routeTo().controller.profile(token: tokenUnwrapped)
+                routeTo().controller.profile(token)
             default:
                 print("Por favor, escolha uma operação")
             }

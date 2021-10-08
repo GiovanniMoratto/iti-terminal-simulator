@@ -11,12 +11,12 @@ extension String {
     
     // MARK: - Methods
     
-    func maxLength(fieldName: String?, length: Int?) -> Bool? {
-        guard let fieldUnwrapped = fieldName else { return false }
-        guard let lengthUnwrapped = length else { return false }
+    func maxLength(_ fieldNameWrapped: String?, _ lengthWrapped: Int?) -> Bool? {
+        guard let fieldName = fieldNameWrapped else { return false }
+        guard let length = lengthWrapped else { return false }
         
-        if self.count >= lengthUnwrapped {
-            print("\nO campo \(fieldUnwrapped) deve conter \(lengthUnwrapped) ou menos caracteres.\n")
+        if self.count >= length {
+            print("\nO campo \(fieldName) deve conter \(length) ou menos caracteres.\n")
             return false
         }
         return true
