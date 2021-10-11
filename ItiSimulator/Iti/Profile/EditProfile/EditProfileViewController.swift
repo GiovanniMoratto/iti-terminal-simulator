@@ -26,7 +26,7 @@ struct EditProfileViewController {
             
             op.overview(token)
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 1:
                 op.usernameUpdated(token)
                 scene.successfullyUpdateMessage()

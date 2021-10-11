@@ -79,14 +79,15 @@ struct UserView: UserViewProtocol {
         print()
         return input
     }
-    
-    func getInputNavigation() -> Int {
-        guard let input = getInput() else { return Int()}
+
+    func getNavigation() -> Int {
+        guard let inputString = readLine() else { return Int()}
         
-        let optionWrapped = Int(input)
-        guard let option = optionWrapped else { return Int()}
+        let inputWrapped = Int(inputString)
+        guard let input = inputWrapped else { return Int()}
+        print()
         
-        return option
+        return input
     }
     
 }

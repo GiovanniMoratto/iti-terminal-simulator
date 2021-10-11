@@ -46,6 +46,8 @@
 		B1DF157C2714BE7B00DAE6E8 /* BankOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157B2714BE7B00DAE6E8 /* BankOperation.swift */; };
 		B1DF157E2714C73200DAE6E8 /* BankViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157D2714C73200DAE6E8 /* BankViewProtocol.swift */; };
 		B1DF15802714C7E900DAE6E8 /* BankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157F2714C7E900DAE6E8 /* BankView.swift */; };
+		B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15822714D74C00DAE6E8 /* TransferView.swift */; };
+		B1DF15852714D75B00DAE6E8 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15842714D75B00DAE6E8 /* TransferViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,6 +103,8 @@
 		B1DF157B2714BE7B00DAE6E8 /* BankOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperation.swift; sourceTree = "<group>"; };
 		B1DF157D2714C73200DAE6E8 /* BankViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewProtocol.swift; sourceTree = "<group>"; };
 		B1DF157F2714C7E900DAE6E8 /* BankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankView.swift; sourceTree = "<group>"; };
+		B1DF15822714D74C00DAE6E8 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
+		B1DF15842714D75B00DAE6E8 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +292,7 @@
 		B1DF156F2714BA6300DAE6E8 /* PaymentAndTransfer */ = {
 			isa = PBXGroup;
 			children = (
+				B1DF15812714D74000DAE6E8 /* Transfer */,
 				B1DF15702714BA7000DAE6E8 /* Payment */,
 				B1DF15712714BB0100DAE6E8 /* PaymentAndTransferView.swift */,
 				B1DF15732714BB2200DAE6E8 /* PaymentAndTransferViewController.swift */,
@@ -302,6 +307,15 @@
 				B1DF15772714BBF600DAE6E8 /* PaymentViewController.swift */,
 			);
 			path = Payment;
+			sourceTree = "<group>";
+		};
+		B1DF15812714D74000DAE6E8 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF15822714D74C00DAE6E8 /* TransferView.swift */,
+				B1DF15842714D75B00DAE6E8 /* TransferViewController.swift */,
+			);
+			path = Transfer;
 			sourceTree = "<group>";
 		};
 		B1E5E07A270F889000DA76CA /* Security */ = {
@@ -415,6 +429,7 @@
 				B1DF15802714C7E900DAE6E8 /* BankView.swift in Sources */,
 				B1DF15672714AD0000DAE6E8 /* UserOperation.swift in Sources */,
 				B13591F7270C8E6F00A1555B /* ProfileMenuViewController.swift in Sources */,
+				B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */,
 				B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ProfileMenuView.swift in Sources */,
 				B1DF15762714BBDA00DAE6E8 /* PaymentView.swift in Sources */,
@@ -427,6 +442,7 @@
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
 				B1190458270F2F9F005DD675 /* PixType.swift in Sources */,
 				B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */,
+				B1DF15852714D75B00DAE6E8 /* TransferViewController.swift in Sources */,
 				B1DF15742714BB2200DAE6E8 /* PaymentAndTransferViewController.swift in Sources */,
 				B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */,
 				B13591FF270C9D6300A1555B /* DeleteProfileView.swift in Sources */,

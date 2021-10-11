@@ -77,7 +77,8 @@ struct UserOperation: UserOperationProtocol {
     
     func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
                 
-        guard let user = db.findUserByDocumentNumber(documentNumber) else { return (false, nil) }
+        guard let user = db.findUserByDocumentNumber(documentNumber)
+        else { print("CPF não cadastrado!\n"); return (false, nil) }
         
         if user.password != password {
             print("Senha Inválida!")
@@ -176,7 +177,7 @@ struct UserOperation: UserOperationProtocol {
     
     func getUser(_ token: String) -> User? {
 
-        guard let user = db.findUserByToken(token) else { return nil }
+        guard let user = db.findUserByToken(token) else { print("Usuário não existe.\n"); return nil }
         
         return user
     }

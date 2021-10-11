@@ -23,7 +23,7 @@ struct DeleteProfileViewController {
             scene.showTitle()
             scene.showMessage()
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 1:
                 db.delete(token)
                 scene.showSuccessfullyDeleted()

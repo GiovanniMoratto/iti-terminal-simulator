@@ -51,4 +51,8 @@ struct ControllerRoutes {
         PaymentViewController().process(token)
     }
     
+    func transfer(_ token: String) {
+        TransferViewController().process(token)
+    }
+    
 }

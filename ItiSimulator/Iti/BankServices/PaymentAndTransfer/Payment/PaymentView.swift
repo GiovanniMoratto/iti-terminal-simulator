@@ -18,17 +18,12 @@ struct PaymentView {
         print("|_____________________________________________|\n")
     }
     
-    func showBillLabel() {
+    func showBillValueRequest() {
         print("Digite o valor da conta ser paga: \n")
     }
     
-    func successfullyPaymentMessage() {
+    func successfullyMessage() {
         print("Pagamento realizado com sucesso!\n")
     }
-    
-    func currentBalance(_ balance: Double) {
-        print("Saldo atual: R$\(balance)\n")
-    }
 
-    
 }

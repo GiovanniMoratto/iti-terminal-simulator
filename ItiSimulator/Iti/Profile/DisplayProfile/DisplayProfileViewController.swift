@@ -24,7 +24,7 @@ struct DisplayProfileViewController {
             scene.showTitle()
             op.profileInfo(token)
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 0:
                 view.exit()
                 loop = false

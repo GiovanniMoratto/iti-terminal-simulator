@@ -10,23 +10,23 @@ import Foundation
 struct PaymentAndTransferView {
     
     // MARK: - Methods
-        
-        func showTitle() {
-            print("\n _____________________________________________ ")
-            print("|                                             |")
-            print("|  Pagar e Transferir                         |")
-            print("|_____________________________________________|")
-        }
-        
-        func showMenu() {
-            print("|                                             |")
-            print("|   O que deseja fazer ?                      |")
-            print("|                                             |")
-            print("|   (1) - Pagar                               |")
-            print("|   (2) - Transferir                          |")
-            print("|                                             |")
-            print("|   (0) - Voltar                              |")
-            print("|                                             |\n")
-        }
+    
+    func showTitle() {
+        print("\n _____________________________________________ ")
+        print("|                                             |")
+        print("|  Pagar e Transferir                         |")
+        print("|_____________________________________________|")
+    }
+    
+    func showMenu() {
+        print("|                                             |")
+        print("|   O que deseja fazer ?                      |")
+        print("|                                             |")
+        print("|   (1) - Pagar                               |")
+        print("|   (2) - Transferir                          |")
+        print("|                                             |")
+        print("|   (0) - Voltar                              |")
+        print("|                                             |\n")
+    }
     
 }

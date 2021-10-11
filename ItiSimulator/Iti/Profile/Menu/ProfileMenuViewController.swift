@@ -24,7 +24,7 @@ struct ProfileMenuViewController {
             
             op.overview(token)
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 1:
                 routeTo().displayProfile(token)
             case 2:

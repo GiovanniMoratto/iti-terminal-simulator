@@ -24,7 +24,7 @@ struct PaymentViewController {
             scene.showTitle()
             op.payment(token)
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 0:
                 view.exit()
                 loop = false

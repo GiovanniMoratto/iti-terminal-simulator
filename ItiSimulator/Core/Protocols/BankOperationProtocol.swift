@@ -9,7 +9,9 @@ import Foundation
 
 protocol BankOperationProtocol {
     
-    /* Assistants Methods */
+    func payment(_ token: String)
+    
+    func transfer(_ token: String)
     
     
     

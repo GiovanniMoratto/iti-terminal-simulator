@@ -40,7 +40,6 @@ class Database {
                 return Database.shared.users[index]
             }
         }
-        print("CPF não cadastrado!\n")
         return nil
     }
     
@@ -51,10 +50,28 @@ class Database {
                 return Database.shared.credentials[index].user
             }
         }
-        print("Usuário não encontrado.\n")
         return nil
     }
     
+    func findPayee(_ bank: String, branch: Int, account: Int) -> (condition: Bool, user: User?){
+        for index in Database.shared.users.indices {
+            if Database.shared.users[index].bankAccount.bank == bank {
+                if Database.shared.users[index].bankAccount.branch == branch {
+                    if Database.shared.users[index].bankAccount.account == account {
+                        return (true, Database.shared.users[index])
+                    }
+                }
+            }
+        }
+        return (false, nil)
+        //        for index in Database.shared.users.indices {
+        //            if Database.shared.users[index].bankAccount.bank == bank, Database.shared.users[index].bankAccount.branch == branch,
+        //               Database.shared.users[index].bankAccount.branch == account {
+        //                return (true, Database.shared.users[index])
+        //            }
+        //        }
+    }
+
     /* Delete */
     
     func delete(_ token: String) {

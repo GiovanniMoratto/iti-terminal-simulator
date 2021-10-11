@@ -26,7 +26,7 @@ struct HomeViewController {
             
             op.overview(token)
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 1: break
                 // PIX
             case 2: break

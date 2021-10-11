@@ -13,4 +13,10 @@ protocol BankViewProtocol {
     
     func holderAccount(_ firstName: String, _ lastName: String, _ documentNumber: String, _ bank: String, _ branch: Int, _ account: Int, _ balance: Double)
     
+    func getInputAsDouble() -> Double?
+    
+    func getInputAsInt() -> Int?
+    
+    func currentBalance(_ balance: Double)
+    
 }

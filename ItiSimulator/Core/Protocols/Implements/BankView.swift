@@ -20,13 +20,33 @@ struct BankView: BankViewProtocol {
         print("Saldo:       R$\(balance)\n")
     }
     
-    func getBankInput() -> Double? {
+    func getInputAsDouble() -> Double? {
         guard let input = readLine() else { return Double()}
         
         let bankInput = Double(input)
         print()
         
         return bankInput
+    }
+        
+    func getInputAsInt() -> Int? {
+        guard let input = readLine() else { return Int()}
+        
+        let bankInput = Int(input)
+        print()
+        
+        return bankInput
+    }
+
+    func currentBalance(_ balance: Double) {
+        print("Saldo atual: R$\(balance)\n")
+    }
+    
+    func payeeAccount(_ firstName: String, _ lastName: String, _ bank: String, _ branch: Int, _ account: Int) {
+        print("Nome:        \(firstName) \(lastName)\n")
+        print("Banco:       \(bank)")
+        print("Agência:     \(branch)")
+        print("Conta:       \(account)\n")
     }
     
 }

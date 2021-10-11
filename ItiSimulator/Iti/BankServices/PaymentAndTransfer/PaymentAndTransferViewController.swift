@@ -23,13 +23,13 @@ struct PaymentAndTransferViewController {
             scene.showTitle()
             scene.showMenu()
             
-            switch view.getInputNavigation() {
+            switch view.getNavigation() {
             case 0:
                 loop = false
             case 1:
                 routeTo().payment(token)
-            case 2: break
-                // Transferir
+            case 2:
+                routeTo().transfer(token)
             default:
                 print("Por favor, escolha uma operação")
             }

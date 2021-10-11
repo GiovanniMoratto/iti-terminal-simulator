@@ -1,31 +1,30 @@
 //
-//  WelcomeViewController.swift
+//  TransferViewController.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 01/10/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
 
-struct WelcomeViewController {
-
+struct TransferViewController {
+    
     // MARK: - Methods
     
-    func process() {
-        let scene = WelcomeView()
+    func process(_ tokenWrapped: String?) {
+        guard let token = tokenWrapped else { return }
+        
+        let scene = TransferView()
         let view = UserView()
+        let op = BankOperation()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            scene.showMenu()
+            op.transfer(token)
             
             switch view.getNavigation() {
-            case 1:
-                routeTo().login()
-            case 2:
-                routeTo().createProfile()
             case 0:
                 view.exit()
                 loop = false
@@ -34,4 +33,5 @@ struct WelcomeViewController {
             }
         }
     }
+    
 }
