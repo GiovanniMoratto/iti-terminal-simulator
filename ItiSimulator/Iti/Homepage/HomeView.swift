@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeView {
+struct HomeView {
     
     // MARK: - Methods
     

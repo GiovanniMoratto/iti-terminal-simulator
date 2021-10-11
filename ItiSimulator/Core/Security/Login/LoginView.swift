@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginView {
+struct LoginView {
     
     // MARK: - Methods
     

@@ -7,58 +7,40 @@
 
 import Foundation
 
-class ControllerRoutes {
+struct ControllerRoutes {
     
     // MARK: - Methods
     
-    func home(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
-        HomeViewController().process(token)
-    }
-    
     func welcome() {
         WelcomeViewController().process()
+    }
+    
+    func userCreate() {
+        CreateUserViewController().process()
     }
     
     func login() {
         LoginViewController().process()
     }
     
-    func form() -> Forms {
-        return Forms()
+    func home(_ token: String) {
+        HomeViewController().process(token)
     }
     
-    func profile(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
+    func userDisplay(_ token: String) {
+        DisplayUserViewController().process(token)
+    }
+    
+    func userEdit(_ token: String) {
+        EditUserViewController().process(token)
+    }
+    
+    func userDelete(_ token: String) {
+        DeleteUserViewController().process(token)
+    }
+    
+    func profile(_ token: String) {
         ProfileViewController().process(token)
-    }
-    
-    func create() {
-        CreateProfileViewController().process()
-    }
-    
-    func database() {
-        DatabaseViewController().process()
-    }
-    
-    func displayProfile(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
-        DisplayProfileViewController().process(token)
-    }
-    
-    func editProfile(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
-        EditProfileViewController().process(token)
-    }
-    
-    func deleteProfile(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
-        DeleteProfileViewController().process(token)
     }
     
     func paymentAndTransfer(_ tokenWrapped: String?) {

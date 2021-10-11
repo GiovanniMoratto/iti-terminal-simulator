@@ -1,8 +1,8 @@
 //
-//  Data.swift
+//  DataTest.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 07/10/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
@@ -11,18 +11,19 @@ class DataTest {
     
     func initialData() {
     
-        
         let users = [
             User(
                 firstName: "Giovanni",
                 lastName: "Moratto",
                 documentNumber: "051.918.080-10",
-                address: "Rua da Amizade, 123",
-                city: "Americana",
-                state: "SP",
+                address: Address(
+                    address: "Rua da Amizade, 123",
+                    city: "Americana",
+                    state: "SP"
+                ),
                 bankAccount: BankAccount(
                     bank: "Itaú Unibanco",
-                    agency: 4444,
+                    branch: 4444,
                     account: 666666,
                     balance: 5000.00,
                     creditCards: [
@@ -33,7 +34,7 @@ class DataTest {
                             codeNumber: 300
                         )
                     ],
-                    pixKeys: [Pix.CPF]
+                    pixKeys: ["051.918.080-10"]
                 ),
                 password: "Zup123456!"
             ),
@@ -41,12 +42,14 @@ class DataTest {
                 firstName: "Tony",
                 lastName: "Stark",
                 documentNumber: "234.083.290-01",
-                address: "Rua la longe, 5555",
-                city: "Miami",
-                state: "Florida",
+                address: Address(
+                    address: "Rua la longe, 5555",
+                    city: "Miami",
+                    state: "Florida"
+                ),
                 bankAccount: BankAccount(
                     bank: "Itaú Unibanco",
-                    agency: 5555,
+                    branch: 5555,
                     account: 777777,
                     balance: 1000000.0,
                     creditCards: [
@@ -57,12 +60,12 @@ class DataTest {
                             codeNumber: 400
                         )
                     ],
-                    pixKeys: [Pix.CPF]
+                    pixKeys: ["234.083.290-01"]
                 ),
                 password: "Zup123456!"
             )
         ]
-        db.users = users
+        Database.shared.users = users
     }
     
 }

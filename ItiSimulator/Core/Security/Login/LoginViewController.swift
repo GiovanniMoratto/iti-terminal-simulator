@@ -7,26 +7,30 @@
 
 import Foundation
 
-class LoginViewController {
+struct LoginViewController {
     
     // MARK: - Methods
     
     func process() {
-        routeTo().view.login().showTitle()
+        let view = LoginView()
+        let op = UserOperations()
         
-        guard let documentNumber = routeTo().controller.form().checkDocumentNumber() else { return }
-        guard let password = routeTo().controller.form().checkPassword() else { return }
-        guard let login = routeTo().controller.form().isValidLogin(documentNumber, password).condition else { return }
+        view.showTitle()
         
-        routeTo().view.login().showMessage()
+        let documentNumber = op.getDocumentNumberToLogin()
+        let password = op.getPassword()
         
-        if login {
-            guard let user = routeTo().controller.form().isValidLogin(documentNumber, password).user else { return }
-            guard let token = routeTo().controller.form().getCredential(user) else { return }
-            
-            routeTo().controller.home(token)
+        let login = op.isValidLogin(documentNumber, password).condition
+        view.showMessage()
+        
+        if !login {
+            routeTo().welcome()
         }
-        routeTo().controller.welcome()
+        
+        guard let user = op.isValidLogin(documentNumber, password).user else { return }
+        let token = op.getCredential(user)
+        
+        routeTo().home(token)
     }
     
 }

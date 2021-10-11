@@ -17,158 +17,158 @@ class Forms {
     // MARK: - Methods
     
     /* Login */
-    
-    func checkDocumentNumber() -> String? {
-        routeTo().view.label().showDocumentNumberRequestLabel()
-        
-        guard let documentNumber = routeTo().view.label().getInput(),
-              documentNumber.notEmpty("'CPF'") ?? false,
-              documentNumber.isValidCpf() ?? false
-        else { return routeTo().controller.form().checkDocumentNumber()}
-        
-        return documentNumber
-    }
-    
-    func checkPassword() -> String? {
-        routeTo().view.label().showPasswordRequestLabel()
-        
-        guard let password = routeTo().view.label().getInput(),
-              password.notEmpty("'senha'") ?? false,
-              password.isValidPassword ?? false
-        else { return routeTo().controller.form().checkPassword()}
-        
-        return password
-    }
-    
-    func isValidLogin(_ documentNumberWrapped: String?, _ passwordWrapped: String?) -> (condition: Bool?, user: User?) {
-        guard let documentNumber = documentNumberWrapped else { return (nil, nil)}
-        guard let password = passwordWrapped else { return (nil, nil)}
-        
-        guard let user = db.findUserByDocumentNumber(documentNumber) else { return (nil, nil)}
-        
-        if user.password != password {
-            print("Senha Inválida!")
-            return (nil, nil)
-        }
-        return (true, user)
-    }
-    
-    func getCredential(_ userWrapped: User?) -> String? {
-        guard let user = userWrapped else { return nil }
-        
-        let credential = Access(token: String().tokenGenerator, user: user)
-        
-        guard let access = db.saveAccess(credential) else { return nil }
-        
-        if !access {
-            return nil
-        }
-        return credential.token
-    }
-    
-    /* Create and Update Profile */
-    
-    func getFirstName() -> String? {
-        routeTo().view.label().showFirstNameRequestLabel()
-        
-        guard let firstName = routeTo().view.label().getInput(),
-              firstName.notEmpty("'primeiro nome'") ?? false,
-              firstName.minLength("'primeiro nome'", 3) ?? false,
-              firstName.maxLength("'primeiro nome'", 12) ?? false
-        else { return routeTo().controller.form().getFirstName()}
-        
-        return firstName
-    }
-    
-    func getLastName() -> String? {
-        routeTo().view.label().showLastNameRequestLabel()
-        
-        guard let lastName = routeTo().view.label().getInput(),
-              lastName.notEmpty("'sobrenome'") ?? false,
-              lastName.minLength("'sobrenome'", 3) ?? false,
-              lastName.maxLength("'sobrenome'", 12) ?? false
-        else { return routeTo().controller.form().getLastName()}
-        
-        return lastName
-    }
-    
-    func getDocumentNumber() -> String? {
-        routeTo().view.label().showDocumentNumberRequestLabel()
-        
-        guard let documentNumber = routeTo().view.label().getInput(),
-              documentNumber.notEmpty("'CPF'") ?? false,
-              documentNumber.isValidCpf() ?? false,
-              documentNumber.uniqueCpf ?? false
-        else { return routeTo().controller.form().getDocumentNumber()}
-        
-        return documentNumber
-    }
-    
-    func getPassword() -> String? {
-        routeTo().view.label().showPasswordRequestLabel()
-        
-        guard let password = routeTo().view.label().getInput(),
-              password.isValidPassword ?? false
-        else { return routeTo().controller.form().getPassword()}
-        
-        return password
-    }
-    
-    func getAddress() -> String? {
-        routeTo().view.label().showAddressRequestLabel()
-        
-        guard let address = routeTo().view.label().getInput(),
-              address.notEmpty("'endereço'") ?? false,
-              address.minLength("'endereço'", 3) ?? false,
-              address.maxLength("'endereço'", 12) ?? false
-                
-        else { return routeTo().controller.form().getAddress()}
-        
-        return address
-    }
-    
-    func getCity() -> String? {
-        routeTo().view.label().showCityRequestLabel()
-        
-        guard let city = routeTo().view.label().getInput(),
-              city.notEmpty("'cidade'") ?? false,
-              city.minLength("'cidade'", 3) ?? false,
-              city.maxLength("'cidade'", 12) ?? false
-                
-        else { return routeTo().controller.form().getCity()}
-        
-        return city
-    }
-    
-    func getState() -> String? {
-        routeTo().view.label().showStateRequestLabel()
-        
-        guard let state = routeTo().view.label().getInput(),
-              state.notEmpty("'estado'") ?? false,
-              state.minLength("'estado'", 3) ?? false,
-              state.maxLength("'estado'", 12) ?? false
-        else { return routeTo().controller.form().getState()}
-        
-        return state
-    }
-    
-    /* Display Methods */
-    
-    func getOverview(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, balance: Double?) {
-        guard let token = tokenWrapped else { return (nil, nil, nil) }
-        
-        guard let user = getUser(token) else { return (nil, nil, nil) }
-        
-        return (user.firstName, user.lastName, user.bankAccount.balance)
-    }
-    
-    func getProfileInfo(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, documentNumber: String?, address: String?, city: String?, state: String?) {
-        guard let token = tokenWrapped else { return (nil, nil, nil, nil, nil, nil) }
-        
-        guard let user = getUser(token) else { return (nil, nil, nil, nil, nil, nil) }
-        
-        return (user.firstName, user.lastName, user.documentNumber, user.address, user.city, user.state)
-    }
+//
+//    func checkDocumentNumber() -> String? {
+//        routeTo().view.label().showDocumentNumberRequestLabel()
+//
+//        guard let documentNumber = routeTo().view.label().getInput(),
+//              documentNumber.notEmpty("'CPF'") ?? false,
+//              documentNumber.isValidCpf() ?? false
+//        else { return routeTo().controller.form().checkDocumentNumber()}
+//
+//        return documentNumber
+//    }
+//
+//    func checkPassword() -> String? {
+//        routeTo().view.label().showPasswordRequestLabel()
+//
+//        guard let password = routeTo().view.label().getInput(),
+//              password.notEmpty("'senha'") ?? false,
+//              password.isValidPassword ?? false
+//        else { return routeTo().controller.form().checkPassword()}
+//
+//        return password
+//    }
+//
+//    func isValidLogin(_ documentNumberWrapped: String?, _ passwordWrapped: String?) -> (condition: Bool?, user: User?) {
+//        guard let documentNumber = documentNumberWrapped else { return (nil, nil)}
+//        guard let password = passwordWrapped else { return (nil, nil)}
+//
+//        guard let user = db.findUserByDocumentNumber(documentNumber) else { return (nil, nil)}
+//
+//        if user.password != password {
+//            print("Senha Inválida!")
+//            return (nil, nil)
+//        }
+//        return (true, user)
+//    }
+//
+//    func getCredential(_ userWrapped: User?) -> String? {
+//        guard let user = userWrapped else { return nil }
+//
+//        let credential = UserAccess(token: String().tokenGenerator, user: user)
+//
+//        guard let access = db.saveAccess(credential) else { return nil }
+//
+//        if !access {
+//            return nil
+//        }
+//        return credential.token
+//    }
+//
+//    /* Create and Update Profile */
+//
+//    func getFirstName() -> String? {
+//        routeTo().view.label().showFirstNameRequestLabel()
+//
+//        guard let firstName = routeTo().view.label().getInput(),
+//              firstName.notEmpty("'primeiro nome'") ?? false,
+//              firstName.minLength("'primeiro nome'", 3) ?? false,
+//              firstName.maxLength("'primeiro nome'", 12) ?? false
+//        else { return routeTo().controller.form().getFirstName()}
+//
+//        return firstName
+//    }
+//
+//    func getLastName() -> String? {
+//        routeTo().view.label().showLastNameRequestLabel()
+//
+//        guard let lastName = routeTo().view.label().getInput(),
+//              lastName.notEmpty("'sobrenome'") ?? false,
+//              lastName.minLength("'sobrenome'", 3) ?? false,
+//              lastName.maxLength("'sobrenome'", 12) ?? false
+//        else { return routeTo().controller.form().getLastName()}
+//
+//        return lastName
+//    }
+//
+//    func getDocumentNumber() -> String? {
+//        routeTo().view.label().showDocumentNumberRequestLabel()
+//
+//        guard let documentNumber = routeTo().view.label().getInput(),
+//              documentNumber.notEmpty("'CPF'") ?? false,
+//              documentNumber.isValidCpf() ?? false,
+//              documentNumber.uniqueCpf ?? false
+//        else { return routeTo().controller.form().getDocumentNumber()}
+//
+//        return documentNumber
+//    }
+//
+//    func getPassword() -> String? {
+//        routeTo().view.label().showPasswordRequestLabel()
+//
+//        guard let password = routeTo().view.label().getInput(),
+//              password.isValidPassword ?? false
+//        else { return routeTo().controller.form().getPassword()}
+//
+//        return password
+//    }
+//
+//    func getAddress() -> String? {
+//        routeTo().view.label().showAddressRequestLabel()
+//
+//        guard let address = routeTo().view.label().getInput(),
+//              address.notEmpty("'endereço'") ?? false,
+//              address.minLength("'endereço'", 3) ?? false,
+//              address.maxLength("'endereço'", 12) ?? false
+//
+//        else { return routeTo().controller.form().getAddress()}
+//
+//        return address
+//    }
+//
+//    func getCity() -> String? {
+//        routeTo().view.label().showCityRequestLabel()
+//
+//        guard let city = routeTo().view.label().getInput(),
+//              city.notEmpty("'cidade'") ?? false,
+//              city.minLength("'cidade'", 3) ?? false,
+//              city.maxLength("'cidade'", 12) ?? false
+//
+//        else { return routeTo().controller.form().getCity()}
+//
+//        return city
+//    }
+//
+//    func getState() -> String? {
+//        routeTo().view.label().showStateRequestLabel()
+//
+//        guard let state = routeTo().view.label().getInput(),
+//              state.notEmpty("'estado'") ?? false,
+//              state.minLength("'estado'", 3) ?? false,
+//              state.maxLength("'estado'", 12) ?? false
+//        else { return routeTo().controller.form().getState()}
+//
+//        return state
+//    }
+//
+//    /* Display Methods */
+//
+//    func getOverview(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, balance: Double?) {
+//        guard let token = tokenWrapped else { return (nil, nil, nil) }
+//
+//        guard let user = getUser(token) else { return (nil, nil, nil) }
+//
+//        return (user.firstName, user.lastName, user.bankAccount.balance)
+//    }
+//
+//    func getProfileInfo(_ tokenWrapped: String?) -> (firstName: String?, lastName: String?, documentNumber: String?, address: String?, city: String?, state: String?) {
+//        guard let token = tokenWrapped else { return (nil, nil, nil, nil, nil, nil) }
+//
+//        guard let user = getUser(token) else { return (nil, nil, nil, nil, nil, nil) }
+//
+//        return (user.firstName, user.lastName, user.documentNumber, user.address, user.city, user.state)
+//    }
     
     /* Assistants Methods */
     

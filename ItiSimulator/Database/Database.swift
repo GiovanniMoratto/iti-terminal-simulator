@@ -2,7 +2,7 @@
 //  Database.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 29/09/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ class Database {
     // MARK: - Attributes
     
     var users: [User] = []
-    var credentials: [Access] = []
+    var credentials: [UserAccess] = []
     static var shared = Database()
     
     // MARK: - Initializers (Constructors)
@@ -23,112 +23,49 @@ class Database {
     
     /* Save */
     
-    func saveUser(_ userWrapped: User?) -> Bool? {
-        guard let user = userWrapped else { return nil}
-        
-        db.users.append(user)
-        
-        for index in db.users.indices {
-            if db.users[index].documentNumber == user.documentNumber {
-                return true
-            }
-        }
-        return false
+    func save(_ user: User) {
+        Database.shared.users.append(user)
     }
     
-    func saveAccess(_ credentialWrapped: Access?) -> Bool? {
-        guard let credential = credentialWrapped else { return nil}
-        
-        db.credentials.append(credential)
-        
-        for index in db.credentials.indices {
-            if db.credentials[index].token == credential.token {
-                return true
-            }
-        }
-        return false
+    func save(_ access: UserAccess) {
+        Database.shared.credentials.append(access)
     }
     
     /* Find */
     
-    func findUserByDocumentNumber(_ documentNumberWrapped: String?) -> User? {
-        guard let documentNumber = documentNumberWrapped else { return nil}
+    func findUserByDocumentNumber(_ documentNumber: String) -> User? {
 
-        for index in db.users.indices {
-            if db.users[index].documentNumber == documentNumber {
-                return db.users[index]
+        for index in Database.shared.users.indices {
+            if Database.shared.users[index].documentNumber == documentNumber {
+                return Database.shared.users[index]
             }
         }
-        print("CPF não cadastrado!")
+        print("CPF não cadastrado!\n")
         return nil
     }
     
-    func findUserByToken(_ tokenWrapped: String?) -> User? {
-        guard let token = tokenWrapped else { return nil}
+    func findUserByToken(_ token: String) -> User? {
         
-        for index in db.credentials.indices {
-            if db.credentials[index].token == token {
-                return db.credentials[index].user
+        for index in Database.shared.credentials.indices {
+            if Database.shared.credentials[index].token == token {
+                return Database.shared.credentials[index].user
             }
         }
-        print("Usuário não encontrado")
+        print("Usuário não encontrado.\n")
         return nil
     }
     
     /* Delete */
     
-    func deleteUser(_ tokenWrapped: String?) -> Bool? {
-        guard let token = tokenWrapped else { return nil}
+    func delete(_ token: String) {
         
-        guard let user = db.findUserByToken(token) else { return nil }
+        guard let user = Database.shared.findUserByToken(token) else { return }
         
-        for index in db.users.indices {
-            if db.users[index].documentNumber == user.documentNumber {
-                db.users.remove(at: index)
-                return true
+        for index in Database.shared.users.indices {
+            if Database.shared.users[index].documentNumber == user.documentNumber {
+                Database.shared.users.remove(at: index)
             }
         }
-        return false
-    }
-    
-    /* Update */
-    
-    func updateUser(key tokenWrapped: String?, where attributeWrapped: String?, of valueWrapped: String?) -> Bool? {
-        guard let token = tokenWrapped else { return nil}
-        guard let attribute = attributeWrapped else { return nil}
-        guard let value = valueWrapped else { return nil}
-        
-        guard let user = db.findUserByToken(token) else { return nil }
-        
-        for index in db.users.indices {
-            if db.users[index].documentNumber == user.documentNumber{
-                
-                let userFound = db.users[index]
-                
-                if attribute == "firstName" {
-                    userFound.firstName = value
-                }
-                else if attribute == "lastName" {
-                    userFound.lastName = value
-                }
-                else if attribute == "address" {
-                    userFound.address = value
-                }
-                else if attribute == "city" {
-                    userFound.city = value
-                }
-                else if attribute == "state" {
-                    userFound.state = value
-                }
-                else if attribute == "balance" {
-                    guard let valueDouble = Double(value) else { return nil }
-                    
-                    userFound.bankAccount.balance = valueDouble
-                }
-                return true
-            }
-        }
-        return false
     }
     
 }

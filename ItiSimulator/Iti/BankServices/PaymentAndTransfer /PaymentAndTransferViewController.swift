@@ -14,21 +14,21 @@ class PaymentAndTransferViewController {
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
+        let scene = PaymentAndTransferView()
+        let view = UserView()
+        
         var loop = true
         
         while loop {
-            routeTo().view.paymentAndTransfer().showTitle()
-            routeTo().view.paymentAndTransfer().showMenu()
+            scene.showTitle()
+            scene.showMenu()
             
-            guard let input = routeTo().view.label().getInput() else { return }
-            let option = Int(input)
-            
-            switch option {
+            switch view.getInputNavigation() {
             case 0:
                 loop = false
             case 1:
                 // Pagar
-                routeTo().controller.payment(token)
+                routeTo().payment(token)
             case 2: break
                 // Transferir
             default:

@@ -13,8 +13,8 @@ var db = Database.shared
 
 // MARK: - Methods
 
-func routeTo() -> (controller: ControllerRoutes, view: ViewsRoutes)  {
-    return (ControllerRoutes(), ViewsRoutes())
+func routeTo() -> ControllerRoutes {
+    return ControllerRoutes()
 }
 
 func initialData() {
@@ -22,7 +22,7 @@ func initialData() {
 }
 
 func start() {
-    routeTo().controller.welcome()
+    routeTo().welcome()
 }
 
 initialData()

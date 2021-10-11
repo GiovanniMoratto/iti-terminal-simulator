@@ -7,34 +7,34 @@
 
 import Foundation
 
-class ProfileViewController {
-    
-    // MARK: - Methods
+struct ProfileViewController {
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
+        let scene = ProfileView()
+        let op = UserOperations()
+        let view = UserView()
+        
         var loop = true
         
         while loop {
-            routeTo().view.profile().showTitle()
-            routeTo().view.profile().showMenu()
+            scene.showTitle()
+            scene.showMenu()
             
-            guard let input = routeTo().view.label().getInput() else { return }
-            let option = Int(input)
+            op.overview(token)
             
-            switch option {
+            switch view.getInputNavigation() {
+            case 1:
+                routeTo().userDisplay(token)
+            case 2:
+                // Editar Perfil
+                routeTo().userEdit(token)
+            case 3:
+                // Deletar Perfil
+                routeTo().userDelete(token)
             case 0:
                 loop = false
-            case 1:
-                // Exibir informações
-                routeTo().controller.displayProfile(token)
-            case 2:
-                // Editar informações
-                routeTo().controller.editProfile(token)
-            case 3:
-                // Excluir conta
-                routeTo().controller.deleteProfile(token)
             default:
                 print("Por favor, escolha uma operação")
             }

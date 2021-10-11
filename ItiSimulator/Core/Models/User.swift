@@ -14,11 +14,7 @@ class User {
     var firstName = String()
     var lastName = String()
     var documentNumber = String()
-    //TODO
-    var address = String()
-    var city = String()
-    var state = String()
-    
+    var address = Address()
     var bankAccount = BankAccount()
     var password = String()
     
@@ -33,17 +29,14 @@ class User {
         self.password = password
     }
     
-    init(firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String, bankAccount: BankAccount, password: String) {
-        // Utilizado na criação dos dados iniciais de teste no banco
-
+    init(firstName: String, lastName: String, documentNumber: String, address: Address, bankAccount: BankAccount, password: String) {
+        
         self.firstName = firstName
         self.lastName = lastName
         self.documentNumber = documentNumber
         self.address = address
-        self.city = city
-        self.state = state
         self.bankAccount = bankAccount
         self.password = password
     }
-
+    
 }

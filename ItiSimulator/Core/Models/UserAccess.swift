@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Access {
+struct UserAccess {
     
     // MARK: - Attributes
     

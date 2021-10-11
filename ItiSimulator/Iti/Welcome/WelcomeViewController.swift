@@ -7,34 +7,31 @@
 
 import Foundation
 
-class WelcomeViewController {
-    
+struct WelcomeViewController {
+
     // MARK: - Methods
     
     func process() {
+        let scene = WelcomeView()
+        let view = UserView()
+        
         var loop = true
         
         while loop {
-            routeTo().view.welcome().showTitle()
-            routeTo().view.welcome().showMenu()
+            scene.showTitle()
+            scene.showMenu()
             
-            guard let input = routeTo().view.label().getInput() else { return }
-            let option = Int(input)
-            
-            switch option {
-            case 0:
-                routeTo().view.welcome().showExit()
-                loop = false
+            switch view.getInputNavigation() {
             case 1:
-                routeTo().controller.login()
+                routeTo().login()
             case 2:
-                routeTo().controller.create()
-            case 3:
-                routeTo().controller.database()
+                routeTo().userCreate()
+            case 0:
+                view.exit()
+                loop = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
-    
 }

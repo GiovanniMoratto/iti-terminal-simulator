@@ -7,36 +7,27 @@
 
 import Foundation
 
-class CreateProfileViewController {
+struct CreateUserViewController {
     
     // MARK: - Methods
     
     func process() {
-        routeTo().view.createProfile().showTitle()
+        let scene = CreateUserView()
+        let op = UserOperations()
         
-        guard let firstName = routeTo().controller.form().getFirstName() else { return }
-        guard let lastName = routeTo().controller.form().getLastName() else { return }
-        guard let documentNumber = routeTo().controller.form().getDocumentNumber() else { return }
-        guard let password = routeTo().controller.form().getPassword() else { return }
+        scene.showTitle()
         
         let newUser = User(
-            firstName: firstName,
-            lastName: lastName,
-            documentNumber: documentNumber,
-            password: password
+            firstName: op.getFirstName(),
+            lastName: op.getLastName(),
+            documentNumber: op.getDocumentNumber(),
+            password: op.getPassword()
         )
         
-        guard let database = db.saveUser(newUser) else { return }
+        db.save(newUser)
         
-        if !database {
-            print("Desculpe, estamos com problemas")
-        }
+        let token = op.getCredential(newUser)
         
-        guard let user = routeTo().controller.form().isValidLogin(documentNumber, password).user else { return }
-        
-        guard let token = routeTo().controller.form().getCredential(user) else { return }
-        
-        routeTo().controller.home(token)
+        routeTo().home(token)
     }
-    
 }

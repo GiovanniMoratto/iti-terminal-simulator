@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CreateProfileView {
+struct CreateUserView {
     
     // MARK: - Methods
     

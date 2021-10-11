@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EditProfileView {
+struct EditUserView {
     
     // MARK: - Methods
     
@@ -30,33 +30,25 @@ class EditProfileView {
         print("|                                             |\n")
     }
     
-    func showUsernameField(_ firstNameWrapped: String?, _ lastNameWrapped: String?) {
-        guard let firstName = firstNameWrapped else { return }
-        guard let lastName = lastNameWrapped else { return }
-        
+    func currentUsername(_ firstName: String, _ lastName: String){
         print("Nome atual: \(firstName) \(lastName)\n")
     }
     
-    func showAddressField(_ addressWrapped: String?) {
-        guard let address = addressWrapped else { return }
-        
+    func currentAddress(_ address: String){
         print("Endereço atual: \(address)\n")
     }
     
-    func showCityField(_ cityWrapped: String?) {
-        guard let city = cityWrapped else { return }
-        
+    func currentCity(_ city: String){
         print("Cidade atual: \(city)\n")
     }
     
-    func showStateField(_ stateWrapped: String?) {
-        guard let state = stateWrapped else { return }
-        
+    func currentState(_ state: String){
         print("Estado atual: \(state)\n")
     }
     
-    func showSuccessfullyUpdate() {
+    func successfullyUpdateMessage(){
         print("O campo foi atualizado com sucesso!")
     }
+    
     
 }

@@ -12,20 +12,20 @@ class BankAccount {
     // MARK: - Attributes
     
     var bank = String()
-    var agency = Int()
+    var branch = Int()
     var account = Int()
     var balance = Double()
     var creditCards = [CreditCard]()
-    var pixKeys = [Pix]()
+    var pixKeys = [String]()
     
     // MARK: - Initializers (Constructors)
     
     init(){}
     
-    init(bank: String, agency: Int, account: Int, balance: Double, creditCards: [CreditCard], pixKeys: [Pix]) {
+    init(bank: String, branch: Int, account: Int, balance: Double, creditCards: [CreditCard], pixKeys: [String]) {
         
         self.bank = bank
-        self.agency = agency
+        self.branch = branch
         self.account = account
         self.balance = balance
         self.creditCards = creditCards
