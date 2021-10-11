@@ -2,12 +2,12 @@
 //  PaymentAndTransferViewController.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 07/10/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
 
-class PaymentAndTransferViewController {
+struct PaymentAndTransferViewController {
     
     // MARK: - Methods
     
@@ -27,7 +27,6 @@ class PaymentAndTransferViewController {
             case 0:
                 loop = false
             case 1:
-                // Pagar
                 routeTo().payment(token)
             case 2: break
                 // Transferir

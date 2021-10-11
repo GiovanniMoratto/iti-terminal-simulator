@@ -28,7 +28,6 @@ class DataTest {
                     balance: 5000.00,
                     creditCards: [
                         CreditCard(
-                            accountHolderName: "Giovanni Morato",
                             cardNumber: 000111122223333,
                             expirationDate: "05/2030",
                             codeNumber: 300
@@ -54,7 +53,6 @@ class DataTest {
                     balance: 1000000.0,
                     creditCards: [
                         CreditCard(
-                            accountHolderName: "Tony Stark",
                             cardNumber: 000111122223333,
                             expirationDate: "06/2030",
                             codeNumber: 400

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DeleteUserView {
+struct DeleteProfileView {
     
     // MARK: - Methods
     

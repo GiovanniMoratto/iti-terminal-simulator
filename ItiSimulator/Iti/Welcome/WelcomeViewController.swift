@@ -25,7 +25,7 @@ struct WelcomeViewController {
             case 1:
                 routeTo().login()
             case 2:
-                routeTo().userCreate()
+                routeTo().createProfile()
             case 0:
                 view.exit()
                 loop = false

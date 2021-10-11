@@ -184,3 +184,18 @@ extension String {
     }
     
 }
+
+extension Double {
+    
+    // MARK: - Methods
+    
+    func isValidBill(_ balance: Double) -> Bool {
+        
+        if self > balance {
+            print("\nO valor do pagamento é superior ao saldo da conta informada.\n")
+            return false
+        }
+        return true
+    }
+    
+}

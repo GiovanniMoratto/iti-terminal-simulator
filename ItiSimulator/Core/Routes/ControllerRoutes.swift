@@ -15,8 +15,8 @@ struct ControllerRoutes {
         WelcomeViewController().process()
     }
     
-    func userCreate() {
-        CreateUserViewController().process()
+    func createProfile() {
+        CreateProfileViewController().process()
     }
     
     func login() {
@@ -27,37 +27,28 @@ struct ControllerRoutes {
         HomeViewController().process(token)
     }
     
-    func userDisplay(_ token: String) {
-        DisplayUserViewController().process(token)
+    func profileMenu(_ token: String) {
+        ProfileMenuViewController().process(token)
     }
     
-    func userEdit(_ token: String) {
-        EditUserViewController().process(token)
+    func displayProfile(_ token: String) {
+        DisplayProfileViewController().process(token)
     }
     
-    func userDelete(_ token: String) {
-        DeleteUserViewController().process(token)
+    func deleteProfile(_ token: String) {
+        DeleteProfileViewController().process(token)
     }
     
-    func profile(_ token: String) {
-        ProfileViewController().process(token)
+    func editProfile(_ token: String) {
+        EditProfileViewController().process(token)
     }
     
-    func paymentAndTransfer(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
+    func paymentAndTransfer(_ token: String) {
         PaymentAndTransferViewController().process(token)
     }
     
-    func payment(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
-        
+    func payment(_ token: String) {
         PaymentViewController().process(token)
     }
-    
-//    func transfer(token: String?) {
-//        guard let tokenUnwrapped = token else { return }
-//        TransferViewController().process(token: tokenUnwrapped)
-//    }
     
 }

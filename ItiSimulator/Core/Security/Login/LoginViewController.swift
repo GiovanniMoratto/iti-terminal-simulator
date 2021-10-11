@@ -13,7 +13,7 @@ struct LoginViewController {
     
     func process() {
         let view = LoginView()
-        let op = UserOperations()
+        let op = UserOperation()
         
         view.showTitle()
         

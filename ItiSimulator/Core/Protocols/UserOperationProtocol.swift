@@ -25,7 +25,7 @@ protocol UserOperationProtocol {
     
     func getDocumentNumberToLogin() -> String
     
-    func isValidLogin() -> (condition: Bool, user: User?)
+    func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?)
     
     func getCredential(_ user: User) -> String
     

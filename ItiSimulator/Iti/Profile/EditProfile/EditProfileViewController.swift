@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct EditUserViewController {
+struct EditProfileViewController {
     
     // MARK: - Methods
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = EditUserView()
-        let op = UserOperations()
+        let scene = EditProfileView()
+        let op = UserOperation()
         let view = UserView()
         
         var loop = true

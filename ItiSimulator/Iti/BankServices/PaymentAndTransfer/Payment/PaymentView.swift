@@ -1,13 +1,13 @@
 //
-//  PaymentView.swift
+//  Payment.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 07/10/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
 
-class PaymentView {
+struct PaymentView {
     
     // MARK: - Methods
     
@@ -19,11 +19,16 @@ class PaymentView {
     }
     
     func showBillLabel() {
-        print("Digite o valor a ser pago: \n")
+        print("Digite o valor da conta ser paga: \n")
     }
     
-    func showExit() {
-        print("(0) - Voltar")
+    func successfullyPaymentMessage() {
+        print("Pagamento realizado com sucesso!\n")
     }
+    
+    func currentBalance(_ balance: Double) {
+        print("Saldo atual: R$\(balance)\n")
+    }
+
     
 }

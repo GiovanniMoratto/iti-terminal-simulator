@@ -11,16 +11,19 @@ class BankAccount {
     
     // MARK: - Attributes
     
-    var bank = String()
-    var branch = Int()
-    var account = Int()
+    var bank = "Itaú Unibanco"
+    var branch: Int
+    var account: Int
     var balance = Double()
     var creditCards = [CreditCard]()
     var pixKeys = [String]()
     
     // MARK: - Initializers (Constructors)
     
-    init(){}
+    init () {
+        self.branch = Int.random(in: 1000...6000)
+        self.account = Int.random(in: 10000...60000)
+    }
     
     init(bank: String, branch: Int, account: Int, balance: Double, creditCards: [CreditCard], pixKeys: [String]) {
         
@@ -31,4 +34,5 @@ class BankAccount {
         self.creditCards = creditCards
         self.pixKeys = pixKeys
     }
+    
 }

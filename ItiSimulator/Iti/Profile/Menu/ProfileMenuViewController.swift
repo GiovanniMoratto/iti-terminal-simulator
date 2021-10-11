@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct ProfileViewController {
+struct ProfileMenuViewController {
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = ProfileView()
-        let op = UserOperations()
+        let scene = ProfileMenuView()
+        let op = UserOperation()
         let view = UserView()
         
         var loop = true
@@ -26,13 +26,13 @@ struct ProfileViewController {
             
             switch view.getInputNavigation() {
             case 1:
-                routeTo().userDisplay(token)
+                routeTo().displayProfile(token)
             case 2:
                 // Editar Perfil
-                routeTo().userEdit(token)
+                routeTo().editProfile(token)
             case 3:
                 // Deletar Perfil
-                routeTo().userDelete(token)
+                routeTo().deleteProfile(token)
             case 0:
                 loop = false
             default:

@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct UserOperations: UserOperationProtocol {
-    
+struct UserOperation: UserOperationProtocol {
+
     /*
      Métodos responsáveis por chamada de views, recebimento de input, validação e retornos.
      */
+    
+    // MARK: - Attributes
     
     let view: UserViewProtocol = UserView()
     
@@ -122,11 +124,58 @@ struct UserOperations: UserOperationProtocol {
         view.state(state)
     }
     
+    /* Update Profile */
+    
+    func usernameUpdated(_ token: String) {
+        let currentFirstName = getProfileInfo(token).firstName
+        let currentLasName = getProfileInfo(token).lastName
+        EditProfileView().currentUsername(currentFirstName, currentLasName)
+        
+        guard let user = getUser(token) else { return }
+        
+        user.firstName = getFirstName()
+        user.lastName = getLastName()
+        
+        db.save(user)
+    }
+    
+    func addressUpdated(_ token: String) {
+        let currentAddress = getProfileInfo(token).address
+        EditProfileView().currentAddress(currentAddress)
+        
+        guard let user = getUser(token) else { return }
+        
+        user.address.address = getAddress()
+        
+        db.save(user)
+    }
+    
+    func cityUpdated(_ token: String) {
+        let currentCity = getProfileInfo(token).city
+        EditProfileView().currentCity(currentCity)
+        
+        guard let user = getUser(token) else { return }
+        
+        user.address.city = getCity()
+        
+        db.save(user)
+    }
+    
+    func stateUpdated(_ token: String) {
+        let currentState = getProfileInfo(token).state
+        EditProfileView().currentState(currentState)
+        
+        guard let user = getUser(token) else { return }
+        
+        user.address.state = getState()
+        
+        db.save(user)
+    }
+    
     /* Assistants Methods */
     
-    func getUser(_ tokenWrapped: String?) -> User? {
-        guard let token = tokenWrapped else { return nil }
-        
+    func getUser(_ token: String) -> User? {
+
         guard let user = db.findUserByToken(token) else { return nil }
         
         return user
@@ -177,54 +226,6 @@ struct UserOperations: UserOperationProtocol {
         else { return getState() }
         
         return state
-    }
-    
-    /* Update Profile */
-    
-    func usernameUpdated(_ token: String) {
-        let currentFirstName = getProfileInfo(token).firstName
-        let currentLasName = getProfileInfo(token).lastName
-        EditUserView().currentUsername(currentFirstName, currentLasName)
-        
-        guard let user = db.findUserByToken(token) else { return }
-        
-        user.firstName = getFirstName()
-        user.lastName = getLastName()
-        
-        db.save(user)
-    }
-    
-    func addressUpdated(_ token: String) {
-        let currentAddress = getProfileInfo(token).address
-        EditUserView().currentAddress(currentAddress)
-        
-        guard let user = db.findUserByToken(token) else { return }
-        
-        user.address.address = getAddress()
-        
-        db.save(user)
-    }
-    
-    func cityUpdated(_ token: String) {
-        let currentCity = getProfileInfo(token).city
-        EditUserView().currentCity(currentCity)
-        
-        guard let user = db.findUserByToken(token) else { return }
-        
-        user.address.city = getCity()
-        
-        db.save(user)
-    }
-    
-    func stateUpdated(_ token: String) {
-        let currentState = getProfileInfo(token).state
-        EditUserView().currentState(currentState)
-        
-        guard let user = db.findUserByToken(token) else { return }
-        
-        user.address.state = getState()
-        
-        db.save(user)
     }
     
 }

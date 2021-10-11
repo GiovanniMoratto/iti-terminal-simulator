@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct CreateUserViewController {
+struct CreateProfileViewController {
     
     // MARK: - Methods
     
     func process() {
-        let scene = CreateUserView()
-        let op = UserOperations()
+        let scene = CreateProfileView()
+        let op = UserOperation()
         
         scene.showTitle()
         

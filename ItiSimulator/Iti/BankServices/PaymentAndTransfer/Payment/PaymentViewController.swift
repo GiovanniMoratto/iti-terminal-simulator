@@ -1,28 +1,28 @@
 //
-//  ShowProfileViewController.swift
+//  PaymentViewController.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 05/10/21.
+//  Created by Giovanni Vicentin Moratto on 11/10/21.
 //
 
 import Foundation
 
-struct DisplayProfileViewController {
+struct PaymentViewController {
     
     // MARK: - Methods
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = DisplayProfileView()
-        let op = UserOperation()
+        let scene = PaymentView()
         let view = UserView()
+        let op = BankOperation()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            op.profileInfo(token)
+            op.payment(token)
             
             switch view.getInputNavigation() {
             case 0:

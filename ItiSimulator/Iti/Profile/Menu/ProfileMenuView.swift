@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProfileView {
+struct ProfileMenuView {
     
     // MARK: - Methods
     

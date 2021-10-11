@@ -16,7 +16,7 @@ struct HomeViewController {
         
         let scene = HomeView()
         let view = UserView()
-        let op = UserOperations()
+        let op = UserOperation()
         
         var loop = true
         
@@ -31,15 +31,15 @@ struct HomeViewController {
                 // PIX
             case 2: break
                 // Cartão e crédito iti
-            case 3: break
-                // Pagar e Transferir
+            case 3:
+                routeTo().paymentAndTransfer(token)
             case 4: break
                 // Colocar Dinheiro
             case 5: break
                 // Gerenciar Cartões
             case 6:
                 // Acessar Perfil
-                routeTo().profile(token)
+                routeTo().profileMenu(token)
             case 0:
                 loop = false
             default:

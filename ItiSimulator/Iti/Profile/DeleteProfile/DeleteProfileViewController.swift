@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct DeleteUserViewController {
+struct DeleteProfileViewController {
     
     // MARK: - Methods
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = DeleteUserView()
+        let scene = DeleteProfileView()
         let view = UserView()
         
         var loop = true
