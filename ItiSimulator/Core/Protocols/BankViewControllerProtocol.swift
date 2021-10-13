@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BankOperationProtocol {
+protocol BankViewControllerProtocol {
     
     func payment(_ token: String)
     

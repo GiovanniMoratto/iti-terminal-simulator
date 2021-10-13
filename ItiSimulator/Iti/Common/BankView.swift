@@ -49,7 +49,7 @@ struct BankView: BankViewProtocol {
         print("Conta:       \(account)\n")
     }
     
-    func confirmData() {
+    func confirmDataRequest() {
         print("(1) - OK")
         print("(0) - Voltar\n")
     }
@@ -64,6 +64,10 @@ struct BankView: BankViewProtocol {
     
     func destinationAccount() {
         print("Conta de destino: ")
+    }
+    
+    func valueRequest() {
+        print("Digite o valor: ")
     }
     
 }

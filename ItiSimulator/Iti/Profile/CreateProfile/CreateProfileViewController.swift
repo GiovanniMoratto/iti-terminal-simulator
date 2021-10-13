@@ -13,7 +13,8 @@ struct CreateProfileViewController {
     
     func process() {
         let scene = CreateProfileView()
-        let op = UserOperation()
+        let op = UserViewController()
+        let login = LoginViewController()
         
         scene.showTitle()
         
@@ -26,7 +27,7 @@ struct CreateProfileViewController {
         
         db.save(newUser)
         
-        let token = op.getCredential(newUser)
+        let token = login.getCredential(newUser)
         
         routeTo().home(token)
     }

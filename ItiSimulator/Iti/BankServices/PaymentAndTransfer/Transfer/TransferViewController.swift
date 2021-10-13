@@ -16,7 +16,7 @@ struct TransferViewController {
         
         let scene = TransferView()
         let view = UserView()
-        let op = BankOperation()
+        let op = BankViewController()
         
         var loop = true
         

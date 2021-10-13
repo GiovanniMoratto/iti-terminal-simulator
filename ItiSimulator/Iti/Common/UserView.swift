@@ -44,23 +44,23 @@ struct UserView: UserViewProtocol {
     /* Display Labels Messages */
     
     func username(_ firstName: String, _ lastName: String){
-        print("Nome: \(firstName) \(lastName)\n")
+        print("     Nome:       \(firstName) \(lastName)")
     }
     
     func documentNumber(_ documentNumber: String){
-        print("CPF: \(documentNumber)\n")
+        print("     CPF:        \(documentNumber)")
     }
     
     func address(_ address: String){
-        print("Endereço: \(address)\n")
+        print("     Endereço:   \(address)")
     }
     
     func city(_ city: String){
-        print("Cidade: \(city)\n")
+        print("     Cidade:     \(city)")
     }
     
     func state(_ state: String){
-        print("Estado: \(state)\n")
+        print("     Estado:     \(state)\n")
     }
     
     /* Custom Labels Messages */

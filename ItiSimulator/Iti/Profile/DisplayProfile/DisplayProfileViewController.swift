@@ -15,7 +15,7 @@ struct DisplayProfileViewController {
         guard let token = tokenWrapped else { return }
         
         let scene = DisplayProfileView()
-        let op = UserOperation()
+        let op = UserViewController()
         let view = UserView()
         
         var loop = true
@@ -23,10 +23,10 @@ struct DisplayProfileViewController {
         while loop {
             scene.showTitle()
             op.profileInfo(token)
+            view.exit()
             
             switch view.getNavigation() {
             case 0:
-                view.exit()
                 loop = false
             default:
                 print("Por favor, escolha uma operação")

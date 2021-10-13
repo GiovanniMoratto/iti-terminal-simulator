@@ -55,4 +55,12 @@ struct ControllerRoutes {
         TransferViewController().process(token)
     }
     
+    func user() -> UserViewController {
+        return UserViewController()
+    }
+    
+    func bank() -> BankViewController {
+        return BankViewController()
+    }
+    
 }

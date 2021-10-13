@@ -15,7 +15,7 @@ struct EditProfileViewController {
         guard let token = tokenWrapped else { return }
         
         let scene = EditProfileView()
-        let op = UserOperation()
+        let op = UserViewController()
         let view = UserView()
         
         var loop = true
@@ -24,7 +24,7 @@ struct EditProfileViewController {
             scene.showTitle()
             scene.showMenu()
             
-            op.overview(token)
+//            op.overview(token)
             
             switch view.getNavigation() {
             case 1:

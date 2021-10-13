@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserOperation: UserOperationProtocol {
+struct UserViewController: UserViewControllerProtocol {
 
     /*
      Métodos responsáveis por chamada de views, recebimento de input, validação e retornos.
@@ -62,41 +62,7 @@ struct UserOperation: UserOperationProtocol {
         
         return password
     }
-    
-    /* Login */
-    
-    func getDocumentNumberToLogin() -> String {
-        view.documentNumberRequest()
-        
-        guard let documentNumber = view.getInput(),
-              documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf()
-        else { return getDocumentNumberToLogin() }
-        
-        return documentNumber
-    }
-    
-    func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
-                
-        guard let user = db.findUserByDocumentNumber(documentNumber)
-        else { print("CPF não cadastrado!\n"); return (false, nil) }
-        
-        if user.password != password {
-            print("Senha Inválida!")
-            return (false, nil)
-        }
-        
-        return (true, user)
-    }
-    
-    func getCredential(_ user: User) -> String {
-        
-        let credential = UserAccess(token: String().tokenGenerator, user: user)
-        
-        db.save(credential)
-        
-        return credential.token
-    }
-    
+
     /* Overview */
     
     func overview(_ token: String) {
@@ -174,29 +140,29 @@ struct UserOperation: UserOperationProtocol {
     }
     
     /* Assistants Methods */
-    
-    func getUser(_ token: String) -> User? {
+
+    private func getUser(_ token: String) -> User? {
 
         guard let user = db.findUserByToken(token) else { print("Usuário não existe.\n"); return nil }
         
         return user
     }
     
-    func getOverview(_ token: String) -> (firstName: String, lastName: String, balance: Double) {
+    private func getOverview(_ token: String) -> (firstName: String, lastName: String, balance: Double) {
         
         guard let user = getUser(token) else { return (String(), String(), Double()) }
         
         return (user.firstName, user.lastName, user.bankAccount.balance)
     }
     
-    func getProfileInfo(_ token: String) -> (firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String) {
+    private func getProfileInfo(_ token: String) -> (firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String) {
         
         guard let user = getUser(token) else { return (String(), String(), String(), String(), String(), String()) }
         
         return (user.firstName, user.lastName, user.documentNumber, user.address.address, user.address.city, user.address.state)
     }
     
-    func getAddress() -> String {
+    private func getAddress() -> String {
         view.addressRequest()
         let text = "'endereço'"
         
@@ -207,7 +173,7 @@ struct UserOperation: UserOperationProtocol {
         return address
     }
     
-    func getCity() -> String {
+    private func getCity() -> String {
         view.cityRequest()
         let text = "'cidade'"
         
@@ -218,7 +184,7 @@ struct UserOperation: UserOperationProtocol {
         return city
     }
     
-    func getState() -> String {
+    private func getState() -> String {
         view.stateRequest()
         let text = "'estado'"
         

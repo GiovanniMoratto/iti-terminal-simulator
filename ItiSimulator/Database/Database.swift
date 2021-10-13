@@ -34,55 +34,28 @@ class Database {
     /* Find */
     
     func findUserByDocumentNumber(_ documentNumber: String) -> User? {
-
-        for index in Database.shared.users.indices {
-            if Database.shared.users[index].documentNumber == documentNumber {
-                return Database.shared.users[index]
-            }
-        }
-        return nil
+        guard let index = Database.shared.users.firstIndex(where: { $0.documentNumber == documentNumber }) else { return nil }
+        return Database.shared.users[index]
     }
     
     func findUserByToken(_ token: String) -> User? {
-        
-        for index in Database.shared.credentials.indices {
-            if Database.shared.credentials[index].token == token {
-                return Database.shared.credentials[index].user
-            }
-        }
-        return nil
+        guard let index = Database.shared.credentials.firstIndex(where: { $0.token == token }) else { return nil }
+        return Database.shared.credentials[index].user
     }
     
-    func findPayee(_ bank: String, branch: Int, account: Int) -> (condition: Bool, user: User?){
-        for index in Database.shared.users.indices {
-            if Database.shared.users[index].bankAccount.bank == bank {
-                if Database.shared.users[index].bankAccount.branch == branch {
-                    if Database.shared.users[index].bankAccount.account == account {
-                        return (true, Database.shared.users[index])
-                    }
-                }
-            }
-        }
-        return (false, nil)
-        //        for index in Database.shared.users.indices {
-        //            if Database.shared.users[index].bankAccount.bank == bank, Database.shared.users[index].bankAccount.branch == branch,
-        //               Database.shared.users[index].bankAccount.branch == account {
-        //                return (true, Database.shared.users[index])
-        //            }
-        //        }
+    func findPayee(_ bank: String, _ branch: Int, _ account: Int) -> (condition: Bool, user: User?){
+        guard let index = Database.shared.users.firstIndex(where: {
+            $0.bankAccount.bank == bank && $0.bankAccount.branch == branch && $0.bankAccount.account == account
+        }) else { return (false, nil) }
+        return (true, Database.shared.users[index])
     }
-
+    
     /* Delete */
     
     func delete(_ token: String) {
-        
         guard let user = Database.shared.findUserByToken(token) else { return }
-        
-        for index in Database.shared.users.indices {
-            if Database.shared.users[index].documentNumber == user.documentNumber {
-                Database.shared.users.remove(at: index)
-            }
-        }
+        guard let index = Database.shared.users.firstIndex(where: { $0.documentNumber == user.documentNumber }) else { return }
+        Database.shared.users.remove(at: index)
     }
     
 }

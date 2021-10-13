@@ -12,25 +12,60 @@ struct LoginViewController {
     // MARK: - Methods
     
     func process() {
-        let view = LoginView()
-        let op = UserOperation()
+        let scene = LoginView()
+        let op = UserViewController()
         
-        view.showTitle()
+        scene.showTitle()
         
-        let documentNumber = op.getDocumentNumberToLogin()
+        let documentNumber = getDocumentNumberToLogin()
         let password = op.getPassword()
         
-        let login = op.isValidLogin(documentNumber, password).condition
-        view.showMessage()
+        let login = isValidLogin(documentNumber, password).condition
+        
+        scene.showMessage()
         
         if !login {
             routeTo().welcome()
         }
         
-        guard let user = op.isValidLogin(documentNumber, password).user else { return }
-        let token = op.getCredential(user)
+        guard let user = isValidLogin(documentNumber, password).user else { return }
+        let token = getCredential(user)
         
         routeTo().home(token)
+    }
+        
+    private func getDocumentNumberToLogin() -> String {
+        let view = UserView()
+        
+        view.documentNumberRequest()
+        
+        guard let documentNumber = view.getInput(),
+              documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf()
+        else { return getDocumentNumberToLogin() }
+        
+        return documentNumber
+    }
+    
+    private func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
+                
+        guard let user = db.findUserByDocumentNumber(documentNumber)
+        else { print("CPF não cadastrado!\n"); return (false, nil) }
+        
+        if user.password != password {
+            print("Senha Inválida!")
+            return (false, nil)
+        }
+        
+        return (true, user)
+    }
+    
+    func getCredential(_ user: User) -> String {
+        
+        let credential = UserAccess(token: String().tokenGenerator, user: user)
+        
+        db.save(credential)
+        
+        return credential.token
     }
     
 }

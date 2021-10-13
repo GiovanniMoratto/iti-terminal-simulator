@@ -29,17 +29,13 @@ struct TransferView {
     func transferAccountRequest() {
         print("Digite o número da conta de destino: ")
     }
-    
-    func transferValueRequest() {
-        print("Digite o valor da transferencia: ")
-    }
-    
+        
     func successfullyMessage() {
         print("Transferência realizada com sucesso!\n")
     }
     
     func confirmDataTransfer() {
-        print("         Confirme os dados da Transferência\n")
+        print("\n         Confirme os dados da Transferência\n")
     }
     
 }

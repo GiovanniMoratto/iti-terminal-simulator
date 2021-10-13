@@ -11,7 +11,8 @@ struct UserAccess {
     
     // MARK: - Attributes
     
-    let token: String
-    let user: User
+    private(set) var token: String
+    private(set) var user: User
     
+    // TODO: Implement user session 
 }

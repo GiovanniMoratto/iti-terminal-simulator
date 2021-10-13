@@ -28,6 +28,7 @@ struct DeleteProfileViewController {
                 db.delete(token)
                 scene.showSuccessfullyDeleted()
                 routeTo().welcome()
+                loop = false
             case 0:
                 loop = false
             default:

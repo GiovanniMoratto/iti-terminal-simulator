@@ -16,7 +16,7 @@ struct HomeViewController {
         
         let scene = HomeView()
         let view = UserView()
-        let op = UserOperation()
+        let op = UserViewController()
         
         var loop = true
         

@@ -13,7 +13,7 @@ struct ProfileMenuViewController {
         guard let token = tokenWrapped else { return }
         
         let scene = ProfileMenuView()
-        let op = UserOperation()
+        let op = UserViewController()
         let view = UserView()
         
         var loop = true

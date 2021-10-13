@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UserOperationProtocol {
+protocol UserViewControllerProtocol {
     
     // MARK: - Methods
     
@@ -20,14 +20,6 @@ protocol UserOperationProtocol {
     func getDocumentNumber() -> String
     
     func getPassword() -> String
-    
-    /* Login */
-    
-    func getDocumentNumberToLogin() -> String
-    
-    func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?)
-    
-    func getCredential(_ user: User) -> String
     
     /* Overview */
     

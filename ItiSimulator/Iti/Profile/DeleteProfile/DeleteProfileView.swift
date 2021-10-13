@@ -20,8 +20,8 @@ struct DeleteProfileView {
     
     func showMessage() {
         print("Tem certeza de que deseja excluir a conta?\n")
-        print("(1) - Não")
-        print("(0) - Sim\n")
+        print("(1) - Sim")
+        print("(0) - Não\n")
     }
     
     func showSuccessfullyDeleted() {

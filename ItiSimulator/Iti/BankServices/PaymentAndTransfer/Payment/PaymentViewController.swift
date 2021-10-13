@@ -16,7 +16,7 @@ struct PaymentViewController {
         
         let scene = PaymentView()
         let view = UserView()
-        let op = BankOperation()
+        let op = BankViewController()
         
         var loop = true
         
