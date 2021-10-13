@@ -35,15 +35,11 @@ struct TransferView {
     }
     
     func successfullyMessage() {
-        print("Transferência realizada com sucesso!")
+        print("Transferência realizada com sucesso!\n")
     }
     
-    func originAccount() {
-        print("Conta de origem: ")
-    }
-    
-    func destinationAccount() {
-        print("Conta de destino: ")
+    func confirmDataTransfer() {
+        print("         Confirme os dados da Transferência\n")
     }
     
 }

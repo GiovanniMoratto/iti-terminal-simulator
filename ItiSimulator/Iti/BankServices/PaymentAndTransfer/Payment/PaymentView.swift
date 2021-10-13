@@ -19,11 +19,19 @@ struct PaymentView {
     }
     
     func showBillValueRequest() {
-        print("Digite o valor da conta ser paga: \n")
+        print("Digite o valor da conta ser paga:")
+    }
+    
+    func confirmDataPayment() {
+        print("         Confirme os dados do Pagamento\n")
     }
     
     func successfullyMessage() {
         print("Pagamento realizado com sucesso!\n")
+    }
+    
+    func paymentValue(_ value: Double) {
+        print("Valor do pagamento: R$ \(value)")
     }
 
 }

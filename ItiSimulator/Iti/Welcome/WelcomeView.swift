@@ -26,7 +26,6 @@ struct WelcomeView {
         print("|                                             |")
         print("|   (1) - Login                               |")
         print("|   (2) - Abrir Conta                         |")
-        print("|   (3) - Banco de dados                      |")
         print("|                                             |")
         print("|   (0) - Sair do App                         |")
         print("|                                             |\n")
