@@ -55,6 +55,22 @@ struct ControllerRoutes {
         TransferViewController().process(token)
     }
     
+    func insert(_ token: String) {
+        InsertMoneyViewController().process(token)
+    }
+    
+    func pixMenu(_ token: String) {
+        PixMenuViewController().process(token)
+    }
+    
+    func pixRegister(_ token: String) {
+        PixKeyRegisterViewController().process(token)
+    }
+    
+    func pixDelete(_ token: String) {
+        PixKeyDeleteViewController().process(token)
+    }
+    
     func user() -> UserViewController {
         return UserViewController()
     }

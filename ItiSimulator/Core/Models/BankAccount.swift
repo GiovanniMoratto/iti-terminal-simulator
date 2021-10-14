@@ -11,28 +11,32 @@ class BankAccount {
     
     // MARK: - Attributes
     
-    var bank = "Itaú Unibanco"
+    var bank: String
     var branch: Int
     var account: Int
     var balance = Double()
     var creditCards = [CreditCard]()
-    var pixKeys = [String]()
+    var pix = [[PixType:String]]()
     
     // MARK: - Initializers (Constructors)
     
     init () {
+        self.bank = "Itaú Unibanco"
         self.branch = Int.random(in: 1000...6000)
         self.account = Int.random(in: 10000...60000)
     }
     
-    init(bank: String, branch: Int, account: Int, balance: Double, creditCards: [CreditCard], pixKeys: [String]) {
+    init(bank: String, branch: Int, account: Int, balance: Double, creditCards: [CreditCard], pix: [[PixType:String]]) {
         
         self.bank = bank
         self.branch = branch
         self.account = account
         self.balance = balance
         self.creditCards = creditCards
-        self.pixKeys = pixKeys
+        self.pix = pix
     }
     
+    // MARK: - Methods
+    
+    // TODO: Implementar enum para banco e agência e método para geração de conta bancária
 }

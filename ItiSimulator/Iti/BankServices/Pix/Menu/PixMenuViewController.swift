@@ -1,20 +1,20 @@
 //
-//  ProfileViewController.swift
+//  PixMenuViewController.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 05/10/21.
+//  Created by Giovanni Vicentin Moratto on 13/10/21.
 //
 
 import Foundation
 
-struct ProfileMenuViewController {
+struct PixMenuViewController {
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = ProfileMenuView()
+        let scene = PixMenuView()
         let view = UserView()
-        
+    
         var loop = true
         
         while loop {
@@ -24,19 +24,21 @@ struct ProfileMenuViewController {
             routeTo().user().overview(token)
             
             switch view.getNavigation() {
-            case 1:
-                routeTo().displayProfile(token)
-            case 2:
-                // Editar Perfil
-                routeTo().editProfile(token)
+            case 1: break
+                // Pagamentos
+            case 2: break
+                // Transferência
             case 3:
-                // Deletar Perfil
-                routeTo().deleteProfile(token)
+                routeTo().pixRegister(token)
+            case 4:
+                routeTo().pixDelete(token)
             case 0:
                 loop = false
             default:
                 print("Por favor, escolha uma operação")
             }
+            
         }
+    
     }
 }

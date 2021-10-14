@@ -47,7 +47,7 @@ struct UserViewController: UserViewControllerProtocol {
         view.documentNumberRequest()
         
         guard let documentNumber = view.getInput(),
-              documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf(), documentNumber.uniqueCpf
+              documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf(), documentNumber.unique(.documentNumber)
         else { return getDocumentNumber() }
         
         return documentNumber
@@ -66,39 +66,29 @@ struct UserViewController: UserViewControllerProtocol {
     /* Overview */
     
     func overview(_ token: String) {
-        
-        let firstName = getOverview(token).firstName
-        let lastName = getOverview(token).lastName
-        let balance = getOverview(token).balance
-        
-        view.overview(firstName, lastName, balance)
+        guard let user = getUser(token) else { return }
+
+        view.overview(user.firstName, user.lastName, user.bankAccount.balance)
     }
     
     /* Display Methods */
     
     func profileInfo(_ token: String){
-        let firstName = getProfileInfo(token).firstName
-        let lastName = getProfileInfo(token).lastName
-        let documentNumber = getProfileInfo(token).documentNumber
-        let address = getProfileInfo(token).address
-        let city = getProfileInfo(token).city
-        let state = getProfileInfo(token).state
+        guard let user = getUser(token) else { return }
         
-        view.username(firstName, lastName)
-        view.documentNumber(documentNumber)
-        view.address(address)
-        view.city(city)
-        view.state(state)
+        view.username(user.firstName, user.lastName)
+        view.documentNumber(user.documentNumber)
+        view.address(user.address.address)
+        view.city(user.address.city)
+        view.state(user.address.state)
     }
     
     /* Update Profile */
     
     func usernameUpdated(_ token: String) {
-        let currentFirstName = getProfileInfo(token).firstName
-        let currentLasName = getProfileInfo(token).lastName
-        EditProfileView().currentUsername(currentFirstName, currentLasName)
-        
         guard let user = getUser(token) else { return }
+
+        EditProfileView().currentUsername(user.firstName, user.lastName)
         
         user.firstName = getFirstName()
         user.lastName = getLastName()
@@ -107,10 +97,9 @@ struct UserViewController: UserViewControllerProtocol {
     }
     
     func addressUpdated(_ token: String) {
-        let currentAddress = getProfileInfo(token).address
-        EditProfileView().currentAddress(currentAddress)
-        
         guard let user = getUser(token) else { return }
+        
+        EditProfileView().currentAddress(user.address.address)
         
         user.address.address = getAddress()
         
@@ -118,10 +107,9 @@ struct UserViewController: UserViewControllerProtocol {
     }
     
     func cityUpdated(_ token: String) {
-        let currentCity = getProfileInfo(token).city
-        EditProfileView().currentCity(currentCity)
-        
         guard let user = getUser(token) else { return }
+        
+        EditProfileView().currentCity(user.address.city)
         
         user.address.city = getCity()
         
@@ -129,10 +117,9 @@ struct UserViewController: UserViewControllerProtocol {
     }
     
     func stateUpdated(_ token: String) {
-        let currentState = getProfileInfo(token).state
-        EditProfileView().currentState(currentState)
-        
         guard let user = getUser(token) else { return }
+        
+        EditProfileView().currentState(user.address.state)
         
         user.address.state = getState()
         
@@ -146,20 +133,6 @@ struct UserViewController: UserViewControllerProtocol {
         guard let user = db.findUserByToken(token) else { print("Usuário não existe.\n"); return nil }
         
         return user
-    }
-    
-    private func getOverview(_ token: String) -> (firstName: String, lastName: String, balance: Double) {
-        
-        guard let user = getUser(token) else { return (String(), String(), Double()) }
-        
-        return (user.firstName, user.lastName, user.bankAccount.balance)
-    }
-    
-    private func getProfileInfo(_ token: String) -> (firstName: String, lastName: String, documentNumber: String, address: String, city: String, state: String) {
-        
-        guard let user = getUser(token) else { return (String(), String(), String(), String(), String(), String()) }
-        
-        return (user.firstName, user.lastName, user.documentNumber, user.address.address, user.address.city, user.address.state)
     }
     
     private func getAddress() -> String {

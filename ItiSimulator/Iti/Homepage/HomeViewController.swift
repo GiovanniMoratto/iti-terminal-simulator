@@ -27,14 +27,14 @@ struct HomeViewController {
             op.overview(token)
             
             switch view.getNavigation() {
-            case 1: break
-                // PIX
+            case 1:
+                routeTo().pixMenu(token)
             case 2: break
                 // Cartão e crédito iti
             case 3:
                 routeTo().paymentAndTransfer(token)
-            case 4: break
-                // Colocar Dinheiro
+            case 4:
+                routeTo().insert(token)
             case 5: break
                 // Gerenciar Cartões
             case 6:

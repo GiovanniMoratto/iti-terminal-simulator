@@ -13,16 +13,15 @@ struct CreateProfileViewController {
     
     func process() {
         let scene = CreateProfileView()
-        let op = UserViewController()
         let login = LoginViewController()
         
         scene.showTitle()
         
         let newUser = User(
-            firstName: op.getFirstName(),
-            lastName: op.getLastName(),
-            documentNumber: op.getDocumentNumber(),
-            password: op.getPassword()
+            firstName: routeTo().user().getFirstName(),
+            lastName: routeTo().user().getLastName(),
+            documentNumber: routeTo().user().getDocumentNumber(),
+            password: routeTo().user().getPassword()
         )
         
         db.save(newUser)

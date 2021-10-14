@@ -33,7 +33,7 @@ class DataTest {
                             codeNumber: 300
                         )
                     ],
-                    pixKeys: ["051.918.080-10"]
+                    pix: [[.CPF:"051.918.080-10"]]
                 ),
                 password: "Zup123456!"
             ),
@@ -58,7 +58,7 @@ class DataTest {
                             codeNumber: 400
                         )
                     ],
-                    pixKeys: ["234.083.290-01"]
+                    pix: [[.CPF:"234.083.290-01"]]
                 ),
                 password: "Zup123456!"
             )

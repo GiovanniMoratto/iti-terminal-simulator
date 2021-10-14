@@ -46,17 +46,6 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
-    var uniqueCpf: Bool {
-        for user in Database.shared.users.indices {
-            if db.users[user].documentNumber == self {
-                print("CPF já cadastrado!\n")
-                return false
-            }
-        }
-        return true
-    }
-    
-    /*-----------------------------------------------------------------------------------*/
     var isValidPassword: Bool {
         
         func atLeast8Characters(_ value: String) -> String {
@@ -123,6 +112,31 @@ extension String {
         NSUUID().uuidString
     }
     
+    /*-----------------------------------------------------------------------------------*/
+    
+    var isEmail: Bool {
+        let pattern = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+        
+        if !pattern.evaluate(with: self) {
+            print("\nO campo deve conter um endereço de e-mail válido.\n")
+            return false
+        }
+        return true
+    }
+    
+    /*-----------------------------------------------------------------------------------*/
+    
+    var isPhone: Bool {
+        let pattern = NSPredicate(format: "SELF MATCHES %@", "^\\+(?:[0-9]?){6,14}[0-9]$")
+        
+        if !pattern.evaluate(with: self) {
+            print("\nO campo deve conter um número de telefone válido.\n")
+            return false
+        }
+        return true
+    }
+    
+    
     // MARK: - Methods
     
     func notEmpty(_ nameWrapped: String?) -> Bool {
@@ -183,6 +197,62 @@ extension String {
         return true
     }
     
+    /*-----------------------------------------------------------------------------------*/
+    func unique(_ field: UniqueValue) -> Bool {
+        
+        switch field {
+        case .documentNumber:
+            for index in db.users.indices {
+                if db.users[index].documentNumber == self {
+                    print("CPF já cadastrado!\n")
+                    return false
+                }
+            }
+            return true
+        case .pixDocumentNumber:
+            for userIndex in db.users.indices {
+                for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                    for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                        if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.CPF:self] {
+                            print("Este CPF já foi cadastrado como chave PIX!\n")
+                            return false
+                        }
+                    }
+                }
+            }
+        case .pixEmail:
+            for userIndex in db.users.indices {
+                for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                    for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                        if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.email:self] {
+                            print("Este E-mail já foi cadastrado como chave PIX!\n")
+                            return false
+                        }
+                    }
+                }
+            }
+        case .pixPhone:
+            for userIndex in db.users.indices {
+                for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                    for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                        if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.phoneNumber:self] {
+                            print("Este Telefone já foi cadastrado como chave PIX!\n")
+                            return false
+                        }
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+}
+
+enum UniqueValue {
+    case documentNumber
+    case pixDocumentNumber
+    case pixEmail
+    case pixPhone
 }
 
 extension Double {
