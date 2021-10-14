@@ -16,6 +16,7 @@ struct PixKeyRegisterViewController {
         
         let scene = PixKeyRegisterView()
         let view = UserView()
+        let op = BankViewController()
         
         var loop = true
         
@@ -25,27 +26,27 @@ struct PixKeyRegisterViewController {
             
             switch view.getNavigation() {
             case 1:
-                if !routeTo().bank().checkDocumentNumberPixKeyIsEmpty(token) {
+                if !op.checkDocumentNumberPixKeyIsEmpty(token) {
                     scene.pixCpfAlreadyExists()
                 } else {
-                    let documentNumber = routeTo().bank().getDocumentNumberPixKey()
-                    routeTo().bank().registerPixKey(token, .CPF, documentNumber)
+                    let documentNumber = op.getDocumentNumberPixKeyToRegister()
+                    op.registerPixKey(token, .CPF, documentNumber)
                     scene.successfullyMessage()
                 }
             case 2:
-                if !routeTo().bank().checkEmailPixKeyIsEmpty(token){
+                if !op.checkEmailPixKeyIsEmpty(token){
                     scene.pixEmailAlreadyExists()
                 } else {
-                    let email = routeTo().bank().getEmailPixKey()
-                    routeTo().bank().registerPixKey(token, .email, email)
+                    let email = op.getEmailPixKeyToRegister()
+                    op.registerPixKey(token, .email, email)
                     scene.successfullyMessage()
                 }
             case 3:
-                if !routeTo().bank().checkPhonePixKeyIsEmpty(token){
+                if !op.checkPhonePixKeyIsEmpty(token){
                     scene.pixPhoneAlreadyExists()
                 } else {
-                    let phone = routeTo().bank().getPhonePixKey()
-                    routeTo().bank().registerPixKey(token, .phoneNumber, phone)
+                    let phone = op.getPhonePixKeyToRegister()
+                    op.registerPixKey(token, .phoneNumber, phone)
                     scene.successfullyMessage()
                 }
             case 0:

@@ -70,4 +70,24 @@ struct BankView: BankViewProtocol {
         print("Digite o valor: ")
     }
     
+    func cpfRequest(){
+        print("Digite o cpf: ")
+    }
+    
+    func emailRequest(){
+        print("Digite o e-mail: ")
+    }
+    
+    func phoneRequest(){
+        print("Digite o telefone: ")
+    }
+    
+    func successfullyMessage() {
+        print("Transferência realizada com sucesso!\n")
+    }
+    
+    func confirmDataTransfer() {
+        print("\n         Confirme os dados da Transferência\n")
+    }
+    
 }

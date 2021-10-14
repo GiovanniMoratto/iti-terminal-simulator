@@ -42,7 +42,11 @@ extension String {
         temp2 %= 11
         temp2 = temp2 < 2 ? 0 : 11-temp2
         
-        return temp1 == d1 && temp2 == d2
+        if !(temp1 == d1 && temp2 == d2) {
+            print("\nO campo 'CPF' deve conter um número de CPF válido.\n")
+            return false
+        }
+        return true
     }
     
     /*-----------------------------------------------------------------------------------*/

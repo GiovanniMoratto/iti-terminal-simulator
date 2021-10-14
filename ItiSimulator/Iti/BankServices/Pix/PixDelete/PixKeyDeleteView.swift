@@ -14,7 +14,7 @@ struct PixKeyDeleteView {
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|   Excluir chave PIX                         |")
+        print("|   PIX - Excluir chave                       |")
         print("|_____________________________________________|")
     }
     

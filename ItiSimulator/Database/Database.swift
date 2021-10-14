@@ -50,6 +50,45 @@ class Database {
         return (true, Database.shared.users[index])
     }
     
+    func findPayeeByDocumentNumberPixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
+        for userIndex in Database.shared.users.indices {
+            for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.CPF:pixKey] {
+                        return (true, db.users[userIndex])
+                    }
+                }
+            }
+        }
+        return (false, nil)
+    }
+    
+    func findPayeeByEmailPixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
+        for userIndex in Database.shared.users.indices {
+            for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.email:pixKey] {
+                        return (true, db.users[userIndex])
+                    }
+                }
+            }
+        }
+        return (false, nil)
+    }
+    
+    func findPayeeByPhonePixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
+        for userIndex in Database.shared.users.indices {
+            for pixIndex in db.users[userIndex].bankAccount.pix.indices {
+                for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
+                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.phoneNumber:pixKey] {
+                        return (true, db.users[userIndex])
+                    }
+                }
+            }
+        }
+        return (false, nil)
+    }
+    
     /* Delete */
     
     func delete(_ token: String) {

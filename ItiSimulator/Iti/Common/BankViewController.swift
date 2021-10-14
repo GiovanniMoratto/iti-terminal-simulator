@@ -69,12 +69,7 @@ struct BankViewController: BankViewControllerProtocol {
     }
     
     func transfer(_ token: String) {
-        
-        // Identifica usuário
         guard let user = getUser(token) else { return }
-        
-        // Instância a view de transferência
-        let scene = TransferView()
         
         // Exibe informções do Titular
         bankView.originAccount()
@@ -104,7 +99,7 @@ struct BankViewController: BankViewControllerProtocol {
         
         while loop {
             // Exibe mensagem de confimarção
-            scene.confirmDataTransfer()
+            bankView.confirmDataTransfer()
             // Exibe informções do Titular
             bankView.originAccount()
             bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
@@ -128,7 +123,7 @@ struct BankViewController: BankViewControllerProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                scene.successfullyMessage()
+                bankView.successfullyMessage()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -142,11 +137,200 @@ struct BankViewController: BankViewControllerProtocol {
         
     }
     
-    func deposit(_ token: String) {
-        
+    func pixTransferDocumentNumber(_ token: String) {
         // Identifica usuário
         guard let user = getUser(token) else { return }
         
+        // Exibe informções do Titular
+        bankView.originAccount()
+        bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+                
+        let documentNumber = getDocumentNumberPixKeyToTransfer()
+        
+        if !db.findPayeeByDocumentNumberPixKey(documentNumber).condition {
+            print("Conta não encontrada, favor rever os dados.\n")
+            userView.exit()
+        }
+        
+        guard let payee = db.findPayeeByDocumentNumberPixKey(documentNumber).user else { return }
+        
+        bankView.destinationAccount()
+        bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+        
+        // Rebebe input e valida
+        let value = getValue(user)
+        
+        //Confirmação
+        var loop = true
+        
+        while loop {
+            // Exibe mensagem de confimarção
+            bankView.confirmDataTransfer()
+            // Exibe informções do Titular
+            bankView.originAccount()
+            bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            // Exibe informções do Beneficiado
+            bankView.destinationAccount()
+            bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            // Exibe valor
+            bankView.value(value)
+            // Exibe pergunta
+            bankView.confirmDataRequest()
+            
+            switch userView.getNavigation() {
+            case 1:
+                // Realizar transferencia
+                let newHolderBalance = user.bankAccount.balance - value
+                let newPayeeBalance = payee.bankAccount.balance + value
+                
+                user.bankAccount.balance = newHolderBalance
+                payee.bankAccount.balance = newPayeeBalance
+                
+                db.save(user)
+                db.save(payee)
+                
+                bankView.successfullyMessage()
+                bankView.currentBalance(user.bankAccount.balance)
+                userView.exit()
+                loop = false
+            case 0:
+                transfer(token)
+                loop = false
+            default:
+                print("Por favor, escolha uma operação")
+            }
+        }
+    }
+    
+    func pixTransferEmail(_ token: String) {
+        // Identifica usuário
+        guard let user = getUser(token) else { return }
+        
+        // Exibe informções do Titular
+        bankView.originAccount()
+        bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+                
+        let email = getEmailPixKeyToTransfer()
+        
+        if !db.findPayeeByEmailPixKey(email).condition {
+            print("Conta não encontrada, favor rever os dados.\n")
+            userView.exit()
+        }
+        
+        guard let payee = db.findPayeeByEmailPixKey(email).user else { return }
+        
+        bankView.destinationAccount()
+        bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+        
+        // Rebebe input e valida
+        let value = getValue(user)
+        
+        //Confirmação
+        var loop = true
+        
+        while loop {
+            // Exibe mensagem de confimarção
+            bankView.confirmDataTransfer()
+            // Exibe informções do Titular
+            bankView.originAccount()
+            bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            // Exibe informções do Beneficiado
+            bankView.destinationAccount()
+            bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            // Exibe valor
+            bankView.value(value)
+            // Exibe pergunta
+            bankView.confirmDataRequest()
+            
+            switch userView.getNavigation() {
+            case 1:
+                // Realizar transferencia
+                let newHolderBalance = user.bankAccount.balance - value
+                let newPayeeBalance = payee.bankAccount.balance + value
+                
+                user.bankAccount.balance = newHolderBalance
+                payee.bankAccount.balance = newPayeeBalance
+                
+                db.save(user)
+                db.save(payee)
+                
+                bankView.successfullyMessage()
+                bankView.currentBalance(user.bankAccount.balance)
+                userView.exit()
+                loop = false
+            case 0:
+                transfer(token)
+                loop = false
+            default:
+                print("Por favor, escolha uma operação")
+            }
+        }
+    }
+    
+    func pixTransferPhone(_ token: String) {
+        // Identifica usuário
+        guard let user = getUser(token) else { return }
+        
+        // Exibe informções do Titular
+        bankView.originAccount()
+        bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+                
+        // Receber input do usuário
+        let phoneNumber = getPhonePixKeyToTransfer()
+        
+        if !db.findPayeeByPhonePixKey(phoneNumber).condition {
+            print("Conta não encontrada, favor rever os dados.\n")
+            userView.exit()
+        }
+        
+        guard let payee = db.findPayeeByPhonePixKey(phoneNumber).user else { return }
+        
+        bankView.destinationAccount()
+        bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+        
+        // Rebebe input e valida
+        let value = getValue(user)
+        
+        //Confirmação
+        var loop = true
+        
+        while loop {
+            // Exibe mensagem de confimarção
+            bankView.confirmDataTransfer()
+            // Exibe informções do Titular
+            bankView.originAccount()
+            bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            // Exibe informções do Beneficiado
+            bankView.destinationAccount()
+            bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            // Exibe valor
+            bankView.value(value)
+            // Exibe pergunta
+            bankView.confirmDataRequest()
+            
+            switch userView.getNavigation() {
+            case 1:
+                // Realizar transferencia
+                let newHolderBalance = user.bankAccount.balance - value
+                let newPayeeBalance = payee.bankAccount.balance + value
+                
+                user.bankAccount.balance = newHolderBalance
+                payee.bankAccount.balance = newPayeeBalance
+                
+                db.save(user)
+                db.save(payee)
+                
+                bankView.successfullyMessage()
+                bankView.currentBalance(user.bankAccount.balance)
+                userView.exit()
+                loop = false
+            case 0:
+                transfer(token)
+                loop = false
+            default:
+                print("Por favor, escolha uma operação")
+            }
+        }
     }
     
     func accountInfo(_ token: String) {
@@ -216,39 +400,30 @@ struct BankViewController: BankViewControllerProtocol {
         return true
     }
     
-    func getDocumentNumberPixKey() -> String {
-        // Instância a view de pagamento
-        let scene = PixKeyRegisterView()
-        
-        scene.cpfRequest()
+    func getDocumentNumberPixKeyToRegister() -> String {
+        bankView.cpfRequest()
         guard let documentNumber = userView.getInput(),
               documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf(),
               documentNumber.unique(.pixDocumentNumber)
-        else { return getDocumentNumberPixKey() }
+        else { return getDocumentNumberPixKeyToRegister() }
         
         return documentNumber
     }
     
-    func getEmailPixKey() -> String {
-        // Instância a view de pagamento
-        let scene = PixKeyRegisterView()
-        
-        scene.emailRequest()
+    func getEmailPixKeyToRegister() -> String {
+        bankView.emailRequest()
         guard let email = userView.getInput(),
               email.notEmpty("'e-mail'"), email.isEmail, email.unique(.pixEmail)
-        else { return getEmailPixKey()}
+        else { return getEmailPixKeyToRegister() }
         
         return email
     }
     
-    func getPhonePixKey() -> String {
-        // Instância a view de pagamento
-        let scene = PixKeyRegisterView()
-        
-        scene.phoneRequest()
+    func getPhonePixKeyToRegister() -> String {
+        bankView.phoneRequest()
         guard let phone = userView.getInput(),
               phone.notEmpty("'telefone'"), phone.isPhone, phone.unique(.pixPhone)
-        else { return getPhonePixKey()}
+        else { return getPhonePixKeyToRegister() }
         
         return phone
     }
@@ -302,6 +477,33 @@ struct BankViewController: BankViewControllerProtocol {
         }
     }
     
+    func getDocumentNumberPixKeyToTransfer() -> String {
+        bankView.cpfRequest()
+        guard let documentNumber = userView.getInput(),
+              documentNumber.notEmpty("'CPF'"), documentNumber.isCPF
+        else { return getDocumentNumberPixKeyToRegister() }
+        
+        return documentNumber
+    }
+    
+    func getEmailPixKeyToTransfer() -> String {
+        bankView.emailRequest()
+        guard let email = userView.getInput(),
+              email.notEmpty("'e-mail'"), email.isEmail
+        else { return getEmailPixKeyToRegister() }
+        
+        return email
+    }
+    
+    func getPhonePixKeyToTransfer() -> String {
+        bankView.phoneRequest()
+        guard let phone = userView.getInput(),
+              phone.notEmpty("'telefone'"), phone.isPhone
+        else { return getPhonePixKeyToRegister() }
+        
+        return phone
+    }
+    
     /* Assistants Methods */
 
     private func getUser(_ token: String) -> User? {
@@ -344,7 +546,5 @@ struct BankViewController: BankViewControllerProtocol {
         
         return value
     }
-    
-    
-    
+
 }

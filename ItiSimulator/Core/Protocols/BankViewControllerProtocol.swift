@@ -13,15 +13,15 @@ protocol BankViewControllerProtocol {
     
     func transfer(_ token: String)
     
-    func deposit(_ token: String)
+//    func deposit(_ token: String)
     
     func accountInfo(_ token: String)
     
-    func getDocumentNumberPixKey() -> String
+    func getDocumentNumberPixKeyToRegister() -> String
     
-    func getEmailPixKey() -> String
+    func getEmailPixKeyToRegister() -> String
     
-    func getPhonePixKey() -> String
+    func getPhonePixKeyToRegister() -> String
     
     func registerPixKey(_ token: String, _ type: PixType, _ pixKey: String)
     
@@ -36,5 +36,11 @@ protocol BankViewControllerProtocol {
     func deleteEmailPixKey(_ token: String)
     
     func deletePhonePixKey(_ token: String)
+    
+    func pixTransferDocumentNumber(_ token: String)
+    
+    func pixTransferEmail(_ token: String)
+    
+    func pixTransferPhone(_ token: String)
     
 }

@@ -71,6 +71,10 @@ struct ControllerRoutes {
         PixKeyDeleteViewController().process(token)
     }
     
+    func pixTransfer(_ token: String) {
+        PixTransferViewController().process(token)
+    }
+    
     func user() -> UserViewController {
         return UserViewController()
     }

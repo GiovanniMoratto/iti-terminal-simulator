@@ -14,7 +14,7 @@ struct PixKeyRegisterView {
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|  Cadastrar chave PIX                        |")
+        print("|  Pix - Cadastrar chave                      |")
         print("|_____________________________________________|")
     }
     
@@ -30,17 +30,7 @@ struct PixKeyRegisterView {
         print("|                                             |\n")
     }
     
-    func cpfRequest(){
-        print("Digite o cpf: ")
-    }
-    
-    func emailRequest(){
-        print("Digite o e-mail: ")
-    }
-    
-    func phoneRequest(){
-        print("Digite o telefone: ")
-    }
+  
     
     func successfullyMessage(){
         print("Chave cadastrada com sucesso!\n")

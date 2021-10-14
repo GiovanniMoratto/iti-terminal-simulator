@@ -26,8 +26,8 @@ struct PixMenuViewController {
             switch view.getNavigation() {
             case 1: break
                 // Pagamentos
-            case 2: break
-                // Transferência
+            case 2:
+                routeTo().pixTransfer(token)
             case 3:
                 routeTo().pixRegister(token)
             case 4:
