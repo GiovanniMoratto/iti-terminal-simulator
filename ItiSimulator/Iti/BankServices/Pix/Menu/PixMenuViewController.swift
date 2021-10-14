@@ -24,8 +24,8 @@ struct PixMenuViewController {
             routeTo().user().overview(token)
             
             switch view.getNavigation() {
-            case 1: break
-                // Pagamentos
+            case 1:
+                routeTo().pixPaymentMenu(token)
             case 2:
                 routeTo().pixTransfer(token)
             case 3:

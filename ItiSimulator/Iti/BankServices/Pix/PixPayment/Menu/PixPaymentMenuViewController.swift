@@ -24,10 +24,10 @@ struct PixPaymentMenuViewController {
             routeTo().user().overview(token)
             
             switch view.getNavigation() {
-            case 1: break
-                // Pagar
-            case 2: break
-                // Gerar QR Code
+            case 1:
+                routeTo().pixPaymentPay(token)
+            case 2:
+                routeTo().pixPaymentQRCode(token)
             case 0:
                 loop = false
             default:

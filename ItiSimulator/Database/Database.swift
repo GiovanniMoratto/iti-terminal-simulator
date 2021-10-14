@@ -13,6 +13,7 @@ class Database {
     
     var users: [User] = []
     var credentials: [UserAccess] = []
+    var QRCodes: [QRCode] = []
     static var shared = Database()
     
     // MARK: - Initializers (Constructors)
@@ -29,6 +30,10 @@ class Database {
     
     func save(_ access: UserAccess) {
         Database.shared.credentials.append(access)
+    }
+    
+    func save(_ code: QRCode) {
+        Database.shared.QRCodes.append(code)
     }
     
     /* Find */
@@ -87,6 +92,29 @@ class Database {
             }
         }
         return (false, nil)
+    }
+    
+    func findQRCodeByCode(_ code: String) -> QRCode? {
+        guard let index = Database.shared.QRCodes.firstIndex(where: { $0.code == code }) else { return nil }
+        return Database.shared.QRCodes[index]
+    }
+    
+    func findUserByQRCode(_ code: String) -> User? {
+        guard let qrCode = findQRCodeByCode(code) else { return nil }
+        
+        if findPayeeByDocumentNumberPixKey(qrCode.pix).condition {
+            return findPayeeByDocumentNumberPixKey(qrCode.pix).user
+        }
+        else if findPayeeByEmailPixKey(qrCode.pix).condition {
+            return findPayeeByEmailPixKey(qrCode.pix).user
+        }
+        else if findPayeeByPhonePixKey(qrCode.pix).condition {
+            return findPayeeByPhonePixKey(qrCode.pix).user
+        }
+        else {
+            print("QR Code incorreto ou inexistente")
+            return nil
+        }
     }
     
     /* Delete */

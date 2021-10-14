@@ -1,18 +1,20 @@
 //
-//  PixTransferView.swift
+//  PixPaymentQRCodeView.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 13/10/21.
+//  Created by Giovanni Vicentin Moratto on 14/10/21.
 //
 
 import Foundation
 
-struct PixTransferView {
+struct PixPaymentQRCodeView {
+    
+    // MARK: - Methods
     
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|   Pix - Transferência                       |")
+        print("|   Pix - Pagamentos - QR Code                |")
         print("|_____________________________________________|")
     }
     
@@ -28,8 +30,16 @@ struct PixTransferView {
         print("|                                             |\n")
     }
     
-    func payeePixValueRequest() {
-        print("Digite a chave do beneficiado: ")
+    func showSuccessCreate() {
+        print("QR Code criado com sucesso!\n")
+    }
+    
+    func showCode(_ code: String) {
+        print("QR Code: \(code)")
+    }
+    
+    func errorQRCodeMessage() {
+        print("Não foi possivel criar o QR Code, tipo de chave não cadastrado.")
     }
     
 }

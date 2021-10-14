@@ -26,8 +26,8 @@
 		B1605525270F533B00E09B15 /* UserAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605524270F533B00E09B15 /* UserAccess.swift */; };
 		B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateProfileViewController.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
-		B19CCEB827173D9B0089E5A8 /* InsertMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB727173D9B0089E5A8 /* InsertMoneyViewController.swift */; };
-		B19CCEBA27173DC40089E5A8 /* InsertMoneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB927173DC40089E5A8 /* InsertMoneyView.swift */; };
+		B19CCEB827173D9B0089E5A8 /* DisplayBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB727173D9B0089E5A8 /* DisplayBankViewController.swift */; };
+		B19CCEBA27173DC40089E5A8 /* DisplayBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB927173DC40089E5A8 /* DisplayBankView.swift */; };
 		B19CCEBF271772C60089E5A8 /* PixMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEBE271772C60089E5A8 /* PixMenuView.swift */; };
 		B19CCEC12717733E0089E5A8 /* PixMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEC02717733E0089E5A8 /* PixMenuViewController.swift */; };
 		B19CCEC4271774DD0089E5A8 /* PixPaymentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEC3271774DD0089E5A8 /* PixPaymentMenuView.swift */; };
@@ -38,6 +38,11 @@
 		B19CCED1271776EB0089E5A8 /* PixKeyRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCED0271776EB0089E5A8 /* PixKeyRegisterView.swift */; };
 		B19CCED4271777460089E5A8 /* PixKeyDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCED3271777460089E5A8 /* PixKeyDeleteViewController.swift */; };
 		B19CCED6271777560089E5A8 /* PixKeyDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCED5271777560089E5A8 /* PixKeyDeleteView.swift */; };
+		B19DC6BA2718AC7D00EEA19F /* PixPaymentPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DC6B92718AC7D00EEA19F /* PixPaymentPayViewController.swift */; };
+		B19DC6BC2718AC8D00EEA19F /* PixPaymentPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DC6BB2718AC8D00EEA19F /* PixPaymentPayView.swift */; };
+		B19DC6C02718AD9600EEA19F /* PixPaymentQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DC6BF2718AD9600EEA19F /* PixPaymentQRCodeViewController.swift */; };
+		B19DC6C32718ADDA00EEA19F /* PixPaymentQRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DC6C22718ADDA00EEA19F /* PixPaymentQRCodeView.swift */; };
+		B19DC6C52718AE6800EEA19F /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DC6C42718AE6800EEA19F /* QRCode.swift */; };
 		B1B8BCCB270B41D40057302D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCA270B41D40057302D /* LoginView.swift */; };
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
 		B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* HomeView.swift */; };
@@ -95,8 +100,8 @@
 		B17999E0270803330073E5ED /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		B19CCEB727173D9B0089E5A8 /* InsertMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertMoneyViewController.swift; sourceTree = "<group>"; };
-		B19CCEB927173DC40089E5A8 /* InsertMoneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertMoneyView.swift; sourceTree = "<group>"; };
+		B19CCEB727173D9B0089E5A8 /* DisplayBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBankViewController.swift; sourceTree = "<group>"; };
+		B19CCEB927173DC40089E5A8 /* DisplayBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBankView.swift; sourceTree = "<group>"; };
 		B19CCEBE271772C60089E5A8 /* PixMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixMenuView.swift; sourceTree = "<group>"; };
 		B19CCEC02717733E0089E5A8 /* PixMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixMenuViewController.swift; sourceTree = "<group>"; };
 		B19CCEC3271774DD0089E5A8 /* PixPaymentMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixPaymentMenuView.swift; sourceTree = "<group>"; };
@@ -107,6 +112,11 @@
 		B19CCED0271776EB0089E5A8 /* PixKeyRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixKeyRegisterView.swift; sourceTree = "<group>"; };
 		B19CCED3271777460089E5A8 /* PixKeyDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixKeyDeleteViewController.swift; sourceTree = "<group>"; };
 		B19CCED5271777560089E5A8 /* PixKeyDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixKeyDeleteView.swift; sourceTree = "<group>"; };
+		B19DC6B92718AC7D00EEA19F /* PixPaymentPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixPaymentPayViewController.swift; sourceTree = "<group>"; };
+		B19DC6BB2718AC8D00EEA19F /* PixPaymentPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixPaymentPayView.swift; sourceTree = "<group>"; };
+		B19DC6BF2718AD9600EEA19F /* PixPaymentQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixPaymentQRCodeViewController.swift; sourceTree = "<group>"; };
+		B19DC6C22718ADDA00EEA19F /* PixPaymentQRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixPaymentQRCodeView.swift; sourceTree = "<group>"; };
+		B19DC6C42718AE6800EEA19F /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		B1B8BCCA270B41D40057302D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCF270B44B10057302D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -254,6 +264,7 @@
 				B119045B270F3256005DD675 /* CreditCard.swift */,
 				B1605524270F533B00E09B15 /* UserAccess.swift */,
 				B1DF155F2714A8F300DAE6E8 /* Address.swift */,
+				B19DC6C42718AE6800EEA19F /* QRCode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,13 +289,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		B19CCEB627173D620089E5A8 /* InsertMoney */ = {
+		B19CCEB627173D620089E5A8 /* DisplayBankAccount */ = {
 			isa = PBXGroup;
 			children = (
-				B19CCEB727173D9B0089E5A8 /* InsertMoneyViewController.swift */,
-				B19CCEB927173DC40089E5A8 /* InsertMoneyView.swift */,
+				B19CCEB727173D9B0089E5A8 /* DisplayBankViewController.swift */,
+				B19CCEB927173DC40089E5A8 /* DisplayBankView.swift */,
 			);
-			path = InsertMoney;
+			path = DisplayBankAccount;
 			sourceTree = "<group>";
 		};
 		B19CCEBB27173DE20089E5A8 /* Menu */ = {
@@ -320,6 +331,8 @@
 		B19CCEC22717749D0089E5A8 /* PixPayment */ = {
 			isa = PBXGroup;
 			children = (
+				B19DC6C12718ADBD00EEA19F /* QRCode */,
+				B19DC6B82718AC5700EEA19F /* Pay */,
 				B19CCEC7271775170089E5A8 /* Menu */,
 			);
 			path = PixPayment;
@@ -361,6 +374,24 @@
 			path = PixDelete;
 			sourceTree = "<group>";
 		};
+		B19DC6B82718AC5700EEA19F /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				B19DC6B92718AC7D00EEA19F /* PixPaymentPayViewController.swift */,
+				B19DC6BB2718AC8D00EEA19F /* PixPaymentPayView.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		B19DC6C12718ADBD00EEA19F /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				B19DC6BF2718AD9600EEA19F /* PixPaymentQRCodeViewController.swift */,
+				B19DC6C22718ADDA00EEA19F /* PixPaymentQRCodeView.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		B1B8BCC9270B41C00057302D /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,7 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				B19CCEBC2717729B0089E5A8 /* Pix */,
-				B19CCEB627173D620089E5A8 /* InsertMoney */,
+				B19CCEB627173D620089E5A8 /* DisplayBankAccount */,
 				B1DF156F2714BA6300DAE6E8 /* PaymentAndTransfer */,
 			);
 			path = BankServices;
@@ -517,7 +548,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */,
+				B19DC6C02718AD9600EEA19F /* PixPaymentQRCodeViewController.swift in Sources */,
 				B1605525270F533B00E09B15 /* UserAccess.swift in Sources */,
+				B19DC6BA2718AC7D00EEA19F /* PixPaymentPayViewController.swift in Sources */,
 				B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */,
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
 				B1DF15642714AC7400DAE6E8 /* UserViewProtocol.swift in Sources */,
@@ -531,6 +564,7 @@
 				B1DF15722714BB0100DAE6E8 /* PaymentAndTransferView.swift in Sources */,
 				B1DF157C2714BE7B00DAE6E8 /* BankViewController.swift in Sources */,
 				B1DF157E2714C73200DAE6E8 /* BankViewProtocol.swift in Sources */,
+				B19DC6C32718ADDA00EEA19F /* PixPaymentQRCodeView.swift in Sources */,
 				B1DF15622714AC1400DAE6E8 /* UserViewControllerProtocol.swift in Sources */,
 				B19CCECA271776730089E5A8 /* PixTransferViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
@@ -543,12 +577,14 @@
 				B19CCEBF271772C60089E5A8 /* PixMenuView.swift in Sources */,
 				B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */,
 				B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */,
-				B19CCEBA27173DC40089E5A8 /* InsertMoneyView.swift in Sources */,
+				B19CCEBA27173DC40089E5A8 /* DisplayBankView.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ProfileMenuView.swift in Sources */,
 				B19CCED6271777560089E5A8 /* PixKeyDeleteView.swift in Sources */,
 				B1DF15762714BBDA00DAE6E8 /* PaymentView.swift in Sources */,
 				B19CCED4271777460089E5A8 /* PixKeyDeleteViewController.swift in Sources */,
+				B19DC6BC2718AC8D00EEA19F /* PixPaymentPayView.swift in Sources */,
 				B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */,
+				B19DC6C52718AE6800EEA19F /* QRCode.swift in Sources */,
 				B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */,
 				B19CCECC271776820089E5A8 /* PixTransferView.swift in Sources */,
 				B1DF155C2714A77F00DAE6E8 /* Database.swift in Sources */,
@@ -556,7 +592,7 @@
 				B119045C270F3256005DD675 /* CreditCard.swift in Sources */,
 				B19CCEC6271774FB0089E5A8 /* PixPaymentMenuViewController.swift in Sources */,
 				B1DF156C2714AEA700DAE6E8 /* Validations.swift in Sources */,
-				B19CCEB827173D9B0089E5A8 /* InsertMoneyViewController.swift in Sources */,
+				B19CCEB827173D9B0089E5A8 /* DisplayBankViewController.swift in Sources */,
 				B19CCEC4271774DD0089E5A8 /* PixPaymentMenuView.swift in Sources */,
 				B1876FFC2705489A00ECA2D5 /* main.swift in Sources */,
 				B1190458270F2F9F005DD675 /* PixType.swift in Sources */,

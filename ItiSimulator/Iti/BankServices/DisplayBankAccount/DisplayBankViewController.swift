@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct InsertMoneyViewController {
+struct DisplayBankViewController {
     
     func process(_ tokenWrapped: String?) {
         guard let token = tokenWrapped else { return }
         
-        let scene = InsertMoneyView()
+        let scene = DisplayBankView()
         let view = UserView()
         
         var loop = true

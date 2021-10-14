@@ -18,12 +18,7 @@ struct BankViewController: BankViewControllerProtocol {
     // MARK: - Methods
 
     func payment(_ token: String) {
-        
-        // Identifica usuário
         guard let user = getUser(token) else { return }
-        
-        // Instância a view de pagamento
-        let scene = PaymentView()
         
         // Exibe informções do Titular
         bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
@@ -35,14 +30,14 @@ struct BankViewController: BankViewControllerProtocol {
         var loop = true
         
         while loop {
-            scene.confirmDataPayment()
+            bankView.confirmDataPayment()
             
             // Exibe informções do Titular
             bankView.originAccount()
             bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
             
             // Exibe valor do pagamento
-            scene.paymentValue(value)
+            bankView.paymentValue(value)
             
             // Exibe mensagem de confirmação
             bankView.confirmDataRequest()
@@ -55,7 +50,7 @@ struct BankViewController: BankViewControllerProtocol {
                 
                 db.save(user)
                 
-                scene.successfullyMessage()
+                bankView.successfullyMessageOfPayment()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -123,7 +118,7 @@ struct BankViewController: BankViewControllerProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankView.successfullyMessage()
+                bankView.successfullyMessageOfTransfer()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -189,7 +184,7 @@ struct BankViewController: BankViewControllerProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankView.successfullyMessage()
+                bankView.successfullyMessageOfTransfer()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -254,7 +249,7 @@ struct BankViewController: BankViewControllerProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankView.successfullyMessage()
+                bankView.successfullyMessageOfTransfer()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -320,7 +315,7 @@ struct BankViewController: BankViewControllerProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankView.successfullyMessage()
+                bankView.successfullyMessageOfTransfer()
                 bankView.currentBalance(user.bankAccount.balance)
                 userView.exit()
                 loop = false
@@ -338,7 +333,7 @@ struct BankViewController: BankViewControllerProtocol {
         guard let user = getUser(token) else { return }
         
         // Instância a view de pagamento
-        let scene = InsertMoneyView()
+        let scene = DisplayBankView()
         
         scene.bank(user.bankAccount.bank)
         scene.branch(user.bankAccount.branch)
@@ -504,6 +499,104 @@ struct BankViewController: BankViewControllerProtocol {
         return phone
     }
     
+    func generateQRCode(_ pixKey: String, _ value: Double) -> String {
+        let qrCode = QRCode(code: String().QRCodeGenerator, pix: pixKey, value: value)
+        db.save(qrCode)
+        return qrCode.code
+    }
+    
+    func getQRCodeByDocumentNumber(_ token: String) -> (condition: Bool, pixKey: String) {
+        guard let user = getUser(token) else { return (false, String()) }
+        
+        for index in user.bankAccount.pix.indices {
+            for (key,value) in user.bankAccount.pix[index] {
+                if key == .CPF {
+                    return (true, value)
+                }
+            }
+        }
+        return (false, String())
+    }
+    
+    func getQRCodeByEmail(_ token: String) -> (condition: Bool, pixKey: String) {
+        guard let user = getUser(token) else { return (false, String()) }
+        
+        for index in user.bankAccount.pix.indices {
+            for (key,value) in user.bankAccount.pix[index] {
+                if key == .email {
+                    return (true, value)
+                }
+            }
+        }
+        return (false, String())
+    }
+    
+    func getQRCodeByPhone(_ token: String) -> (condition: Bool, pixKey: String) {
+        guard let user = getUser(token) else { return (false, String()) }
+        
+        for index in user.bankAccount.pix.indices {
+            for (key,value) in user.bankAccount.pix[index] {
+                if key == .phoneNumber {
+                    return (true, value)
+                }
+            }
+        }
+        return (false, String())
+    }
+    
+    func pixPayment(_ token: String) {
+        guard let user = getUser(token) else { return }
+        
+        PixPaymentPayView().valueRequest()
+        guard let code = userView.getInput() else { return }
+        guard let qrCode = db.findQRCodeByCode(code) else { return }
+        guard let payee = db.findUserByQRCode(code) else { return pixPayment(token) }
+        
+        bankView.destinationAccount()
+        bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+        
+        //Confirmação
+        var loop = true
+        
+        while loop {
+            // Exibe mensagem de confimarção
+            bankView.confirmDataPayment()
+            // Exibe informções do Titular
+            bankView.originAccount()
+            bankView.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            
+            // Exibe informções do Beneficiado
+            bankView.destinationAccount()
+            bankView.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            // Exibe valor
+            bankView.value(qrCode.value)
+            // Exibe pergunta
+            bankView.confirmDataRequest()
+            
+            switch userView.getNavigation() {
+            case 1:
+                // Realizar transferencia
+                let newHolderBalance = user.bankAccount.balance - qrCode.value
+                let newPayeeBalance = payee.bankAccount.balance + qrCode.value
+                
+                user.bankAccount.balance = newHolderBalance
+                payee.bankAccount.balance = newPayeeBalance
+                
+                db.save(user)
+                db.save(payee)
+                
+                bankView.successfullyMessageOfTransfer()
+                bankView.currentBalance(user.bankAccount.balance)
+                userView.exit()
+                loop = false
+            case 0:
+                loop = false
+            default:
+                print("Por favor, escolha uma operação")
+            }
+        }
+    }
+    
     /* Assistants Methods */
 
     private func getUser(_ token: String) -> User? {
@@ -543,6 +636,15 @@ struct BankViewController: BankViewControllerProtocol {
         guard let value = bankView.getInputAsDouble(),
               value.isValidValue(user.bankAccount.balance)
         else { return getValue(user) }
+        
+        return value
+    }
+    
+    func getValueForPayment() -> Double {
+        bankView.valueRequest()
+        
+        guard let value = bankView.getInputAsDouble()
+        else { return getValueForPayment() }
         
         return value
     }

@@ -140,6 +140,11 @@ extension String {
         return true
     }
     
+    /*-----------------------------------------------------------------------------------*/
+    var QRCodeGenerator: String {
+        NSUUID().uuidString.lowercased()
+    }
+    
     
     // MARK: - Methods
     

@@ -82,12 +82,25 @@ struct BankView: BankViewProtocol {
         print("Digite o telefone: ")
     }
     
-    func successfullyMessage() {
+    func successfullyMessageOfTransfer() {
         print("Transferência realizada com sucesso!\n")
     }
     
     func confirmDataTransfer() {
         print("\n         Confirme os dados da Transferência\n")
     }
+    
+    func confirmDataPayment() {
+        print("\n         Confirme os dados do Pagamento\n")
+    }
+    
+    func successfullyMessageOfPayment() {
+        print("Pagamento realizado com sucesso!\n")
+    }
+    
+    func paymentValue(_ value: Double) {
+        print("Valor do pagamento: R$ \(value)")
+    }
+    
     
 }

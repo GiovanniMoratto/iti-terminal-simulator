@@ -55,8 +55,8 @@ struct ControllerRoutes {
         TransferViewController().process(token)
     }
     
-    func insert(_ token: String) {
-        InsertMoneyViewController().process(token)
+    func displayAccount(_ token: String) {
+        DisplayBankViewController().process(token)
     }
     
     func pixMenu(_ token: String) {
@@ -73,6 +73,18 @@ struct ControllerRoutes {
     
     func pixTransfer(_ token: String) {
         PixTransferViewController().process(token)
+    }
+    
+    func pixPaymentMenu(_ token: String) {
+        PixPaymentMenuViewController().process(token)
+    }
+    
+    func pixPaymentQRCode(_ token: String) {
+        PixPaymentQRCodeViewController().process(token)
+    }
+    
+    func pixPaymentPay(_ token: String) {
+        PixPaymentPayViewController().process(token)
     }
     
     func user() -> UserViewController {

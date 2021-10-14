@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct InsertMoneyView {
+struct DisplayBankView {
     
     // MARK: - Methods
     
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|   Colocar Dinheiro                          |")
+        print("|   Dados da conta                            |")
         print("|_____________________________________________|\n")
     }
     

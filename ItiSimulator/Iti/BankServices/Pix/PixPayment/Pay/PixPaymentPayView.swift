@@ -1,21 +1,25 @@
 //
-//  Payment.swift
+//  PixPaymentPayView.swift
 //  ItiSimulator
 //
-//  Created by Giovanni Vicentin Moratto on 11/10/21.
+//  Created by Giovanni Vicentin Moratto on 14/10/21.
 //
 
 import Foundation
 
-struct PaymentView {
+struct PixPaymentPayView {
     
     // MARK: - Methods
     
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
-        print("|   Pagar                                     |")
+        print("|   Pix - Pagamentos - Pagar                  |")
         print("|_____________________________________________|\n")
     }
-        
+    
+    func valueRequest() {
+        print("Digite o QR Code: ")
+    }
+    
 }
