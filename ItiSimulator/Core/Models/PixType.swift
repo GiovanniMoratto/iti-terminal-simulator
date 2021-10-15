@@ -12,5 +12,6 @@ enum PixType {
     case CPF
     case email
     case phoneNumber
+    
 }
 

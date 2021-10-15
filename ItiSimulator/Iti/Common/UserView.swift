@@ -13,66 +13,68 @@ struct UserView: UserViewProtocol {
     
     /* Request Labels Messages */
     
-    func firstNameRequest(){
+    func firstNameRequest() {
         print("Digite o seu primeiro nome: ")
     }
     
-    func lastNameRequest(){
+    func lastNameRequest() {
         print("Digite o seu sobrenome: ")
     }
     
-    func documentNumberRequest(){
+    func documentNumberRequest() {
         print("Digite o seu CPF: ")
     }
     
-    func passwordRequest(){
+    func passwordRequest() {
         print("Digite sua senha: ")
     }
     
-    func addressRequest(){
+    func addressRequest() {
         print("Digite o seu endereço: ")
     }
     
-    func cityRequest(){
+    func cityRequest() {
         print("Digite a sua cidade: ")
     }
     
-    func stateRequest(){
+    func stateRequest() {
         print("Digite o seu estado: ")
     }
     
     /* Display Labels Messages */
     
-    func username(_ firstName: String, _ lastName: String){
+    func username(_ firstName: String, _ lastName: String) {
         print("     Nome:       \(firstName) \(lastName)")
     }
     
-    func documentNumber(_ documentNumber: String){
+    func documentNumber(_ documentNumber: String) {
         print("     CPF:        \(documentNumber)")
     }
     
-    func address(_ address: String){
+    func address(_ address: String) {
         print("     Endereço:   \(address)")
     }
     
-    func city(_ city: String){
+    func city(_ city: String) {
         print("     Cidade:     \(city)")
     }
     
-    func state(_ state: String){
+    func state(_ state: String) {
         print("     Estado:     \(state)\n")
     }
     
     /* Custom Labels Messages */
     
-    func exit(){
+    func exit() {
         print("(0) - Voltar")
     }
     
-    func overview(_ firstName: String, _ lastName: String, _ balance: Double){
+    func overview(_ firstName: String, _ lastName: String, _ balance: Double) {
         print("                       \(firstName) \(lastName)")
         print("                       Saldo: R$ \(balance)")
     }
+    
+    /* Input Labels */
     
     func getInput() -> String? {
         let input = readLine()

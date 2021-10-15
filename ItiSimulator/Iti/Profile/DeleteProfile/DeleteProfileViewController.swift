@@ -25,9 +25,7 @@ struct DeleteProfileViewController {
             
             switch view.getNavigation() {
             case 1:
-                db.delete(token)
-                scene.showSuccessfullyDeleted()
-                routeTo().welcome()
+                routeTo().user().deleteUser(token)
                 loop = false
             case 0:
                 loop = false

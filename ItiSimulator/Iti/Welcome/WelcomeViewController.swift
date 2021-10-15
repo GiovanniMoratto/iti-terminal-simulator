@@ -8,7 +8,7 @@
 import Foundation
 
 struct WelcomeViewController {
-
+    
     // MARK: - Methods
     
     func process() {

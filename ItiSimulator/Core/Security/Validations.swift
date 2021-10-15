@@ -50,6 +50,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     var isValidPassword: Bool {
         
         func atLeast8Characters(_ value: String) -> String {
@@ -112,6 +113,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     var tokenGenerator: String {
         NSUUID().uuidString
     }
@@ -141,6 +143,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     var QRCodeGenerator: String {
         NSUUID().uuidString.lowercased()
     }
@@ -159,6 +162,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     func minLength(_ fieldNameWrapped: String?, _ lengthWrapped: Int?) -> Bool {
         guard let fieldName = fieldNameWrapped else { return false }
         guard let length = lengthWrapped else { return false }
@@ -171,6 +175,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     func maxLength(_ fieldNameWrapped: String?, _ lengthWrapped: Int?) -> Bool {
         guard let fieldName = fieldNameWrapped else { return false }
         guard let length = lengthWrapped else { return false }
@@ -183,6 +188,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     func isNumeric(_ fieldNameWrapped: String?) -> Bool {
         guard let fieldName = fieldNameWrapped else { return false }
         
@@ -197,6 +203,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     func isValidCpf() -> Bool {
         
         if !self.isCPF {
@@ -207,6 +214,7 @@ extension String {
     }
     
     /*-----------------------------------------------------------------------------------*/
+    
     func unique(_ field: UniqueValue) -> Bool {
         
         switch field {
@@ -271,7 +279,7 @@ extension Double {
     func isValidValue(_ balance: Double) -> Bool {
         
         if self > balance {
-            print("\nO valor informado é superior ao saldo da conta.\n")
+            print("Saldo insuficiente.\n")
             return false
         }
         return true

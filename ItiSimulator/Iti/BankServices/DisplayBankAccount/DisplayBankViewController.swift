@@ -20,6 +20,7 @@ struct DisplayBankViewController {
         while loop {
             scene.showTitle()
             scene.myData()
+            
             routeTo().bank().accountInfo(token)
             view.exit()
             

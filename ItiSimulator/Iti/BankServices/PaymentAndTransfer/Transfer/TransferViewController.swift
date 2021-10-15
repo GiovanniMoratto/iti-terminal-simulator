@@ -16,13 +16,13 @@ struct TransferViewController {
         
         let scene = TransferView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            op.transfer(token)
+            
+            routeTo().bank().transfer(token)
             
             switch view.getNavigation() {
             case 0:

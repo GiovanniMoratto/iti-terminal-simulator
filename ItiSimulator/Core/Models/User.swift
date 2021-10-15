@@ -11,18 +11,16 @@ class User {
     
     // MARK: - Attributes
     
-    var firstName = String()
-    var lastName = String()
-    var documentNumber = String()
+    var firstName: String
+    var lastName: String
+    var documentNumber: String
     var address = Address()
     var bankAccount = BankAccount()
-    var password = String()
+    var password: String
     
     // MARK: - Initializers (Constructors)
     
     init(firstName: String, lastName: String, documentNumber: String, password: String) {
-        // Utilizado na criação da conta do usuário
-        
         self.firstName = firstName
         self.lastName = lastName
         self.documentNumber = documentNumber
@@ -30,7 +28,7 @@ class User {
     }
     
     init(firstName: String, lastName: String, documentNumber: String, address: Address, bankAccount: BankAccount, password: String) {
-        
+        // Utilizado para inicializar a aplicação com dados no banco
         self.firstName = firstName
         self.lastName = lastName
         self.documentNumber = documentNumber

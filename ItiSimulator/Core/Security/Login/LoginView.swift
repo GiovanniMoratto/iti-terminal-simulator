@@ -19,7 +19,7 @@ struct LoginView {
     }
     
     func showMessage() {
-        print("Verificando dados...\n")
+        print("Verificando dados...")
     }
     
 }

@@ -30,23 +30,23 @@ struct EditProfileView {
         print("|                                             |\n")
     }
     
-    func currentUsername(_ firstName: String, _ lastName: String){
+    func currentUsername(_ firstName: String, _ lastName: String) {
         print("Nome atual: \(firstName) \(lastName)\n")
     }
     
-    func currentAddress(_ address: String){
+    func currentAddress(_ address: String) {
         print("Endereço atual: \(address)\n")
     }
     
-    func currentCity(_ city: String){
+    func currentCity(_ city: String) {
         print("Cidade atual: \(city)\n")
     }
     
-    func currentState(_ state: String){
+    func currentState(_ state: String) {
         print("Estado atual: \(state)\n")
     }
     
-    func successfullyUpdateMessage(){
+    func successfullyUpdateMessage() {
         print("O campo foi atualizado com sucesso!")
     }
     

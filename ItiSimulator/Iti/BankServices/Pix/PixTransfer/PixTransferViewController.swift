@@ -16,7 +16,6 @@ struct PixTransferViewController {
         
         let scene = PixTransferView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
@@ -26,11 +25,11 @@ struct PixTransferViewController {
             
             switch view.getNavigation() {
             case 1:
-                op.pixTransferDocumentNumber(token)
+                routeTo().bank().transferPixKeyOfDocumentNumber(token)
             case 2:
-                op.pixTransferEmail(token)
+                routeTo().bank().transferPixKeyOfEmail(token)
             case 3:
-                op.pixTransferPhone(token)
+                routeTo().bank().transferPixKeyOfPhoneNumber(token)
             case 0:
                 loop = false
             default:

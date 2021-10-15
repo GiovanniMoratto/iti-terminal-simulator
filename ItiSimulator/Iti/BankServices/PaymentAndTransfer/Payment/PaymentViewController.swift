@@ -16,13 +16,13 @@ struct PaymentViewController {
         
         let scene = PaymentView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            op.payment(token)
+            
+            routeTo().bank().payment(token)
             
             switch view.getNavigation() {
             case 0:

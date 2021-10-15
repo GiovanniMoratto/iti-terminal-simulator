@@ -14,7 +14,7 @@ struct PixPaymentMenuViewController {
         
         let scene = PixPaymentMenuView()
         let view = UserView()
-    
+        
         var loop = true
         
         while loop {
@@ -35,6 +35,6 @@ struct PixPaymentMenuViewController {
             }
             
         }
-    
+        
     }
 }

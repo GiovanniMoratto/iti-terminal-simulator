@@ -16,7 +16,6 @@ struct HomeViewController {
         
         let scene = HomeView()
         let view = UserView()
-        let op = UserViewController()
         
         var loop = true
         
@@ -24,7 +23,7 @@ struct HomeViewController {
             scene.showTitle()
             scene.showMenu()
             
-            op.overview(token)
+            routeTo().user().overview(token)
             
             switch view.getNavigation() {
             case 1:

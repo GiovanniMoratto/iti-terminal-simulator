@@ -11,6 +11,35 @@ struct BankView: BankViewProtocol {
     
     // MARK: - Methods
     
+    /* Request Labels Messages */
+    
+    func valueRequest() {
+        print("Digite o valor: ")
+    }
+    
+    func cpfRequest() {
+        print("Digite o cpf: ")
+    }
+    
+    func emailRequest() {
+        print("Digite o e-mail: ")
+    }
+    
+    func phoneRequest() {
+        print("Digite o telefone: ")
+    }
+    
+    func confirmDataRequest() {
+        print("(1) - OK")
+        print("(0) - Cancelar\n")
+    }
+    
+    /* Display Labels Messages */
+    
+    func originAccount() {
+        print("Conta de origem: ")
+    }
+    
     func holderAccount(_ firstName: String, _ lastName: String, _ documentNumber: String, _ bank: String, _ branch: Int, _ account: Int, _ balance: Double) {
         print("Nome:        \(firstName) \(lastName)")
         print("CPF:         \(documentNumber)")
@@ -20,26 +49,8 @@ struct BankView: BankViewProtocol {
         print("Saldo:    R$ \(balance)\n")
     }
     
-    func getInputAsDouble() -> Double? {
-        guard let input = readLine() else { return Double()}
-        
-        let bankInput = Double(input)
-        print()
-        
-        return bankInput
-    }
-        
-    func getInputAsInt() -> Int? {
-        guard let input = readLine() else { return Int()}
-        
-        let bankInput = Int(input)
-        print()
-        
-        return bankInput
-    }
-
-    func currentBalance(_ balance: Double) {
-        print("Saldo atual: R$\(balance)\n")
+    func destinationAccount() {
+        print("Conta de destino: ")
     }
     
     func payeeAccount(_ firstName: String, _ lastName: String, _ bank: String, _ branch: Int, _ account: Int) {
@@ -49,58 +60,54 @@ struct BankView: BankViewProtocol {
         print("Conta:       \(account)\n")
     }
     
-    func confirmDataRequest() {
-        print("(1) - OK")
-        print("(0) - Voltar\n")
-    }
-    
     func value(_ value: Double) {
         print("Valor: R$ \(value)\n")
     }
     
-    func originAccount() {
-        print("Conta de origem: ")
+    func paymentValue(_ value: Double) {
+        print("Valor do pagamento: R$ \(value)\n")
     }
     
-    func destinationAccount() {
-        print("Conta de destino: ")
-    }
+    /* Custom Labels Messages */
     
-    func valueRequest() {
-        print("Digite o valor: ")
-    }
-    
-    func cpfRequest(){
-        print("Digite o cpf: ")
-    }
-    
-    func emailRequest(){
-        print("Digite o e-mail: ")
-    }
-    
-    func phoneRequest(){
-        print("Digite o telefone: ")
-    }
-    
-    func successfullyMessageOfTransfer() {
-        print("Transferência realizada com sucesso!\n")
+    func confirmDataPayment() {
+        print("\n         Confirme os dados do Pagamento\n")
     }
     
     func confirmDataTransfer() {
         print("\n         Confirme os dados da Transferência\n")
     }
     
-    func confirmDataPayment() {
-        print("\n         Confirme os dados do Pagamento\n")
+    func successfullyMessageOfTransfer() {
+        print("Transferência realizada com sucesso!\n")
     }
     
     func successfullyMessageOfPayment() {
         print("Pagamento realizado com sucesso!\n")
     }
     
-    func paymentValue(_ value: Double) {
-        print("Valor do pagamento: R$ \(value)")
+    func currentBalance(_ balance: Double) {
+        print("Saldo atual: R$\(balance)\n")
     }
     
+    /* Input Labels */
+    
+    func getInputAsDouble() -> Double? {
+        guard let input = readLine() else { return Double()}
+        
+        let bankInput = Double(input)
+        print()
+        
+        return bankInput
+    }
+    
+    func getInputAsInt() -> Int? {
+        guard let input = readLine() else { return Int()}
+        
+        let bankInput = Int(input)
+        print()
+        
+        return bankInput
+    }
     
 }

@@ -26,7 +26,7 @@ protocol UserViewControllerProtocol {
     func overview(_ token: String)
     
     /* Display Methods */
-
+    
     func profileInfo(_ token: String)
     
     /* Update Profile */
@@ -38,5 +38,9 @@ protocol UserViewControllerProtocol {
     func cityUpdated(_ token: String)
     
     func stateUpdated(_ token: String)
+    
+    /* Delete User */
+    
+    func deleteUser(_ token: String)
     
 }

@@ -13,12 +13,11 @@ struct LoginViewController {
     
     func process() {
         let scene = LoginView()
-        let op = UserViewController()
         
         scene.showTitle()
         
         let documentNumber = getDocumentNumberToLogin()
-        let password = op.getPassword()
+        let password = routeTo().user().getPassword()
         
         let login = isValidLogin(documentNumber, password).condition
         
@@ -33,7 +32,7 @@ struct LoginViewController {
         
         routeTo().home(token)
     }
-        
+    
     private func getDocumentNumberToLogin() -> String {
         let view = UserView()
         
@@ -47,7 +46,7 @@ struct LoginViewController {
     }
     
     private func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
-                
+        
         guard let user = db.findUserByDocumentNumber(documentNumber)
         else { print("CPF não cadastrado!\n"); return (false, nil) }
         

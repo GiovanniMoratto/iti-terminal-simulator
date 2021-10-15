@@ -25,62 +25,11 @@ struct PixKeyDeleteViewController {
             
             switch view.getNavigation() {
             case 1:
-                if !routeTo().bank().checkDocumentNumberPixKeyIsEmpty(token) {
-                    var option = true
-                    while option {
-                        scene.showMessage()
-                        switch view.getNavigation() {
-                        case 1:
-                            routeTo().bank().deleteDocumentNumberPixKey(token)
-                            scene.showSuccessfullyDeleted()
-                            option = false
-                        case 0:
-                            option = false
-                        default:
-                            print("Por favor, escolha uma operação")
-                        }
-                    }
-                } else {
-                    scene.showNotExistMessage("CPF")
-                }
+                routeTo().bank().deletePixKeyOfDocumentNumber(token)
             case 2:
-                if !routeTo().bank().checkEmailPixKeyIsEmpty(token) {
-                    var option = true
-                    while option {
-                        scene.showMessage()
-                        switch view.getNavigation() {
-                        case 1:
-                            routeTo().bank().deleteEmailPixKey(token)
-                            scene.showSuccessfullyDeleted()
-                            option = false
-                        case 0:
-                            option = false
-                        default:
-                            print("Por favor, escolha uma operação")
-                        }
-                    }
-                } else {
-                    scene.showNotExistMessage("E-mail")
-                }
+                routeTo().bank().deletePixKeyOfEmail(token)
             case 3:
-                if !routeTo().bank().checkPhonePixKeyIsEmpty(token) {
-                    var option = true
-                    while option {
-                        scene.showMessage()
-                        switch view.getNavigation() {
-                        case 1:
-                            routeTo().bank().deletePhonePixKey(token)
-                            scene.showSuccessfullyDeleted()
-                            option = false
-                        case 0:
-                            option = false
-                        default:
-                            print("Por favor, escolha uma operação")
-                        }
-                    }
-                } else {
-                    scene.showNotExistMessage("Telefone")
-                }
+                routeTo().bank().deletePixKeyOfPhoneNumber(token)
             case 0:
                 loop = false
             default:

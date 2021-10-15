@@ -16,13 +16,13 @@ struct PixPaymentPayViewController {
         
         let scene = PixPaymentPayView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            op.pixPayment(token)
+            
+            routeTo().bank().paymentPixKey(token)
             
             switch view.getNavigation() {
             case 0:

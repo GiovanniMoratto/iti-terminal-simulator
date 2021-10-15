@@ -16,7 +16,6 @@ struct PixKeyRegisterViewController {
         
         let scene = PixKeyRegisterView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
@@ -26,29 +25,11 @@ struct PixKeyRegisterViewController {
             
             switch view.getNavigation() {
             case 1:
-                if !op.checkDocumentNumberPixKeyIsEmpty(token) {
-                    scene.pixCpfAlreadyExists()
-                } else {
-                    let documentNumber = op.getDocumentNumberPixKeyToRegister()
-                    op.registerPixKey(token, .CPF, documentNumber)
-                    scene.successfullyMessage()
-                }
+                routeTo().bank().registerPixKeyOfDocumentNumber(token)
             case 2:
-                if !op.checkEmailPixKeyIsEmpty(token){
-                    scene.pixEmailAlreadyExists()
-                } else {
-                    let email = op.getEmailPixKeyToRegister()
-                    op.registerPixKey(token, .email, email)
-                    scene.successfullyMessage()
-                }
+                routeTo().bank().registerPixKeyOfEmail(token)
             case 3:
-                if !op.checkPhonePixKeyIsEmpty(token){
-                    scene.pixPhoneAlreadyExists()
-                } else {
-                    let phone = op.getPhonePixKeyToRegister()
-                    op.registerPixKey(token, .phoneNumber, phone)
-                    scene.successfullyMessage()
-                }
+                routeTo().bank().registerPixKeyOfPhoneNumber(token)
             case 0:
                 loop = false
             default:

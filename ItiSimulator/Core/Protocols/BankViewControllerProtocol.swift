@@ -9,38 +9,54 @@ import Foundation
 
 protocol BankViewControllerProtocol {
     
+    // MARK: - Methods
+    
+    /* Common Payment */
+    
     func payment(_ token: String)
+    
+    /* Common Transfer */
     
     func transfer(_ token: String)
     
-//    func deposit(_ token: String)
+    /* Display Account */
     
     func accountInfo(_ token: String)
     
-    func getDocumentNumberPixKeyToRegister() -> String
+    /* PIX - Register */
     
-    func getEmailPixKeyToRegister() -> String
+    func registerPixKeyOfDocumentNumber(_ token: String)
     
-    func getPhonePixKeyToRegister() -> String
+    func registerPixKeyOfEmail(_ token: String)
     
-    func registerPixKey(_ token: String, _ type: PixType, _ pixKey: String)
+    func registerPixKeyOfPhoneNumber(_ token: String)
     
-    func checkDocumentNumberPixKeyIsEmpty(_ token: String) -> Bool
+    /* PIX - Delete */
     
-    func checkEmailPixKeyIsEmpty(_ token: String) -> Bool
+    func deletePixKeyOfDocumentNumber(_ token: String)
     
-    func checkPhonePixKeyIsEmpty(_ token: String) -> Bool
+    func deletePixKeyOfEmail(_ token: String)
     
-    func deleteDocumentNumberPixKey(_ token: String)
+    func deletePixKeyOfPhoneNumber(_ token: String)
     
-    func deleteEmailPixKey(_ token: String)
+    /* PIX - Transfer */
     
-    func deletePhonePixKey(_ token: String)
+    func transferPixKeyOfDocumentNumber(_ token: String)
     
-    func pixTransferDocumentNumber(_ token: String)
+    func transferPixKeyOfEmail(_ token: String)
     
-    func pixTransferEmail(_ token: String)
+    func transferPixKeyOfPhoneNumber(_ token: String)
     
-    func pixTransferPhone(_ token: String)
+    /* PIX - QR Code */
+    
+    func QRCodePixKeyOfDocumentNumber(_ token: String)
+    
+    func QRCodePixKeyOfEmail(_ token: String)
+    
+    func QRCodePixKeyOfPhoneNumber(_ token: String)
+    
+    /* PIX - Payment */
+    
+    func paymentPixKey(_ token: String)
     
 }

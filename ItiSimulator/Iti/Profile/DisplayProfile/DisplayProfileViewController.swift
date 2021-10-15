@@ -15,14 +15,14 @@ struct DisplayProfileViewController {
         guard let token = tokenWrapped else { return }
         
         let scene = DisplayProfileView()
-        let op = UserViewController()
         let view = UserView()
         
         var loop = true
         
         while loop {
             scene.showTitle()
-            op.profileInfo(token)
+            
+            routeTo().user().profileInfo(token)
             view.exit()
             
             switch view.getNavigation() {

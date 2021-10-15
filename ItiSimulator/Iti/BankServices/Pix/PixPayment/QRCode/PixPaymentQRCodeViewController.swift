@@ -14,7 +14,6 @@ struct PixPaymentQRCodeViewController {
         
         let scene = PixPaymentQRCodeView()
         let view = UserView()
-        let op = BankViewController()
         
         var loop = true
         
@@ -24,39 +23,11 @@ struct PixPaymentQRCodeViewController {
             
             switch view.getNavigation() {
             case 1:
-                if op.getQRCodeByDocumentNumber(token).condition {
-                    let pixKey = op.getQRCodeByDocumentNumber(token).pixKey
-                    let value = op.getValueForPayment()
-                    let code = op.generateQRCode(pixKey, value)
-                    
-                    scene.showSuccessCreate()
-                    scene.showCode(code)
-                } else {
-                    scene.errorQRCodeMessage()
-                }
-                
+                routeTo().bank().QRCodePixKeyOfDocumentNumber(token)
             case 2:
-                if op.getQRCodeByEmail(token).condition {
-                    let pixKey = op.getQRCodeByEmail(token).pixKey
-                    let value = op.getValueForPayment()
-                    let code = op.generateQRCode(pixKey, value)
-                    
-                    scene.showSuccessCreate()
-                    scene.showCode(code)
-                } else {
-                    scene.errorQRCodeMessage()
-                }
+                routeTo().bank().QRCodePixKeyOfEmail(token)
             case 3:
-                if op.getQRCodeByPhone(token).condition {
-                    let pixKey = op.getQRCodeByPhone(token).pixKey
-                    let value = op.getValueForPayment()
-                    let code = op.generateQRCode(pixKey, value)
-                    
-                    scene.showSuccessCreate()
-                    scene.showCode(code)
-                } else {
-                    scene.errorQRCodeMessage()
-                }
+                routeTo().bank().QRCodePixKeyOfPhoneNumber(token)
             case 0:
                 loop = false
             default:

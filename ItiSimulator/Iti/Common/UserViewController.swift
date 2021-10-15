@@ -73,7 +73,7 @@ struct UserViewController: UserViewControllerProtocol {
     
     /* Display Methods */
     
-    func profileInfo(_ token: String){
+    func profileInfo(_ token: String) {
         guard let user = getUser(token) else { return }
         
         view.username(user.firstName, user.lastName)
@@ -87,43 +87,57 @@ struct UserViewController: UserViewControllerProtocol {
     
     func usernameUpdated(_ token: String) {
         guard let user = getUser(token) else { return }
+        let view = EditProfileView()
 
-        EditProfileView().currentUsername(user.firstName, user.lastName)
+        view.currentUsername(user.firstName, user.lastName)
         
         user.firstName = getFirstName()
         user.lastName = getLastName()
         
         db.save(user)
+        view.successfullyUpdateMessage()
     }
     
     func addressUpdated(_ token: String) {
         guard let user = getUser(token) else { return }
+        let view = EditProfileView()
         
-        EditProfileView().currentAddress(user.address.address)
+        view.currentAddress(user.address.address)
         
         user.address.address = getAddress()
         
         db.save(user)
+        view.successfullyUpdateMessage()
     }
     
     func cityUpdated(_ token: String) {
         guard let user = getUser(token) else { return }
+        let view = EditProfileView()
         
-        EditProfileView().currentCity(user.address.city)
+        view.currentCity(user.address.city)
         
         user.address.city = getCity()
         
         db.save(user)
+        view.successfullyUpdateMessage()
     }
     
     func stateUpdated(_ token: String) {
         guard let user = getUser(token) else { return }
+        let view = EditProfileView()
         
-        EditProfileView().currentState(user.address.state)
+        view.currentState(user.address.state)
         
         user.address.state = getState()
         
         db.save(user)
+        view.successfullyUpdateMessage()
+    }
+    
+    func deleteUser(_ token: String) {
+        db.delete(token)
+        DeleteProfileView().showSuccessfullyDeleted()
+        routeTo().welcome()
     }
     
     /* Assistants Methods */

@@ -10,7 +10,6 @@
 		B1037FAC2705594D004B3E3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1037FAB2705594D004B3E3D /* User.swift */; };
 		B1190458270F2F9F005DD675 /* PixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1190457270F2F9F005DD675 /* PixType.swift */; };
 		B119045A270F303C005DD675 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1190459270F303C005DD675 /* BankAccount.swift */; };
-		B119045C270F3256005DD675 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119045B270F3256005DD675 /* CreditCard.swift */; };
 		B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */; };
 		B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4DF2707E6720095B816 /* WelcomeView.swift */; };
 		B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124E4E22707F44D0095B816 /* CreateProfileView.swift */; };
@@ -83,7 +82,6 @@
 		B1037FAB2705594D004B3E3D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B1190457270F2F9F005DD675 /* PixType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixType.swift; sourceTree = "<group>"; };
 		B1190459270F303C005DD675 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
-		B119045B270F3256005DD675 /* CreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		B124E4DD2707E55C0095B816 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B124E4DF2707E6720095B816 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		B124E4E22707F44D0095B816 /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				B1037FAB2705594D004B3E3D /* User.swift */,
 				B1190457270F2F9F005DD675 /* PixType.swift */,
 				B1190459270F303C005DD675 /* BankAccount.swift */,
-				B119045B270F3256005DD675 /* CreditCard.swift */,
 				B1605524270F533B00E09B15 /* UserAccess.swift */,
 				B1DF155F2714A8F300DAE6E8 /* Address.swift */,
 				B19DC6C42718AE6800EEA19F /* QRCode.swift */,
@@ -589,7 +586,6 @@
 				B19CCECC271776820089E5A8 /* PixTransferView.swift in Sources */,
 				B1DF155C2714A77F00DAE6E8 /* Database.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* User.swift in Sources */,
-				B119045C270F3256005DD675 /* CreditCard.swift in Sources */,
 				B19CCEC6271774FB0089E5A8 /* PixPaymentMenuViewController.swift in Sources */,
 				B1DF156C2714AEA700DAE6E8 /* Validations.swift in Sources */,
 				B19CCEB827173D9B0089E5A8 /* DisplayBankViewController.swift in Sources */,

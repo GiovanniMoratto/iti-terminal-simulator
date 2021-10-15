@@ -27,10 +27,8 @@ struct ProfileMenuViewController {
             case 1:
                 routeTo().displayProfile(token)
             case 2:
-                // Editar Perfil
                 routeTo().editProfile(token)
             case 3:
-                // Deletar Perfil
                 routeTo().deleteProfile(token)
             case 0:
                 loop = false

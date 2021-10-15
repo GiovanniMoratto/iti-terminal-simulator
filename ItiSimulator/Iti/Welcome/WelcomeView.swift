@@ -10,7 +10,7 @@ import Foundation
 struct WelcomeView {
     
     // MARK: - Methods
-
+    
     func showTitle() {
         print("\n _____________________________________________ ")
         print("|                                             |")
@@ -34,5 +34,5 @@ struct WelcomeView {
     func showExit() {
         print("Até mais!\n")
     }
-
+    
 }

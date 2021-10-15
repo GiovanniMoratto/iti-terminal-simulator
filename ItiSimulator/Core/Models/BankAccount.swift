@@ -15,7 +15,6 @@ class BankAccount {
     var branch: Int
     var account: Int
     var balance = Double()
-    var creditCards = [CreditCard]()
     var pix = [[PixType:String]]()
     
     // MARK: - Initializers (Constructors)
@@ -26,17 +25,13 @@ class BankAccount {
         self.account = Int.random(in: 10000...60000)
     }
     
-    init(bank: String, branch: Int, account: Int, balance: Double, creditCards: [CreditCard], pix: [[PixType:String]]) {
-        
+    init(bank: String, branch: Int, account: Int, balance: Double, pix: [[PixType:String]]) {
+        // Utilizado para inicializar a aplicação com dados no banco
         self.bank = bank
         self.branch = branch
         self.account = account
         self.balance = balance
-        self.creditCards = creditCards
         self.pix = pix
     }
     
-    // MARK: - Methods
-    
-    // TODO: Implementar enum para banco e agência e método para geração de conta bancária
 }

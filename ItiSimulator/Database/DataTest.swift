@@ -26,13 +26,6 @@ class DataTest {
                     branch: 4444,
                     account: 666666,
                     balance: 5000.00,
-                    creditCards: [
-                        CreditCard(
-                            cardNumber: 000111122223333,
-                            expirationDate: "05/2030",
-                            codeNumber: 300
-                        )
-                    ],
                     pix: [[.CPF:"051.918.080-10"]]
                 ),
                 password: "Zup123456!"
@@ -51,13 +44,6 @@ class DataTest {
                     branch: 5555,
                     account: 777777,
                     balance: 1000000.0,
-                    creditCards: [
-                        CreditCard(
-                            cardNumber: 000111122223333,
-                            expirationDate: "06/2030",
-                            codeNumber: 400
-                        )
-                    ],
                     pix: [[.CPF:"234.083.290-01"]]
                 ),
                 password: "Zup123456!"

@@ -30,8 +30,6 @@ struct PixKeyRegisterView {
         print("|                                             |\n")
     }
     
-  
-    
     func successfullyMessage(){
         print("Chave cadastrada com sucesso!\n")
     }

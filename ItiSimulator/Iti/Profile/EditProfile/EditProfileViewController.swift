@@ -15,7 +15,6 @@ struct EditProfileViewController {
         guard let token = tokenWrapped else { return }
         
         let scene = EditProfileView()
-        let op = UserViewController()
         let view = UserView()
         
         var loop = true
@@ -24,21 +23,15 @@ struct EditProfileViewController {
             scene.showTitle()
             scene.showMenu()
             
-//            op.overview(token)
-            
             switch view.getNavigation() {
             case 1:
-                op.usernameUpdated(token)
-                scene.successfullyUpdateMessage()
+                routeTo().user().usernameUpdated(token)
             case 2:
-                op.addressUpdated(token)
-                scene.successfullyUpdateMessage()
+                routeTo().user().addressUpdated(token)
             case 3:
-                op.cityUpdated(token)
-                scene.successfullyUpdateMessage()
+                routeTo().user().cityUpdated(token)
             case 4:
-                op.stateUpdated(token)
-                scene.successfullyUpdateMessage()
+                routeTo().user().stateUpdated(token)
             case 0:
                 loop = false
             default:

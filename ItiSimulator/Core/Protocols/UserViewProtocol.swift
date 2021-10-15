@@ -45,8 +45,10 @@ protocol UserViewProtocol {
     
     func overview(_ firstName: String, _ lastName: String, _ balance: Double)
     
+    /* Input Labels */
+    
     func getInput() -> String?
-
+    
     func getNavigation() -> Int
     
 }

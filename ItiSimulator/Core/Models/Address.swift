@@ -11,16 +11,20 @@ class Address {
     
     // MARK: - Attributes
     
-    var address = String()
-    var city = String()
-    var state = String()
+    var address: String
+    var city: String
+    var state: String
     
     // MARK: - Initializers (Constructors)
-
-    init(){}
+    
+    init () {
+        self.address = String()
+        self.city = String()
+        self.state = String()
+    }
     
     init(address: String, city: String, state: String) {
-        
+        // Utilizado para inicializar a aplicação com dados no banco
         self.address = address
         self.city = city
         self.state = state
