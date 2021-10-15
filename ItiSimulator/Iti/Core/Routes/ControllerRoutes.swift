@@ -95,4 +95,12 @@ struct ControllerRoutes {
         return BankViewController()
     }
     
+    func database() {
+        DatabaseViewController().process()
+    }
+    
+    func system() {
+        SystemViewController().process()
+    }
+    
 }

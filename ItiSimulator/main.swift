@@ -22,7 +22,7 @@ func initialData() {
 }
 
 func start() {
-    routeTo().welcome()
+    routeTo().system()
 }
 
 initialData()

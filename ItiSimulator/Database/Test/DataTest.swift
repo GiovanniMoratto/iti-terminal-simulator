@@ -9,6 +9,8 @@ import Foundation
 
 class DataTest {
     
+    // MARK: - Methods
+    
     func initialData() {
     
         let users = [

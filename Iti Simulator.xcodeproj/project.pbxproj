@@ -46,6 +46,11 @@
 		B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCC270B42EC0057302D /* LoginViewController.swift */; };
 		B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCCF270B44B10057302D /* HomeView.swift */; };
 		B1B8BCD2270B45410057302D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8BCD1270B45410057302D /* HomeViewController.swift */; };
+		B1C8A7DF2719D9EF0027EC71 /* DatabaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A7DE2719D9EF0027EC71 /* DatabaseView.swift */; };
+		B1C8A7E12719DA010027EC71 /* DatabaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A7E02719DA010027EC71 /* DatabaseViewController.swift */; };
+		B1C8A7E32719F0490027EC71 /* DataUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A7E22719F0490027EC71 /* DataUserView.swift */; };
+		B1C8A7E62719F4550027EC71 /* SystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A7E52719F4550027EC71 /* SystemView.swift */; };
+		B1C8A7E82719F4650027EC71 /* SystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8A7E72719F4650027EC71 /* SystemViewController.swift */; };
 		B1DF155C2714A77F00DAE6E8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155B2714A77F00DAE6E8 /* Database.swift */; };
 		B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155D2714A78800DAE6E8 /* DataTest.swift */; };
 		B1DF15602714A8F300DAE6E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155F2714A8F300DAE6E8 /* Address.swift */; };
@@ -119,6 +124,11 @@
 		B1B8BCCC270B42EC0057302D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B1B8BCCF270B44B10057302D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B1B8BCD1270B45410057302D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1C8A7DE2719D9EF0027EC71 /* DatabaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseView.swift; sourceTree = "<group>"; };
+		B1C8A7E02719DA010027EC71 /* DatabaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewController.swift; sourceTree = "<group>"; };
+		B1C8A7E22719F0490027EC71 /* DataUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUserView.swift; sourceTree = "<group>"; };
+		B1C8A7E52719F4550027EC71 /* SystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemView.swift; sourceTree = "<group>"; };
+		B1C8A7E72719F4650027EC71 /* SystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewController.swift; sourceTree = "<group>"; };
 		B1DF155B2714A77F00DAE6E8 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		B1DF155D2714A78800DAE6E8 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
 		B1DF155F2714A8F300DAE6E8 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -245,8 +255,8 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1C8A7E42719F4370027EC71 /* System */,
 				B1E5E07B270F88FE00DA76CA /* Iti */,
-				B119045F270F481D005DD675 /* Core */,
 				B1877004270549F300ECA2D5 /* Database */,
 				B1876FFB2705489A00ECA2D5 /* main.swift */,
 			);
@@ -269,8 +279,13 @@
 		B1877004270549F300ECA2D5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				B1C8A7EC2719F7360027EC71 /* QRCodes */,
+				B1C8A7EB2719F7270027EC71 /* Credentials */,
+				B1C8A7EA2719F7050027EC71 /* Test */,
+				B1C8A7E92719F6F40027EC71 /* Users */,
 				B1DF155B2714A77F00DAE6E8 /* Database.swift */,
-				B1DF155D2714A78800DAE6E8 /* DataTest.swift */,
+				B1C8A7DE2719D9EF0027EC71 /* DatabaseView.swift */,
+				B1C8A7E02719DA010027EC71 /* DatabaseViewController.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -407,6 +422,45 @@
 			path = Homepage;
 			sourceTree = "<group>";
 		};
+		B1C8A7E42719F4370027EC71 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B1C8A7E52719F4550027EC71 /* SystemView.swift */,
+				B1C8A7E72719F4650027EC71 /* SystemViewController.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		B1C8A7E92719F6F40027EC71 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				B1C8A7E22719F0490027EC71 /* DataUserView.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		B1C8A7EA2719F7050027EC71 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				B1DF155D2714A78800DAE6E8 /* DataTest.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		B1C8A7EB2719F7270027EC71 /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Credentials;
+			sourceTree = "<group>";
+		};
+		B1C8A7EC2719F7360027EC71 /* QRCodes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QRCodes;
+			sourceTree = "<group>";
+		};
 		B1DF156D2714B92700DAE6E8 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +520,7 @@
 		B1E5E07B270F88FE00DA76CA /* Iti */ = {
 			isa = PBXGroup;
 			children = (
+				B119045F270F481D005DD675 /* Core */,
 				B18BBE27271725C80087A13D /* Common */,
 				B1DF156E2714BA4B00DAE6E8 /* BankServices */,
 				B119045D270F47B5005DD675 /* Profile */,
@@ -552,11 +607,13 @@
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
 				B1DF15642714AC7400DAE6E8 /* UserViewProtocol.swift in Sources */,
 				B1DF157A2714BCA900DAE6E8 /* BankViewControllerProtocol.swift in Sources */,
+				B1C8A7E12719DA010027EC71 /* DatabaseViewController.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
 				B19CCEC12717733E0089E5A8 /* PixMenuViewController.swift in Sources */,
 				B1DF15602714A8F300DAE6E8 /* Address.swift in Sources */,
 				B1DF15782714BBF600DAE6E8 /* PaymentViewController.swift in Sources */,
 				B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */,
+				B1C8A7DF2719D9EF0027EC71 /* DatabaseView.swift in Sources */,
 				B19CCED1271776EB0089E5A8 /* PixKeyRegisterView.swift in Sources */,
 				B1DF15722714BB0100DAE6E8 /* PaymentAndTransferView.swift in Sources */,
 				B1DF157C2714BE7B00DAE6E8 /* BankViewController.swift in Sources */,
@@ -565,14 +622,17 @@
 				B1DF15622714AC1400DAE6E8 /* UserViewControllerProtocol.swift in Sources */,
 				B19CCECA271776730089E5A8 /* PixTransferViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
+				B1C8A7E62719F4550027EC71 /* SystemView.swift in Sources */,
 				B1359201270CA3BB00A1555B /* DeleteProfileViewController.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */,
+				B1C8A7E32719F0490027EC71 /* DataUserView.swift in Sources */,
 				B1DF15692714AE0A00DAE6E8 /* UserView.swift in Sources */,
 				B1DF15802714C7E900DAE6E8 /* BankView.swift in Sources */,
 				B1DF15672714AD0000DAE6E8 /* UserViewController.swift in Sources */,
 				B13591F7270C8E6F00A1555B /* ProfileMenuViewController.swift in Sources */,
 				B19CCEBF271772C60089E5A8 /* PixMenuView.swift in Sources */,
 				B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */,
+				B1C8A7E82719F4650027EC71 /* SystemViewController.swift in Sources */,
 				B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */,
 				B19CCEBA27173DC40089E5A8 /* DisplayBankView.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ProfileMenuView.swift in Sources */,
