@@ -33,17 +33,9 @@ struct PixKeyRegisterView {
     func successfullyMessage(){
         print("Chave cadastrada com sucesso!\n")
     }
-    
-    func pixCpfAlreadyExists() {
-        print("Já existe uma chave CPF cadastrada.\n")
-    }
-    
-    func pixEmailAlreadyExists() {
-        print("Já existe uma chave E-mail cadastrada.\n")
-    }
-    
-    func pixPhoneAlreadyExists() {
-        print("Já existe uma chave Telefone cadastrada.\n")
+        
+    func pixKeyAlreadyExists(_ type: String) {
+        print("Já existe uma chave \(type) cadastrada.\n")
     }
     
 }

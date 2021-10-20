@@ -9,21 +9,16 @@ import Foundation
 
 // MARK: - Attributes
 
+/* Singleton */
+
 var db = Database.shared
+var session = Access.shared
 
-// MARK: - Methods
+/* Configs */
 
-func routeTo() -> ControllerRoutes {
-    return ControllerRoutes()
-}
+let system = SystemViewController()
+let routeTo = system.routeTo()
 
-func initialData() {
-    DataTest().initialData()
-}
+// MARK: - Application
 
-func start() {
-    routeTo().system()
-}
-
-initialData()
-start()
+system.start()

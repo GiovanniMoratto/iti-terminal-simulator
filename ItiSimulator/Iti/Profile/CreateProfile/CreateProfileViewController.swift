@@ -9,25 +9,29 @@ import Foundation
 
 struct CreateProfileViewController {
     
+    // MARK: - Attributes
+    
+    private let view: CreateProfileView
+    private let userOperationComponent: UserOperationComponentProtocol
+    private let loginComponent: LoginComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+   
+    init(view: CreateProfileView, userOperationComponent: UserOperationComponentProtocol, loginComponent: LoginComponentProtocol) {
+        self.view = view
+        self.userOperationComponent = userOperationComponent
+        self.loginComponent = loginComponent
+    }
+    
     // MARK: - Methods
     
     func process() {
-        let scene = CreateProfileView()
-        let login = LoginViewController()
+        view.showTitle()
         
-        scene.showTitle()
+        let newUser = userOperationComponent.createUser()
         
-        let newUser = User(
-            firstName: routeTo().user().getFirstName(),
-            lastName: routeTo().user().getLastName(),
-            documentNumber: routeTo().user().getDocumentNumber(),
-            password: routeTo().user().getPassword()
-        )
+        loginComponent.getCredential(newUser)
         
-        db.save(newUser)
-        
-        let token = login.getCredential(newUser)
-        
-        routeTo().home(token)
+        routeTo.home()
     }
 }

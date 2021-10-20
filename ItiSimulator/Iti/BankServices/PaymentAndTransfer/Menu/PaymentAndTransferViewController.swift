@@ -9,27 +9,34 @@ import Foundation
 
 struct PaymentAndTransferViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PaymentAndTransferView
+    private let userViewComponent: UserViewComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+   
+    init(view: PaymentAndTransferView, userViewComponent: UserViewComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PaymentAndTransferView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
-            case 0:
-                loop = false
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().payment(token)
+                routeTo.payment()
             case 2:
-                routeTo().transfer(token)
+                routeTo.transfer()
+            case 0:
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

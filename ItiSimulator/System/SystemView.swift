@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SystemView {
+class SystemView {
     
     // MARK: - Methods
     

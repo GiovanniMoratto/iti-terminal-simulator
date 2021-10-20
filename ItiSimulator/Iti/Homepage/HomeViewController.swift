@@ -9,33 +9,46 @@ import Foundation
 
 struct HomeViewController {
     
+    // MARK: - Attributes
+    
+    private let view: HomeView
+    private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
+    private let loginComponent: LoginComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: HomeView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol,
+         loginComponent: LoginComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
+        self.loginComponent = loginComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = HomeView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            routeTo().user().overview(token)
+            userOperationComponent.overview()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().pixMenu(token)
+                routeTo.pixMenu()
             case 2:
-                routeTo().paymentAndTransfer(token)
+                routeTo.paymentAndTransfer()
             case 3:
-                routeTo().displayAccount(token)
+                routeTo.displayAccount()
             case 4:
-                routeTo().profileMenu(token)
+                routeTo.profileMenu()
             case 0:
-                loop = false
+                loginComponent.logout()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

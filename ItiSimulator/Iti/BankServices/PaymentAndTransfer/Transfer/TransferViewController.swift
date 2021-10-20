@@ -9,29 +9,37 @@ import Foundation
 
 struct TransferViewController {
     
+    // MARK: - Attributes
+    
+    private let view: TransferView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+   
+    init(view: TransferView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = TransferView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
+        while scenes {
+            view.showTitle()
             
-            routeTo().bank().transfer(token)
+            bankOperationComponent.transfer(view)
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 0:
-                view.exit()
-                loop = false
+                userViewComponent.exit()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
-    
 }

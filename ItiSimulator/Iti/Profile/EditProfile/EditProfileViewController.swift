@@ -9,35 +9,43 @@ import Foundation
 
 struct EditProfileViewController {
     
+    // MARK: - Attributes
+    
+    private let view: EditProfileView
+    private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: EditProfileView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = EditProfileView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().user().usernameUpdated(token)
+                userOperationComponent.updateUser(.name, view)
             case 2:
-                routeTo().user().addressUpdated(token)
+                userOperationComponent.updateUser(.address, view)
             case 3:
-                routeTo().user().cityUpdated(token)
+                userOperationComponent.updateUser(.city, view)
             case 4:
-                routeTo().user().stateUpdated(token)
+                userOperationComponent.updateUser(.state, view)
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
-            
         }
     }
 }

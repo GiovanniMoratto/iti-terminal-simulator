@@ -9,25 +9,34 @@ import Foundation
 
 struct PaymentViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PaymentView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PaymentView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PaymentView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
+        while scenes {
+            view.showTitle()
             
-            routeTo().bank().payment(token)
+            bankOperationComponent.payment()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 0:
-                view.exit()
-                loop = false
+                userViewComponent.exit()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

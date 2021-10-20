@@ -9,29 +9,37 @@ import Foundation
 
 struct PixPaymentPayViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PixPaymentPayView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixPaymentPayView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PixPaymentPayView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
+        while scenes {
+            view.showTitle()
             
-            routeTo().bank().paymentPixKey(token)
+            bankOperationComponent.paymentWithPix(view)
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 0:
-                view.exit()
-                loop = false
+                userViewComponent.exit()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
-    
 }

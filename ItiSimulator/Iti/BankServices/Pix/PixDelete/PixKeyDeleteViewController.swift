@@ -9,29 +9,38 @@ import Foundation
 
 struct PixKeyDeleteViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PixKeyDeleteView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixKeyDeleteView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PixKeyDeleteView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().bank().deletePixKeyOfDocumentNumber(token)
+                bankOperationComponent.deletePixKey(.CPF, view)
             case 2:
-                routeTo().bank().deletePixKeyOfEmail(token)
+                bankOperationComponent.deletePixKey(.email, view)
             case 3:
-                routeTo().bank().deletePixKeyOfPhoneNumber(token)
+                bankOperationComponent.deletePixKey(.phoneNumber, view)
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

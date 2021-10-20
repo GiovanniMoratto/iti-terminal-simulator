@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserView: UserViewProtocol {
+struct UserViewComponent: UserViewComponentProtocol {
     
     // MARK: - Methods
     

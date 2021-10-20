@@ -7,64 +7,25 @@
 
 import Foundation
 
-struct LoginViewController {
+class LoginViewController {
     
+    // MARK: - Attributes
+    
+    private let loginComponent: LoginComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(loginComponent: LoginComponentProtocol) {
+        self.loginComponent = loginComponent
+    }
     // MARK: - Methods
     
     func process() {
-        let scene = LoginView()
+        guard let user = loginComponent.login() else { return }
         
-        scene.showTitle()
+        loginComponent.getCredential(user)
         
-        let documentNumber = getDocumentNumberToLogin()
-        let password = routeTo().user().getPassword()
-        
-        let login = isValidLogin(documentNumber, password).condition
-        
-        scene.showMessage()
-        
-        if !login {
-            routeTo().welcome()
-        }
-        
-        guard let user = isValidLogin(documentNumber, password).user else { return }
-        let token = getCredential(user)
-        
-        routeTo().home(token)
-    }
-    
-    private func getDocumentNumberToLogin() -> String {
-        let view = UserView()
-        
-        view.documentNumberRequest()
-        
-        guard let documentNumber = view.getInput(),
-              documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf()
-        else { return getDocumentNumberToLogin() }
-        
-        return documentNumber
-    }
-    
-    private func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
-        
-        guard let user = db.findUserByDocumentNumber(documentNumber)
-        else { print("CPF não cadastrado!\n"); return (false, nil) }
-        
-        if user.password != password {
-            print("Senha Inválida!")
-            return (false, nil)
-        }
-        
-        return (true, user)
-    }
-    
-    func getCredential(_ user: User) -> String {
-        
-        let credential = UserAccess(token: String().tokenGenerator, user: user)
-        
-        db.save(credential)
-        
-        return credential.token
+        routeTo.home()
     }
     
 }

@@ -15,7 +15,7 @@ class BankAccount {
     var branch: Int
     var account: Int
     var balance = Double()
-    var pix = [[PixType:String]]()
+    var pix = [[PixType:String?]]()
     
     // MARK: - Initializers (Constructors)
     

@@ -9,33 +9,41 @@ import Foundation
 
 struct PixKeyRegisterViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PixKeyRegisterView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixKeyRegisterView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PixKeyRegisterView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().bank().registerPixKeyOfDocumentNumber(token)
+                bankOperationComponent.registerPixKey(.CPF, view)
             case 2:
-                routeTo().bank().registerPixKeyOfEmail(token)
+                bankOperationComponent.registerPixKey(.email, view)
             case 3:
-                routeTo().bank().registerPixKeyOfPhoneNumber(token)
+                bankOperationComponent.registerPixKey(.phoneNumber, view)
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
-            
         }
     }
 }

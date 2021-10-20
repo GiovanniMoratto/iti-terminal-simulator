@@ -9,32 +9,41 @@ import Foundation
 
 struct PixPaymentMenuViewController {
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    // MARK: - Attributes
+    
+    private let view: PixPaymentMenuView
+    private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixPaymentMenuView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
+    }
+    
+    // MARK: - Methods
+    
+    func process() {
+        var scenes = true
         
-        let scene = PixPaymentMenuView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            routeTo().user().overview(token)
+            userOperationComponent.overview()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().pixPaymentPay(token)
+                routeTo.pixPaymentPay()
             case 2:
-                routeTo().pixPaymentQRCode(token)
+                routeTo.pixPaymentQRCode()
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
-            
         }
-        
     }
 }

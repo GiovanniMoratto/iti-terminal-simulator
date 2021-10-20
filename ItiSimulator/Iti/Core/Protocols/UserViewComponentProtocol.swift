@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UserViewProtocol {
+protocol UserViewComponentProtocol {
     
     // MARK: - Methods
     

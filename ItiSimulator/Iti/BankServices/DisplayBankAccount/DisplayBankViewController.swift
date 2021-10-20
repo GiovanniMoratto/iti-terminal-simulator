@@ -9,28 +9,38 @@ import Foundation
 
 struct DisplayBankViewController {
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    // MARK: - Attributes
+    
+    private let view: DisplayBankView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: DisplayBankView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
+    // MARK: - Methods
+    
+    func process() {
+        var scenes = true
         
-        let scene = DisplayBankView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.myData()
+        while scenes {
+            view.showTitle()
+            view.myData()
             
-            routeTo().bank().accountInfo(token)
-            view.exit()
+            bankOperationComponent.readBankAccount(view)
+            userViewComponent.exit()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
-    
 }

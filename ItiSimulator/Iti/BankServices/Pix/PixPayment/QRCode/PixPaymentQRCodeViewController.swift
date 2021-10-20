@@ -9,27 +9,38 @@ import Foundation
 
 struct PixPaymentQRCodeViewController {
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    // MARK: - Attributes
+    
+    private let view: PixPaymentQRCodeView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixPaymentQRCodeView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
+    // MARK: - Methods
+    
+    func process() {
+        var scenes = true
         
-        let scene = PixPaymentQRCodeView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().bank().QRCodePixKeyOfDocumentNumber(token)
+                bankOperationComponent.createQRCodeWithPix(.CPF, view)
             case 2:
-                routeTo().bank().QRCodePixKeyOfEmail(token)
+                bankOperationComponent.createQRCodeWithPix(.email, view)
             case 3:
-                routeTo().bank().QRCodePixKeyOfPhoneNumber(token)
+                bankOperationComponent.createQRCodeWithPix(.phoneNumber, view)
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

@@ -9,26 +9,35 @@ import Foundation
 
 struct DeleteProfileViewController {
     
+    // MARK: - Attributes
+    
+    private let view: DeleteProfileView
+    private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: DeleteProfileView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = DeleteProfileView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMessage()
+        while scenes {
+            view.showTitle()
+            view.showMessage()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().user().deleteUser(token)
-                loop = false
+                userOperationComponent.deleteUser(view)
+                break
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

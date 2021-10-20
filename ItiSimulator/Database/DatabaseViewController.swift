@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct DatabaseViewController {
+class DatabaseViewController: DatabaseView {
     
     // MARK: - Methods
     
     func process() {
-        let scene = DatabaseView()
-        
-        scene.showTitle()
+        showTitle()
         
         for index in db.users.indices {
             let userView = DataUserView(

@@ -9,33 +9,41 @@ import Foundation
 
 struct PixTransferViewController {
     
+    // MARK: - Attributes
+    
+    private let view: PixTransferView
+    private let userViewComponent: UserViewComponentProtocol
+    private let bankOperationComponent: BankOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: PixTransferView, userViewComponent: UserViewComponentProtocol, bankOperationComponent: BankOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.bankOperationComponent = bankOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = PixTransferView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().bank().transferPixKeyOfDocumentNumber(token)
+                bankOperationComponent.transferWithPix(.CPF)
             case 2:
-                routeTo().bank().transferPixKeyOfEmail(token)
+                bankOperationComponent.transferWithPix(.email)
             case 3:
-                routeTo().bank().transferPixKeyOfPhoneNumber(token)
+                bankOperationComponent.transferWithPix(.phoneNumber)
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
     }
-    
 }

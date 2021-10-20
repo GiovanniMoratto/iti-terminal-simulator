@@ -9,25 +9,34 @@ import Foundation
 
 struct DisplayProfileViewController {
     
+    // MARK: - Attributes
+    
+    private let view: DisplayProfileView
+    private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: DisplayProfileView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
+    }
+    
     // MARK: - Methods
     
-    func process(_ tokenWrapped: String?) {
-        guard let token = tokenWrapped else { return }
+    func process() {
+        var scenes = true
         
-        let scene = DisplayProfileView()
-        let view = UserView()
-        
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
+        while scenes {
+            view.showTitle()
             
-            routeTo().user().profileInfo(token)
-            view.exit()
+            userOperationComponent.readUser()
+            userViewComponent.exit()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 0:
-                loop = false
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BankViewProtocol {
+protocol BankViewComponentProtocol {
     
     // MARK: - Methods
     
@@ -15,7 +15,7 @@ protocol BankViewProtocol {
     
     func valueRequest()
     
-    func cpfRequest()
+    func documentNumberRequest()
     
     func emailRequest()
     
@@ -54,4 +54,5 @@ protocol BankViewProtocol {
     func getInputAsDouble() -> Double?
     
     func getInputAsInt() -> Int?
+    
 }

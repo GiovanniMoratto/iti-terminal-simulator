@@ -12,7 +12,7 @@ struct QRCode {
     // MARK: - Attributes
     
     private(set) var code: String
-    private(set) var pix: String
+    private(set) var pix: [PixType:String]
     private(set) var value: Double
     
 }

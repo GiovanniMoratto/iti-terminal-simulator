@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BankView: BankViewProtocol {
+struct BankViewComponent: BankViewComponentProtocol {
     
     // MARK: - Methods
     
@@ -17,8 +17,8 @@ struct BankView: BankViewProtocol {
         print("Digite o valor: ")
     }
     
-    func cpfRequest() {
-        print("Digite o cpf: ")
+    func documentNumberRequest() {
+        print("Digite o CPF: ")
     }
     
     func emailRequest() {

@@ -9,26 +9,36 @@ import Foundation
 
 struct WelcomeViewController {
     
+    // MARK: - Attributes
+    
+    private let view: WelcomeView
+    private let userViewComponent: UserViewComponentProtocol
+    
+    
+    // MARK: - Initializers (Constructors)
+    
+    init(view: WelcomeView, userViewComponent: UserViewComponentProtocol) {
+        self.view = view
+        self.userViewComponent = userViewComponent
+    }
+    
     // MARK: - Methods
     
     func process() {
-        let scene = WelcomeView()
-        let view = UserView()
+        var scenes = true
         
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            view.showTitle()
+            view.showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
-                routeTo().login()
+                routeTo.login()
             case 2:
-                routeTo().createProfile()
+                routeTo.createProfile()
             case 0:
-                view.exit()
-                loop = false
+                view.showExit()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }

@@ -7,32 +7,61 @@
 
 import Foundation
 
-struct SystemViewController {
+class SystemViewController: SystemView {
+    
+    // MARK: - Attributes
+    
+    lazy var userViewComponent = UserViewComponent()
+    lazy var bankViewComponent = BankViewComponent()
+    lazy var userOperationComponent = UserOperationComponent(
+        view: userViewComponent
+    )
+    lazy var bankOperationComponent = BankOperationComponent(
+        userViewComponent: userViewComponent,
+        bankViewComponent: bankViewComponent
+    )
+    lazy var loginComponent = LoginComponent(view: LoginView(), userViewComponent: userViewComponent)
     
     // MARK: - Methods
     
     func process() {
-        let scene = SystemView()
-        let view = UserView()
+        var scenes = true
         
-        var loop = true
-        
-        while loop {
-            scene.showTitle()
-            scene.showMenu()
+        while scenes {
+            showTitle()
+            showMenu()
             
-            switch view.getNavigation() {
+            switch userViewComponent.getNavigation() {
             case 1:
                 routeTo().welcome()
             case 2:
                 routeTo().database()
             case 0:
-                scene.showExit()
-                loop = false
+                showExit()
+                scenes = false
             default:
                 print("Por favor, escolha uma operação")
             }
         }
+    }
+    
+    func routeTo() -> RoutesComponent {
+       
+        return RoutesComponent(
+            userViewComponent: userViewComponent,
+            bankViewComponent: bankViewComponent,
+            userOperationComponent: userOperationComponent,
+            bankOperationComponent: bankOperationComponent,
+            loginComponent: loginComponent)
+    }
+    
+    private func initialData() {
+        DataTest().initialData()
+    }
+    
+    func start() {
+        initialData()
+        routeTo().system()
     }
     
 }

@@ -12,7 +12,6 @@ class Database {
     // MARK: - Attributes
     
     var users: [User] = []
-    var credentials: [UserAccess] = []
     var QRCodes: [QRCode] = []
     static var shared = Database()
     
@@ -28,10 +27,6 @@ class Database {
         db.users.append(user)
     }
     
-    func save(_ access: UserAccess) {
-        db.credentials.append(access)
-    }
-    
     func save(_ code: QRCode) {
         db.QRCodes.append(code)
     }
@@ -43,55 +38,25 @@ class Database {
         return db.users[index]
     }
     
-    func findUserByToken(_ token: String) -> User? {
-        guard let index = db.credentials.firstIndex(where: { $0.token == token }) else { return nil }
-        return db.credentials[index].user
-    }
-    
-    func findPayee(_ bank: String, _ branch: Int, _ account: Int) -> (condition: Bool, user: User?){
+    func findPayee(_ bank: String, _ branch: Int, _ account: Int) -> User? {
         guard let index = db.users.firstIndex(where: {
             $0.bankAccount.bank == bank && $0.bankAccount.branch == branch && $0.bankAccount.account == account
-        }) else { return (false, nil) }
-        return (true, db.users[index])
+        }) else { return nil }
+        return db.users[index]
     }
     
-    func findPayeeByDocumentNumberPixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
+    func findPayeeByPixKey(_ pixKey: [PixType:String]) -> User? {
+        
         for userIndex in db.users.indices {
             for pixIndex in db.users[userIndex].bankAccount.pix.indices {
                 for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
-                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.CPF:pixKey] {
-                        return (true, db.users[userIndex])
+                    if db.users[userIndex].bankAccount.pix[pixIndex] == pixKey {
+                        return db.users[userIndex]
                     }
                 }
             }
         }
-        return (false, nil)
-    }
-    
-    func findPayeeByEmailPixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
-        for userIndex in db.users.indices {
-            for pixIndex in db.users[userIndex].bankAccount.pix.indices {
-                for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
-                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.email:pixKey] {
-                        return (true, db.users[userIndex])
-                    }
-                }
-            }
-        }
-        return (false, nil)
-    }
-    
-    func findPayeeByPhonePixKey(_ pixKey: String) -> (condition: Bool, user: User?) {
-        for userIndex in db.users.indices {
-            for pixIndex in db.users[userIndex].bankAccount.pix.indices {
-                for (_,_) in db.users[userIndex].bankAccount.pix[pixIndex] {
-                    if db.users[userIndex].bankAccount.pix[pixIndex] == [PixType.phoneNumber:pixKey] {
-                        return (true, db.users[userIndex])
-                    }
-                }
-            }
-        }
-        return (false, nil)
+        return nil
     }
     
     func findQRCodeByCode(_ code: String) -> QRCode? {
@@ -102,14 +67,8 @@ class Database {
     func findUserByQRCode(_ code: String) -> User? {
         guard let qrCode = findQRCodeByCode(code) else { return nil }
         
-        if findPayeeByDocumentNumberPixKey(qrCode.pix).condition {
-            return findPayeeByDocumentNumberPixKey(qrCode.pix).user
-        }
-        else if findPayeeByEmailPixKey(qrCode.pix).condition {
-            return findPayeeByEmailPixKey(qrCode.pix).user
-        }
-        else if findPayeeByPhonePixKey(qrCode.pix).condition {
-            return findPayeeByPhonePixKey(qrCode.pix).user
+        if findPayeeByPixKey(qrCode.pix) != nil {
+            return findPayeeByPixKey(qrCode.pix)
         }
         else {
             print("QR Code incorreto ou inexistente")
@@ -119,8 +78,8 @@ class Database {
     
     /* Delete */
     
-    func delete(_ token: String) {
-        guard let user = db.findUserByToken(token) else { return }
+    func delete() {
+        guard let user: User = session.user else { return }
         guard let index = db.users.firstIndex(where: { $0.documentNumber == user.documentNumber }) else { return }
         db.users.remove(at: index)
     }

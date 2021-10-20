@@ -19,11 +19,15 @@
 		B13591FC270C916500A1555B /* DisplayProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FB270C916500A1555B /* DisplayProfileViewController.swift */; };
 		B13591FF270C9D6300A1555B /* DeleteProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13591FE270C9D6300A1555B /* DeleteProfileView.swift */; };
 		B1359201270CA3BB00A1555B /* DeleteProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */; };
-		B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E5270E6A2200473231 /* ControllerRoutes.swift */; };
+		B15A47E6270E6A2200473231 /* RoutesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15A47E5270E6A2200473231 /* RoutesComponent.swift */; };
 		B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B4270CC9F20035F3CD /* EditProfileView.swift */; };
 		B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16013B6270CCB690035F3CD /* EditProfileViewController.swift */; };
-		B1605525270F533B00E09B15 /* UserAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605524270F533B00E09B15 /* UserAccess.swift */; };
+		B1605525270F533B00E09B15 /* Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1605524270F533B00E09B15 /* Access.swift */; };
 		B17999E1270803330073E5ED /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17999E0270803330073E5ED /* CreateProfileViewController.swift */; };
+		B17F1B70271F14E7006AB71D /* LoginComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F1B6F271F14E7006AB71D /* LoginComponentProtocol.swift */; };
+		B17F1B72271F31BE006AB71D /* RoutesComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F1B71271F31BE006AB71D /* RoutesComponentProtocol.swift */; };
+		B17F1B74271F73DB006AB71D /* UpdateUserField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F1B73271F73DB006AB71D /* UpdateUserField.swift */; };
+		B17F1B76271FB43B006AB71D /* LoginComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F1B75271FB43B006AB71D /* LoginComponent.swift */; };
 		B1876FFC2705489A00ECA2D5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1876FFB2705489A00ECA2D5 /* main.swift */; };
 		B19CCEB827173D9B0089E5A8 /* DisplayBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB727173D9B0089E5A8 /* DisplayBankViewController.swift */; };
 		B19CCEBA27173DC40089E5A8 /* DisplayBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19CCEB927173DC40089E5A8 /* DisplayBankView.swift */; };
@@ -54,19 +58,19 @@
 		B1DF155C2714A77F00DAE6E8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155B2714A77F00DAE6E8 /* Database.swift */; };
 		B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155D2714A78800DAE6E8 /* DataTest.swift */; };
 		B1DF15602714A8F300DAE6E8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF155F2714A8F300DAE6E8 /* Address.swift */; };
-		B1DF15622714AC1400DAE6E8 /* UserViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15612714AC1400DAE6E8 /* UserViewControllerProtocol.swift */; };
-		B1DF15642714AC7400DAE6E8 /* UserViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15632714AC7400DAE6E8 /* UserViewProtocol.swift */; };
-		B1DF15672714AD0000DAE6E8 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15662714AD0000DAE6E8 /* UserViewController.swift */; };
-		B1DF15692714AE0A00DAE6E8 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15682714AE0A00DAE6E8 /* UserView.swift */; };
+		B1DF15622714AC1400DAE6E8 /* UserOperationComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15612714AC1400DAE6E8 /* UserOperationComponentProtocol.swift */; };
+		B1DF15642714AC7400DAE6E8 /* UserViewComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15632714AC7400DAE6E8 /* UserViewComponentProtocol.swift */; };
+		B1DF15672714AD0000DAE6E8 /* UserOperationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15662714AD0000DAE6E8 /* UserOperationComponent.swift */; };
+		B1DF15692714AE0A00DAE6E8 /* UserViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15682714AE0A00DAE6E8 /* UserViewComponent.swift */; };
 		B1DF156C2714AEA700DAE6E8 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF156B2714AEA700DAE6E8 /* Validations.swift */; };
 		B1DF15722714BB0100DAE6E8 /* PaymentAndTransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15712714BB0100DAE6E8 /* PaymentAndTransferView.swift */; };
 		B1DF15742714BB2200DAE6E8 /* PaymentAndTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15732714BB2200DAE6E8 /* PaymentAndTransferViewController.swift */; };
 		B1DF15762714BBDA00DAE6E8 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15752714BBDA00DAE6E8 /* PaymentView.swift */; };
 		B1DF15782714BBF600DAE6E8 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15772714BBF600DAE6E8 /* PaymentViewController.swift */; };
-		B1DF157A2714BCA900DAE6E8 /* BankViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15792714BCA900DAE6E8 /* BankViewControllerProtocol.swift */; };
-		B1DF157C2714BE7B00DAE6E8 /* BankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157B2714BE7B00DAE6E8 /* BankViewController.swift */; };
-		B1DF157E2714C73200DAE6E8 /* BankViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157D2714C73200DAE6E8 /* BankViewProtocol.swift */; };
-		B1DF15802714C7E900DAE6E8 /* BankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157F2714C7E900DAE6E8 /* BankView.swift */; };
+		B1DF157A2714BCA900DAE6E8 /* BankOperationComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15792714BCA900DAE6E8 /* BankOperationComponentProtocol.swift */; };
+		B1DF157C2714BE7B00DAE6E8 /* BankOperationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157B2714BE7B00DAE6E8 /* BankOperationComponent.swift */; };
+		B1DF157E2714C73200DAE6E8 /* BankViewComponentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157D2714C73200DAE6E8 /* BankViewComponentProtocol.swift */; };
+		B1DF15802714C7E900DAE6E8 /* BankViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF157F2714C7E900DAE6E8 /* BankViewComponent.swift */; };
 		B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15822714D74C00DAE6E8 /* TransferView.swift */; };
 		B1DF15852714D75B00DAE6E8 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF15842714D75B00DAE6E8 /* TransferViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,11 +100,15 @@
 		B13591FB270C916500A1555B /* DisplayProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayProfileViewController.swift; sourceTree = "<group>"; };
 		B13591FE270C9D6300A1555B /* DeleteProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileView.swift; sourceTree = "<group>"; };
 		B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfileViewController.swift; sourceTree = "<group>"; };
-		B15A47E5270E6A2200473231 /* ControllerRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerRoutes.swift; sourceTree = "<group>"; };
+		B15A47E5270E6A2200473231 /* RoutesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesComponent.swift; sourceTree = "<group>"; };
 		B16013B4270CC9F20035F3CD /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		B16013B6270CCB690035F3CD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		B1605524270F533B00E09B15 /* UserAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccess.swift; sourceTree = "<group>"; };
+		B1605524270F533B00E09B15 /* Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Access.swift; sourceTree = "<group>"; };
 		B17999E0270803330073E5ED /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		B17F1B6F271F14E7006AB71D /* LoginComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponentProtocol.swift; sourceTree = "<group>"; };
+		B17F1B71271F31BE006AB71D /* RoutesComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesComponentProtocol.swift; sourceTree = "<group>"; };
+		B17F1B73271F73DB006AB71D /* UpdateUserField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserField.swift; sourceTree = "<group>"; };
+		B17F1B75271FB43B006AB71D /* LoginComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginComponent.swift; sourceTree = "<group>"; };
 		B1876FF82705489A00ECA2D5 /* ItiSimulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ItiSimulator; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1876FFB2705489A00ECA2D5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B19CCEB727173D9B0089E5A8 /* DisplayBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBankViewController.swift; sourceTree = "<group>"; };
@@ -132,19 +140,19 @@
 		B1DF155B2714A77F00DAE6E8 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		B1DF155D2714A78800DAE6E8 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
 		B1DF155F2714A8F300DAE6E8 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		B1DF15612714AC1400DAE6E8 /* UserViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewControllerProtocol.swift; sourceTree = "<group>"; };
-		B1DF15632714AC7400DAE6E8 /* UserViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewProtocol.swift; sourceTree = "<group>"; };
-		B1DF15662714AD0000DAE6E8 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		B1DF15682714AE0A00DAE6E8 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		B1DF15612714AC1400DAE6E8 /* UserOperationComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOperationComponentProtocol.swift; sourceTree = "<group>"; };
+		B1DF15632714AC7400DAE6E8 /* UserViewComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewComponentProtocol.swift; sourceTree = "<group>"; };
+		B1DF15662714AD0000DAE6E8 /* UserOperationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOperationComponent.swift; sourceTree = "<group>"; };
+		B1DF15682714AE0A00DAE6E8 /* UserViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewComponent.swift; sourceTree = "<group>"; };
 		B1DF156B2714AEA700DAE6E8 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		B1DF15712714BB0100DAE6E8 /* PaymentAndTransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAndTransferView.swift; sourceTree = "<group>"; };
 		B1DF15732714BB2200DAE6E8 /* PaymentAndTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAndTransferViewController.swift; sourceTree = "<group>"; };
 		B1DF15752714BBDA00DAE6E8 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		B1DF15772714BBF600DAE6E8 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		B1DF15792714BCA900DAE6E8 /* BankViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewControllerProtocol.swift; sourceTree = "<group>"; };
-		B1DF157B2714BE7B00DAE6E8 /* BankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewController.swift; sourceTree = "<group>"; };
-		B1DF157D2714C73200DAE6E8 /* BankViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewProtocol.swift; sourceTree = "<group>"; };
-		B1DF157F2714C7E900DAE6E8 /* BankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankView.swift; sourceTree = "<group>"; };
+		B1DF15792714BCA900DAE6E8 /* BankOperationComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperationComponentProtocol.swift; sourceTree = "<group>"; };
+		B1DF157B2714BE7B00DAE6E8 /* BankOperationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperationComponent.swift; sourceTree = "<group>"; };
+		B1DF157D2714C73200DAE6E8 /* BankViewComponentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewComponentProtocol.swift; sourceTree = "<group>"; };
+		B1DF157F2714C7E900DAE6E8 /* BankViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewComponent.swift; sourceTree = "<group>"; };
 		B1DF15822714D74C00DAE6E8 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 		B1DF15842714D75B00DAE6E8 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,10 +183,10 @@
 		B119045F270F481D005DD675 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B18BBE27271725C80087A13D /* Componets */,
 				B1F785012710E88400484DC4 /* Protocols */,
 				B1877003270549D400ECA2D5 /* Models */,
 				B1E5E07A270F889000DA76CA /* Security */,
-				B15A47E0270E2DCA00473231 /* Routes */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -217,14 +225,6 @@
 				B1359200270CA3BB00A1555B /* DeleteProfileViewController.swift */,
 			);
 			path = DeleteProfile;
-			sourceTree = "<group>";
-		};
-		B15A47E0270E2DCA00473231 /* Routes */ = {
-			isa = PBXGroup;
-			children = (
-				B15A47E5270E6A2200473231 /* ControllerRoutes.swift */,
-			);
-			path = Routes;
 			sourceTree = "<group>";
 		};
 		B16013B3270CC9BE0035F3CD /* EditProfile */ = {
@@ -269,9 +269,10 @@
 				B1037FAB2705594D004B3E3D /* User.swift */,
 				B1190457270F2F9F005DD675 /* PixType.swift */,
 				B1190459270F303C005DD675 /* BankAccount.swift */,
-				B1605524270F533B00E09B15 /* UserAccess.swift */,
+				B1605524270F533B00E09B15 /* Access.swift */,
 				B1DF155F2714A8F300DAE6E8 /* Address.swift */,
 				B19DC6C42718AE6800EEA19F /* QRCode.swift */,
+				B17F1B73271F73DB006AB71D /* UpdateUserField.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,15 +291,17 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		B18BBE27271725C80087A13D /* Common */ = {
+		B18BBE27271725C80087A13D /* Componets */ = {
 			isa = PBXGroup;
 			children = (
-				B1DF15662714AD0000DAE6E8 /* UserViewController.swift */,
-				B1DF15682714AE0A00DAE6E8 /* UserView.swift */,
-				B1DF157B2714BE7B00DAE6E8 /* BankViewController.swift */,
-				B1DF157F2714C7E900DAE6E8 /* BankView.swift */,
+				B1DF15662714AD0000DAE6E8 /* UserOperationComponent.swift */,
+				B1DF15682714AE0A00DAE6E8 /* UserViewComponent.swift */,
+				B1DF157B2714BE7B00DAE6E8 /* BankOperationComponent.swift */,
+				B1DF157F2714C7E900DAE6E8 /* BankViewComponent.swift */,
+				B15A47E5270E6A2200473231 /* RoutesComponent.swift */,
+				B17F1B75271FB43B006AB71D /* LoginComponent.swift */,
 			);
-			path = Common;
+			path = Componets;
 			sourceTree = "<group>";
 		};
 		B19CCEB627173D620089E5A8 /* DisplayBankAccount */ = {
@@ -521,7 +524,6 @@
 			isa = PBXGroup;
 			children = (
 				B119045F270F481D005DD675 /* Core */,
-				B18BBE27271725C80087A13D /* Common */,
 				B1DF156E2714BA4B00DAE6E8 /* BankServices */,
 				B119045D270F47B5005DD675 /* Profile */,
 				B1B8BCCE270B44880057302D /* Homepage */,
@@ -533,10 +535,12 @@
 		B1F785012710E88400484DC4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B1DF15612714AC1400DAE6E8 /* UserViewControllerProtocol.swift */,
-				B1DF15632714AC7400DAE6E8 /* UserViewProtocol.swift */,
-				B1DF15792714BCA900DAE6E8 /* BankViewControllerProtocol.swift */,
-				B1DF157D2714C73200DAE6E8 /* BankViewProtocol.swift */,
+				B1DF15612714AC1400DAE6E8 /* UserOperationComponentProtocol.swift */,
+				B1DF15632714AC7400DAE6E8 /* UserViewComponentProtocol.swift */,
+				B1DF15792714BCA900DAE6E8 /* BankOperationComponentProtocol.swift */,
+				B1DF157D2714C73200DAE6E8 /* BankViewComponentProtocol.swift */,
+				B17F1B6F271F14E7006AB71D /* LoginComponentProtocol.swift */,
+				B17F1B71271F31BE006AB71D /* RoutesComponentProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -601,12 +605,13 @@
 			files = (
 				B16013B7270CCB690035F3CD /* EditProfileViewController.swift in Sources */,
 				B19DC6C02718AD9600EEA19F /* PixPaymentQRCodeViewController.swift in Sources */,
-				B1605525270F533B00E09B15 /* UserAccess.swift in Sources */,
+				B1605525270F533B00E09B15 /* Access.swift in Sources */,
 				B19DC6BA2718AC7D00EEA19F /* PixPaymentPayViewController.swift in Sources */,
 				B16013B5270CC9F20035F3CD /* EditProfileView.swift in Sources */,
+				B17F1B76271FB43B006AB71D /* LoginComponent.swift in Sources */,
 				B1B8BCCD270B42EC0057302D /* LoginViewController.swift in Sources */,
-				B1DF15642714AC7400DAE6E8 /* UserViewProtocol.swift in Sources */,
-				B1DF157A2714BCA900DAE6E8 /* BankViewControllerProtocol.swift in Sources */,
+				B1DF15642714AC7400DAE6E8 /* UserViewComponentProtocol.swift in Sources */,
+				B1DF157A2714BCA900DAE6E8 /* BankOperationComponentProtocol.swift in Sources */,
 				B1C8A7E12719DA010027EC71 /* DatabaseViewController.swift in Sources */,
 				B124E4DE2707E55C0095B816 /* WelcomeViewController.swift in Sources */,
 				B19CCEC12717733E0089E5A8 /* PixMenuViewController.swift in Sources */,
@@ -616,25 +621,26 @@
 				B1C8A7DF2719D9EF0027EC71 /* DatabaseView.swift in Sources */,
 				B19CCED1271776EB0089E5A8 /* PixKeyRegisterView.swift in Sources */,
 				B1DF15722714BB0100DAE6E8 /* PaymentAndTransferView.swift in Sources */,
-				B1DF157C2714BE7B00DAE6E8 /* BankViewController.swift in Sources */,
-				B1DF157E2714C73200DAE6E8 /* BankViewProtocol.swift in Sources */,
+				B1DF157C2714BE7B00DAE6E8 /* BankOperationComponent.swift in Sources */,
+				B1DF157E2714C73200DAE6E8 /* BankViewComponentProtocol.swift in Sources */,
 				B19DC6C32718ADDA00EEA19F /* PixPaymentQRCodeView.swift in Sources */,
-				B1DF15622714AC1400DAE6E8 /* UserViewControllerProtocol.swift in Sources */,
+				B1DF15622714AC1400DAE6E8 /* UserOperationComponentProtocol.swift in Sources */,
 				B19CCECA271776730089E5A8 /* PixTransferViewController.swift in Sources */,
 				B124E4E02707E6720095B816 /* WelcomeView.swift in Sources */,
 				B1C8A7E62719F4550027EC71 /* SystemView.swift in Sources */,
 				B1359201270CA3BB00A1555B /* DeleteProfileViewController.swift in Sources */,
 				B124E4E32707F44D0095B816 /* CreateProfileView.swift in Sources */,
 				B1C8A7E32719F0490027EC71 /* DataUserView.swift in Sources */,
-				B1DF15692714AE0A00DAE6E8 /* UserView.swift in Sources */,
-				B1DF15802714C7E900DAE6E8 /* BankView.swift in Sources */,
-				B1DF15672714AD0000DAE6E8 /* UserViewController.swift in Sources */,
+				B1DF15692714AE0A00DAE6E8 /* UserViewComponent.swift in Sources */,
+				B1DF15802714C7E900DAE6E8 /* BankViewComponent.swift in Sources */,
+				B1DF15672714AD0000DAE6E8 /* UserOperationComponent.swift in Sources */,
 				B13591F7270C8E6F00A1555B /* ProfileMenuViewController.swift in Sources */,
 				B19CCEBF271772C60089E5A8 /* PixMenuView.swift in Sources */,
 				B1DF15832714D74C00DAE6E8 /* TransferView.swift in Sources */,
 				B1C8A7E82719F4650027EC71 /* SystemViewController.swift in Sources */,
 				B1DF155E2714A78800DAE6E8 /* DataTest.swift in Sources */,
 				B19CCEBA27173DC40089E5A8 /* DisplayBankView.swift in Sources */,
+				B17F1B70271F14E7006AB71D /* LoginComponentProtocol.swift in Sources */,
 				B13591F5270C8D8400A1555B /* ProfileMenuView.swift in Sources */,
 				B19CCED6271777560089E5A8 /* PixKeyDeleteView.swift in Sources */,
 				B1DF15762714BBDA00DAE6E8 /* PaymentView.swift in Sources */,
@@ -642,11 +648,13 @@
 				B19DC6BC2718AC8D00EEA19F /* PixPaymentPayView.swift in Sources */,
 				B1B8BCD0270B44B10057302D /* HomeView.swift in Sources */,
 				B19DC6C52718AE6800EEA19F /* QRCode.swift in Sources */,
-				B15A47E6270E6A2200473231 /* ControllerRoutes.swift in Sources */,
+				B15A47E6270E6A2200473231 /* RoutesComponent.swift in Sources */,
 				B19CCECC271776820089E5A8 /* PixTransferView.swift in Sources */,
 				B1DF155C2714A77F00DAE6E8 /* Database.swift in Sources */,
 				B1037FAC2705594D004B3E3D /* User.swift in Sources */,
 				B19CCEC6271774FB0089E5A8 /* PixPaymentMenuViewController.swift in Sources */,
+				B17F1B72271F31BE006AB71D /* RoutesComponentProtocol.swift in Sources */,
+				B17F1B74271F73DB006AB71D /* UpdateUserField.swift in Sources */,
 				B1DF156C2714AEA700DAE6E8 /* Validations.swift in Sources */,
 				B19CCEB827173D9B0089E5A8 /* DisplayBankViewController.swift in Sources */,
 				B19CCEC4271774DD0089E5A8 /* PixPaymentMenuView.swift in Sources */,

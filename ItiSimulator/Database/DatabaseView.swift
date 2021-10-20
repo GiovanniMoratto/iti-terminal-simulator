@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DatabaseView {
+class DatabaseView {
     
     // MARK: - Methods
     

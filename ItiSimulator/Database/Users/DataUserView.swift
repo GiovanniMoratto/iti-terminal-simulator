@@ -19,7 +19,7 @@ struct DataUserView {
     let branch: Int
     let account: Int
     let balance: Double
-    let pix: [[PixType:String]]
+    let pix: [[PixType:String?]]
     let password: String
     
 }
