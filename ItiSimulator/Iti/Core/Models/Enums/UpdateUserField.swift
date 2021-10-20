@@ -8,8 +8,10 @@
 import Foundation
 
 enum UpdateUserField {
+    
     case name
     case address
     case city
     case state
+    
 }

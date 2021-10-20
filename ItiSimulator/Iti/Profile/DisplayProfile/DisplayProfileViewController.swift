@@ -32,7 +32,7 @@ struct DisplayProfileViewController {
             view.showTitle()
             
             userOperationComponent.readUser()
-            userViewComponent.exit()
+            userViewComponent.exitDisplay()
             
             switch userViewComponent.getNavigation() {
             case 0:

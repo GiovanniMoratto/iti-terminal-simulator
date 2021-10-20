@@ -20,7 +20,7 @@ class SystemViewController: SystemView {
         userViewComponent: userViewComponent,
         bankViewComponent: bankViewComponent
     )
-    lazy var loginComponent = LoginComponent(view: LoginView(), userViewComponent: userViewComponent)
+    lazy var loginComponent = LoginComponent(view: LoginView(), userViewComponent: userViewComponent, userOperationComponent: userOperationComponent)
     
     // MARK: - Methods
     

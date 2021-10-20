@@ -31,12 +31,11 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         var scenes = true
         
         while scenes {
-            bankViewComponent.confirmDataPayment()
+            bankViewComponent.confirmDataPaymentDisplay()
             
-            bankViewComponent.originAccount()
-            bankViewComponent.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            bankViewComponent.holderAccountDisplay(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
             
-            bankViewComponent.paymentValue(value)
+            bankViewComponent.paymentValueDisplay(value)
             bankViewComponent.confirmDataRequest()
             
             switch userViewComponent.getNavigation() {
@@ -47,9 +46,9 @@ struct BankOperationComponent: BankOperationComponentProtocol {
                 
                 db.save(user)
                 
-                bankViewComponent.successfullyMessageOfPayment()
-                bankViewComponent.currentBalance(user.bankAccount.balance)
-                userViewComponent.exit()
+                bankViewComponent.successfullyMessageOfPaymentDisplay()
+                bankViewComponent.currentBalanceDisplay(user.bankAccount.balance)
+                userViewComponent.exitDisplay()
                 scenes = false
             case 0:
                 scenes = false
@@ -69,7 +68,7 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         
         guard let payee = db.findPayee(bank, branch, account) else {
             print("Conta não encontrada, favor rever os dados.\n")
-            userViewComponent.exit()
+            userViewComponent.exitDisplay()
             return }
         
         let value = getValueToPay(user)
@@ -77,15 +76,13 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         var scenes = true
         
         while scenes {
-            bankViewComponent.confirmDataTransfer()
+            bankViewComponent.confirmDataTransferDisplay()
             
-            bankViewComponent.originAccount()
-            bankViewComponent.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            bankViewComponent.holderAccountDisplay(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
             
-            bankViewComponent.destinationAccount()
-            bankViewComponent.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            bankViewComponent.payeeAccountDisplay(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
             
-            bankViewComponent.value(value)
+            bankViewComponent.valueDisplay(value)
             bankViewComponent.confirmDataRequest()
             
             switch userViewComponent.getNavigation() {
@@ -99,9 +96,9 @@ struct BankOperationComponent: BankOperationComponentProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankViewComponent.successfullyMessageOfTransfer()
-                bankViewComponent.currentBalance(user.bankAccount.balance)
-                userViewComponent.exit()
+                bankViewComponent.successfullyMessageOfTransferDisplay()
+                bankViewComponent.currentBalanceDisplay(user.bankAccount.balance)
+                userViewComponent.exitDisplay()
                 scenes = false
             case 0:
                 scenes = false
@@ -174,7 +171,7 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         
         guard let payee = db.findPayeeByPixKey([type:pixKey]) else {
             print("Conta não encontrada, favor rever os dados.\n")
-            userViewComponent.exit()
+            userViewComponent.exitDisplay()
             return }
         
         let value = getValueToPay(user)
@@ -182,15 +179,14 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         var scenes = true
         
         while scenes {
-            bankViewComponent.confirmDataTransfer()
+            bankViewComponent.confirmDataTransferDisplay()
             
-            bankViewComponent.originAccount()
-            bankViewComponent.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            bankViewComponent.holderAccountDisplay(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
             
-            bankViewComponent.destinationAccount()
-            bankViewComponent.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
             
-            bankViewComponent.value(value)
+            bankViewComponent.payeeAccountDisplay(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            
+            bankViewComponent.valueDisplay(value)
             bankViewComponent.confirmDataRequest()
             
             switch userViewComponent.getNavigation() {
@@ -204,9 +200,9 @@ struct BankOperationComponent: BankOperationComponentProtocol {
                 db.save(user)
                 db.save(payee)
                 
-                bankViewComponent.successfullyMessageOfTransfer()
-                bankViewComponent.currentBalance(user.bankAccount.balance)
-                userViewComponent.exit()
+                bankViewComponent.successfullyMessageOfTransferDisplay()
+                bankViewComponent.currentBalanceDisplay(user.bankAccount.balance)
+                userViewComponent.exitDisplay()
                 scenes = false
             case 0:
                 scenes = false
@@ -234,27 +230,25 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         
         view.valueRequest()
         guard let code = userViewComponent.getInput() else { return }
-        guard let qrCode = db.findQRCodeByCode(code) else { return }
+        guard let qrCode = db.findQRCodeByCodeValue(code) else { return }
         guard let payee = db.findUserByQRCode(code) else { return paymentWithPix(view) }
         
         var scenes = true
         
         while scenes {
-            bankViewComponent.confirmDataPayment()
+            bankViewComponent.confirmDataPaymentDisplay()
             
-            bankViewComponent.originAccount()
-            bankViewComponent.holderAccount(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
+            bankViewComponent.holderAccountDisplay(user.firstName, user.lastName, user.documentNumber, user.bankAccount.bank, user.bankAccount.branch, user.bankAccount.account, user.bankAccount.balance)
             
-            bankViewComponent.destinationAccount()
-            bankViewComponent.payeeAccount(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
+            bankViewComponent.payeeAccountDisplay(payee.firstName, payee.lastName, payee.bankAccount.bank, payee.bankAccount.branch, payee.bankAccount.account)
             
-            bankViewComponent.value(qrCode.value)
+            bankViewComponent.valueDisplay(qrCode.value)
             bankViewComponent.confirmDataRequest()
             
             switch userViewComponent.getNavigation() {
             case 1:
                 if !qrCode.value.isValidValue(user.bankAccount.balance) {
-                    userViewComponent.exit()
+                    userViewComponent.exitDisplay()
                     scenes = false
                 } else {
                     let newHolderBalance = user.bankAccount.balance - qrCode.value
@@ -266,9 +260,9 @@ struct BankOperationComponent: BankOperationComponentProtocol {
                     db.save(user)
                     db.save(payee)
                     
-                    bankViewComponent.successfullyMessageOfTransfer()
-                    bankViewComponent.currentBalance(user.bankAccount.balance)
-                    userViewComponent.exit()
+                    bankViewComponent.successfullyMessageOfTransferDisplay()
+                    bankViewComponent.currentBalanceDisplay(user.bankAccount.balance)
+                    userViewComponent.exitDisplay()
                     scenes = false
                 }
             case 0:
@@ -279,28 +273,38 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         }
     }
     
-    /* Assistants Methods */
+    // MARK: - Assistants Methods
     
     /// Method responsible for extracting the user in the section
+    ///
+    /// - Returns: The user logged into the application
     private func getUser() -> User? {
         guard let user: User = session.user else { return nil }
         return user
     }
     
     /// Method responsible for sending the "Amount to pay or transfer" Request View, receiving the input and validating it
+    ///
     /// - Parameter user: The user logged who will make the payment or transfer
+    ///
+    /// - Returns: The value to be withdrawn from the user logged into the application validated
     private func getValueToPay(_ user: User) -> Double {
         bankViewComponent.valueRequest()
         
-        guard let value = bankViewComponent.getInputAsDouble(),
+        guard let value = bankViewComponent.getMoneyInput(),
               value.isValidValue(user.bankAccount.balance)
         else { return getValueToPay(user) }
         
         return value
     }
     
+    // MARK: - Assistants Methods: Transfer
+    
     /// Method responsible for sending the "Bank" Request View, receiving the input and validating it
+    ///
     /// - Parameter view: The view for display the request
+    ///
+    /// - Returns: the payee's bank validated
     private func getBank(_ view: TransferView) -> String {
         view.transferBankRequest()
         
@@ -310,7 +314,10 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending the "Branch" Request View, receiving the input and validating it
+    ///
     /// - Parameter view: The view for display the request
+    ///
+    /// - Returns: the payee's branch validated
     private func getBranch(_ view: TransferView) -> Int {
         view.transferBranchRequest()
         
@@ -320,7 +327,10 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending the "Account" Request View, receiving the input and validating it
+    ///
     /// - Parameter view: The view for display the request
+    ///
+    /// - Returns: the payee's account validated
     private func getAccount(_ view: TransferView) -> Int {
         view.transferAccountRequest()
         
@@ -329,24 +339,13 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         return account
     }
     
-    /// Method responsible for checking if there is a pix key in the field sent
-    /// - Parameter pixType: The field to be checked
-    private func checkPixKeyIsEmpty(_ pixType: PixType) -> Bool {
-        
-        guard let user = getUser() else { return false}
-        
-        for index in user.bankAccount.pix.indices {
-            for (key,value) in user.bankAccount.pix[index] {
-                if key == pixType && value != String() {
-                    return false
-                }
-            }
-        }
-        return true
-    }
+    // MARK: - Assistants Methods: Register PIX Key
     
     /// Method responsible for sending "Document Number" Request View, receiving input and validating it
+    ///
     /// This method checks if there is a document number with this value among the registered pix keys and refuses if it already exists
+    ///
+    ///  - Returns: A validated document number to be register as pix key
     private func getDocumentNumberPixKeyToRegister() -> String {
         bankViewComponent.documentNumberRequest()
         
@@ -359,7 +358,10 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending "Email" Request View, receiving input and validating it
-    /// This method checks if there is a document number with this value among the registered pix keys and refuses if it already exists
+    ///
+    /// This method checks if there is a email with this value among the registered pix keys and refuses if it already exists
+    ///
+    /// - Returns: A validated email to be register as pix key
     private func getEmailPixKeyToRegister() -> String {
         bankViewComponent.emailRequest()
         
@@ -371,7 +373,10 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending "Phone Number" Request View, receiving input and validating it
-    /// This method checks if there is a document number with this value among the registered pix keys and refuses if it already exists
+    ///
+    /// This method checks if there is a phone with this value among the registered pix keys and refuses if it already exists
+    ///
+    /// - Returns: A validated phone to be register as pix key
     private func getPhonePixKeyToRegister() -> String {
         bankViewComponent.phoneRequest()
         
@@ -383,6 +388,7 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for Registering a PIX key
+    ///
     /// - Parameter type: The type of the PIX key
     /// - Parameter value: The value of the PIX key
     private func registerPix(_ type: PixType, _ value: String) {
@@ -400,7 +406,25 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         db.save(user)
     }
     
+    /// Method responsible for Directing the PIX Key Registration request to its corresponding method
+    ///
+    /// - Parameter type: The chosen type of pix key
+    ///
+    /// - Returns: An optional of the validated value of the pix key type chosen to be registered
+    private func registerPixKeyChoices(_ type: PixType) -> String? {
+        let dicionary: [PixType:String] = [
+            .CPF:getDocumentNumberPixKeyToRegister(),
+            .email:getEmailPixKeyToRegister(),
+            .phoneNumber:getPhonePixKeyToRegister()
+        ]
+        
+        return dicionary[type] ?? nil
+    }
+    
+    // MARK: - Assistants Methods: Delete PIX Key
+    
     /// Method responsible for Deleting a PIX key
+    ///
     /// - Parameter type: The type of the PIX key
     private func deletePix(_ type: PixType) {
         
@@ -415,7 +439,32 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         }
     }
     
+    // MARK: - Assistants Methods: Delete And Register PIX Key
+    
+    /// Method responsible for checking if there is a pix key in the field sent
+    ///
+    /// - Parameter pixType: The field to be checked
+    ///
+    /// - Returns: true for emptiness and false for non emptiness
+    private func checkPixKeyIsEmpty(_ pixType: PixType) -> Bool {
+        
+        guard let user = getUser() else { return false}
+        
+        for index in user.bankAccount.pix.indices {
+            for (key,value) in user.bankAccount.pix[index] {
+                if key == pixType && value != String() {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    // MARK: - Assistants Methods: PIX Transfer
+    
     /// Method responsible for sending "PIX Type: Document Number" Request View to "Transfer", receiving input and validating it
+    ///
+    /// - Returns: A validated document number to use in a transfer
     private func getDocumentNumberPixKeyToTransfer() -> String {
         bankViewComponent.documentNumberRequest()
         
@@ -427,6 +476,8 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending "PIX Type: Email" Request View to "Transfer", receiving input and validating it
+    ///
+    /// - Returns: A validated email to use in a transfer
     private func getEmailPixKeyToTransfer() -> String {
         bankViewComponent.emailRequest()
         
@@ -438,6 +489,8 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for sending "PIX Type: Phone Number" Request View to "Transfer", receiving input and validating it
+    ///
+    /// - Returns: A validated phone to use in a transfer
     private func getPhonePixKeyToTransfer() -> String {
         bankViewComponent.phoneRequest()
         
@@ -448,8 +501,29 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         return phone
     }
     
+    /// Method responsible for Directing the Transfer request by PIX key to its corresponding method
+    ///
+    /// - Parameter type: The chosen type of pix key
+    ///
+    /// - Returns: An optional of the validated value of the pix key type chosen to be used in a transfer
+    private func transferPixKeyChoices(_ type: PixType) -> String? {
+        
+        let dicionary: [PixType:String] = [
+            .CPF:getDocumentNumberPixKeyToTransfer(),
+            .email:getEmailPixKeyToTransfer(),
+            .phoneNumber:getPhonePixKeyToTransfer()
+        ]
+        
+        return dicionary[type] ?? nil
+    }
+    
+    // MARK: - Assistants Methods: Create QR Code
+    
     /// Method responsible for finding the pix key by the chosen type
+    ///
     /// - Parameter pixType: The chosen type of pix key
+    ///
+    /// - Returns: The PIX key corresponding to the chosen type
     private func getQRCodeByPix(_ pixType: PixType) -> [PixType:String]? {
         
         guard let user = getUser() else { return nil }
@@ -466,17 +540,22 @@ struct BankOperationComponent: BankOperationComponentProtocol {
     }
     
     /// Method responsible for setting a payment value
+    ///
+    /// - Returns: The amount to be paid by someone
     private func getValueForPayment() -> Double {
         bankViewComponent.valueRequest()
         
-        guard let value = bankViewComponent.getInputAsDouble() else { return getValueForPayment() }
+        guard let value = bankViewComponent.getMoneyInput() else { return getValueForPayment() }
         
         return value
     }
     
     /// Method responsible for creating a QR Code
+    ///
     /// - Parameter pixKey: Pix key to identify the payee
     /// - Parameter value: Payment amount
+    ///
+    /// - Returns: The code value of the QR Code
     private func generateQRCode(_ pixKey: [PixType:String], _ value: Double) -> String {
         
         let qrCode = QRCode(code: String().QRCodeGenerator, pix: pixKey, value: value)
@@ -486,8 +565,13 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         return qrCode.code
     }
     
+    // MARK: - Assistants Methods: Read and Register PIX Key
+    
     /// Method responsible for converting the PIX Type to string and BR
+    ///
     /// - Parameter pixType: The type of pix key to be converted
+    ///
+    /// - Returns: A string with PIX key type in BR
     private func pixTypeToString(_ pixType: PixType) -> String {
         
         if pixType == .CPF {
@@ -499,31 +583,6 @@ struct BankOperationComponent: BankOperationComponentProtocol {
         else {
             return "Telefone"
         }
-    }
-    
-    /// Method responsible for Directing the PIX Key Registration request to its corresponding method
-    /// - Parameter type: The chosen type of pix key
-    private func registerPixKeyChoices(_ type: PixType) -> String? {
-        let dicionary: [PixType:String] = [
-            .CPF:getDocumentNumberPixKeyToRegister(),
-            .email:getEmailPixKeyToRegister(),
-            .phoneNumber:getPhonePixKeyToRegister()
-        ]
-        
-        return dicionary[type] ?? nil
-    }
-    
-    /// Method responsible for Directing the Transfer request by PIX key to its corresponding method
-    /// - Parameter type: The chosen type of pix key
-    private func transferPixKeyChoices(_ type: PixType) -> String? {
-        
-        let dicionary: [PixType:String] = [
-            .CPF:getDocumentNumberPixKeyToTransfer(),
-            .email:getEmailPixKeyToTransfer(),
-            .phoneNumber:getPhonePixKeyToTransfer()
-        ]
-        
-        return dicionary[type] ?? nil
     }
     
 }

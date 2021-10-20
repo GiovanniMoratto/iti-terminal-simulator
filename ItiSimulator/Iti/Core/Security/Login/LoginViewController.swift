@@ -18,6 +18,7 @@ class LoginViewController {
     init(loginComponent: LoginComponentProtocol) {
         self.loginComponent = loginComponent
     }
+    
     // MARK: - Methods
     
     func process() {

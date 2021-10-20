@@ -35,7 +35,7 @@ struct TransferViewController {
             
             switch userViewComponent.getNavigation() {
             case 0:
-                userViewComponent.exit()
+                userViewComponent.exitDisplay()
                 scenes = false
             default:
                 print("Por favor, escolha uma operação")

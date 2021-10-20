@@ -36,11 +36,11 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     func readUser() {
         guard let user = getUser() else { return }
         
-        view.username(user.firstName, user.lastName)
-        view.documentNumber(user.documentNumber)
-        view.address(user.address.address)
-        view.city(user.address.city)
-        view.state(user.address.state)
+        view.usernameDisplay(user.firstName, user.lastName)
+        view.documentNumberDisplay(user.documentNumber)
+        view.addressDisplay(user.address.address)
+        view.cityDisplay(user.address.city)
+        view.stateDisplay(user.address.state)
     }
     
     func updateUser(_ field: UpdateUserField, _ view: EditProfileView) {
@@ -64,22 +64,36 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     func overview() {
         guard let user = getUser() else { return }
 
-        view.overview(user.firstName, user.lastName, user.bankAccount.balance)
+        view.overviewDisplay(user.firstName, user.lastName, user.bankAccount.balance)
     }
     
-    /* Assistants Methods */
+    func getPassword() -> String {
+        view.userPasswordRequest()
+        
+        guard let password = view.getInput(),
+              password.notEmpty("'senha'"), password.isValidPassword
+        else { return getPassword() }
+        
+        return password
+    }
+    
+    // MARK: - Assistants Methods
 
     /// Method responsible for extracting the user in the section
+    ///
+    /// - Returns: The user logged into the application
     private func getUser() -> User? {
         guard let user: User = session.user else { return nil }
         return user
     }
     
-    /* Create User */
+    // MARK: - Assistants Methods: Create User
     
     /// Method responsible for sending "First Name" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated first name
     private func getFirstName() -> String {
-        view.firstNameRequest()
+        view.userFirstNameRequest()
         let text = "'primeiro nome'"
         
         guard let firstName = view.getInput(),
@@ -90,8 +104,10 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for sending "Last Name" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated last name
     private func getLastName() -> String {
-        view.lastNameRequest()
+        view.userLastNameRequest()
         let text = "'sobrenome'"
         
         guard let lastName = view.getInput(),
@@ -102,9 +118,12 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for sending "Document Number" Request View, receiving input and validating it
+    ///
     /// This method checks if there is a document number with this value in the user database and refuses if it already exists
+    ///
+    /// - Returns: A validated document number to be register
     private func getDocumentNumber() -> String {
-        view.documentNumberRequest()
+        view.userDocumentNumberRequest()
         
         guard let documentNumber = view.getInput(),
               documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf(), documentNumber.unique(.documentNumber)
@@ -113,22 +132,13 @@ struct UserOperationComponent: UserOperationComponentProtocol {
         return documentNumber
     }
     
-    /// Method responsible for sending "Password" Request View, receiving input and validating it
-    private func getPassword() -> String {
-        view.passwordRequest()
-        
-        guard let password = view.getInput(),
-              password.notEmpty("'senha'"), password.isValidPassword
-        else { return getPassword() }
-        
-        return password
-    }
-    
-    /* Update User */
+    // MARK: - Assistants Methods: Update User
 
     /// Method responsible for sending "Address" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated address
     private func getAddress() -> String {
-        view.addressRequest()
+        view.userAddressRequest()
         let text = "'endereço'"
         
         guard let address = view.getInput(),
@@ -139,8 +149,10 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for sending "City" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated city
     private func getCity() -> String {
-        view.cityRequest()
+        view.userCityRequest()
         let text = "'cidade'"
         
         guard let city = view.getInput(),
@@ -151,8 +163,10 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for sending "State" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated state
     private func getState() -> String {
-        view.stateRequest()
+        view.userStateRequest()
         let text = "'estado'"
         
         guard let state = view.getInput(),
@@ -163,8 +177,11 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for Updating the "Username", receiving input and associating it
+    ///
     /// - Parameter user: The user to be updated
     /// - Parameter view: The view for display
+    ///
+    /// - Returns: An updated User
     private func usernameUpdated(_ user: User, _ view: EditProfileView) -> User {
         
         view.currentUsername(user.firstName, user.lastName)
@@ -175,8 +192,11 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for Updating the "Address", receiving input and associating it
+    ///
     /// - Parameter user: The user to be updated
     /// - Parameter view: The view for display
+    ///
+    /// - Returns: An updated User
     private func addressUpdated(_ user: User, _ view: EditProfileView) -> User {
         
         view.currentAddress(user.address.address)
@@ -186,8 +206,11 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for Updating the "City", receiving input and associating it
+    ///
     /// - Parameter user: The user to be updated
     /// - Parameter view: The view for display
+    ///
+    /// - Returns: An updated User
     private func cityUpdated(_ user: User, _ view: EditProfileView) -> User {
         
         view.currentCity(user.address.city)
@@ -197,8 +220,11 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for Updating the "State", receiving input and associating it
+    ///
     /// - Parameter user: The user to be updated
     /// - Parameter view: The view for display
+    ///
+    /// - Returns: An updated User
     private func stateUpdated(_ user: User, _ view: EditProfileView) -> User {
         
         view.currentState(user.address.state)
@@ -208,9 +234,12 @@ struct UserOperationComponent: UserOperationComponentProtocol {
     }
     
     /// Method responsible for Directing the Update request to its corresponding method
+    ///
     /// - Parameter field: The field to be updated
     /// - Parameter user: The user to be updated
     /// - Parameter view: The view for display
+    ///
+    /// - Returns: An Optional of the User found
     private func updateChoices(_ field: UpdateUserField, _ user: User, _ view: EditProfileView) -> User? {
         
         let dicionary: [UpdateUserField:User] = [.name:usernameUpdated(user, view),

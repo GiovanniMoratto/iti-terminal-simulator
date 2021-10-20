@@ -255,6 +255,7 @@
 		B1876FFA2705489A00ECA2D5 /* ItiSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				B1A59127272041A700D67CCD /* Tests */,
 				B1C8A7E42719F4370027EC71 /* System */,
 				B1E5E07B270F88FE00DA76CA /* Iti */,
 				B1877004270549F300ECA2D5 /* Database */,
@@ -266,13 +267,12 @@
 		B1877003270549D400ECA2D5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1A5912927204FEE00D67CCD /* Enums */,
 				B1037FAB2705594D004B3E3D /* User.swift */,
-				B1190457270F2F9F005DD675 /* PixType.swift */,
 				B1190459270F303C005DD675 /* BankAccount.swift */,
 				B1605524270F533B00E09B15 /* Access.swift */,
 				B1DF155F2714A8F300DAE6E8 /* Address.swift */,
 				B19DC6C42718AE6800EEA19F /* QRCode.swift */,
-				B17F1B73271F73DB006AB71D /* UpdateUserField.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +405,30 @@
 				B19DC6C22718ADDA00EEA19F /* PixPaymentQRCodeView.swift */,
 			);
 			path = QRCode;
+			sourceTree = "<group>";
+		};
+		B1A59127272041A700D67CCD /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B1A59128272041D500D67CCD /* Welcome */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B1A59128272041D500D67CCD /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		B1A5912927204FEE00D67CCD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B1190457270F2F9F005DD675 /* PixType.swift */,
+				B17F1B73271F73DB006AB71D /* UpdateUserField.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		B1B8BCC9270B41C00057302D /* Login */ = {

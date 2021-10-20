@@ -9,17 +9,17 @@ import Foundation
 
 protocol RoutesComponentProtocol {
     
-    /* Initial */
+    // MARK: - Methods: Initial
     
     func welcome()
     
     func home()
     
-    /* Security */
+    // MARK: - Methods: Security
     
     func login()
     
-    /* Profile */
+    // MARK: - Methods: Profile
     
     func profileMenu()
     
@@ -31,7 +31,7 @@ protocol RoutesComponentProtocol {
     
     func deleteProfile()
     
-    /* Bank Services */
+    // MARK: - Methods: Bank Services
     
     func paymentAndTransfer()
     
@@ -55,11 +55,11 @@ protocol RoutesComponentProtocol {
     
     func pixPaymentPay()
     
-    /* Database */
+    // MARK: - Methods: Database
     
     func database()
     
-    /* System */
+    // MARK: - Methods: System
     
     func system()
     

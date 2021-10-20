@@ -9,9 +9,7 @@ import Foundation
 
 struct BankViewComponent: BankViewComponentProtocol {
     
-    // MARK: - Methods
-    
-    /* Request Labels Messages */
+    // MARK: - Methods: Input Request Labels Messages
     
     func valueRequest() {
         print("Digite o valor: ")
@@ -34,65 +32,9 @@ struct BankViewComponent: BankViewComponentProtocol {
         print("(0) - Cancelar\n")
     }
     
-    /* Display Labels Messages */
+    // MARK: - Methods: Receive Input
     
-    func originAccount() {
-        print("Conta de origem: ")
-    }
-    
-    func holderAccount(_ firstName: String, _ lastName: String, _ documentNumber: String, _ bank: String, _ branch: Int, _ account: Int, _ balance: Double) {
-        print("Nome:        \(firstName) \(lastName)")
-        print("CPF:         \(documentNumber)")
-        print("Banco:       \(bank)")
-        print("Agência:     \(branch)")
-        print("Conta:       \(account)")
-        print("Saldo:    R$ \(balance)\n")
-    }
-    
-    func destinationAccount() {
-        print("Conta de destino: ")
-    }
-    
-    func payeeAccount(_ firstName: String, _ lastName: String, _ bank: String, _ branch: Int, _ account: Int) {
-        print("Nome:        \(firstName) \(lastName)")
-        print("Banco:       \(bank)")
-        print("Agência:     \(branch)")
-        print("Conta:       \(account)\n")
-    }
-    
-    func value(_ value: Double) {
-        print("Valor: R$ \(value)\n")
-    }
-    
-    func paymentValue(_ value: Double) {
-        print("Valor do pagamento: R$ \(value)\n")
-    }
-    
-    /* Custom Labels Messages */
-    
-    func confirmDataPayment() {
-        print("\n         Confirme os dados do Pagamento\n")
-    }
-    
-    func confirmDataTransfer() {
-        print("\n         Confirme os dados da Transferência\n")
-    }
-    
-    func successfullyMessageOfTransfer() {
-        print("Transferência realizada com sucesso!\n")
-    }
-    
-    func successfullyMessageOfPayment() {
-        print("Pagamento realizado com sucesso!\n")
-    }
-    
-    func currentBalance(_ balance: Double) {
-        print("Saldo atual: R$\(balance)\n")
-    }
-    
-    /* Input Labels */
-    
-    func getInputAsDouble() -> Double? {
+    func getMoneyInput() -> Double? {
         guard let input = readLine() else { return Double()}
         
         let bankInput = Double(input)
@@ -108,6 +50,54 @@ struct BankViewComponent: BankViewComponentProtocol {
         print()
         
         return bankInput
+    }
+    
+    // MARK: - Methods: Show Information Labels Messages
+    
+    func confirmDataPaymentDisplay() {
+        print("\n         Confirme os dados do Pagamento\n")
+    }
+    
+    func confirmDataTransferDisplay() {
+        print("\n         Confirme os dados da Transferência\n")
+    }
+    
+    func successfullyMessageOfTransferDisplay() {
+        print("Transferência realizada com sucesso!\n")
+    }
+    
+    func successfullyMessageOfPaymentDisplay() {
+        print("Pagamento realizado com sucesso!\n")
+    }
+    
+    func valueDisplay(_ value: Double) {
+        print("Valor: R$ \(value)\n")
+    }
+    
+    func paymentValueDisplay(_ value: Double) {
+        print("Valor do pagamento: R$ \(value)\n")
+    }
+    
+    func currentBalanceDisplay(_ balance: Double) {
+        print("Saldo atual: R$\(balance)\n")
+    }
+    
+    func holderAccountDisplay(_ firstName: String, _ lastName: String, _ documentNumber: String, _ bank: String, _ branch: Int, _ account: Int, _ balance: Double) {
+        print("Conta de origem: ")
+        print("Nome:        \(firstName) \(lastName)")
+        print("CPF:         \(documentNumber)")
+        print("Banco:       \(bank)")
+        print("Agência:     \(branch)")
+        print("Conta:       \(account)")
+        print("Saldo:    R$ \(balance)\n")
+    }
+    
+    func payeeAccountDisplay(_ firstName: String, _ lastName: String, _ bank: String, _ branch: Int, _ account: Int) {
+        print("Conta de destino: ")
+        print("Nome:        \(firstName) \(lastName)")
+        print("Banco:       \(bank)")
+        print("Agência:     \(branch)")
+        print("Conta:       \(account)\n")
     }
     
 }

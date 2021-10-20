@@ -33,7 +33,7 @@ struct DisplayBankViewController {
             view.myData()
             
             bankOperationComponent.readBankAccount(view)
-            userViewComponent.exit()
+            userViewComponent.exitDisplay()
             
             switch userViewComponent.getNavigation() {
             case 0:

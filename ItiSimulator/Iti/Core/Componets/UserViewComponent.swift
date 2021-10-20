@@ -9,72 +9,37 @@ import Foundation
 
 struct UserViewComponent: UserViewComponentProtocol {
     
-    // MARK: - Methods
+    // MARK: - Methods: Input Request Labels Messages
     
-    /* Request Labels Messages */
-    
-    func firstNameRequest() {
+    func userFirstNameRequest() {
         print("Digite o seu primeiro nome: ")
     }
     
-    func lastNameRequest() {
+    func userLastNameRequest() {
         print("Digite o seu sobrenome: ")
     }
     
-    func documentNumberRequest() {
+    func userDocumentNumberRequest() {
         print("Digite o seu CPF: ")
     }
     
-    func passwordRequest() {
+    func userPasswordRequest() {
         print("Digite sua senha: ")
     }
     
-    func addressRequest() {
+    func userAddressRequest() {
         print("Digite o seu endereço: ")
     }
     
-    func cityRequest() {
+    func userCityRequest() {
         print("Digite a sua cidade: ")
     }
     
-    func stateRequest() {
+    func userStateRequest() {
         print("Digite o seu estado: ")
     }
     
-    /* Display Labels Messages */
-    
-    func username(_ firstName: String, _ lastName: String) {
-        print("     Nome:       \(firstName) \(lastName)")
-    }
-    
-    func documentNumber(_ documentNumber: String) {
-        print("     CPF:        \(documentNumber)")
-    }
-    
-    func address(_ address: String) {
-        print("     Endereço:   \(address)")
-    }
-    
-    func city(_ city: String) {
-        print("     Cidade:     \(city)")
-    }
-    
-    func state(_ state: String) {
-        print("     Estado:     \(state)\n")
-    }
-    
-    /* Custom Labels Messages */
-    
-    func exit() {
-        print("(0) - Voltar")
-    }
-    
-    func overview(_ firstName: String, _ lastName: String, _ balance: Double) {
-        print("                       \(firstName) \(lastName)")
-        print("                       Saldo: R$ \(balance)")
-    }
-    
-    /* Input Labels */
+    // MARK: - Methods: Receive Input
     
     func getInput() -> String? {
         let input = readLine()
@@ -88,8 +53,38 @@ struct UserViewComponent: UserViewComponentProtocol {
         let inputWrapped = Int(inputString)
         guard let input = inputWrapped else { return Int()}
         print()
-        
         return input
+    }
+    
+    // MARK: - Methods: Show Information Labels Messages
+    
+    func exitDisplay() {
+        print("(0) - Voltar")
+    }
+    
+    func usernameDisplay(_ firstName: String, _ lastName: String) {
+        print("     Nome:       \(firstName) \(lastName)")
+    }
+    
+    func documentNumberDisplay(_ documentNumber: String) {
+        print("     CPF:        \(documentNumber)")
+    }
+    
+    func addressDisplay(_ address: String) {
+        print("     Endereço:   \(address)")
+    }
+    
+    func cityDisplay(_ city: String) {
+        print("     Cidade:     \(city)")
+    }
+    
+    func stateDisplay(_ state: String) {
+        print("     Estado:     \(state)\n")
+    }
+    
+    func overviewDisplay(_ firstName: String, _ lastName: String, _ balance: Double) {
+        print("                       \(firstName) \(lastName)")
+        print("                       Saldo: R$ \(balance)")
     }
     
 }

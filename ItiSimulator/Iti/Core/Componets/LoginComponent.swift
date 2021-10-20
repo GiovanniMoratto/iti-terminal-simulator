@@ -13,12 +13,14 @@ struct LoginComponent: LoginComponentProtocol {
     
     private let view: LoginView
     private let userViewComponent: UserViewComponentProtocol
+    private let userOperationComponent: UserOperationComponentProtocol
     
     // MARK: - Initializers (Constructors)
     
-    init(view: LoginView, userViewComponent: UserViewComponentProtocol) {
+    init(view: LoginView, userViewComponent: UserViewComponentProtocol, userOperationComponent: UserOperationComponentProtocol) {
         self.view = view
         self.userViewComponent = userViewComponent
+        self.userOperationComponent = userOperationComponent
     }
             
     // MARK: - Methods
@@ -27,17 +29,11 @@ struct LoginComponent: LoginComponentProtocol {
         view.showTitle()
         
         let documentNumber = getDocumentNumberToLogin()
-        let password = getPasswordToLogin()
-        
-        let login = isValidLogin(documentNumber, password).condition
+        let password = userOperationComponent.getPassword()
         
         view.showMessage()
-        
-        if !login {
-            routeTo.welcome()
-        }
-        
-        guard let user = isValidLogin(documentNumber, password).user else { return nil }
+
+        guard let user = isValidLogin(documentNumber, password) else { routeTo.welcome(); return nil }
         
         return user
     }
@@ -51,10 +47,13 @@ struct LoginComponent: LoginComponentProtocol {
         session.clearSession()
     }
     
-    /* Assistants Methods */
+    // MARK: - Assistants Methods
     
+    /// Method responsible for sending "Document Number" Request View, receiving input and validating it
+    ///
+    /// - Returns: A validated document number to login
     private func getDocumentNumberToLogin() -> String {
-        userViewComponent.documentNumberRequest()
+        userViewComponent.userDocumentNumberRequest()
         
         guard let documentNumber = userViewComponent.getInput(),
               documentNumber.notEmpty("'CPF'"), documentNumber.isValidCpf()
@@ -63,27 +62,23 @@ struct LoginComponent: LoginComponentProtocol {
         return documentNumber
     }
     
-    private func getPasswordToLogin() -> String {
-        userViewComponent.passwordRequest()
-        
-        guard let password = userViewComponent.getInput(),
-              password.notEmpty("'senha'"), password.isValidPassword
-        else { return getPasswordToLogin() }
-        
-        return password
-    }
-    
-    private func isValidLogin(_ documentNumber: String, _ password: String) -> (condition: Bool, user: User?) {
+    /// Method responsible for checking if the login data is valid
+    ///
+    /// - Parameter documentNumber: The document number that will be used in the search
+    /// - Parameter password: The password that will be checked for equality
+    ///
+    /// - Returns: An optional of the user found
+    private func isValidLogin(_ documentNumber: String, _ password: String) -> User? {
         
         guard let user = db.findUserByDocumentNumber(documentNumber)
-        else { print("CPF não cadastrado!\n"); return (false, nil) }
+        else { print("CPF não cadastrado!\n"); return nil }
         
         if user.password != password {
             print("Senha Inválida!")
-            return (false, nil)
+            return nil
         }
         
-        return (true, user)
+        return user
     }
     
     

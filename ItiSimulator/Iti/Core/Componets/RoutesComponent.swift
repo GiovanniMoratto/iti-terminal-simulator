@@ -28,9 +28,7 @@ struct RoutesComponent: RoutesComponentProtocol {
         self.loginComponent = loginComponent
     }
     
-    // MARK: - Methods
-    
-    /* Initial */
+    // MARK: - Methods: Initial
     
     func welcome() {
         WelcomeViewController(
@@ -47,7 +45,7 @@ struct RoutesComponent: RoutesComponentProtocol {
         ).process()
     }
     
-    /* Security */
+    // MARK: - Methods: Security
     
     func login() {
         LoginViewController(
@@ -55,7 +53,7 @@ struct RoutesComponent: RoutesComponentProtocol {
         ).process()
     }
     
-    /* Profile */
+    // MARK: - Methods: Profile
     
     func profileMenu() {
         ProfileMenuViewController(
@@ -97,7 +95,7 @@ struct RoutesComponent: RoutesComponentProtocol {
         ).process()
     }
     
-    /* Bank Services */
+    // MARK: - Methods: Bank Services
     
     func paymentAndTransfer() {
         PaymentAndTransferViewController(
@@ -186,13 +184,13 @@ struct RoutesComponent: RoutesComponentProtocol {
         ).process()
     }
     
-    /* Database */
+    // MARK: - Methods: Database
     
     func database() {
         DatabaseViewController().process()
     }
     
-    /* System */
+    // MARK: - Methods: System
     
     func system() {
         SystemViewController().process()
